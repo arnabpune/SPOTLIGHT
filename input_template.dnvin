@@ -21,5 +21,3 @@ Charges=FF
 Type=Standard
 Parallel=On
 Optimize=Yes
-IP=127.0.0.1
-PORT=5555

@@ -4,6 +4,7 @@ This folder contains the distributable of executable files for the SPOTLIGHT pro
 # Requirements
 To run SPOTLIGHT, you require the following packages/libraries available
 - GLIBC 2.32+ in libc.so.6 (find it by `locate libc.so` and search GLIBC versions with `strings /path/to/so/file|grep GLIBC`)
+- `production\_noprotein_RL` requires GLIBC 3.4.32. This might be a harder version of glibc to obtain.
 - OpenMPI 3.1+
 - ZeroMQ libraries for C++ (and preferably python)
 - libtorch for C++ (specific version, packaged with SPOTLIGHT - **Latest version will NOT work due to deprecated implementations having changes**)

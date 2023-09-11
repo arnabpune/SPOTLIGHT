@@ -15,7 +15,7 @@ To run SPOTLIGHT, you require the following packages/libraries available
 Each of the 3 executables here can be directly run from any LINUX/UNIX terminal. Please ensure that libzmq is installed and up-to-date, or that the library (given in the distributable zip file) is in the LIBRARY\_PATH<br/>
 The input format varies for each executable. Sample commands to run these programs are given below:
 
-- ./production\_noprotein\_RL *target\_size* *variance* *num\_mols* #The variance for the range of sizes. The target size is picked uniformly randomly from the range target\_size +/- variance
+- ./production\_noprotein\_RL *target\_size* *num\_mols* *variance* #The variance for the range of sizes. The target size is picked uniformly randomly from the range target\_size +/- variance
 - ./production\_noRL input.dnvin
 - ./production\_RL input.dnvin
 

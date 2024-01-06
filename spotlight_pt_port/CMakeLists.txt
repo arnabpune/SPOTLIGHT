@@ -46,7 +46,7 @@ target_include_directories(productionprunePT PUBLIC ${ZeroMQ_INCLUDE_DIR})
 target_link_libraries(productionprunePT PUBLIC ${ZeroMQ_LIBRARY} ${TORCH_LIBRARIES})
 set_property(TARGET productionprunePT PROPERTY CXX_STANDARD 14)
 
-include_directories(BEFORE /home/venkata/dnv)
+include_directories(BEFORE ../dnv)
 
 # The following code block is suggested to be used on Windows.
 # According to https://github.com/pytorch/pytorch/issues/25457,

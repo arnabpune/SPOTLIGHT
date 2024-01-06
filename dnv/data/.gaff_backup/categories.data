@@ -1,0 +1,8 @@
+aromatic CA|CC|NB|NC|ND|NH|PB|PC|PD|NHX
+alkene CE1|CE2|NE1|NE2
+inner1 CE1|NE1
+inner2 CE2|NE2
+outer C2|PY|NB|NC|ND
+terminals C3T|N1|CL|BR|I|F
+ring CA|CC|NB|NC|ND|NH|PB|PC|PD|CX|CY|CU|CV|NHX
+halogen F|CL|BR|I

@@ -1,0 +1,330 @@
+\hypertarget{classBondData}{}\doxysection{Bond\+Data Class Reference}
+\label{classBondData}\index{BondData@{BondData}}
+
+
+{\ttfamily \#include \char`\"{}forcefield/forcefield.\+hpp\char`\"{}}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBondData_ac25938ab2abdf7f4d174f82b760e6900}\label{classBondData_ac25938ab2abdf7f4d174f82b760e6900}} 
+{\bfseries Bond\+Data} (std\+::string at1, std\+::string at2, double p1, double p2)
+\begin{DoxyCompactList}\small\item\em The standard constructor for \mbox{\hyperlink{classBondData}{Bond\+Data}} which takes in two atom-\/type names and the two bond-\/parameters. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_a7cb386bc14f65b192330b3c11d232b55}\label{classBondData_a7cb386bc14f65b192330b3c11d232b55}} 
+std\+::pair$<$ std\+::string, std\+::string $>$ {\bfseries get\+Atoms} () const
+\begin{DoxyCompactList}\small\item\em Get the pair of atoms (as std\+::pair$<$std\+::string,std\+::string$>$) forming this bond. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_ad36d2456131f76fcdd5d3bfff17d6a4d}\label{classBondData_ad36d2456131f76fcdd5d3bfff17d6a4d}} 
+std\+::pair$<$ double, double $>$ {\bfseries get\+Parameters} () const
+\begin{DoxyCompactList}\small\item\em Get the bond parameters (as a pair of doubles -\/ std\+::pair$<$double,double$>$) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_abbbdcf623e4cc33c6cc20fd393fe5ef7}\label{classBondData_abbbdcf623e4cc33c6cc20fd393fe5ef7}} 
+bool {\bfseries contains} (const std\+::string \&s) const
+\begin{DoxyCompactList}\small\item\em Checks if the given atom-\/type corresponds to either of the two atom-\/types which contribute to this bond. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_a88045555a82ff64f4488ad6905e184d2}\label{classBondData_a88045555a82ff64f4488ad6905e184d2}} 
+bool {\bfseries satisfies} (const std\+::string \&s1, const std\+::string \&s2) const
+\begin{DoxyCompactList}\small\item\em Checks if the \mbox{\hyperlink{classBondData}{Bond\+Data}} object is composed of the same two atom-\/types as the two provided. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_a4a355fdee6e86a2d9906fc880f06082f}\label{classBondData_a4a355fdee6e86a2d9906fc880f06082f}} 
+const std\+::string \& {\bfseries get\+Second} (const std\+::string \&s) const
+\begin{DoxyCompactList}\small\item\em Get the second atom in the pair forming this bond (given one of the two) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_a18e1ea943df249368bb2932271c24224}\label{classBondData_a18e1ea943df249368bb2932271c24224}} 
+\mbox{\hyperlink{classAtom}{Atom}} $\ast$ {\bfseries get\+Second} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$a, const \mbox{\hyperlink{classForceField}{Force\+Field}} \&ff) const
+\begin{DoxyCompactList}\small\item\em Get the second atom in the pair forming this bond (given one of the two) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_a2844c9b63acd3526b8ec01be7c0036eb}\label{classBondData_a2844c9b63acd3526b8ec01be7c0036eb}} 
+double {\bfseries length} () const
+\begin{DoxyCompactList}\small\item\em Get the equilibrium length parameter for this bond. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_a12718042914767c4840f354fe80e87db}\label{classBondData_a12718042914767c4840f354fe80e87db}} 
+double {\bfseries get\+Length} () const
+\begin{DoxyCompactList}\small\item\em Get the equilibrium length parameter for this bond. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_adba662efc760823878d79485b67ad610}\label{classBondData_adba662efc760823878d79485b67ad610}} 
+std\+::string {\bfseries to\+String} () const
+\begin{DoxyCompactList}\small\item\em Get a printable string representation of this \mbox{\hyperlink{classBondData}{Bond\+Data}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBondData_a1d2acc14f153001fa54320259c3199e0}{replace}} (const std\+::string \&orig, const std\+::string \&rep)
+\begin{DoxyCompactList}\small\item\em Replace one atom in this \mbox{\hyperlink{classBondData}{Bond\+Data}} object by another. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_ac25938ab2abdf7f4d174f82b760e6900}\label{classBondData_ac25938ab2abdf7f4d174f82b760e6900}} 
+{\bfseries Bond\+Data} (std\+::string at1, std\+::string at2, double p1, double p2)
+\begin{DoxyCompactList}\small\item\em The standard constructor for \mbox{\hyperlink{classBondData}{Bond\+Data}} which takes in two atom-\/type names and the two bond-\/parameters. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_a7cb386bc14f65b192330b3c11d232b55}\label{classBondData_a7cb386bc14f65b192330b3c11d232b55}} 
+std\+::pair$<$ std\+::string, std\+::string $>$ {\bfseries get\+Atoms} () const
+\begin{DoxyCompactList}\small\item\em Get the pair of atoms (as std\+::pair$<$std\+::string,std\+::string$>$) forming this bond. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_ad36d2456131f76fcdd5d3bfff17d6a4d}\label{classBondData_ad36d2456131f76fcdd5d3bfff17d6a4d}} 
+std\+::pair$<$ double, double $>$ {\bfseries get\+Parameters} () const
+\begin{DoxyCompactList}\small\item\em Get the bond parameters (as a pair of doubles -\/ std\+::pair$<$double,double$>$) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_abbbdcf623e4cc33c6cc20fd393fe5ef7}\label{classBondData_abbbdcf623e4cc33c6cc20fd393fe5ef7}} 
+bool {\bfseries contains} (const std\+::string \&s) const
+\begin{DoxyCompactList}\small\item\em Checks if the given atom-\/type corresponds to either of the two atom-\/types which contribute to this bond. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_a88045555a82ff64f4488ad6905e184d2}\label{classBondData_a88045555a82ff64f4488ad6905e184d2}} 
+bool {\bfseries satisfies} (const std\+::string \&s1, const std\+::string \&s2) const
+\begin{DoxyCompactList}\small\item\em Checks if the \mbox{\hyperlink{classBondData}{Bond\+Data}} object is composed of the same two atom-\/types as the two provided. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_a4a355fdee6e86a2d9906fc880f06082f}\label{classBondData_a4a355fdee6e86a2d9906fc880f06082f}} 
+const std\+::string \& {\bfseries get\+Second} (const std\+::string \&s) const
+\begin{DoxyCompactList}\small\item\em Get the second atom in the pair forming this bond (given one of the two) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_a18e1ea943df249368bb2932271c24224}\label{classBondData_a18e1ea943df249368bb2932271c24224}} 
+\mbox{\hyperlink{classAtom}{Atom}} $\ast$ {\bfseries get\+Second} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$a, const \mbox{\hyperlink{classForceField}{Force\+Field}} \&ff) const
+\begin{DoxyCompactList}\small\item\em Get the second atom in the pair forming this bond (given one of the two) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_a2844c9b63acd3526b8ec01be7c0036eb}\label{classBondData_a2844c9b63acd3526b8ec01be7c0036eb}} 
+double {\bfseries length} () const
+\begin{DoxyCompactList}\small\item\em Get the equilibrium length parameter for this bond. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_a12718042914767c4840f354fe80e87db}\label{classBondData_a12718042914767c4840f354fe80e87db}} 
+double {\bfseries get\+Length} () const
+\begin{DoxyCompactList}\small\item\em Get the equilibrium length parameter for this bond. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_adba662efc760823878d79485b67ad610}\label{classBondData_adba662efc760823878d79485b67ad610}} 
+std\+::string {\bfseries to\+String} () const
+\begin{DoxyCompactList}\small\item\em Get a printable string representation of this \mbox{\hyperlink{classBondData}{Bond\+Data}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBondData_a1d2acc14f153001fa54320259c3199e0}{replace}} (const std\+::string \&orig, const std\+::string \&rep)
+\begin{DoxyCompactList}\small\item\em Replace one atom in this \mbox{\hyperlink{classBondData}{Bond\+Data}} object by another. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_ac25938ab2abdf7f4d174f82b760e6900}\label{classBondData_ac25938ab2abdf7f4d174f82b760e6900}} 
+{\bfseries Bond\+Data} (std\+::string at1, std\+::string at2, double p1, double p2)
+\begin{DoxyCompactList}\small\item\em The standard constructor for \mbox{\hyperlink{classBondData}{Bond\+Data}} which takes in two atom-\/type names and the two bond-\/parameters. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_a7cb386bc14f65b192330b3c11d232b55}\label{classBondData_a7cb386bc14f65b192330b3c11d232b55}} 
+std\+::pair$<$ std\+::string, std\+::string $>$ {\bfseries get\+Atoms} () const
+\begin{DoxyCompactList}\small\item\em Get the pair of atoms (as std\+::pair$<$std\+::string,std\+::string$>$) forming this bond. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_ad36d2456131f76fcdd5d3bfff17d6a4d}\label{classBondData_ad36d2456131f76fcdd5d3bfff17d6a4d}} 
+std\+::pair$<$ double, double $>$ {\bfseries get\+Parameters} () const
+\begin{DoxyCompactList}\small\item\em Get the bond parameters (as a pair of doubles -\/ std\+::pair$<$double,double$>$) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_abbbdcf623e4cc33c6cc20fd393fe5ef7}\label{classBondData_abbbdcf623e4cc33c6cc20fd393fe5ef7}} 
+bool {\bfseries contains} (const std\+::string \&s) const
+\begin{DoxyCompactList}\small\item\em Checks if the given atom-\/type corresponds to either of the two atom-\/types which contribute to this bond. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_a88045555a82ff64f4488ad6905e184d2}\label{classBondData_a88045555a82ff64f4488ad6905e184d2}} 
+bool {\bfseries satisfies} (const std\+::string \&s1, const std\+::string \&s2) const
+\begin{DoxyCompactList}\small\item\em Checks if the \mbox{\hyperlink{classBondData}{Bond\+Data}} object is composed of the same two atom-\/types as the two provided. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_a4a355fdee6e86a2d9906fc880f06082f}\label{classBondData_a4a355fdee6e86a2d9906fc880f06082f}} 
+const std\+::string \& {\bfseries get\+Second} (const std\+::string \&s) const
+\begin{DoxyCompactList}\small\item\em Get the second atom in the pair forming this bond (given one of the two) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_a18e1ea943df249368bb2932271c24224}\label{classBondData_a18e1ea943df249368bb2932271c24224}} 
+\mbox{\hyperlink{classAtom}{Atom}} $\ast$ {\bfseries get\+Second} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$a, const \mbox{\hyperlink{classForceField}{Force\+Field}} \&ff) const
+\begin{DoxyCompactList}\small\item\em Get the second atom in the pair forming this bond (given one of the two) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_a2844c9b63acd3526b8ec01be7c0036eb}\label{classBondData_a2844c9b63acd3526b8ec01be7c0036eb}} 
+double {\bfseries length} () const
+\begin{DoxyCompactList}\small\item\em Get the equilibrium length parameter for this bond. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_a12718042914767c4840f354fe80e87db}\label{classBondData_a12718042914767c4840f354fe80e87db}} 
+double {\bfseries get\+Length} () const
+\begin{DoxyCompactList}\small\item\em Get the equilibrium length parameter for this bond. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_adba662efc760823878d79485b67ad610}\label{classBondData_adba662efc760823878d79485b67ad610}} 
+std\+::string {\bfseries to\+String} () const
+\begin{DoxyCompactList}\small\item\em Get a printable string representation of this \mbox{\hyperlink{classBondData}{Bond\+Data}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBondData_a1d2acc14f153001fa54320259c3199e0}{replace}} (const std\+::string \&orig, const std\+::string \&rep)
+\begin{DoxyCompactList}\small\item\em Replace one atom in this \mbox{\hyperlink{classBondData}{Bond\+Data}} object by another. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_ac25938ab2abdf7f4d174f82b760e6900}\label{classBondData_ac25938ab2abdf7f4d174f82b760e6900}} 
+{\bfseries Bond\+Data} (std\+::string at1, std\+::string at2, double p1, double p2)
+\begin{DoxyCompactList}\small\item\em The standard constructor for \mbox{\hyperlink{classBondData}{Bond\+Data}} which takes in two atom-\/type names and the two bond-\/parameters. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_a7cb386bc14f65b192330b3c11d232b55}\label{classBondData_a7cb386bc14f65b192330b3c11d232b55}} 
+std\+::pair$<$ std\+::string, std\+::string $>$ {\bfseries get\+Atoms} () const
+\begin{DoxyCompactList}\small\item\em Get the pair of atoms (as std\+::pair$<$std\+::string,std\+::string$>$) forming this bond. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_ad36d2456131f76fcdd5d3bfff17d6a4d}\label{classBondData_ad36d2456131f76fcdd5d3bfff17d6a4d}} 
+std\+::pair$<$ double, double $>$ {\bfseries get\+Parameters} () const
+\begin{DoxyCompactList}\small\item\em Get the bond parameters (as a pair of doubles -\/ std\+::pair$<$double,double$>$) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_abbbdcf623e4cc33c6cc20fd393fe5ef7}\label{classBondData_abbbdcf623e4cc33c6cc20fd393fe5ef7}} 
+bool {\bfseries contains} (const std\+::string \&s) const
+\begin{DoxyCompactList}\small\item\em Checks if the given atom-\/type corresponds to either of the two atom-\/types which contribute to this bond. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_a88045555a82ff64f4488ad6905e184d2}\label{classBondData_a88045555a82ff64f4488ad6905e184d2}} 
+bool {\bfseries satisfies} (const std\+::string \&s1, const std\+::string \&s2) const
+\begin{DoxyCompactList}\small\item\em Checks if the \mbox{\hyperlink{classBondData}{Bond\+Data}} object is composed of the same two atom-\/types as the two provided. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_a4a355fdee6e86a2d9906fc880f06082f}\label{classBondData_a4a355fdee6e86a2d9906fc880f06082f}} 
+const std\+::string \& {\bfseries get\+Second} (const std\+::string \&s) const
+\begin{DoxyCompactList}\small\item\em Get the second atom in the pair forming this bond (given one of the two) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_a18e1ea943df249368bb2932271c24224}\label{classBondData_a18e1ea943df249368bb2932271c24224}} 
+\mbox{\hyperlink{classAtom}{Atom}} $\ast$ {\bfseries get\+Second} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$a, const \mbox{\hyperlink{classForceField}{Force\+Field}} \&ff) const
+\begin{DoxyCompactList}\small\item\em Get the second atom in the pair forming this bond (given one of the two) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_a2844c9b63acd3526b8ec01be7c0036eb}\label{classBondData_a2844c9b63acd3526b8ec01be7c0036eb}} 
+double {\bfseries length} () const
+\begin{DoxyCompactList}\small\item\em Get the equilibrium length parameter for this bond. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_a12718042914767c4840f354fe80e87db}\label{classBondData_a12718042914767c4840f354fe80e87db}} 
+double {\bfseries get\+Length} () const
+\begin{DoxyCompactList}\small\item\em Get the equilibrium length parameter for this bond. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBondData_adba662efc760823878d79485b67ad610}\label{classBondData_adba662efc760823878d79485b67ad610}} 
+std\+::string {\bfseries to\+String} () const
+\begin{DoxyCompactList}\small\item\em Get a printable string representation of this \mbox{\hyperlink{classBondData}{Bond\+Data}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBondData_a1d2acc14f153001fa54320259c3199e0}{replace}} (const std\+::string \&orig, const std\+::string \&rep)
+\begin{DoxyCompactList}\small\item\em Replace one atom in this \mbox{\hyperlink{classBondData}{Bond\+Data}} object by another. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classBondData_ac5f05a78c418b7bb137bb97eba3d4209}{atom1}}
+\item 
+std\+::string \mbox{\hyperlink{classBondData_a8cbf1554ee8db2d836e7429eab197785}{atom2}}
+\item 
+double \mbox{\hyperlink{classBondData_a96e67222cf17f8157d86dad31d94a2fe}{b0}}
+\item 
+double \mbox{\hyperlink{classBondData_ab6c79b84331de11e104467557b63d507}{kb}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is the bond data class. It stores the bond parameter data (atom-\/type pairs that form the bond, the bond length and force constant)~\newline
+ See the documentation (PDF) for more details on bond data format 
+
+Definition at line \mbox{\hyperlink{forcefield_8hpp_source_l00127}{127}} of file \mbox{\hyperlink{forcefield_8hpp_source}{forcefield.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBondData_a1d2acc14f153001fa54320259c3199e0}\label{classBondData_a1d2acc14f153001fa54320259c3199e0}} 
+\index{BondData@{BondData}!replace@{replace}}
+\index{replace@{replace}!BondData@{BondData}}
+\doxysubsubsection{\texorpdfstring{replace()}{replace()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void Bond\+Data\+::replace (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{orig,  }\item[{const std\+::string \&}]{rep }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Replace one atom in this \mbox{\hyperlink{classBondData}{Bond\+Data}} object by another. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em orig} & The original atom which belongs to this object which must be replaced \\
+\hline
+\mbox{\texttt{ in}}  & {\em rep} & The replacement atom-\/type name \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{forcefield_8hpp_source_l00165}{165}} of file \mbox{\hyperlink{forcefield_8hpp_source}{forcefield.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classBondData_l00166}00166     \{}
+\DoxyCodeLine{\Hypertarget{classBondData_l00167}00167         \textcolor{keywordflow}{if}(\mbox{\hyperlink{classBondData_ac5f05a78c418b7bb137bb97eba3d4209}{atom1}}==orig) \mbox{\hyperlink{classBondData_ac5f05a78c418b7bb137bb97eba3d4209}{atom1}}=rep;}
+\DoxyCodeLine{\Hypertarget{classBondData_l00168}00168         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\mbox{\hyperlink{classBondData_a8cbf1554ee8db2d836e7429eab197785}{atom2}}==orig) \mbox{\hyperlink{classBondData_a8cbf1554ee8db2d836e7429eab197785}{atom2}}=rep;}
+\DoxyCodeLine{\Hypertarget{classBondData_l00169}00169         \textcolor{keywordflow}{else} \textcolor{keywordflow}{throw} \mbox{\hyperlink{classAtomNotInBondException}{AtomNotInBondException}}();}
+\DoxyCodeLine{\Hypertarget{classBondData_l00170}00170     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBondData_a1d2acc14f153001fa54320259c3199e0}\label{classBondData_a1d2acc14f153001fa54320259c3199e0}} 
+\index{BondData@{BondData}!replace@{replace}}
+\index{replace@{replace}!BondData@{BondData}}
+\doxysubsubsection{\texorpdfstring{replace()}{replace()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void Bond\+Data\+::replace (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{orig,  }\item[{const std\+::string \&}]{rep }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Replace one atom in this \mbox{\hyperlink{classBondData}{Bond\+Data}} object by another. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em orig} & The original atom which belongs to this object which must be replaced \\
+\hline
+\mbox{\texttt{ in}}  & {\em rep} & The replacement atom-\/type name \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{forcefield__precomp_8hpp_source_l00154}{154}} of file \mbox{\hyperlink{forcefield__precomp_8hpp_source}{forcefield\+\_\+precomp.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classBondData_l00155}00155     \{}
+\DoxyCodeLine{\Hypertarget{classBondData_l00156}00156         \textcolor{keywordflow}{if}(\mbox{\hyperlink{classBondData_ac5f05a78c418b7bb137bb97eba3d4209}{atom1}}==orig) \mbox{\hyperlink{classBondData_ac5f05a78c418b7bb137bb97eba3d4209}{atom1}}=rep;}
+\DoxyCodeLine{\Hypertarget{classBondData_l00157}00157         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\mbox{\hyperlink{classBondData_a8cbf1554ee8db2d836e7429eab197785}{atom2}}==orig) \mbox{\hyperlink{classBondData_a8cbf1554ee8db2d836e7429eab197785}{atom2}}=rep;}
+\DoxyCodeLine{\Hypertarget{classBondData_l00158}00158         \textcolor{keywordflow}{else} \textcolor{keywordflow}{throw} \mbox{\hyperlink{classAtomNotInBondException}{AtomNotInBondException}}();}
+\DoxyCodeLine{\Hypertarget{classBondData_l00159}00159     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBondData_a1d2acc14f153001fa54320259c3199e0}\label{classBondData_a1d2acc14f153001fa54320259c3199e0}} 
+\index{BondData@{BondData}!replace@{replace}}
+\index{replace@{replace}!BondData@{BondData}}
+\doxysubsubsection{\texorpdfstring{replace()}{replace()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void Bond\+Data\+::replace (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{orig,  }\item[{const std\+::string \&}]{rep }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Replace one atom in this \mbox{\hyperlink{classBondData}{Bond\+Data}} object by another. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em orig} & The original atom which belongs to this object which must be replaced \\
+\hline
+\mbox{\texttt{ in}}  & {\em rep} & The replacement atom-\/type name \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{forcefield__precomp__omega__stable_8hpp_source_l00150}{150}} of file \mbox{\hyperlink{forcefield__precomp__omega__stable_8hpp_source}{forcefield\+\_\+precomp\+\_\+omega\+\_\+stable.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classBondData_l00151}00151     \{}
+\DoxyCodeLine{\Hypertarget{classBondData_l00152}00152         \textcolor{keywordflow}{if}(\mbox{\hyperlink{classBondData_ac5f05a78c418b7bb137bb97eba3d4209}{atom1}}==orig) \mbox{\hyperlink{classBondData_ac5f05a78c418b7bb137bb97eba3d4209}{atom1}}=rep;}
+\DoxyCodeLine{\Hypertarget{classBondData_l00153}00153         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\mbox{\hyperlink{classBondData_a8cbf1554ee8db2d836e7429eab197785}{atom2}}==orig) \mbox{\hyperlink{classBondData_a8cbf1554ee8db2d836e7429eab197785}{atom2}}=rep;}
+\DoxyCodeLine{\Hypertarget{classBondData_l00154}00154         \textcolor{keywordflow}{else} \textcolor{keywordflow}{throw} \mbox{\hyperlink{classAtomNotInBondException}{AtomNotInBondException}}();}
+\DoxyCodeLine{\Hypertarget{classBondData_l00155}00155     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBondData_a1d2acc14f153001fa54320259c3199e0}\label{classBondData_a1d2acc14f153001fa54320259c3199e0}} 
+\index{BondData@{BondData}!replace@{replace}}
+\index{replace@{replace}!BondData@{BondData}}
+\doxysubsubsection{\texorpdfstring{replace()}{replace()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily void Bond\+Data\+::replace (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{orig,  }\item[{const std\+::string \&}]{rep }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Replace one atom in this \mbox{\hyperlink{classBondData}{Bond\+Data}} object by another. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em orig} & The original atom which belongs to this object which must be replaced \\
+\hline
+\mbox{\texttt{ in}}  & {\em rep} & The replacement atom-\/type name \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{forcefield__precomp__omega__stable2_8hpp_source_l00154}{154}} of file \mbox{\hyperlink{forcefield__precomp__omega__stable2_8hpp_source}{forcefield\+\_\+precomp\+\_\+omega\+\_\+stable2.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classBondData_l00155}00155     \{}
+\DoxyCodeLine{\Hypertarget{classBondData_l00156}00156         \textcolor{keywordflow}{if}(\mbox{\hyperlink{classBondData_ac5f05a78c418b7bb137bb97eba3d4209}{atom1}}==orig) \mbox{\hyperlink{classBondData_ac5f05a78c418b7bb137bb97eba3d4209}{atom1}}=rep;}
+\DoxyCodeLine{\Hypertarget{classBondData_l00157}00157         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\mbox{\hyperlink{classBondData_a8cbf1554ee8db2d836e7429eab197785}{atom2}}==orig) \mbox{\hyperlink{classBondData_a8cbf1554ee8db2d836e7429eab197785}{atom2}}=rep;}
+\DoxyCodeLine{\Hypertarget{classBondData_l00158}00158         \textcolor{keywordflow}{else} \textcolor{keywordflow}{throw} \mbox{\hyperlink{classAtomNotInBondException}{AtomNotInBondException}}();}
+\DoxyCodeLine{\Hypertarget{classBondData_l00159}00159     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classBondData_ac5f05a78c418b7bb137bb97eba3d4209}\label{classBondData_ac5f05a78c418b7bb137bb97eba3d4209}} 
+\index{BondData@{BondData}!atom1@{atom1}}
+\index{atom1@{atom1}!BondData@{BondData}}
+\doxysubsubsection{\texorpdfstring{atom1}{atom1}}
+{\footnotesize\ttfamily std\+::string Bond\+Data\+::atom1}
+
+The first atom-\/type which forms the bond (according to file -\/ actual order doesn\textquotesingle{}t matter) 
+
+Definition at line \mbox{\hyperlink{forcefield_8hpp_source_l00130}{130}} of file \mbox{\hyperlink{forcefield_8hpp_source}{forcefield.\+hpp}}.
+
+\mbox{\Hypertarget{classBondData_a8cbf1554ee8db2d836e7429eab197785}\label{classBondData_a8cbf1554ee8db2d836e7429eab197785}} 
+\index{BondData@{BondData}!atom2@{atom2}}
+\index{atom2@{atom2}!BondData@{BondData}}
+\doxysubsubsection{\texorpdfstring{atom2}{atom2}}
+{\footnotesize\ttfamily std\+::string Bond\+Data\+::atom2}
+
+The second atom-\/type which forms the bond (according to file -\/ actual order doesn\textquotesingle{}t matter) 
+
+Definition at line \mbox{\hyperlink{forcefield_8hpp_source_l00131}{131}} of file \mbox{\hyperlink{forcefield_8hpp_source}{forcefield.\+hpp}}.
+
+\mbox{\Hypertarget{classBondData_a96e67222cf17f8157d86dad31d94a2fe}\label{classBondData_a96e67222cf17f8157d86dad31d94a2fe}} 
+\index{BondData@{BondData}!b0@{b0}}
+\index{b0@{b0}!BondData@{BondData}}
+\doxysubsubsection{\texorpdfstring{b0}{b0}}
+{\footnotesize\ttfamily double Bond\+Data\+::b0}
+
+Equlibrium bond length 
+
+Definition at line \mbox{\hyperlink{forcefield_8hpp_source_l00132}{132}} of file \mbox{\hyperlink{forcefield_8hpp_source}{forcefield.\+hpp}}.
+
+\mbox{\Hypertarget{classBondData_ab6c79b84331de11e104467557b63d507}\label{classBondData_ab6c79b84331de11e104467557b63d507}} 
+\index{BondData@{BondData}!kb@{kb}}
+\index{kb@{kb}!BondData@{BondData}}
+\doxysubsubsection{\texorpdfstring{kb}{kb}}
+{\footnotesize\ttfamily double Bond\+Data\+::kb}
+
+The force-\/constant 
+
+Definition at line \mbox{\hyperlink{forcefield_8hpp_source_l00133}{133}} of file \mbox{\hyperlink{forcefield_8hpp_source}{forcefield.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+forcefield/forcefield.\+hpp\item 
+forcefield/forcefield\+\_\+precomp.\+hpp\item 
+forcefield/forcefield\+\_\+precomp\+\_\+omega\+\_\+stable.\+hpp\item 
+forcefield/forcefield\+\_\+precomp\+\_\+omega\+\_\+stable2.\+hpp\end{DoxyCompactItemize}

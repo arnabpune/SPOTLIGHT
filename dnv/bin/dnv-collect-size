@@ -1,0 +1,15 @@
+#!/bin/bash
+
+x=`ls result_prot_*.pdb`
+if test $? -ne 0
+then
+	echo "No files of pattern result_prot_*.pdb"
+	exit 1
+fi
+of=$1
+if test -z "$of"
+then
+	of="sizes.dat"
+fi
+for f in $x;  do n=`grep "^[HA][ET][TO][AM][T ][M ]" $f|sed /"H *$"/d|wc -l`; echo $f" "$n; done > $of
+echo "Written to $of"

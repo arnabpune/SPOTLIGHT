@@ -1,0 +1,34 @@
+C O 1 1
+CS S 1 1
+C1 C1|N1 1 1
+N1 C1|N1 1 1
+CA CA 2 3
+CQ CQ 1 1;CA|CC|NB|ND|NHX 2 2
+CC CA 1;[aromatic] 2
+CE1 [outer] 0 1;[inner2] 0 1;[outer]|[inner2]|CA|CC 2
+CE2 [outer] 0 1;[inner1] 0 1;[outer]|[inner1]|CA|CC 2
+NE1 [outer] 0 1;[inner2] 0 1;[outer]|[inner2]|CA|CC 2
+NE2 [outer] 0 1;[inner1] 0 1;[outer]|[inner1]|CA|CC 2
+NO O|S|OH 2 2
+P5 N2|C2|O|OP|S 1 1
+CX CU|CX 2
+CU CU|O|CU|CU 1 1;CX 1
+CY CY|CV 2
+CV CV|O|CV|CV 1 1;CY 1
+OH HO 1 1
+SH HS 1 1
+S4 N2|C2|O|OP|S 1 1;C3T 0 1
+S6 O|OP|N2|C2|S 2 2;C3T 0 2
+SX N2|C2|O|OP|S 1 1;C3T 0 1
+SY N2|C2|O|OP|S 2 2;C3T 0 2
+C2 [outer]|[inner1]|[inner2] 1 1
+N C 1 2
+N4 C3T|HN 1 4
+NA C3T|HN 1 3
+C3T H1 3 3
+C3 I 0 1
+N2 S4|S6|CE1|CE2|CE1|NE2|PY 1 1
+PY [inner1] 1 1;N2|C2|O|OP|S 1 1
+NH [aromatic] 1 1
+NHX [aromatic] 2 2
+CH CH 1;C1 0 1

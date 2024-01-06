@@ -1,0 +1,18 @@
+#!/bin/bash
+
+f=$1
+dnvsz=$2
+
+if test -z "$dnvsz"
+then
+	echo "Enter filename and DeNovo size (expected)"
+	exit 1
+fi
+actsz=`grep "^ATOM\|^HETATM* " $f|sed /"H[A-Z]* *$"/d|wc -l`
+echo $actsz is actual size over expected $dnvsz
+score=`grep "REMARK" $f|head -1|cut -c7-`
+dnvscr=`echo $score|cut -d" " -f1`
+hspscr=`echo $score|cut -d" " -f2`
+dscore=`echo "0.0607455*$dnvscr+0.009773*$hspscr+0.0279322*$dnvsz-0.0725246*$actsz"|bc`
+echo "Docking Score (Estimate): $dscore"
+#Docking Score = 0.0318446*DNVSCORE+0.0139796*HOTSPOTSCORE-0.0212247*EXPSIZE-0.0921122*ACTSIZE

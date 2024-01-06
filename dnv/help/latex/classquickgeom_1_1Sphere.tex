@@ -1,0 +1,98 @@
+\hypertarget{classquickgeom_1_1Sphere}{}\doxysection{quickgeom\+::Sphere Class Reference}
+\label{classquickgeom_1_1Sphere}\index{quickgeom::Sphere@{quickgeom::Sphere}}
+Inheritance diagram for quickgeom\+::Sphere\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classquickgeom_1_1Sphere}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classquickgeom_1_1Sphere_a2812c1bd44b44a9136eac72b519fa5ce}\label{classquickgeom_1_1Sphere_a2812c1bd44b44a9136eac72b519fa5ce}} 
+{\bfseries Sphere} ()
+\begin{DoxyCompactList}\small\item\em Default constructor that constructs a \mbox{\hyperlink{classquickgeom_1_1Sphere}{Sphere}} of radius 1nm around (0,0,0) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Sphere_a5e4dcba05201a5d86aab3ecb2421d7c6}\label{classquickgeom_1_1Sphere_a5e4dcba05201a5d86aab3ecb2421d7c6}} 
+{\bfseries Sphere} (const Eigen\+::\+Vector3d \&c, double r)
+\begin{DoxyCompactList}\small\item\em Construct a sphere around a given point with a given radius. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Sphere_a4e671e196de73532f069868e02d30e77}\label{classquickgeom_1_1Sphere_a4e671e196de73532f069868e02d30e77}} 
+{\bfseries Sphere} (double cx, double cy, double cz, double r)
+\begin{DoxyCompactList}\small\item\em Same as \mbox{\hyperlink{classquickgeom_1_1Sphere_a5e4dcba05201a5d86aab3ecb2421d7c6}{Sphere(const Eigen\+::\+Vector3d\&,double)}} except that the centre is explicitly mentioned. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Sphere_a634cbcfcafa8bf9c3dac3d45f79e5902}\label{classquickgeom_1_1Sphere_a634cbcfcafa8bf9c3dac3d45f79e5902}} 
+bool {\bfseries contains} (double x, double y, double z) const override
+\begin{DoxyCompactList}\small\item\em Checks if the given point is present inside this region. The boundary points are not included. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Sphere_abff38f680edfc38e824c802d98d9742a}\label{classquickgeom_1_1Sphere_abff38f680edfc38e824c802d98d9742a}} 
+double {\bfseries get\+Minimum\+Distance\+From} (double x, double y, double z) const override
+\begin{DoxyCompactList}\small\item\em Same as get\+Minimum\+Distance\+From(const Eigen\+::\+Vector3d\&) but explicitly specifies the coordinates. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Sphere_a7195b6f44ec85a850591b2e8216bccf0}\label{classquickgeom_1_1Sphere_a7195b6f44ec85a850591b2e8216bccf0}} 
+const \mbox{\hyperlink{classquickgeom_1_1Sphere}{Sphere}} {\bfseries get\+Containing\+Sphere} () const override
+\begin{DoxyCompactList}\small\item\em Get the smallest possible sphere enclosing this region. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Sphere_a0d91a8d0edfb110903d35ee25bf35f29}\label{classquickgeom_1_1Sphere_a0d91a8d0edfb110903d35ee25bf35f29}} 
+const \mbox{\hyperlink{classquickgeom_1_1Cuboid}{Cuboid}} {\bfseries get\+Containing\+Box} () const override
+\begin{DoxyCompactList}\small\item\em Get the smallest possible cuboid enclosing this region. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Sphere_a1d3276ff3a5b71f43e54066c1535f5a8}\label{classquickgeom_1_1Sphere_a1d3276ff3a5b71f43e54066c1535f5a8}} 
+double {\bfseries get\+Volume} () const override
+\begin{DoxyCompactList}\small\item\em Get the volume of this container. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Sphere_a2812c1bd44b44a9136eac72b519fa5ce}\label{classquickgeom_1_1Sphere_a2812c1bd44b44a9136eac72b519fa5ce}} 
+{\bfseries Sphere} ()
+\begin{DoxyCompactList}\small\item\em Default constructor that constructs a \mbox{\hyperlink{classquickgeom_1_1Sphere}{Sphere}} of radius 1nm around (0,0,0) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Sphere_a5e4dcba05201a5d86aab3ecb2421d7c6}\label{classquickgeom_1_1Sphere_a5e4dcba05201a5d86aab3ecb2421d7c6}} 
+{\bfseries Sphere} (const Eigen\+::\+Vector3d \&c, double r)
+\begin{DoxyCompactList}\small\item\em Construct a sphere around a given point with a given radius. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Sphere_a4e671e196de73532f069868e02d30e77}\label{classquickgeom_1_1Sphere_a4e671e196de73532f069868e02d30e77}} 
+{\bfseries Sphere} (double cx, double cy, double cz, double r)
+\begin{DoxyCompactList}\small\item\em Same as \mbox{\hyperlink{classquickgeom_1_1Sphere_a5e4dcba05201a5d86aab3ecb2421d7c6}{Sphere(const Eigen\+::\+Vector3d\&,double)}} except that the centre is explicitly mentioned. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Sphere_a634cbcfcafa8bf9c3dac3d45f79e5902}\label{classquickgeom_1_1Sphere_a634cbcfcafa8bf9c3dac3d45f79e5902}} 
+bool {\bfseries contains} (double x, double y, double z) const override
+\begin{DoxyCompactList}\small\item\em Checks if the given point is present inside this region. The boundary points are not included. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Sphere_abff38f680edfc38e824c802d98d9742a}\label{classquickgeom_1_1Sphere_abff38f680edfc38e824c802d98d9742a}} 
+double {\bfseries get\+Minimum\+Distance\+From} (double x, double y, double z) const override
+\begin{DoxyCompactList}\small\item\em Same as get\+Minimum\+Distance\+From(const Eigen\+::\+Vector3d\&) but explicitly specifies the coordinates. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Sphere_a7195b6f44ec85a850591b2e8216bccf0}\label{classquickgeom_1_1Sphere_a7195b6f44ec85a850591b2e8216bccf0}} 
+const \mbox{\hyperlink{classquickgeom_1_1Sphere}{Sphere}} {\bfseries get\+Containing\+Sphere} () const override
+\begin{DoxyCompactList}\small\item\em Get the smallest possible sphere enclosing this region. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Sphere_a0d91a8d0edfb110903d35ee25bf35f29}\label{classquickgeom_1_1Sphere_a0d91a8d0edfb110903d35ee25bf35f29}} 
+const \mbox{\hyperlink{classquickgeom_1_1Cuboid}{Cuboid}} {\bfseries get\+Containing\+Box} () const override
+\begin{DoxyCompactList}\small\item\em Get the smallest possible cuboid enclosing this region. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Sphere_a1d3276ff3a5b71f43e54066c1535f5a8}\label{classquickgeom_1_1Sphere_a1d3276ff3a5b71f43e54066c1535f5a8}} 
+double {\bfseries get\+Volume} () const override
+\begin{DoxyCompactList}\small\item\em Get the volume of this container. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Sphere_a2812c1bd44b44a9136eac72b519fa5ce}\label{classquickgeom_1_1Sphere_a2812c1bd44b44a9136eac72b519fa5ce}} 
+{\bfseries Sphere} ()
+\begin{DoxyCompactList}\small\item\em Default constructor that constructs a \mbox{\hyperlink{classquickgeom_1_1Sphere}{Sphere}} of radius 1nm around (0,0,0) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Sphere_a5e4dcba05201a5d86aab3ecb2421d7c6}\label{classquickgeom_1_1Sphere_a5e4dcba05201a5d86aab3ecb2421d7c6}} 
+{\bfseries Sphere} (const Eigen\+::\+Vector3d \&c, double r)
+\begin{DoxyCompactList}\small\item\em Construct a sphere around a given point with a given radius. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Sphere_a4e671e196de73532f069868e02d30e77}\label{classquickgeom_1_1Sphere_a4e671e196de73532f069868e02d30e77}} 
+{\bfseries Sphere} (double cx, double cy, double cz, double r)
+\begin{DoxyCompactList}\small\item\em Same as \mbox{\hyperlink{classquickgeom_1_1Sphere_a5e4dcba05201a5d86aab3ecb2421d7c6}{Sphere(const Eigen\+::\+Vector3d\&,double)}} except that the centre is explicitly mentioned. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Sphere_a634cbcfcafa8bf9c3dac3d45f79e5902}\label{classquickgeom_1_1Sphere_a634cbcfcafa8bf9c3dac3d45f79e5902}} 
+bool {\bfseries contains} (double x, double y, double z) const override
+\begin{DoxyCompactList}\small\item\em Checks if the given point is present inside this region. The boundary points are not included. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Sphere_abff38f680edfc38e824c802d98d9742a}\label{classquickgeom_1_1Sphere_abff38f680edfc38e824c802d98d9742a}} 
+double {\bfseries get\+Minimum\+Distance\+From} (double x, double y, double z) const override
+\begin{DoxyCompactList}\small\item\em Same as get\+Minimum\+Distance\+From(const Eigen\+::\+Vector3d\&) but explicitly specifies the coordinates. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Sphere_a7195b6f44ec85a850591b2e8216bccf0}\label{classquickgeom_1_1Sphere_a7195b6f44ec85a850591b2e8216bccf0}} 
+const \mbox{\hyperlink{classquickgeom_1_1Sphere}{Sphere}} {\bfseries get\+Containing\+Sphere} () const override
+\begin{DoxyCompactList}\small\item\em Get the smallest possible sphere enclosing this region. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Sphere_a0d91a8d0edfb110903d35ee25bf35f29}\label{classquickgeom_1_1Sphere_a0d91a8d0edfb110903d35ee25bf35f29}} 
+const \mbox{\hyperlink{classquickgeom_1_1Cuboid}{Cuboid}} {\bfseries get\+Containing\+Box} () const override
+\begin{DoxyCompactList}\small\item\em Get the smallest possible cuboid enclosing this region. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Sphere_a1d3276ff3a5b71f43e54066c1535f5a8}\label{classquickgeom_1_1Sphere_a1d3276ff3a5b71f43e54066c1535f5a8}} 
+double {\bfseries get\+Volume} () const override
+\begin{DoxyCompactList}\small\item\em Get the volume of this container. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{commons_8h_source_l00704}{704}} of file \mbox{\hyperlink{commons_8h_source}{commons.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+support/commons.\+h\item 
+support/commons\+\_\+old\+RNG.\+h\item 
+support/commons\+\_\+omegastable.\+h\end{DoxyCompactItemize}

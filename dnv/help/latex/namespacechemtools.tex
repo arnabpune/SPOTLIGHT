@@ -1,0 +1,749 @@
+\hypertarget{namespacechemtools}{}\doxysection{chemtools Namespace Reference}
+\label{namespacechemtools}\index{chemtools@{chemtools}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::vector$<$ \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} $>$ \mbox{\hyperlink{namespacechemtools_a6c73fdd6c186f091225ee45907fe6b66}{build\+Rules}} (const std\+::string \&def, const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$ff=nullptr)
+\begin{DoxyCompactList}\small\item\em Generate a set of \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} objects by parsing a line from the definitions file (See PDF for definition format) \end{DoxyCompactList}\item 
+static std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::vector$<$ \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} $>$ $>$ $>$ \mbox{\hyperlink{namespacechemtools_ac0566d6420d090a2cd4d9530bca1b769}{get\+Ruleset}} (const std\+::string \&file, const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$ff=nullptr)
+\begin{DoxyCompactList}\small\item\em Load all rules from a file. \end{DoxyCompactList}\item 
+static std\+::vector$<$ \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} $>$ \mbox{\hyperlink{namespacechemtools_a6c73fdd6c186f091225ee45907fe6b66}{build\+Rules}} (const std\+::string \&def, const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$ff=nullptr)
+\begin{DoxyCompactList}\small\item\em Generate a set of \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} objects by parsing a line from the definitions file (See PDF for definition format) \end{DoxyCompactList}\item 
+static std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::vector$<$ \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} $>$ $>$ $>$ \mbox{\hyperlink{namespacechemtools_ac0566d6420d090a2cd4d9530bca1b769}{get\+Ruleset}} (const std\+::string \&file, const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$ff=nullptr)
+\begin{DoxyCompactList}\small\item\em Load all rules from a file. \end{DoxyCompactList}\item 
+static std\+::vector$<$ \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} $>$ \mbox{\hyperlink{namespacechemtools_a6c73fdd6c186f091225ee45907fe6b66}{build\+Rules}} (const std\+::string \&def, const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$ff=nullptr)
+\begin{DoxyCompactList}\small\item\em Generate a set of \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} objects by parsing a line from the definitions file (See PDF for definition format) \end{DoxyCompactList}\item 
+static std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::vector$<$ \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} $>$ $>$ $>$ \mbox{\hyperlink{namespacechemtools_ac0566d6420d090a2cd4d9530bca1b769}{get\+Ruleset}} (const std\+::string \&file, const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$ff=nullptr)
+\begin{DoxyCompactList}\small\item\em Load all rules from a file. \end{DoxyCompactList}\item 
+static std\+::vector$<$ \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} $>$ \mbox{\hyperlink{namespacechemtools_a6c73fdd6c186f091225ee45907fe6b66}{build\+Rules}} (const std\+::string \&def, const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$ff=nullptr)
+\begin{DoxyCompactList}\small\item\em Generate a set of \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} objects by parsing a line from the definitions file (See PDF for definition format) \end{DoxyCompactList}\item 
+static std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::vector$<$ \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} $>$ $>$ $>$ \mbox{\hyperlink{namespacechemtools_ac0566d6420d090a2cd4d9530bca1b769}{get\+Ruleset}} (const std\+::string \&file, const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$ff=nullptr)
+\begin{DoxyCompactList}\small\item\em Load all rules from a file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacechemtools_a330bbc0a28d98a7b8d22150d8e590050}\label{namespacechemtools_a330bbc0a28d98a7b8d22150d8e590050}} 
+static double {\bfseries get\+Angle} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$a1, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a2, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a3)
+\begin{DoxyCompactList}\small\item\em Calculate the angle between any three atoms. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacechemtools_af1bacba692469862a68fec24a291334e}\label{namespacechemtools_af1bacba692469862a68fec24a291334e}} 
+static double {\bfseries get\+Dihedral} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$a1, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a2, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a3, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a4)
+\begin{DoxyCompactList}\small\item\em Calculate the dihedral between any four atoms. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacechemtools_a38aa10028ccaf681c4a1871c62f53597}\label{namespacechemtools_a38aa10028ccaf681c4a1871c62f53597}} 
+static double {\bfseries get\+Improper} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$a1, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a2, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a3, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a4)
+\begin{DoxyCompactList}\small\item\em Calculate the improper dihedral between any four atoms. The central atom is first. \end{DoxyCompactList}\item 
+static std\+::vector$<$ std\+::pair$<$ Eigen\+::\+Vector3d, std\+::pair$<$ double, std\+::pair$<$ double, double $>$ $>$ $>$ $>$ \mbox{\hyperlink{namespacechemtools_abc098d7eee6376b087ed6a8d0448eb00}{get\+All\+Allowed\+Positions}} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$src, \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$mol, \mbox{\hyperlink{classAtom}{Atom}} $\ast$natom, const \mbox{\hyperlink{classSystem}{System}} \&ff, int num=10, int tries=10, bool restr=false, const \mbox{\hyperlink{classCategory}{Category}} $\ast$aromcat=nullptr, int devid=0)
+\begin{DoxyCompactList}\small\item\em Predict allowed positions based on angle and dihedral parameters. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacechemtools_ad2f246d4cc40979950344b2e6465fa73}\label{namespacechemtools_ad2f246d4cc40979950344b2e6465fa73}} 
+static std\+::pair$<$ Eigen\+::\+Vector3d, std\+::pair$<$ double, double $>$ $>$ {\bfseries get\+Allowed\+Positions} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$src, \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$mol, \mbox{\hyperlink{classAtom}{Atom}} $\ast$natom, const \mbox{\hyperlink{classSystem}{System}} \&ff, int num=10, int tries=10, bool restr=false, const \mbox{\hyperlink{classCategory}{Category}} $\ast$aromcat=nullptr, int devid=0)
+\begin{DoxyCompactList}\small\item\em Get a (boltzmann-\/factor weighted) random positions from all the trialled positions. See (\mbox{\hyperlink{namespacechemtools_abc098d7eee6376b087ed6a8d0448eb00}{chemtools\+::get\+All\+Allowed\+Positions}}) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacechemtools_add27111d98634ab1c1d9c68e93801700}\label{namespacechemtools_add27111d98634ab1c1d9c68e93801700}} 
+static double {\bfseries get\+LJInteraction} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$a1, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a2)
+\begin{DoxyCompactList}\small\item\em Get the L-\/J (Lennard Jones) interaction energy between two atoms. It uses the internal σ, ε from the atom-\/type data. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacechemtools_a2dd0e56186f6bc511d0dfc32cabfd10d}\label{namespacechemtools_a2dd0e56186f6bc511d0dfc32cabfd10d}} 
+static double {\bfseries get\+LJForce} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$a1, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a2)
+\begin{DoxyCompactList}\small\item\em Get the L-\/J (Lennard Jones) force between two atoms. It uses the internal σ, ε from the atom-\/type data. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacechemtools_a7f56c65c46b5d053ee327c5c8090cb32}\label{namespacechemtools_a7f56c65c46b5d053ee327c5c8090cb32}} 
+static double {\bfseries get\+Electrostatic\+Energy} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$a1, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a2)
+\begin{DoxyCompactList}\small\item\em Get the electrostatic interaction energy between two atoms. It uses the charges from the atom-\/type data. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacechemtools_a1793903a445a8d3082490a333f704476}\label{namespacechemtools_a1793903a445a8d3082490a333f704476}} 
+static double {\bfseries get\+Electrostatic\+Force} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$a1, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a2)
+\begin{DoxyCompactList}\small\item\em Get the electrostatic force between two atoms. It uses the charges from the atom-\/type data. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{namespacechemtools_a0257a011fb4df690121cb9bf71cc67e8}{get\+Electrostatic\+Energy}} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$a1, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a2, double r)
+\begin{DoxyCompactList}\small\item\em Get the electrostatic interaction energy between two atoms distance \textquotesingle{}r\textquotesingle{} apart. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{namespacechemtools_a79d7722db71286b1fe58858f47f72dbe}{get\+Electrostatic\+Force}} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$a1, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a2, double r)
+\begin{DoxyCompactList}\small\item\em Get the electrostatic force between two atoms distance \textquotesingle{}r\textquotesingle{} apart. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{namespacechemtools_a7437535dfce8aac7d0e53487331c5062}{get\+LJInteraction}} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$a1, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a2, double r)
+\begin{DoxyCompactList}\small\item\em Get the L-\/J (Lennard Jones) interaction energy between two atoms distance \textquotesingle{}r\textquotesingle{} apart. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{namespacechemtools_a56a8750722bf7f58e4dd0539497527e7}{get\+LJForce}} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$a1, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a2, double r)
+\begin{DoxyCompactList}\small\item\em Get the L-\/J (Lennard Jones) force between two atoms distance \textquotesingle{}r\textquotesingle{} apart. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacechemtools_a4d736b938261879ac0c621cd97172a7a}\label{namespacechemtools_a4d736b938261879ac0c621cd97172a7a}} 
+static double {\bfseries get\+Nonbonding\+Potential} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$a1, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a2)
+\begin{DoxyCompactList}\small\item\em A wrapper that uses the stored parameters of \mbox{\hyperlink{classAtom}{Atom}} objects to calculate non-\/bonding interaction between two specific atoms (using their stored co-\/ordinates for distance calculation). See Also\+: \mbox{\hyperlink{namespacechemtools_aa816a9c13cb518b93a7bd0aca6d01ae8}{get\+Nonbonding\+Potential(\+Atom$\ast$,\+Atom$\ast$,double)}} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacechemtools_aa816a9c13cb518b93a7bd0aca6d01ae8}\label{namespacechemtools_aa816a9c13cb518b93a7bd0aca6d01ae8}} 
+static double {\bfseries get\+Nonbonding\+Potential} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$a1, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a2, double r)
+\begin{DoxyCompactList}\small\item\em A wrapper that uses the stored parameters of \mbox{\hyperlink{classAtom}{Atom}} objects to calculate non-\/bonding interaction between two specific atom-\/types at a given distance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The chemtools namespace is a holder for quick functions to be used in the program (and outside if required). It basically contains wrapper functions to directly use \mbox{\hyperlink{classAtom}{Atom}} objects and accurately pass on their parameters to the correct candidate functions. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacechemtools_a6c73fdd6c186f091225ee45907fe6b66}\label{namespacechemtools_a6c73fdd6c186f091225ee45907fe6b66}} 
+\index{chemtools@{chemtools}!buildRules@{buildRules}}
+\index{buildRules@{buildRules}!chemtools@{chemtools}}
+\doxysubsubsection{\texorpdfstring{buildRules()}{buildRules()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classchemtools_1_1Rule}{chemtools\+::\+Rule}} $>$ chemtools\+::build\+Rules (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{def,  }\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$}]{ff = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Generate a set of \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} objects by parsing a line from the definitions file (See PDF for definition format) 
+
+This function takes the raw line as input and splits the line into multiple rules (if present), and returns the entire list of rules. ~\newline
+Sample input lines look like this\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{H* 1 1;BRAL 0 1;CLAL 0 1}
+\DoxyCodeLine{[aromatic] 2;OH1|FA|CF3 1 1}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{forcefield_8hpp_source_l01273}{1273}} of file \mbox{\hyperlink{forcefield_8hpp_source}{forcefield.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01274}01274 \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01275}01275     \textcolor{keywordtype}{int} i=\mbox{\hyperlink{namespacestringfx_a39713d3c86433bb2f090df0c6c37a565}{stringfx::indexOf}}(\textcolor{charliteral}{' '},def);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01276}01276     std::string c=def.substr(0,i);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01277}01277     std::string r=def.substr(i+1,def.length()-\/(i+1));}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01278}01278     std::vector<std::string> rstr=\mbox{\hyperlink{namespacestringfx_ac6684d09027f7b4ad546ba4d7b3fe8a1}{stringfx::split}}(r,\textcolor{charliteral}{';'});}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01279}01279     std::vector<chemtools::Rule> rules;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01280}01280     \textcolor{keywordflow}{for}(std::string\& s : rstr)}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01281}01281     \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01282}01282         \textcolor{keywordflow}{if}(ff) \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& p : ff-\/>\mbox{\hyperlink{classForceField_a9902cf610a724e451d0f5d2a87934fa3}{getCategories}}()) \mbox{\hyperlink{namespacestringfx_a827b03090f77597d306efc02f5132d04}{stringfx::replace}}(s,\textcolor{stringliteral}{"{}["{}}+p.getCategoryName()+\textcolor{stringliteral}{"{}]"{}},p.toString());}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01283}01283         rules.push\_back(\mbox{\hyperlink{classchemtools_1_1Rule}{chemtools::Rule}}(c,s,ff));}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01284}01284     \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01285}01285     \textcolor{keywordflow}{return} rules;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01286}01286 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacechemtools_a6c73fdd6c186f091225ee45907fe6b66}\label{namespacechemtools_a6c73fdd6c186f091225ee45907fe6b66}} 
+\index{chemtools@{chemtools}!buildRules@{buildRules}}
+\index{buildRules@{buildRules}!chemtools@{chemtools}}
+\doxysubsubsection{\texorpdfstring{buildRules()}{buildRules()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classchemtools_1_1Rule}{chemtools\+::\+Rule}} $>$ chemtools\+::build\+Rules (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{def,  }\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$}]{ff = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Generate a set of \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} objects by parsing a line from the definitions file (See PDF for definition format) 
+
+This function takes the raw line as input and splits the line into multiple rules (if present), and returns the entire list of rules. ~\newline
+Sample input lines look like this\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{H* 1 1;BRAL 0 1;CLAL 0 1}
+\DoxyCodeLine{[aromatic] 2;OH1|FA|CF3 1 1}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{forcefield__precomp_8hpp_source_l01176}{1176}} of file \mbox{\hyperlink{forcefield__precomp_8hpp_source}{forcefield\+\_\+precomp.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01177}01177 \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01178}01178     \textcolor{keywordtype}{int} i=\mbox{\hyperlink{namespacestringfx_a39713d3c86433bb2f090df0c6c37a565}{stringfx::indexOf}}(\textcolor{charliteral}{' '},def);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01179}01179     std::string c=def.substr(0,i);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01180}01180     std::string r=def.substr(i+1,def.length()-\/(i+1));}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01181}01181     std::vector<std::string> rstr=\mbox{\hyperlink{namespacestringfx_ac6684d09027f7b4ad546ba4d7b3fe8a1}{stringfx::split}}(r,\textcolor{charliteral}{';'});}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01182}01182     std::vector<chemtools::Rule> rules;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01183}01183     \textcolor{keywordflow}{for}(std::string\& s : rstr)}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01184}01184     \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01185}01185         \textcolor{keywordflow}{if}(ff) \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& p : ff-\/>\mbox{\hyperlink{classForceField_a9902cf610a724e451d0f5d2a87934fa3}{getCategories}}()) \mbox{\hyperlink{namespacestringfx_a827b03090f77597d306efc02f5132d04}{stringfx::replace}}(s,\textcolor{stringliteral}{"{}["{}}+p.getCategoryName()+\textcolor{stringliteral}{"{}]"{}},p.toString());}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01186}01186         rules.push\_back(\mbox{\hyperlink{classchemtools_1_1Rule}{chemtools::Rule}}(c,s,ff));}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01187}01187     \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01188}01188     \textcolor{keywordflow}{return} rules;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01189}01189 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacechemtools_a6c73fdd6c186f091225ee45907fe6b66}\label{namespacechemtools_a6c73fdd6c186f091225ee45907fe6b66}} 
+\index{chemtools@{chemtools}!buildRules@{buildRules}}
+\index{buildRules@{buildRules}!chemtools@{chemtools}}
+\doxysubsubsection{\texorpdfstring{buildRules()}{buildRules()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classchemtools_1_1Rule}{chemtools\+::\+Rule}} $>$ chemtools\+::build\+Rules (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{def,  }\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$}]{ff = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Generate a set of \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} objects by parsing a line from the definitions file (See PDF for definition format) 
+
+This function takes the raw line as input and splits the line into multiple rules (if present), and returns the entire list of rules. ~\newline
+Sample input lines look like this\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{H* 1 1;BRAL 0 1;CLAL 0 1}
+\DoxyCodeLine{[aromatic] 2;OH1|FA|CF3 1 1}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{forcefield__precomp__omega__stable_8hpp_source_l01081}{1081}} of file \mbox{\hyperlink{forcefield__precomp__omega__stable_8hpp_source}{forcefield\+\_\+precomp\+\_\+omega\+\_\+stable.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01082}01082 \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01083}01083     \textcolor{keywordtype}{int} i=\mbox{\hyperlink{namespacestringfx_a39713d3c86433bb2f090df0c6c37a565}{stringfx::indexOf}}(\textcolor{charliteral}{' '},def);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01084}01084     std::string c=def.substr(0,i);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01085}01085     std::string r=def.substr(i+1,def.length()-\/(i+1));}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01086}01086     std::vector<std::string> rstr=\mbox{\hyperlink{namespacestringfx_ac6684d09027f7b4ad546ba4d7b3fe8a1}{stringfx::split}}(r,\textcolor{charliteral}{';'});}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01087}01087     std::vector<chemtools::Rule> rules;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01088}01088     \textcolor{keywordflow}{for}(std::string\& s : rstr)}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01089}01089     \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01090}01090         \textcolor{keywordflow}{if}(ff) \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& p : ff-\/>\mbox{\hyperlink{classForceField_a9902cf610a724e451d0f5d2a87934fa3}{getCategories}}()) \mbox{\hyperlink{namespacestringfx_a827b03090f77597d306efc02f5132d04}{stringfx::replace}}(s,\textcolor{stringliteral}{"{}["{}}+p.getCategoryName()+\textcolor{stringliteral}{"{}]"{}},p.toString());}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01091}01091         rules.push\_back(\mbox{\hyperlink{classchemtools_1_1Rule}{chemtools::Rule}}(c,s,ff));}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01092}01092     \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01093}01093     \textcolor{keywordflow}{return} rules;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01094}01094 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacechemtools_a6c73fdd6c186f091225ee45907fe6b66}\label{namespacechemtools_a6c73fdd6c186f091225ee45907fe6b66}} 
+\index{chemtools@{chemtools}!buildRules@{buildRules}}
+\index{buildRules@{buildRules}!chemtools@{chemtools}}
+\doxysubsubsection{\texorpdfstring{buildRules()}{buildRules()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classchemtools_1_1Rule}{chemtools\+::\+Rule}} $>$ chemtools\+::build\+Rules (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{def,  }\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$}]{ff = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Generate a set of \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} objects by parsing a line from the definitions file (See PDF for definition format) 
+
+This function takes the raw line as input and splits the line into multiple rules (if present), and returns the entire list of rules. ~\newline
+Sample input lines look like this\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{H* 1 1;BRAL 0 1;CLAL 0 1}
+\DoxyCodeLine{[aromatic] 2;OH1|FA|CF3 1 1}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{forcefield__precomp__omega__stable2_8hpp_source_l01174}{1174}} of file \mbox{\hyperlink{forcefield__precomp__omega__stable2_8hpp_source}{forcefield\+\_\+precomp\+\_\+omega\+\_\+stable2.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01175}01175 \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01176}01176     \textcolor{keywordtype}{int} i=\mbox{\hyperlink{namespacestringfx_a39713d3c86433bb2f090df0c6c37a565}{stringfx::indexOf}}(\textcolor{charliteral}{' '},def);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01177}01177     std::string c=def.substr(0,i);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01178}01178     std::string r=def.substr(i+1,def.length()-\/(i+1));}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01179}01179     std::vector<std::string> rstr=\mbox{\hyperlink{namespacestringfx_ac6684d09027f7b4ad546ba4d7b3fe8a1}{stringfx::split}}(r,\textcolor{charliteral}{';'});}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01180}01180     std::vector<chemtools::Rule> rules;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01181}01181     \textcolor{keywordflow}{for}(std::string\& s : rstr)}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01182}01182     \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01183}01183         \textcolor{keywordflow}{if}(ff) \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& p : ff-\/>\mbox{\hyperlink{classForceField_a9902cf610a724e451d0f5d2a87934fa3}{getCategories}}()) \mbox{\hyperlink{namespacestringfx_a827b03090f77597d306efc02f5132d04}{stringfx::replace}}(s,\textcolor{stringliteral}{"{}["{}}+p.getCategoryName()+\textcolor{stringliteral}{"{}]"{}},p.toString());}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01184}01184         rules.push\_back(\mbox{\hyperlink{classchemtools_1_1Rule}{chemtools::Rule}}(c,s,ff));}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01185}01185     \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01186}01186     \textcolor{keywordflow}{return} rules;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01187}01187 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacechemtools_abc098d7eee6376b087ed6a8d0448eb00}\label{namespacechemtools_abc098d7eee6376b087ed6a8d0448eb00}} 
+\index{chemtools@{chemtools}!getAllAllowedPositions@{getAllAllowedPositions}}
+\index{getAllAllowedPositions@{getAllAllowedPositions}!chemtools@{chemtools}}
+\doxysubsubsection{\texorpdfstring{getAllAllowedPositions()}{getAllAllowedPositions()}}
+{\footnotesize\ttfamily static std\+::vector$<$ std\+::pair$<$ Eigen\+::\+Vector3d, std\+::pair$<$ double, std\+::pair$<$ double, double $>$ $>$ $>$ $>$ chemtools\+::get\+All\+Allowed\+Positions (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{src,  }\item[{\mbox{\hyperlink{classMolecule}{Molecule}} $\ast$}]{mol,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{natom,  }\item[{const \mbox{\hyperlink{classSystem}{System}} \&}]{ff,  }\item[{int}]{num = {\ttfamily 10},  }\item[{int}]{tries = {\ttfamily 10},  }\item[{bool}]{restr = {\ttfamily false},  }\item[{const \mbox{\hyperlink{classCategory}{Category}} $\ast$}]{aromcat = {\ttfamily nullptr},  }\item[{int}]{devid = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Predict allowed positions based on angle and dihedral parameters. 
+
+When a new atom if to be connected to an existing atom, and the trialling of the bond is being done, this function trials multiple positions, and provides a list of potential candidate posiitions, and the interaction energy at each spot. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em src} & The source atom which is part of the newly forming bond. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mol} & The source molecule (which must also contain src). \\
+\hline
+\mbox{\texttt{ in}}  & {\em natom} & The new atom-\/type being trialled. \\
+\hline
+\mbox{\texttt{ in}}  & {\em ff} & The \mbox{\hyperlink{classSystem}{System}} under consideration. It is used only to get the working \mbox{\hyperlink{classForceField}{Force\+Field}}, and hence the name \char`\"{}ff\char`\"{}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num} & Number of trial positions to generate (may increase multiplicatively based on structure generated until now, and position of src in the molecule -\/ See algorthim PDF for details on position trialling). \\
+\hline
+\mbox{\texttt{ in}}  & {\em tries} & If \textquotesingle{}num\textquotesingle{} positions could not be generated in \textquotesingle{}tries\textquotesingle{} trials, stop. \\
+\hline
+\mbox{\texttt{ in}}  & {\em restr} & Restrain the positions? (See algorithm PDF, version σ++ for more details on restrained growth). \\
+\hline
+\mbox{\texttt{ in}}  & {\em aromcat} & A pointer to the aromatic category. Starting from De\+Novo version θ2, the dihedral is forced to 0 if the source atom (src) is aromatic, but hasn\textquotesingle{}t yet cyclized. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l04198}{4198}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04199}04199 \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04200}04200     \textcolor{comment}{//if(!mol) cout << "{}Null molecule pointer\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04201}04201     \textcolor{comment}{//cout << "{}Failing at: "{}<<src-\/>toString()<<"{}\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04202}04202     mol-\/>\mbox{\hyperlink{classMolecule_a728fa63d31ed43876593086571e82cf6}{describeStructure}}();}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04203}04203     std::vector<Atom*> bondcol=mol-\/>\mbox{\hyperlink{classMolecule_aef77043ab98f1008a15a1e52d85b827e}{getBondedAtoms}}(src); \textcolor{comment}{//,angcol;}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04204}04204     \textcolor{keywordtype}{double} length=0,ang,tempen,proten=0;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04205}04205   std::vector<double> dih;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04206}04206   std::vector<Eigen::Vector3d> temp;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04207}04207   \textcolor{keywordtype}{bool} angex=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04208}04208   \textcolor{keywordflow}{try} \{length=get<0>(sys.ff-\/>getLengthParameters(src-\/>\mbox{\hyperlink{classAtom_a189def3b8bade8507d49cfd7de881178}{toString}}(),natom-\/>\mbox{\hyperlink{classAtom_a189def3b8bade8507d49cfd7de881178}{toString}}()));\}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04209}04209   \textcolor{keywordflow}{catch}(\mbox{\hyperlink{classDataNotAvailableException}{DataNotAvailableException}} ex)}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04210}04210     \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04211}04211         std::cout << \textcolor{stringliteral}{"{}No data for bond "{}}<<src-\/>\mbox{\hyperlink{classAtom_a189def3b8bade8507d49cfd7de881178}{toString}}()<<\textcolor{stringliteral}{"{}-\/"{}}<<natom-\/>\mbox{\hyperlink{classAtom_a189def3b8bade8507d49cfd7de881178}{toString}}()<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04212}04212         \textcolor{keywordflow}{throw} \mbox{\hyperlink{classNoPositionAvailableException}{NoPositionAvailableException}}();}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04213}04213     \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04214}04214     \textcolor{comment}{//if(!bondcol.size()) return make\_pair(randomSelect(quickgeom::getRandomVectorsInShell(src-\/>getPosition(),length,num*100)),make\_pair(0.0,0.0));}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04215}04215   \textcolor{keywordflow}{if}(!bondcol.size()) \{angex=\textcolor{keyword}{false}; temp=\mbox{\hyperlink{namespacequickgeom_a78c6886551455b71fe88580560aae508}{quickgeom::getRandomVectorsInShell}}(Eigen::Vector3d(0,0,0),length,num*20,devid);\}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04216}04216     std::vector<std::pair<Eigen::Vector3d,std::pair<double,std::pair<double,double>>>> ret;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04217}04217   \textcolor{comment}{//std::vector<double> diheners;}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04218}04218     \textcolor{keywordtype}{bool} acc,ign=\textcolor{keyword}{false},cyc,dihexist=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04219}04219   \textcolor{keywordtype}{double} dihe,intlje=0,hsben=0;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04220}04220   \textcolor{keywordtype}{double} vdis,ct,md=100;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04221}04221   std::vector<std::pair<Atom*,std::vector<Atom*>>> atgeom;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04222}04222   std::vector<Atom*> ignore;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04223}04223   \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* a : bondcol)}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04224}04224   \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04225}04225     ignore.push\_back(a);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04226}04226     std::vector<Atom*> gats;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04227}04227     \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* a2 : mol-\/>\mbox{\hyperlink{classMolecule_aef77043ab98f1008a15a1e52d85b827e}{getBondedAtoms}}(a))}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04228}04228     \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04229}04229       \textcolor{keywordflow}{if}(a2==src) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04230}04230       gats.push\_back(a2); ignore.push\_back(a2);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04231}04231     \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04232}04232     atgeom.push\_back(make\_pair(a,gats));}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04233}04233   \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04234}04234   std::pair<Atom*,std::vector<Atom*>> rs;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04235}04235   Eigen::Vector3d fixedbond,defbond;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04236}04236   \textcolor{keywordflow}{if}(angex)}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04237}04237   \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04238}04238     rs=randomSelect(atgeom);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04239}04239     fixedbond=src-\/>\mbox{\hyperlink{classAtom_a40e4a43205a24f5e64ea0d27994a3efb}{bondVectorTo}}(get<0>(rs));}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04240}04240     ang=sys.ff-\/>getAngleParamtersFailsafe(get<0>(rs)-\/>toString(),src-\/>\mbox{\hyperlink{classAtom_a189def3b8bade8507d49cfd7de881178}{toString}}(),natom-\/>\mbox{\hyperlink{classAtom_a189def3b8bade8507d49cfd7de881178}{toString}}())[0];}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04241}04241     \textcolor{keywordflow}{if}(!(get<1>(rs).size())) \{dihexist=\textcolor{keyword}{false};\}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04242}04242     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04243}04243     \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04244}04244       \mbox{\hyperlink{classAtom}{Atom}}* rs2=randomSelect(get<1>(rs));}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04245}04245       \textcolor{comment}{//dih.push\_back(sys.ff-\/>getDihedralParametersFailsafe(rs2-\/>toString(),get<0>(rs)-\/>toString(),src-\/>toString(),natom-\/>toString())[0]);}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04246}04246 }
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04247}04247                 \textcolor{comment}{//if(!natom-\/>isHydrogen() \&\& aromcat \&\& aromcat-\/>contains(src) \&\& !src-\/>isCyclized())}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04248}04248             \textcolor{keywordflow}{if}(!natom-\/>\mbox{\hyperlink{classAtom_a99ed78f1b94d694b0f3fac609fd92934}{isHydrogen}}() \&\& aromcat \&\& aromcat-\/>\mbox{\hyperlink{classCategory_a3ffa41a593852318c167862171166f1b}{contains}}(src) \&\& !src-\/>\mbox{\hyperlink{classAtom_a1816a8312c1cd338b507522c6c1bde6b}{isCyclized}}() \&\& (!ALLOW\_BIPHENYL || !rs2-\/>\mbox{\hyperlink{classAtom_a1816a8312c1cd338b507522c6c1bde6b}{isCyclized}}()))}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04249}04249             \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04250}04250                 \textcolor{keywordflow}{if}(aromcat-\/>\mbox{\hyperlink{classCategory_a3ffa41a593852318c167862171166f1b}{contains}}(rs2)) \{cout << \textcolor{stringliteral}{"{}Forcing 0 dihedral for aromatic atom\(\backslash\)n"{}}; dih=std::vector<double>(1,0.0);\}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04251}04251                 \textcolor{keywordflow}{else} \{cout << \textcolor{stringliteral}{"{}Forcing 180 (degree) dihedral for aromatic atom wrt to non-\/aromatic atom\(\backslash\)n"{}}; dih=std::vector<double>(1,PI);\}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04252}04252             \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04253}04253             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04254}04254             \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04255}04255         \textcolor{keyword}{auto} pars=sys.ff-\/>getDihedralParametersFailsafe(rs2-\/>\mbox{\hyperlink{classAtom_a189def3b8bade8507d49cfd7de881178}{toString}}(),get<0>(rs)-\/>toString(),src-\/>\mbox{\hyperlink{classAtom_a189def3b8bade8507d49cfd7de881178}{toString}}(),natom-\/>\mbox{\hyperlink{classAtom_a189def3b8bade8507d49cfd7de881178}{toString}}());}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04256}04256         \textcolor{comment}{//dih=std::vector<double>(1,pars[0]*pars[2]);}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04257}04257         \textcolor{comment}{//cout<<"{}\(\backslash\)t"{}<<dih[0]<<"{}\(\backslash\)t"{}<< rs2-\/>toString()<<"{},"{}<<get<0>(rs)-\/>toString()<<"{},"{}<<src-\/>toString()<<"{},"{}<<natom-\/>toString()<<"{}\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04258}04258         dih=\mbox{\hyperlink{classForceField_a0b53370d39b444980839b0b6181ee0cf}{ForceField::expandMultiplicity}}(pars[0],pars[2]);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04259}04259             \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04260}04260       \textcolor{comment}{//cout << dih <<"{}:\(\backslash\)tchosen for "{}<<rs2-\/>toString()<<"{},"{}<<get<0>(rs)-\/>toString()<<"{},"{}<<src-\/>toString()<<"{},"{}<<natom-\/>toString()<<"{}\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04261}04261       defbond=get<0>(rs)-\/>bondVectorTo(rs2);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04262}04262       dihexist=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04263}04263     \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04264}04264   \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04265}04265     \textcolor{comment}{//cout << "{}Found parameters: Length="{}<<length<<"{}, Angle="{}<<(ang*57.28)<<"{}, Dihedral="{}<<dih<<"{}\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04266}04266   \textcolor{comment}{//cout << "{}Required angle: "{}<<ang<<"{}\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04267}04267     \textcolor{keywordflow}{while}(ret.size()<num)}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04268}04268     \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04269}04269     \textcolor{comment}{//ang=rule-\/>predictAngle(randomSelect(bondcol),src,natom);}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04270}04270     \textcolor{keywordflow}{if}(angex)}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04271}04271     \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04272}04272       \textcolor{keywordflow}{if}(!dihexist) \{\textcolor{comment}{/*cout << "{}No dihedral constraints\(\backslash\)n"{};*/} temp=\mbox{\hyperlink{namespacequickgeom_aa2a985eca968dd07d69c6460717c1d1c}{quickgeom::getConePositions}}(fixedbond,length,ang,num*10,devid);\} \textcolor{comment}{//Checked that angle is in radians.}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04273}04273       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04274}04274       \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04275}04275         \textcolor{comment}{//cout << "{}\(\backslash\)ttemp = "{}<<"{}quickgeom::getArcPositions("{}<<fixedbond.transpose()<<"{},"{}<<defbond.transpose()<<"{},"{}<<length<<"{},"{}<<ang<<"{},"{}<<dih<<"{},"{}<<num<<"{});\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04276}04276         temp=\mbox{\hyperlink{namespacequickgeom_af60aae27d8f525f83c7088e81fcda69f}{quickgeom::getArcPositions}}(fixedbond,defbond,length,ang,dih,num,devid);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04277}04277       \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04278}04278     \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04279}04279         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\& v : temp)}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04280}04280         \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04281}04281             acc=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04282}04282       cyc=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04283}04283       dihe=0; intlje=0; hsben=0;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04284}04284             natom-\/>\mbox{\hyperlink{classAtom_a34fc2756d0f817a9ee6cf91c797d8bcc}{setPosition}}(v+src-\/>\mbox{\hyperlink{classAtom_a73b92d7b24611f250127856e3b52ed31}{getPosition}}());}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04285}04285       \textcolor{comment}{//cout << "{}Position: "{}<<natom-\/>getPosition().transpose()<<"{}\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04286}04286       \textcolor{keywordflow}{if}(angex \&\& abs(\mbox{\hyperlink{namespacechemtools_a330bbc0a28d98a7b8d22150d8e590050}{chemtools::getAngle}}(natom,src,get<0>(rs))-\/ang)>THETACUT) \{acc=\textcolor{keyword}{false}; \textcolor{keywordflow}{break};\} \textcolor{comment}{//The positions are very closely clustered so don't even try the rest.}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04287}04287       intlje=0;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04288}04288       hsben=0;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04289}04289       \textcolor{keywordflow}{if}(!natom-\/>\mbox{\hyperlink{classAtom_a99ed78f1b94d694b0f3fac609fd92934}{isHydrogen}}())}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04290}04290       \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04291}04291         \textcolor{keywordflow}{for}(\mbox{\hyperlink{classMolecule}{Molecule}}* m : sys.getMolecules())}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04292}04292         \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04293}04293           \textcolor{keywordflow}{if}(m-\/>type==1) \textcolor{keywordflow}{continue}; \textcolor{comment}{//calculated below}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04294}04294           \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* c : m-\/>getAtoms())}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04295}04295           \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04296}04296             \textcolor{keywordflow}{if}(c==src) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04297}04297             vdis=c-\/>distanceFrom(natom);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04298}04298             \textcolor{keywordflow}{if}(vdis<RCUT) \{acc=\textcolor{keyword}{false}; \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04299}04299             \textcolor{comment}{//if(vdis<md) md=vdis;}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04300}04300             \textcolor{keywordflow}{if}(c-\/>isHydrogen()) \{\textcolor{keywordflow}{if}(!ign) intlje+=\mbox{\hyperlink{namespacechemtools_a4d736b938261879ac0c621cd97172a7a}{getNonbondingPotential}}(c,natom); \textcolor{keywordflow}{continue};\}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04301}04301             \textcolor{keywordflow}{try} \{ct=sys.ff-\/>getBondLength(c,natom,\textcolor{keyword}{true});\} \textcolor{keywordflow}{catch}(\mbox{\hyperlink{classDataNotAvailableException}{DataNotAvailableException}} ex) \{ct=0;\}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04302}04302                         \textcolor{comment}{//if(vdis<md) \{acc=false; break;\}}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04303}04303             ign=contains(ignore,c);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04304}04304             \textcolor{keywordflow}{if}(vdis<CYCCUT) \textcolor{comment}{//How about replacing with energy criteria?}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04305}04305             \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04306}04306               \textcolor{comment}{//cout << "{}Too close\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04307}04307                             \textcolor{keywordflow}{if}(cyc)}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04308}04308                             \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04309}04309                                 \textcolor{keywordflow}{if}(!QUIET) cout << \textcolor{stringliteral}{"{}RINGREJ\(\backslash\)t"{}}<<natom-\/>\mbox{\hyperlink{classAtom_a189def3b8bade8507d49cfd7de881178}{toString}}()<<\textcolor{stringliteral}{"{} with "{}}<<c-\/>toString()<<\textcolor{stringliteral}{"{}: Clashing Rings\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04310}04310                                 acc=\textcolor{keyword}{false}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04311}04311                             \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04312}04312               \textcolor{keywordflow}{if}(!ct)}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04313}04313                             \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04314}04314                                 \textcolor{keywordflow}{if}(!QUIET) cout << \textcolor{stringliteral}{"{}RINGREJ\(\backslash\)t"{}}<<natom-\/>\mbox{\hyperlink{classAtom_a189def3b8bade8507d49cfd7de881178}{toString}}()<<\textcolor{stringliteral}{"{} with "{}}<<c-\/>toString()<<\textcolor{stringliteral}{"{}: No bond defined\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04315}04315                                 acc=\textcolor{keyword}{false}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04316}04316                             \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04317}04317               \textcolor{keywordflow}{if}(!sys.ff-\/>acceptNewBond(src,bondcol,natom) \&\& !ign) \{acc=\textcolor{keyword}{false}; \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04318}04318               \textcolor{keywordflow}{if}((!c-\/>canBond() \&\& !ign) || natom-\/>\mbox{\hyperlink{classAtom_ae2ac3a6ffdc90898d06d05eaf374960e}{seek\_valency}}()<2) \{acc=\textcolor{keyword}{false}; \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04319}04319 }
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04320}04320               \textcolor{keywordflow}{if}(!ign \&\& abs(vdis-\/ct)>CYCLENVAR)}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04321}04321                             \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04322}04322                                 \textcolor{keywordflow}{if}(!QUIET) cout << \textcolor{stringliteral}{"{}RINGREJ\(\backslash\)t"{}}<<natom-\/>\mbox{\hyperlink{classAtom_a189def3b8bade8507d49cfd7de881178}{toString}}()<<\textcolor{stringliteral}{"{} with "{}}<<c-\/>toString()<<\textcolor{stringliteral}{"{}: Bad bond-\/length\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04323}04323                                 acc=\textcolor{keyword}{false}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04324}04324                             \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04325}04325               \textcolor{keyword}{auto} bats=mol-\/>\mbox{\hyperlink{classMolecule_aef77043ab98f1008a15a1e52d85b827e}{getBondedAtoms}}(c);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04326}04326               \textcolor{keywordflow}{if}(!ign \&\& (!sys.ff-\/>isSatisfied(c,natom,bats) || !sys.ff-\/>isSatisfied(natom,c,std::vector<Atom*>(1,src))))}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04327}04327                             \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04328}04328                                 \textcolor{keywordflow}{if}(!QUIET) cout << \textcolor{stringliteral}{"{}RINGREJ\(\backslash\)t"{}}<<natom-\/>\mbox{\hyperlink{classAtom_a189def3b8bade8507d49cfd7de881178}{toString}}()<<\textcolor{stringliteral}{"{} with "{}}<<c-\/>toString()<<\textcolor{stringliteral}{"{}: Unsatisfied atom type\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04329}04329                                 acc=\textcolor{keyword}{false}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04330}04330                             \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04331}04331               \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* n : bats)}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04332}04332                             \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04333}04333                                 \textcolor{keywordflow}{if}(sys.ff-\/>calculateAngleEnergy(n,c,natom,\textcolor{keyword}{true},1.5*THETACUT)!=0)}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04334}04334                                 \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04335}04335                                     \textcolor{keywordflow}{if}(!QUIET) cout << \textcolor{stringliteral}{"{}RINGREJ\(\backslash\)t"{}}<<natom-\/>\mbox{\hyperlink{classAtom_a189def3b8bade8507d49cfd7de881178}{toString}}()<<\textcolor{stringliteral}{"{} with "{}}<<c-\/>toString()<<\textcolor{stringliteral}{"{}: Bad angle\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04336}04336                                     acc=\textcolor{keyword}{false}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04337}04337                                 \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04338}04338                             \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04339}04339                             \textcolor{keywordflow}{if}(!acc) \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04340}04340               cyc=ign=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04341}04341                             \textcolor{keywordflow}{if}(!QUIET) cout << \textcolor{stringliteral}{"{}RINGACC\(\backslash\)t"{}}<<natom-\/>\mbox{\hyperlink{classAtom_a189def3b8bade8507d49cfd7de881178}{toString}}()<<\textcolor{stringliteral}{"{} with "{}}<<c-\/>toString()<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04342}04342             \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04343}04343             \textcolor{keywordflow}{if}(!ign) intlje+=\mbox{\hyperlink{namespacechemtools_a4d736b938261879ac0c621cd97172a7a}{getNonbondingPotential}}(c,natom);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04344}04344           \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04345}04345         \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04346}04346       \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04347}04347             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04348}04348             \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04349}04349                 \textcolor{keywordflow}{for}(\mbox{\hyperlink{classMolecule}{Molecule}}* m : sys.getMolecules())}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04350}04350         \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04351}04351                     \textcolor{keywordflow}{if}(m-\/>type==1) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04352}04352           \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* c : m-\/>getAtoms())}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04353}04353           \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04354}04354                         \textcolor{keywordflow}{if}(c==src) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04355}04355                         \textcolor{keywordflow}{if}(contains(ignore,c)) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04356}04356                         vdis=c-\/>distanceFrom(natom);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04357}04357                         \textcolor{keywordflow}{if}(vdis<RCUT*0.67) \{acc=\textcolor{keyword}{false}; \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04358}04358                     \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04359}04359                 \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04360}04360             \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04361}04361       \textcolor{keywordflow}{if}(!acc) \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04362}04362             proten=0;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04363}04363       \textcolor{keywordflow}{for}(\mbox{\hyperlink{classMolecule}{Molecule}}* m : sys.getMolecules())}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04364}04364       \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04365}04365         \textcolor{keywordflow}{if}(m-\/>type==1)}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04366}04366         \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04367}04367           \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* pa : m-\/>getAtoms()) \textcolor{comment}{//Can restrain atom selection here to ensure only nearby atoms are selected}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04368}04368           \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04369}04369             \textcolor{keywordflow}{if}(!natom-\/>\mbox{\hyperlink{classAtom_a99ed78f1b94d694b0f3fac609fd92934}{isHydrogen}}() \&\& !pa-\/>isHydrogen() \&\& pa-\/>distanceFrom(natom)<PROTCUT) \{acc=\textcolor{keyword}{false}; \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04370}04370             tempen=\mbox{\hyperlink{namespacechemtools_a4d736b938261879ac0c621cd97172a7a}{chemtools::getNonbondingPotential}}(pa,natom);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04371}04371             \textcolor{comment}{//if(throwarandompoint(0,1)>boltzmannFactor(tempen,sys.temp)) \{acc=false; break;\}}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04372}04372             intlje+=tempen;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04373}04373                         proten+=tempen;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04374}04374           \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04375}04375                     \textcolor{keywordflow}{if}(proten>SINGLEATOMENERLIM) acc=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04376}04376                     \textcolor{keywordflow}{if}(!acc) \{\textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04377}04377                     \textcolor{keywordflow}{if}(!natom-\/>\mbox{\hyperlink{classAtom_a99ed78f1b94d694b0f3fac609fd92934}{isHydrogen}}())}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04378}04378                     \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04379}04379                         \textcolor{keywordflow}{if}(sys.getContainer()) acc=sys.getContainer()-\/>contains(natom-\/>\mbox{\hyperlink{classAtom_a73b92d7b24611f250127856e3b52ed31}{getPosition}}());}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04380}04380                         \textcolor{keywordflow}{if}(acc \&\& restr)}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04381}04381                         \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04382}04382                             acc=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04383}04383                             \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* hsa : ((\mbox{\hyperlink{classProtein}{Protein}}*)m)-\/>getHotspotAtoms()) \{\textcolor{keywordflow}{if}(hsa-\/>distanceFrom(natom)<RESTRAINDISTANCE) \{acc=\textcolor{keyword}{true}; \textcolor{keywordflow}{break};\}\}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04384}04384                         \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04385}04385                         \textcolor{keywordflow}{if}(!acc) \{\textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04386}04386                     \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04387}04387           \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* pa : ((\mbox{\hyperlink{classProtein}{Protein}}*)m)-\/>getHotspotAtoms()) hsben+=\mbox{\hyperlink{namespacechemtools_a4d736b938261879ac0c621cd97172a7a}{chemtools::getNonbondingPotential}}(pa,natom);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04388}04388         \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04389}04389       \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04390}04390       \textcolor{keywordflow}{if}(cyc) \{dihe=0; intlje=0;\}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04391}04391             \textcolor{keywordflow}{if}(intlje>SINGLEATOMINTENERLIM) acc=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04392}04392             \textcolor{keywordflow}{if}(!acc) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04393}04393       \textcolor{comment}{//dihe+=intlje;}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04394}04394             \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\& p : atgeom)}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04395}04395             \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04396}04396         \mbox{\hyperlink{classAtom}{Atom}}* a=get<0>(p);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04397}04397                 \textcolor{comment}{//cout << getAngle(a,src,natom) << "{}\(\backslash\)t"{} << (sys.ff.getAngleParamtersFailsafe(a-\/>toString(),src-\/>toString(),natom-\/>toString()))[0] << "{}\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04398}04398                 \textcolor{comment}{//if(abs(getAngle(a,src,natom)-\/(sys.ff.getAngleParamtersFailsafe(a-\/>toString(),src-\/>toString(),natom-\/>toString()))[0])>(10*PI/180.0)) \{cout << "{}R\(\backslash\)\(\backslash\)a-\/1,"{}; acc=false; break;\}}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04399}04399         \textcolor{keywordflow}{if}(!dihexist || natom-\/>\mbox{\hyperlink{classAtom_a99ed78f1b94d694b0f3fac609fd92934}{isHydrogen}}()) \textcolor{keywordflow}{if}(sys.ff-\/>calculateAngleEnergy(a,src,natom,\textcolor{keyword}{true},THETACUT)!=0) \{acc=\textcolor{keyword}{false}; \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04400}04400                 \textcolor{comment}{//angcol=mol-\/>getBondedAtoms(a);}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04401}04401                 \textcolor{comment}{/*for(Atom* a2 : get<1>(p))}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04402}04402 \textcolor{comment}{                \{}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04403}04403 \textcolor{comment}{                    if(a2==src) continue;}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04404}04404 \textcolor{comment}{                    //if(mol-\/>calculateDihedralEnergy(a2,a,src,natom)<DIHEDENERCUT) \{acc=false; break;\}}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04405}04405 \textcolor{comment}{                    //if(ff.calculateDihedralEnergy(a2,a,src,natom,true,DIHEDTHETACUT)) \{acc=false; break;\}}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04406}04406 \textcolor{comment}{          dihe+=sys.ff.calculateDihedralEnergy(a2,a,src,natom,false);}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04407}04407 \textcolor{comment}{                \}*/}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04408}04408                 \textcolor{keywordflow}{if}(!acc) \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04409}04409             \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04410}04410       \textcolor{comment}{//cout << "{}\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04411}04411             \textcolor{keywordflow}{if}(acc) \{\textcolor{comment}{/*if(cyc) return make\_pair(v,make\_pair(0,0));*/} ret.push\_back(make\_pair(v+src-\/>\mbox{\hyperlink{classAtom_a73b92d7b24611f250127856e3b52ed31}{getPosition}}(),make\_pair(intlje,make\_pair(proten,hsben))));\}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04412}04412             \textcolor{keywordflow}{if}(ret.size()>=num || cyc) \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04413}04413         \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04414}04414         tries-\/-\/;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04415}04415         \textcolor{keywordflow}{if}(tries<=0) \textcolor{keywordflow}{break}; \textcolor{comment}{//\{mol-\/>dumpMolAsTxt("{}faileddrug.txt"{}); break;\}}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04416}04416     \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04417}04417     \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l04418}04418 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacechemtools_a0257a011fb4df690121cb9bf71cc67e8}\label{namespacechemtools_a0257a011fb4df690121cb9bf71cc67e8}} 
+\index{chemtools@{chemtools}!getElectrostaticEnergy@{getElectrostaticEnergy}}
+\index{getElectrostaticEnergy@{getElectrostaticEnergy}!chemtools@{chemtools}}
+\doxysubsubsection{\texorpdfstring{getElectrostaticEnergy()}{getElectrostaticEnergy()}}
+{\footnotesize\ttfamily static double chemtools\+::get\+Electrostatic\+Energy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a1,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a2,  }\item[{double}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Get the electrostatic interaction energy between two atoms distance \textquotesingle{}r\textquotesingle{} apart. 
+
+This function does not use the positions of the atoms provided to get the distance. Instead these atoms are used only as holders for atom-\/type data and it uses the charges from the atom-\/type data as well. 
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l00352}{352}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l00352}00352 \{\textcolor{keywordflow}{return} calculateElectrostaticPotential(a1-\/>\mbox{\hyperlink{classAtom_a2b74c9d1a56b37907b911dff932e06bb}{seek\_charge}}(),a2-\/>\mbox{\hyperlink{classAtom_a2b74c9d1a56b37907b911dff932e06bb}{seek\_charge}}(),r,(a1-\/>\mbox{\hyperlink{classAtom_a4c63bddb98ac4001372af2f6e5279fe5}{posdev}}+a2-\/>\mbox{\hyperlink{classAtom_a4c63bddb98ac4001372af2f6e5279fe5}{posdev}})/2);\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacechemtools_a79d7722db71286b1fe58858f47f72dbe}\label{namespacechemtools_a79d7722db71286b1fe58858f47f72dbe}} 
+\index{chemtools@{chemtools}!getElectrostaticForce@{getElectrostaticForce}}
+\index{getElectrostaticForce@{getElectrostaticForce}!chemtools@{chemtools}}
+\doxysubsubsection{\texorpdfstring{getElectrostaticForce()}{getElectrostaticForce()}}
+{\footnotesize\ttfamily static double chemtools\+::get\+Electrostatic\+Force (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a1,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a2,  }\item[{double}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Get the electrostatic force between two atoms distance \textquotesingle{}r\textquotesingle{} apart. 
+
+This function does not use the positions of the atoms provided to get the distance. Instead these atoms are used only as holders for atom-\/type data and it uses the charges from the atom-\/type data as well. 
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l00356}{356}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l00356}00356 \{\textcolor{keywordflow}{return} calculateElectrostaticForce(a1-\/>\mbox{\hyperlink{classAtom_a2b74c9d1a56b37907b911dff932e06bb}{seek\_charge}}(),a2-\/>\mbox{\hyperlink{classAtom_a2b74c9d1a56b37907b911dff932e06bb}{seek\_charge}}(),r);\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacechemtools_a56a8750722bf7f58e4dd0539497527e7}\label{namespacechemtools_a56a8750722bf7f58e4dd0539497527e7}} 
+\index{chemtools@{chemtools}!getLJForce@{getLJForce}}
+\index{getLJForce@{getLJForce}!chemtools@{chemtools}}
+\doxysubsubsection{\texorpdfstring{getLJForce()}{getLJForce()}}
+{\footnotesize\ttfamily static double chemtools\+::get\+LJForce (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a1,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a2,  }\item[{double}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Get the L-\/J (Lennard Jones) force between two atoms distance \textquotesingle{}r\textquotesingle{} apart. 
+
+This function does not use the positions of the atoms provided to get the distance. Instead these atoms are used only as holders for atom-\/type data and it uses the internal σ, ε from the atom-\/type data as well 
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l00364}{364}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l00364}00364 \{\textcolor{keywordflow}{return} calculateLJForce(a1-\/>\mbox{\hyperlink{classAtom_af064e5513e564187fd4e5726c9c1d5a7}{seek\_sigma}}(),a2-\/>\mbox{\hyperlink{classAtom_af064e5513e564187fd4e5726c9c1d5a7}{seek\_sigma}}(),a1-\/>\mbox{\hyperlink{classAtom_a9affdff9e2e1ac38e17f13428d678044}{seek\_epsilon}}(),a2-\/>\mbox{\hyperlink{classAtom_a9affdff9e2e1ac38e17f13428d678044}{seek\_epsilon}}(),r);\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacechemtools_a7437535dfce8aac7d0e53487331c5062}\label{namespacechemtools_a7437535dfce8aac7d0e53487331c5062}} 
+\index{chemtools@{chemtools}!getLJInteraction@{getLJInteraction}}
+\index{getLJInteraction@{getLJInteraction}!chemtools@{chemtools}}
+\doxysubsubsection{\texorpdfstring{getLJInteraction()}{getLJInteraction()}}
+{\footnotesize\ttfamily static double chemtools\+::get\+LJInteraction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a1,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a2,  }\item[{double}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Get the L-\/J (Lennard Jones) interaction energy between two atoms distance \textquotesingle{}r\textquotesingle{} apart. 
+
+This function does not use the positions of the atoms provided to get the distance. Instead these atoms are used only as holders for atom-\/type data and it uses the internal σ, ε from the atom-\/type data as well 
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l00360}{360}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l00360}00360 \{\textcolor{keywordflow}{return} calculateLJEnergy(a1-\/>\mbox{\hyperlink{classAtom_af064e5513e564187fd4e5726c9c1d5a7}{seek\_sigma}}(),a2-\/>\mbox{\hyperlink{classAtom_af064e5513e564187fd4e5726c9c1d5a7}{seek\_sigma}}(),a1-\/>\mbox{\hyperlink{classAtom_a9affdff9e2e1ac38e17f13428d678044}{seek\_epsilon}}(),a2-\/>\mbox{\hyperlink{classAtom_a9affdff9e2e1ac38e17f13428d678044}{seek\_epsilon}}(),r,(a1-\/>\mbox{\hyperlink{classAtom_a4c63bddb98ac4001372af2f6e5279fe5}{posdev}}+a2-\/>\mbox{\hyperlink{classAtom_a4c63bddb98ac4001372af2f6e5279fe5}{posdev}})/2);\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacechemtools_ac0566d6420d090a2cd4d9530bca1b769}\label{namespacechemtools_ac0566d6420d090a2cd4d9530bca1b769}} 
+\index{chemtools@{chemtools}!getRuleset@{getRuleset}}
+\index{getRuleset@{getRuleset}!chemtools@{chemtools}}
+\doxysubsubsection{\texorpdfstring{getRuleset()}{getRuleset()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::vector$<$ \mbox{\hyperlink{classchemtools_1_1Rule}{chemtools\+::\+Rule}} $>$ $>$ $>$ chemtools\+::get\+Ruleset (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file,  }\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$}]{ff = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Load all rules from a file. 
+
+Load all the rules atomtype-\/wise from the input file. \mbox{\hyperlink{namespacechemtools_a6c73fdd6c186f091225ee45907fe6b66}{build\+Rules()}} is used to build the rules.~\newline
+ See the documentation PDF for the atom-\/type definition file format \begin{DoxyReturn}{Returns}
+a list with pairs of atom-\/types and the list of rules it is expected to satisfy (std\+::vector$<$std\+::pair$<$std\+::string,std\+::vector$<$\+Rule$>$$>$$>$) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{forcefield_8hpp_source_l01287}{1287}} of file \mbox{\hyperlink{forcefield_8hpp_source}{forcefield.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01288}01288 \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01289}01289     std::vector<std::pair<std::string,std::vector<chemtools::Rule>>> ret;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01290}01290     std::ifstream inf; inf.open(file,ios::in);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01291}01291     \textcolor{keywordflow}{if}(!inf) \textcolor{keywordflow}{throw} \mbox{\hyperlink{classFileNotFoundException}{FileNotFoundException}}();}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01292}01292     std::string str;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01293}01293     \textcolor{keywordtype}{int} constcount=0;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01294}01294     \textcolor{keywordflow}{while}(\textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01295}01295     \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01296}01296         getline(inf,str);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01297}01297         \textcolor{keywordflow}{if}(inf.eof()) \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01298}01298         std::vector<chemtools::Rule> rules=\mbox{\hyperlink{namespacechemtools_a6c73fdd6c186f091225ee45907fe6b66}{buildRules}}(str,ff);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01299}01299         \textcolor{keywordflow}{if}(!rules.size()) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01300}01300         \textcolor{keywordflow}{if}(ff)}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01301}01301         \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01302}01302             \textcolor{comment}{//cout << rules[0].getCentre()<<"{} "{}<< rules.size() <<"{}\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01303}01303             constcount=0;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01304}01304             \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}}\& r : rules) constcount+=r.getMin();}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01305}01305 \textcolor{preprocessor}{            \#ifndef QUIET}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01306}01306             cout << rules[0].getCentre()<<\textcolor{stringliteral}{"{} "{}}<< constcount <<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01307}01307 \textcolor{preprocessor}{            \#endif}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01308}01308             \textcolor{comment}{//if(constcount>ff-\/>getAtom(rules[0].getCentre())-\/>seek\_valency()) throw RulesExceedValenciesException();}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01309}01309         \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01310}01310         ret.push\_back(make\_pair(rules[0].getCentre(),rules));}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01311}01311     \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01312}01312     \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01313}01313 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacechemtools_ac0566d6420d090a2cd4d9530bca1b769}\label{namespacechemtools_ac0566d6420d090a2cd4d9530bca1b769}} 
+\index{chemtools@{chemtools}!getRuleset@{getRuleset}}
+\index{getRuleset@{getRuleset}!chemtools@{chemtools}}
+\doxysubsubsection{\texorpdfstring{getRuleset()}{getRuleset()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::vector$<$ \mbox{\hyperlink{classchemtools_1_1Rule}{chemtools\+::\+Rule}} $>$ $>$ $>$ chemtools\+::get\+Ruleset (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file,  }\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$}]{ff = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Load all rules from a file. 
+
+Load all the rules atomtype-\/wise from the input file. \mbox{\hyperlink{namespacechemtools_a6c73fdd6c186f091225ee45907fe6b66}{build\+Rules()}} is used to build the rules.~\newline
+ See the documentation PDF for the atom-\/type definition file format \begin{DoxyReturn}{Returns}
+a list with pairs of atom-\/types and the list of rules it is expected to satisfy (std\+::vector$<$std\+::pair$<$std\+::string,std\+::vector$<$\+Rule$>$$>$$>$) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{forcefield__precomp_8hpp_source_l01190}{1190}} of file \mbox{\hyperlink{forcefield__precomp_8hpp_source}{forcefield\+\_\+precomp.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01191}01191 \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01192}01192     std::vector<std::pair<std::string,std::vector<chemtools::Rule>>> ret;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01193}01193     std::ifstream inf; inf.open(file,ios::in);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01194}01194     \textcolor{keywordflow}{if}(!inf) \textcolor{keywordflow}{throw} \mbox{\hyperlink{classFileNotFoundException}{FileNotFoundException}}();}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01195}01195     std::string str;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01196}01196     \textcolor{keywordtype}{int} constcount=0;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01197}01197     \textcolor{keywordflow}{while}(\textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01198}01198     \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01199}01199         getline(inf,str);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01200}01200         \textcolor{keywordflow}{if}(inf.eof()) \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01201}01201         std::vector<chemtools::Rule> rules=\mbox{\hyperlink{namespacechemtools_a6c73fdd6c186f091225ee45907fe6b66}{buildRules}}(str,ff);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01202}01202         \textcolor{keywordflow}{if}(!rules.size()) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01203}01203         \textcolor{keywordflow}{if}(ff)}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01204}01204         \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01205}01205             \textcolor{comment}{//cout << rules[0].getCentre()<<"{} "{}<< rules.size() <<"{}\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01206}01206             constcount=0;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01207}01207             \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}}\& r : rules) constcount+=r.getMin();}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01208}01208 \textcolor{preprocessor}{            \#ifndef QUIET}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01209}01209             cout << rules[0].getCentre()<<\textcolor{stringliteral}{"{} "{}}<< constcount <<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01210}01210 \textcolor{preprocessor}{            \#endif}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01211}01211             \textcolor{comment}{//if(constcount>ff-\/>getAtom(rules[0].getCentre())-\/>seek\_valency()) throw RulesExceedValenciesException();}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01212}01212         \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01213}01213         ret.push\_back(make\_pair(rules[0].getCentre(),rules));}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01214}01214     \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01215}01215     \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01216}01216 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacechemtools_ac0566d6420d090a2cd4d9530bca1b769}\label{namespacechemtools_ac0566d6420d090a2cd4d9530bca1b769}} 
+\index{chemtools@{chemtools}!getRuleset@{getRuleset}}
+\index{getRuleset@{getRuleset}!chemtools@{chemtools}}
+\doxysubsubsection{\texorpdfstring{getRuleset()}{getRuleset()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::vector$<$ \mbox{\hyperlink{classchemtools_1_1Rule}{chemtools\+::\+Rule}} $>$ $>$ $>$ chemtools\+::get\+Ruleset (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file,  }\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$}]{ff = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Load all rules from a file. 
+
+Load all the rules atomtype-\/wise from the input file. \mbox{\hyperlink{namespacechemtools_a6c73fdd6c186f091225ee45907fe6b66}{build\+Rules()}} is used to build the rules.~\newline
+ See the documentation PDF for the atom-\/type definition file format \begin{DoxyReturn}{Returns}
+a list with pairs of atom-\/types and the list of rules it is expected to satisfy (std\+::vector$<$std\+::pair$<$std\+::string,std\+::vector$<$\+Rule$>$$>$$>$) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{forcefield__precomp__omega__stable_8hpp_source_l01095}{1095}} of file \mbox{\hyperlink{forcefield__precomp__omega__stable_8hpp_source}{forcefield\+\_\+precomp\+\_\+omega\+\_\+stable.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01096}01096 \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01097}01097     std::vector<std::pair<std::string,std::vector<chemtools::Rule>>> ret;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01098}01098     std::ifstream inf; inf.open(file,ios::in);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01099}01099     \textcolor{keywordflow}{if}(!inf) \textcolor{keywordflow}{throw} \mbox{\hyperlink{classFileNotFoundException}{FileNotFoundException}}();}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01100}01100     std::string str;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01101}01101     \textcolor{keywordtype}{int} constcount=0;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01102}01102     \textcolor{keywordflow}{while}(\textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01103}01103     \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01104}01104         getline(inf,str);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01105}01105         \textcolor{keywordflow}{if}(inf.eof()) \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01106}01106         std::vector<chemtools::Rule> rules=\mbox{\hyperlink{namespacechemtools_a6c73fdd6c186f091225ee45907fe6b66}{buildRules}}(str,ff);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01107}01107         \textcolor{keywordflow}{if}(!rules.size()) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01108}01108         \textcolor{keywordflow}{if}(ff)}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01109}01109         \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01110}01110             \textcolor{comment}{//cout << rules[0].getCentre()<<"{} "{}<< rules.size() <<"{}\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01111}01111             constcount=0;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01112}01112             \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}}\& r : rules) constcount+=r.getMin();}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01113}01113 \textcolor{preprocessor}{            \#ifndef QUIET}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01114}01114             cout << rules[0].getCentre()<<\textcolor{stringliteral}{"{} "{}}<< constcount <<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01115}01115 \textcolor{preprocessor}{            \#endif}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01116}01116             \textcolor{comment}{//if(constcount>ff-\/>getAtom(rules[0].getCentre())-\/>seek\_valency()) throw RulesExceedValenciesException();}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01117}01117         \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01118}01118         ret.push\_back(make\_pair(rules[0].getCentre(),rules));}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01119}01119     \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01120}01120     \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01121}01121 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacechemtools_ac0566d6420d090a2cd4d9530bca1b769}\label{namespacechemtools_ac0566d6420d090a2cd4d9530bca1b769}} 
+\index{chemtools@{chemtools}!getRuleset@{getRuleset}}
+\index{getRuleset@{getRuleset}!chemtools@{chemtools}}
+\doxysubsubsection{\texorpdfstring{getRuleset()}{getRuleset()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::vector$<$ \mbox{\hyperlink{classchemtools_1_1Rule}{chemtools\+::\+Rule}} $>$ $>$ $>$ chemtools\+::get\+Ruleset (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file,  }\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$}]{ff = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Load all rules from a file. 
+
+Load all the rules atomtype-\/wise from the input file. \mbox{\hyperlink{namespacechemtools_a6c73fdd6c186f091225ee45907fe6b66}{build\+Rules()}} is used to build the rules.~\newline
+ See the documentation PDF for the atom-\/type definition file format \begin{DoxyReturn}{Returns}
+a list with pairs of atom-\/types and the list of rules it is expected to satisfy (std\+::vector$<$std\+::pair$<$std\+::string,std\+::vector$<$\+Rule$>$$>$$>$) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{forcefield__precomp__omega__stable2_8hpp_source_l01188}{1188}} of file \mbox{\hyperlink{forcefield__precomp__omega__stable2_8hpp_source}{forcefield\+\_\+precomp\+\_\+omega\+\_\+stable2.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01189}01189 \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01190}01190     std::vector<std::pair<std::string,std::vector<chemtools::Rule>>> ret;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01191}01191     std::ifstream inf; inf.open(file,ios::in);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01192}01192     \textcolor{keywordflow}{if}(!inf) \textcolor{keywordflow}{throw} \mbox{\hyperlink{classFileNotFoundException}{FileNotFoundException}}();}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01193}01193     std::string str;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01194}01194     \textcolor{keywordtype}{int} constcount=0;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01195}01195     \textcolor{keywordflow}{while}(\textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01196}01196     \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01197}01197         getline(inf,str);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01198}01198         \textcolor{keywordflow}{if}(inf.eof()) \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01199}01199         std::vector<chemtools::Rule> rules=\mbox{\hyperlink{namespacechemtools_a6c73fdd6c186f091225ee45907fe6b66}{buildRules}}(str,ff);}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01200}01200         \textcolor{keywordflow}{if}(!rules.size()) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01201}01201         \textcolor{keywordflow}{if}(ff)}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01202}01202         \{}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01203}01203             \textcolor{comment}{//cout << rules[0].getCentre()<<"{} "{}<< rules.size() <<"{}\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01204}01204             constcount=0;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01205}01205             \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}}\& r : rules) constcount+=r.getMin();}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01206}01206 \textcolor{preprocessor}{            \#ifndef QUIET}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01207}01207             cout << rules[0].getCentre()<<\textcolor{stringliteral}{"{} "{}}<< constcount <<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01208}01208 \textcolor{preprocessor}{            \#endif}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01209}01209             \textcolor{comment}{//if(constcount>ff-\/>getAtom(rules[0].getCentre())-\/>seek\_valency()) throw RulesExceedValenciesException();}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01210}01210         \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01211}01211         ret.push\_back(make\_pair(rules[0].getCentre(),rules));}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01212}01212     \}}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01213}01213     \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{\Hypertarget{namespacechemtools_l01214}01214 \}}
+
+\end{DoxyCode}

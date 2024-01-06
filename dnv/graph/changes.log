@@ -1,0 +1,14 @@
+CHANGES - These changes are over the previous eta_H version. This version: eta_H++ (currently developing)
+1) Can now pass extra parameter (last) as a molecule to use that as template and continue growing drugs from that baseline. 
+2) When ^C is used (SIGINT), dumped drug is now both in PDB format and CPT (Checkpoint, i.e. full-data) format. The CPT file can be directly used to construct the Molecule
+3) Added std::string based constructor to the Molecule
+4) Improved Atom class to make many functions inline and gave them the "const" flag for access-only (no-modification) methods.
+5) Overloaded the << operation for Atom object (Usage: cout << *atoms[i] << "\n";). This prints the atom in CPT (full-data) format
+6) Minor bug-fixes or modifications to support above changes (mainly in the generateSeedIndependantDrugMolecules() methods)
+7) The above function has many more checks added. For example, it will now throw an exception (instead of randomly crashing), if this method is called without load the bond parameters with the loadBondParameters() function.
+8) The Molecule class can now guess bonds by using vanderwaal radii if required.
+9) A makeBond method was inserted. It allows addition of a bond between two atoms (by index)
+10) !!!MANY MEMEORY LEAKS FIXED!!! (Leaks nearly 50x lower than eta-H)
+
+--Points brought to notice:
+1) Energy printed after growth (directly) and that calculated when loading the same molecule after growth, vary slightly. This may be due to decimal round off errors.

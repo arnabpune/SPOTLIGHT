@@ -1,0 +1,128 @@
+\hypertarget{classResidue}{}\doxysection{Residue Class Reference}
+\label{classResidue}\index{Residue@{Residue}}
+
+
+{\ttfamily \#include \char`\"{}forcefield/forcefield.\+hpp\char`\"{}}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classResidue_aa32f08546328ce39310dbf0323a57b9a}\label{classResidue_aa32f08546328ce39310dbf0323a57b9a}} 
+{\bfseries Residue} (const std\+::string \&rnm, const std\+::vector$<$ std\+::string $>$ \&lines)
+\begin{DoxyCompactList}\small\item\em Construct a residue by providing De\+Novo with the atom-\/type definition lines from the RTP file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_ad91ee78d613687cac3201442a5648de6}\label{classResidue_ad91ee78d613687cac3201442a5648de6}} 
+int {\bfseries get\+Atom\+Count} () const
+\begin{DoxyCompactList}\small\item\em Get the number of atoms defined in this \mbox{\hyperlink{classResidue}{Residue}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_abb4b36d0bc48f7315b98562c552e252e}\label{classResidue_abb4b36d0bc48f7315b98562c552e252e}} 
+const std\+::vector$<$ std\+::string $>$ \& {\bfseries get\+Aliases} () const
+\begin{DoxyCompactList}\small\item\em Get the list of aliases (unique atom labels given for the residue based on its position) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_a58e9b54f08a9ae7e929e747cd2d17a0a}\label{classResidue_a58e9b54f08a9ae7e929e747cd2d17a0a}} 
+const std\+::vector$<$ std\+::string $>$ \& {\bfseries get\+Actuals} () const
+\begin{DoxyCompactList}\small\item\em Get the list of actual atom-\/type names in the same order as they were loaded into the residue from the RTP file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_a6cb8c0c882cd5ad340bfffe3ea22955f}\label{classResidue_a6cb8c0c882cd5ad340bfffe3ea22955f}} 
+const std\+::vector$<$ double $>$ \& {\bfseries get\+Assigned\+Charges} () const
+\begin{DoxyCompactList}\small\item\em Get the list of actual charges (reassigned) in the same order as they were loaded into the residue from the RTP file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_aa439a7c9e95f8061e49855f4d3b84272}\label{classResidue_aa439a7c9e95f8061e49855f4d3b84272}} 
+std\+::string {\bfseries get\+Alias} (int x) const
+\begin{DoxyCompactList}\small\item\em Get the \textquotesingle{}x\textquotesingle{}th alias. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_ab526598c76926177b79d2390e58e08da}\label{classResidue_ab526598c76926177b79d2390e58e08da}} 
+std\+::string {\bfseries get\+Actual} (int x) const
+\begin{DoxyCompactList}\small\item\em Get the \textquotesingle{}x\textquotesingle{}th actual atom-\/type name. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_a120dfed7422d3914bef5a60af6cda918}\label{classResidue_a120dfed7422d3914bef5a60af6cda918}} 
+const std\+::string \& {\bfseries get\+Name} () const
+\begin{DoxyCompactList}\small\item\em Get the name of the \mbox{\hyperlink{classResidue}{Residue}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_a66d710bcdddfb9927718d3fdb503388b}\label{classResidue_a66d710bcdddfb9927718d3fdb503388b}} 
+std\+::string {\bfseries get\+Actual} (const std\+::string \&alias) const
+\begin{DoxyCompactList}\small\item\em Get the actual (force-\/field) atom-\/type name for a given alias. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_a54936450367425f1481d441d95ff2d8c}\label{classResidue_a54936450367425f1481d441d95ff2d8c}} 
+std\+::pair$<$ std\+::string, double $>$ {\bfseries get\+Actual\+With\+Charge} (const std\+::string \&alias) const
+\begin{DoxyCompactList}\small\item\em Get the actual (force-\/field) atom-\/type along with reassigned charge (if applicable) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_aa32f08546328ce39310dbf0323a57b9a}\label{classResidue_aa32f08546328ce39310dbf0323a57b9a}} 
+{\bfseries Residue} (const std\+::string \&rnm, const std\+::vector$<$ std\+::string $>$ \&lines)
+\begin{DoxyCompactList}\small\item\em Construct a residue by providing De\+Novo with the atom-\/type definition lines from the RTP file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_ad91ee78d613687cac3201442a5648de6}\label{classResidue_ad91ee78d613687cac3201442a5648de6}} 
+int {\bfseries get\+Atom\+Count} () const
+\begin{DoxyCompactList}\small\item\em Get the number of atoms defined in this \mbox{\hyperlink{classResidue}{Residue}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_abb4b36d0bc48f7315b98562c552e252e}\label{classResidue_abb4b36d0bc48f7315b98562c552e252e}} 
+const std\+::vector$<$ std\+::string $>$ \& {\bfseries get\+Aliases} () const
+\begin{DoxyCompactList}\small\item\em Get the list of aliases (unique atom labels given for the residue based on its position) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_a58e9b54f08a9ae7e929e747cd2d17a0a}\label{classResidue_a58e9b54f08a9ae7e929e747cd2d17a0a}} 
+const std\+::vector$<$ std\+::string $>$ \& {\bfseries get\+Actuals} () const
+\begin{DoxyCompactList}\small\item\em Get the list of actual atom-\/type names in the same order as they were loaded into the residue from the RTP file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_aa439a7c9e95f8061e49855f4d3b84272}\label{classResidue_aa439a7c9e95f8061e49855f4d3b84272}} 
+std\+::string {\bfseries get\+Alias} (int x) const
+\begin{DoxyCompactList}\small\item\em Get the \textquotesingle{}x\textquotesingle{}th alias. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_ab526598c76926177b79d2390e58e08da}\label{classResidue_ab526598c76926177b79d2390e58e08da}} 
+std\+::string {\bfseries get\+Actual} (int x) const
+\begin{DoxyCompactList}\small\item\em Get the \textquotesingle{}x\textquotesingle{}th actual atom-\/type name. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_a120dfed7422d3914bef5a60af6cda918}\label{classResidue_a120dfed7422d3914bef5a60af6cda918}} 
+const std\+::string \& {\bfseries get\+Name} () const
+\begin{DoxyCompactList}\small\item\em Get the name of the \mbox{\hyperlink{classResidue}{Residue}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_a66d710bcdddfb9927718d3fdb503388b}\label{classResidue_a66d710bcdddfb9927718d3fdb503388b}} 
+std\+::string {\bfseries get\+Actual} (const std\+::string \&alias) const
+\begin{DoxyCompactList}\small\item\em Get the actual (force-\/field) atom-\/type name for a given alias. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_aa32f08546328ce39310dbf0323a57b9a}\label{classResidue_aa32f08546328ce39310dbf0323a57b9a}} 
+{\bfseries Residue} (const std\+::string \&rnm, const std\+::vector$<$ std\+::string $>$ \&lines)
+\begin{DoxyCompactList}\small\item\em Construct a residue by providing De\+Novo with the atom-\/type definition lines from the RTP file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_ad91ee78d613687cac3201442a5648de6}\label{classResidue_ad91ee78d613687cac3201442a5648de6}} 
+int {\bfseries get\+Atom\+Count} () const
+\begin{DoxyCompactList}\small\item\em Get the number of atoms defined in this \mbox{\hyperlink{classResidue}{Residue}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_abb4b36d0bc48f7315b98562c552e252e}\label{classResidue_abb4b36d0bc48f7315b98562c552e252e}} 
+const std\+::vector$<$ std\+::string $>$ \& {\bfseries get\+Aliases} () const
+\begin{DoxyCompactList}\small\item\em Get the list of aliases (unique atom labels given for the residue based on its position) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_a58e9b54f08a9ae7e929e747cd2d17a0a}\label{classResidue_a58e9b54f08a9ae7e929e747cd2d17a0a}} 
+const std\+::vector$<$ std\+::string $>$ \& {\bfseries get\+Actuals} () const
+\begin{DoxyCompactList}\small\item\em Get the list of actual atom-\/type names in the same order as they were loaded into the residue from the RTP file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_aa439a7c9e95f8061e49855f4d3b84272}\label{classResidue_aa439a7c9e95f8061e49855f4d3b84272}} 
+std\+::string {\bfseries get\+Alias} (int x) const
+\begin{DoxyCompactList}\small\item\em Get the \textquotesingle{}x\textquotesingle{}th alias. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_ab526598c76926177b79d2390e58e08da}\label{classResidue_ab526598c76926177b79d2390e58e08da}} 
+std\+::string {\bfseries get\+Actual} (int x) const
+\begin{DoxyCompactList}\small\item\em Get the \textquotesingle{}x\textquotesingle{}th actual atom-\/type name. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_a120dfed7422d3914bef5a60af6cda918}\label{classResidue_a120dfed7422d3914bef5a60af6cda918}} 
+const std\+::string \& {\bfseries get\+Name} () const
+\begin{DoxyCompactList}\small\item\em Get the name of the \mbox{\hyperlink{classResidue}{Residue}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_a66d710bcdddfb9927718d3fdb503388b}\label{classResidue_a66d710bcdddfb9927718d3fdb503388b}} 
+std\+::string {\bfseries get\+Actual} (const std\+::string \&alias) const
+\begin{DoxyCompactList}\small\item\em Get the actual (force-\/field) atom-\/type name for a given alias. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_aa32f08546328ce39310dbf0323a57b9a}\label{classResidue_aa32f08546328ce39310dbf0323a57b9a}} 
+{\bfseries Residue} (const std\+::string \&rnm, const std\+::vector$<$ std\+::string $>$ \&lines)
+\begin{DoxyCompactList}\small\item\em Construct a residue by providing De\+Novo with the atom-\/type definition lines from the RTP file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_ad91ee78d613687cac3201442a5648de6}\label{classResidue_ad91ee78d613687cac3201442a5648de6}} 
+int {\bfseries get\+Atom\+Count} () const
+\begin{DoxyCompactList}\small\item\em Get the number of atoms defined in this \mbox{\hyperlink{classResidue}{Residue}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_abb4b36d0bc48f7315b98562c552e252e}\label{classResidue_abb4b36d0bc48f7315b98562c552e252e}} 
+const std\+::vector$<$ std\+::string $>$ \& {\bfseries get\+Aliases} () const
+\begin{DoxyCompactList}\small\item\em Get the list of aliases (unique atom labels given for the residue based on its position) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_a58e9b54f08a9ae7e929e747cd2d17a0a}\label{classResidue_a58e9b54f08a9ae7e929e747cd2d17a0a}} 
+const std\+::vector$<$ std\+::string $>$ \& {\bfseries get\+Actuals} () const
+\begin{DoxyCompactList}\small\item\em Get the list of actual atom-\/type names in the same order as they were loaded into the residue from the RTP file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_aa439a7c9e95f8061e49855f4d3b84272}\label{classResidue_aa439a7c9e95f8061e49855f4d3b84272}} 
+std\+::string {\bfseries get\+Alias} (int x) const
+\begin{DoxyCompactList}\small\item\em Get the \textquotesingle{}x\textquotesingle{}th alias. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_ab526598c76926177b79d2390e58e08da}\label{classResidue_ab526598c76926177b79d2390e58e08da}} 
+std\+::string {\bfseries get\+Actual} (int x) const
+\begin{DoxyCompactList}\small\item\em Get the \textquotesingle{}x\textquotesingle{}th actual atom-\/type name. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_a120dfed7422d3914bef5a60af6cda918}\label{classResidue_a120dfed7422d3914bef5a60af6cda918}} 
+const std\+::string \& {\bfseries get\+Name} () const
+\begin{DoxyCompactList}\small\item\em Get the name of the \mbox{\hyperlink{classResidue}{Residue}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classResidue_a66d710bcdddfb9927718d3fdb503388b}\label{classResidue_a66d710bcdddfb9927718d3fdb503388b}} 
+std\+::string {\bfseries get\+Actual} (const std\+::string \&alias) const
+\begin{DoxyCompactList}\small\item\em Get the actual (force-\/field) atom-\/type name for a given alias. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is the residue class. It loads in residues which are building blocks for loading standard molecules (especially proteins).~\newline
+ This residue data is available in the RTP files (eg. protein.\+rtp, dna.\+rtp) and these files are available with De\+Novo even though they were extracted from GROMACS \mbox{\hyperlink{classResidue}{Residue}} names are recognized while loading from PDB or GRO formats and the atom-\/names are mapped accordingly.~\newline
+It stores the different atom-\/names (called aliases) and the corresponding atom-\/type names as well. 
+
+Definition at line \mbox{\hyperlink{forcefield_8hpp_source_l00071}{71}} of file \mbox{\hyperlink{forcefield_8hpp_source}{forcefield.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+forcefield/forcefield.\+hpp\item 
+forcefield/forcefield\+\_\+precomp.\+hpp\item 
+forcefield/forcefield\+\_\+precomp\+\_\+omega\+\_\+stable.\+hpp\item 
+forcefield/forcefield\+\_\+precomp\+\_\+omega\+\_\+stable2.\+hpp\end{DoxyCompactItemize}

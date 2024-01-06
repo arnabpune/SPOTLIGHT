@@ -1,0 +1,346 @@
+\hypertarget{Atom_8hpp_source}{}\doxysection{Atom.\+hpp}
+\label{Atom_8hpp_source}\index{graph/Atom.hpp@{graph/Atom.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00001}00001 \textcolor{preprocessor}{\#ifndef HPP\_ATOM}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00002}00002 \textcolor{preprocessor}{\#define HPP\_ATOM 1}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00003}00003 \textcolor{preprocessor}{\#include<iostream>}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00004}00004 \textcolor{preprocessor}{\#include<cstring>}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00005}00005 \textcolor{preprocessor}{\#include "{}../support/externio.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00007}00007 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00009}00009 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00010}00010 \textcolor{comment}{||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00011}00011 \textcolor{comment}{|\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#|}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00012}00012 \textcolor{comment}{|\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#Define the ATOM class\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#|}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00013}00013 \textcolor{comment}{|\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#To store atom/particle parameters\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#|}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00014}00014 \textcolor{comment}{|\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#|}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00015}00015 \textcolor{comment}{||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00016}00016 \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00018}00018 \textcolor{comment}{//Exceptions}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00020}\mbox{\hyperlink{classEmptyAtomTypeException}{00020}} \textcolor{comment}{}\textcolor{keyword}{class }\mbox{\hyperlink{classEmptyAtomTypeException}{EmptyAtomTypeException}}: \textcolor{keyword}{public} exception \{\}; \textcolor{comment}{//When Atom type variable is not initialized in an Atom object}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00022}\mbox{\hyperlink{classNoValencyAvailableException}{00022}} \textcolor{comment}{}\textcolor{keyword}{class }\mbox{\hyperlink{classNoValencyAvailableException}{NoValencyAvailableException}}: \textcolor{keyword}{public} exception \{\}; \textcolor{comment}{//Self-\/explanatory}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00023}00023 \textcolor{keyword}{class }\mbox{\hyperlink{classMolecule}{Molecule}};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00024}00024 \textcolor{keyword}{class }\mbox{\hyperlink{classMolecularFragment}{MolecularFragment}};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00025}00025 \textcolor{keyword}{class }\mbox{\hyperlink{classForceField}{ForceField}};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00026}00026 \textcolor{keyword}{class }\mbox{\hyperlink{classSystem}{System}};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00028}00028 \textcolor{keyword}{typedef} std::vector<MolecularFragment*> FragmentSet;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00029}00029 \textcolor{keyword}{typedef} std::vector<Eigen::Vector3d> Pose;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00039}\mbox{\hyperlink{classAtom}{00039}} \textcolor{keyword}{class }\mbox{\hyperlink{classAtom}{Atom}}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00040}00040 \{}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00041}00041     \mbox{\hyperlink{classMolecule}{Molecule}}* myMol=\textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00042}00042     \textcolor{keywordtype}{int} valency=0,hybridization=3,standval,resnum=1;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00043}00043     std::string atom\_type=\textcolor{stringliteral}{"{}DUM"{}},residue=\textcolor{stringliteral}{"{}DNV"{}};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00044}00044     \textcolor{comment}{//char* atom\_type;}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00045}00045     \textcolor{keywordtype}{double} x,y,z,charge,sigma,epsilon,vanderwaal\_radius,mass,enercont=0,hsenercont=0;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00046}00046     \textcolor{keywordtype}{char} chain=\textcolor{charliteral}{'A'};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00047}00047     \textcolor{keywordtype}{bool} staticcycl=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00048}00048     \textcolor{keywordtype}{double} formalcharge=0;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00049}00049     \textcolor{keywordtype}{float} solvwt=0;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00050}00050     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00051}\mbox{\hyperlink{classAtom_a1f608e1364ea55e308375d0a866ce863}{00051}}         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classAtom_a1f608e1364ea55e308375d0a866ce863}{seed}}=\textcolor{keyword}{false}; }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00052}\mbox{\hyperlink{classAtom_ada65cf94e26ad7ebd9bb7472e4973860}{00052}}         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classAtom_ada65cf94e26ad7ebd9bb7472e4973860}{cycl}}=\textcolor{keyword}{false}; }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00053}\mbox{\hyperlink{classAtom_a5de9929c1ce50f422e1be044b72a6aa0}{00053}}         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classAtom_a5de9929c1ce50f422e1be044b72a6aa0}{mustCycl}}=\textcolor{keyword}{false}; }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00054}\mbox{\hyperlink{classAtom_af5d753dfd1f6c69ed18be8d1baf72c32}{00054}}         \textcolor{keywordtype}{int} \mbox{\hyperlink{classAtom_af5d753dfd1f6c69ed18be8d1baf72c32}{hashvalue}}=0; }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00055}\mbox{\hyperlink{classAtom_ad11c393edfbf40afa38aad0e70bfd2ae}{00055}}         std::vector<int> \mbox{\hyperlink{classAtom_ad11c393edfbf40afa38aad0e70bfd2ae}{hashvector}}; }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00056}\mbox{\hyperlink{classAtom_a4c63bddb98ac4001372af2f6e5279fe5}{00056}}         \textcolor{keywordtype}{double} \mbox{\hyperlink{classAtom_a4c63bddb98ac4001372af2f6e5279fe5}{posdev}}=0; }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00057}\mbox{\hyperlink{classAtom_ae7bf1b3c1c783a12feda31c128aff099}{00057}}         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classAtom_ae7bf1b3c1c783a12feda31c128aff099}{genpurpflag}}=\textcolor{keyword}{false}; }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00058}00058         \textcolor{keywordtype}{int} bindpoints=0;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00059}00059 \textcolor{preprocessor}{        \#ifdef USEGENERALDATA}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00060}00060         \textcolor{keywordtype}{int} genpurpint=0; }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00061}00061 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00062}00062     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00064}00064         \mbox{\hyperlink{classAtom_aa0147d7e49ab90f559b66e38d3d12863}{Atom}}();}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00067}\mbox{\hyperlink{classAtom_a50f99f8c3699f185e81ba75dae79582d}{00067}}         \mbox{\hyperlink{classAtom_a50f99f8c3699f185e81ba75dae79582d}{Atom}}(\textcolor{keywordtype}{double} x,\textcolor{keywordtype}{double} y,\textcolor{keywordtype}{double} z,\textcolor{keywordtype}{int} v=0) : \mbox{\hyperlink{classAtom}{Atom}}(\textcolor{stringliteral}{"{}DUM"{}},x,y,z,v) \{\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00070}00070         \mbox{\hyperlink{classAtom_aa0147d7e49ab90f559b66e38d3d12863}{Atom}}(\textcolor{keyword}{const} std::string\& name,\textcolor{keywordtype}{double} x,\textcolor{keywordtype}{double} y,\textcolor{keywordtype}{double} z,\textcolor{keywordtype}{int} v=0);}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00073}00073         \mbox{\hyperlink{classAtom_aa0147d7e49ab90f559b66e38d3d12863}{Atom}}(\textcolor{keyword}{const} std::string\& name,\textcolor{keywordtype}{double} x,\textcolor{keywordtype}{double} y,\textcolor{keywordtype}{double} z,\textcolor{keywordtype}{int} v,\textcolor{keywordtype}{double} weight,\textcolor{keywordtype}{double} charge,\textcolor{keywordtype}{double} sigma,\textcolor{keywordtype}{double} epsilon,\textcolor{keywordtype}{double} vanderwaal\_rad);}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00076}00076         \mbox{\hyperlink{classAtom_aa0147d7e49ab90f559b66e38d3d12863}{Atom}}(\textcolor{keyword}{const} std::string\&,\textcolor{keywordtype}{double},\textcolor{keywordtype}{double},\textcolor{keywordtype}{double},\textcolor{keywordtype}{int},\textcolor{keywordtype}{double},\textcolor{keywordtype}{double},\textcolor{keywordtype}{double},\textcolor{keywordtype}{double},\textcolor{keywordtype}{double},\textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00079}00079         \mbox{\hyperlink{classAtom_aa0147d7e49ab90f559b66e38d3d12863}{Atom}}(\textcolor{keyword}{const} \mbox{\hyperlink{classAtom}{Atom}}\&);}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00081}00081         \mbox{\hyperlink{classAtom_a6926cfb6d5e61ca21c71476b66547a5e}{\string~Atom}}();}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00082}00082         \textcolor{keywordtype}{void} display\_atomtype();}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00083}00083         \textcolor{keywordtype}{void} display\_position();}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00084}00084         std::string seek\_atomtype() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00086}00086         \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classAtom_a58eafe0667e284c2439a640445d5ead1}{seek\_x}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00088}00088         \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classAtom_a237a6c7661dd39f9b781072f7e298813}{seek\_y}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00090}00090         \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classAtom_a0b7e17f3d4bf6503ff0b5b675074d978}{seek\_z}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00092}00092         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAtom_a20f51fadb1bca9d68fd2ade73e6f267e}{modify\_x}}(\textcolor{keywordtype}{double});}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00094}00094         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAtom_a95df0e5cede6aa8722f045ab74543fab}{modify\_y}}(\textcolor{keywordtype}{double});}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00096}00096         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAtom_a7b3bf355a04f61fea6ac6fc1e5115253}{modify\_z}}(\textcolor{keywordtype}{double});}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00098}00098         \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classAtom_ae2ac3a6ffdc90898d06d05eaf374960e}{seek\_valency}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00100}00100         \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classAtom_a2b74c9d1a56b37907b911dff932e06bb}{seek\_charge}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00102}00102         \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classAtom_af064e5513e564187fd4e5726c9c1d5a7}{seek\_sigma}}() \textcolor{keyword}{const} ;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00104}00104         \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classAtom_a9affdff9e2e1ac38e17f13428d678044}{seek\_epsilon}}() \textcolor{keyword}{const} ;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00106}00106         \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classAtom_a178c9362bf77d435a3cf64ec83a2fef0}{seek\_radius}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00108}\mbox{\hyperlink{classAtom_af900546a51ebf4433b0553cee98fd9ea}{00108}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classAtom_af900546a51ebf4433b0553cee98fd9ea}{seek\_mass}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} mass;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00110}\mbox{\hyperlink{classAtom_a189def3b8bade8507d49cfd7de881178}{00110}}         \textcolor{keyword}{inline} \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{classAtom_a189def3b8bade8507d49cfd7de881178}{toString}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} atom\_type;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00113}\mbox{\hyperlink{classAtom_a48d5030a816e990082fdd825b0735779}{00113}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAtom_a48d5030a816e990082fdd825b0735779}{makeSeed}}() \{\mbox{\hyperlink{classAtom_a1f608e1364ea55e308375d0a866ce863}{seed}}=\textcolor{keyword}{true};\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00115}\mbox{\hyperlink{classAtom_ac0a1d0cf5d49d00aac74074f36a0b1f3}{00115}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classAtom_ac0a1d0cf5d49d00aac74074f36a0b1f3}{isSeed}}() \{\textcolor{keywordflow}{return} \mbox{\hyperlink{classAtom_a1f608e1364ea55e308375d0a866ce863}{seed}};\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00118}\mbox{\hyperlink{classAtom_a9eb04d5b5e7b60694e96e5f9dd20bfac}{00118}}     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAtom_a9eb04d5b5e7b60694e96e5f9dd20bfac}{setValency}}(\textcolor{keywordtype}{int} n) \{valency=n;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00120}\mbox{\hyperlink{classAtom_a262d1cb2ea75ec2ced42bc995bc49fc3}{00120}}     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classAtom_a262d1cb2ea75ec2ced42bc995bc49fc3}{getStandardValency}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} standval;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00122}\mbox{\hyperlink{classAtom_a828b40fa9e19f714f73d9b325b43456b}{00122}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{float} \mbox{\hyperlink{classAtom_a828b40fa9e19f714f73d9b325b43456b}{getSolvationCorrection}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} solvwt;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00125}\mbox{\hyperlink{classAtom_a2446287c633dd5bc14c91706294f47e7}{00125}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAtom_a2446287c633dd5bc14c91706294f47e7}{setSolvationCorrection}}(\textcolor{keywordtype}{float} w) \{solvwt=w;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00126}00126 }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00127}00127         \textcolor{comment}{//Methods added by Sreyas (13-\/12-\/2019 onwards)}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00129}00129 \textcolor{comment}{}        \textcolor{keyword}{inline} Eigen::Vector3d \mbox{\hyperlink{classAtom_a73b92d7b24611f250127856e3b52ed31}{getPosition}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00131}00131         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAtom_a34fc2756d0f817a9ee6cf91c797d8bcc}{setPosition}}(\textcolor{keyword}{const} Eigen::Vector3d\& v);}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00133}00133         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAtom_a34fc2756d0f817a9ee6cf91c797d8bcc}{setPosition}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& x,\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& y, \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& z);}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00138}00138         \textcolor{keyword}{inline} Eigen::Vector3d \mbox{\hyperlink{classAtom_a40e4a43205a24f5e64ea0d27994a3efb}{bondVectorTo}}(\mbox{\hyperlink{classAtom}{Atom}}* a) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00143}00143         \textcolor{keyword}{inline} Eigen::Vector3d \mbox{\hyperlink{classAtom_a9c42c6cea5bccf13cf2aed896ee3840c}{bondVectorFrom}}(\mbox{\hyperlink{classAtom}{Atom}}* a) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00146}00146         \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classAtom_afcdbf1522c343bb461c566416305aab6}{distanceFrom}}(\textcolor{keyword}{const} \mbox{\hyperlink{classAtom}{Atom}}* a2) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00150}00150         \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classAtom_afcdbf1522c343bb461c566416305aab6}{distanceFrom}}(\textcolor{keyword}{const} Eigen::Vector3d\& v) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00153}\mbox{\hyperlink{classAtom_a99ed78f1b94d694b0f3fac609fd92934}{00153}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classAtom_a99ed78f1b94d694b0f3fac609fd92934}{isHydrogen}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} atom\_type[0]==\textcolor{charliteral}{'H'};\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00155}\mbox{\hyperlink{classAtom_a3082999bd6c416335c36e02db4dd72a0}{00155}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classAtom_a3082999bd6c416335c36e02db4dd72a0}{getHybridization}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} hybridization;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00157}\mbox{\hyperlink{classAtom_a6d1ed6f7432ecc88bee6faa26294cd08}{00157}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAtom_a6d1ed6f7432ecc88bee6faa26294cd08}{addBond}}() \{valency-\/-\/;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00160}\mbox{\hyperlink{classAtom_acd1d81d4d5011bd1cf6b53e6ec5830dd}{00160}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classAtom_acd1d81d4d5011bd1cf6b53e6ec5830dd}{canBond}}() \{\textcolor{keywordflow}{return} valency;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00163}\mbox{\hyperlink{classAtom_ae3b533e03a1068404f44d540ad1233bc}{00163}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAtom_ae3b533e03a1068404f44d540ad1233bc}{setResidue}}(\textcolor{keyword}{const} std::string\& r) \{residue=r;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00166}\mbox{\hyperlink{classAtom_aeb7eda860229abf7d7a2a739cc69d93d}{00166}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAtom_aeb7eda860229abf7d7a2a739cc69d93d}{setResidueNumber}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int} r) \{resnum=r;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00172}\mbox{\hyperlink{classAtom_a3dd3cacebe4d5e003c6688ba384f0f1d}{00172}}         \textcolor{keyword}{inline} \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{classAtom_a3dd3cacebe4d5e003c6688ba384f0f1d}{getResidue}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} residue;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00178}\mbox{\hyperlink{classAtom_aa9f217ee767668f753e7c109f9a85f89}{00178}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classAtom_aa9f217ee767668f753e7c109f9a85f89}{getResidueNumber}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} resnum;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00183}\mbox{\hyperlink{classAtom_a7f11ffde12820bfba43872c4ffcef897}{00183}}         \textcolor{keyword}{inline} \mbox{\hyperlink{classMolecule}{Molecule}}* \mbox{\hyperlink{classAtom_a7f11ffde12820bfba43872c4ffcef897}{getMolecule}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} myMol;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00186}\mbox{\hyperlink{classAtom_a4e61f555e5bfcf7ff0d567b0919bbbda}{00186}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAtom_a4e61f555e5bfcf7ff0d567b0919bbbda}{setMolecule}}(\mbox{\hyperlink{classMolecule}{Molecule}}* mp) \{myMol=mp;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00189}\mbox{\hyperlink{classAtom_a6054acec965e008ad281764b7b4e5f5d}{00189}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classAtom_a6054acec965e008ad281764b7b4e5f5d}{setEnergyContribution}}(\textcolor{keywordtype}{double} e) \{\textcolor{keywordflow}{return} enercont=e;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00191}\mbox{\hyperlink{classAtom_a414742465b01672a7628ce7c4d172a4f}{00191}}         \textcolor{keyword}{inline} std::pair<double,double> \mbox{\hyperlink{classAtom_a414742465b01672a7628ce7c4d172a4f}{setEnergyContribution}}(\textcolor{keyword}{const} std::pair<double,double>\& p) \{enercont=get<0>(p); hsenercont=get<1>(p); \textcolor{keywordflow}{return} p;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00194}\mbox{\hyperlink{classAtom_a2880996f52ed3be7e17eb5151820f8b6}{00194}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classAtom_a2880996f52ed3be7e17eb5151820f8b6}{getEnergyContribution}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} enercont;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00197}\mbox{\hyperlink{classAtom_a6e6ad3000e35fb4f424f9e82ac414311}{00197}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classAtom_a6e6ad3000e35fb4f424f9e82ac414311}{setHotspotEnergyContribution}}(\textcolor{keywordtype}{double} e) \{\textcolor{keywordflow}{return} hsenercont=e;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00200}\mbox{\hyperlink{classAtom_a2f86902bf6ab6db4786c50adeba5152b}{00200}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classAtom_a2f86902bf6ab6db4786c50adeba5152b}{getHotspotEnergyContribution}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} hsenercont;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00205}\mbox{\hyperlink{classAtom_a0c7d44f806c193ac59a36adbcea5601b}{00205}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{char} \mbox{\hyperlink{classAtom_a0c7d44f806c193ac59a36adbcea5601b}{getChain}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} chain;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00208}\mbox{\hyperlink{classAtom_ab5f96b153b78cfbac9ae08db5ced89f7}{00208}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAtom_ab5f96b153b78cfbac9ae08db5ced89f7}{setChain}}(\textcolor{keywordtype}{char} c) \{chain=c;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00210}\mbox{\hyperlink{classAtom_a7c13f0e363a2d00322c43f781f93ccc0}{00210}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classAtom_a7c13f0e363a2d00322c43f781f93ccc0}{setCyclized}}(\textcolor{keywordtype}{bool} v=\textcolor{keyword}{true}) \{\textcolor{keywordflow}{return} \mbox{\hyperlink{classAtom_ada65cf94e26ad7ebd9bb7472e4973860}{cycl}}=v;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00212}\mbox{\hyperlink{classAtom_a1816a8312c1cd338b507522c6c1bde6b}{00212}}     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classAtom_a1816a8312c1cd338b507522c6c1bde6b}{isCyclized}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{classAtom_ada65cf94e26ad7ebd9bb7472e4973860}{cycl}};\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00215}\mbox{\hyperlink{classAtom_a1d20924773ee1da9d94477d8917da147}{00215}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAtom_a1d20924773ee1da9d94477d8917da147}{seal}}() \{valency=0;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00219}\mbox{\hyperlink{classAtom_a0b80c1ab0fb1561978f22fe86d10d30e}{00219}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAtom_a0b80c1ab0fb1561978f22fe86d10d30e}{setCharge}}(\textcolor{keywordtype}{double} c) \{charge=c;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00222}\mbox{\hyperlink{classAtom_ab29fbedd1c19260cdb667ceda59d5045}{00222}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAtom_ab29fbedd1c19260cdb667ceda59d5045}{rename}}(\textcolor{keyword}{const} std::string\& an) \{atom\_type=an;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00224}\mbox{\hyperlink{classAtom_a63a05e871b9eaefa8650d8609d6563e8}{00224}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAtom_a63a05e871b9eaefa8650d8609d6563e8}{setPositionDeviation}}(\textcolor{keywordtype}{double} v) \{\mbox{\hyperlink{classAtom_a4c63bddb98ac4001372af2f6e5279fe5}{posdev}}=v;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00226}\mbox{\hyperlink{classAtom_a8aa6002bc6603c2991b6832befd4f0e6}{00226}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classAtom_a8aa6002bc6603c2991b6832befd4f0e6}{getPositionDeviation}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{classAtom_a4c63bddb98ac4001372af2f6e5279fe5}{posdev}};\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00229}\mbox{\hyperlink{classAtom_acee254086dd2d298507fbaf816c2483d}{00229}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAtom_acee254086dd2d298507fbaf816c2483d}{makeCycleStatic}}() \{staticcycl=\textcolor{keyword}{true};\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00231}\mbox{\hyperlink{classAtom_ae6044b9d3b3c767b145e0995037b422d}{00231}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classAtom_ae6044b9d3b3c767b145e0995037b422d}{isCycleStatic}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} staticcycl;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00233}\mbox{\hyperlink{classAtom_a62a89f6b887e412565228f3242e32ee4}{00233}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAtom_a62a89f6b887e412565228f3242e32ee4}{setStandardValency}}(\textcolor{keywordtype}{int} sv) \{standval=sv;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00234}00234 }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00236}\mbox{\hyperlink{classAtom_a6806200f78456a4486ff2a974c05ee30}{00236}}          \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classAtom_a6806200f78456a4486ff2a974c05ee30}{getFormalCharge}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} formalcharge;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00238}\mbox{\hyperlink{classAtom_a22f3cf77e722c7934684407174a14fdb}{00238}}          \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAtom_a22f3cf77e722c7934684407174a14fdb}{setFormalCharge}}(\textcolor{keywordtype}{double} fc) \{formalcharge=fc;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00240}\mbox{\hyperlink{classAtom_a4bec102d7acca0968ea757450fd0f6a9}{00240}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAtom_a4bec102d7acca0968ea757450fd0f6a9}{assignAtom}}(\textcolor{keyword}{const} \mbox{\hyperlink{classAtom}{Atom}}* to\_copy,\textcolor{keywordtype}{bool} copypos=\textcolor{keyword}{false})}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00241}00241         \{}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00242}00242           standval=to\_copy-\/>standval;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00243}00243             solvwt=to\_copy-\/>solvwt;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00244}00244             \textcolor{comment}{//if(atom\_type) delete[] atom\_type;}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00245}00245             atom\_type=to\_copy-\/>atom\_type;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00246}00246             \textcolor{keywordflow}{if}(copypos)}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00247}00247             \{}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00248}00248                 x=to\_copy-\/>x;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00249}00249                 y=to\_copy-\/>y;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00250}00250                 z=to\_copy-\/>z;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00251}00251             \}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00252}00252             charge=to\_copy-\/>charge;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00253}00253             sigma=to\_copy-\/>sigma;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00254}00254             epsilon=to\_copy-\/>epsilon;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00255}00255             vanderwaal\_radius=to\_copy-\/>vanderwaal\_radius;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00256}00256             mass=to\_copy-\/>mass;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00257}00257             hybridization=to\_copy-\/>hybridization;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00258}00258             \mbox{\hyperlink{classAtom_a5de9929c1ce50f422e1be044b72a6aa0}{mustCycl}}=to\_copy-\/>\mbox{\hyperlink{classAtom_a5de9929c1ce50f422e1be044b72a6aa0}{mustCycl}};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00259}00259             formalcharge=to\_copy-\/>formalcharge;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00260}00260         \}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00261}00261     \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00262}00262         \textcolor{keywordtype}{void} evaluateHybridization();}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00263}00263 \};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00264}00264 }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00265}00265 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00266}00266 \textcolor{comment}{Define class member functions here}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00267}00267 \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00268}00268 }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00269}\mbox{\hyperlink{classAtom_aa0147d7e49ab90f559b66e38d3d12863}{00269}} \mbox{\hyperlink{classAtom_aa0147d7e49ab90f559b66e38d3d12863}{Atom::Atom}}()\{}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00270}00270     valency=4;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00271}00271   standval=valency;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00272}00272     \textcolor{comment}{//atom\_type=new char[5];}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00273}00273     atom\_type = \textcolor{stringliteral}{"{}DUM"{}};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00274}00274     \textcolor{comment}{//strcpy(atom\_type,typeat.c\_str());}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00275}00275     x=0.0;y=0.0;z=0.0;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00276}00276     mass=12.065;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00277}00277     charge=0.0;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00278}00278     sigma=0.405358916754; epsilon = 0.08368;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00279}00279     vanderwaal\_radius = sigma/2.0;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00280}00280     \mbox{\hyperlink{classAtom_ada65cf94e26ad7ebd9bb7472e4973860}{cycl}}=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00281}00281 \}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00282}00282 }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00283}\mbox{\hyperlink{classAtom_a9cd1d283f5c273ead929f65f40ef1496}{00283}} \mbox{\hyperlink{classAtom_aa0147d7e49ab90f559b66e38d3d12863}{Atom::Atom}}(\textcolor{keyword}{const} std::string\& nm, \textcolor{keywordtype}{double} xx, \textcolor{keywordtype}{double} yy, \textcolor{keywordtype}{double} zz, \textcolor{keywordtype}{int} v)\{}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00284}00284     valency=v;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00285}00285   standval=valency;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00286}00286     atom\_type = nm;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00287}00287     x=xx;y=yy;z=zz;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00288}00288     mass=12.065;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00289}00289     charge=0.0;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00290}00290     sigma=0.405358916754; epsilon = 0.08368;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00291}00291     vanderwaal\_radius = sigma/2.0;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00292}00292     \mbox{\hyperlink{classAtom_ada65cf94e26ad7ebd9bb7472e4973860}{cycl}}=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00293}00293 \}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00294}00294 }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00295}\mbox{\hyperlink{classAtom_a2fbb082cb25ea5ebab3abe022ea5bafe}{00295}} \mbox{\hyperlink{classAtom_aa0147d7e49ab90f559b66e38d3d12863}{Atom::Atom}}(\textcolor{keyword}{const} std::string\& \textcolor{keywordtype}{id},\textcolor{keywordtype}{double} xx,\textcolor{keywordtype}{double} yy,\textcolor{keywordtype}{double} zz,\textcolor{keywordtype}{int} v,\textcolor{keywordtype}{double} wt,\textcolor{keywordtype}{double} c,\textcolor{keywordtype}{double} s,\textcolor{keywordtype}{double} e,\textcolor{keywordtype}{double} r)}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00296}00296 \{}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00297}00297     \textcolor{comment}{//atom\_type=id;}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00298}00298     \textcolor{comment}{//atom\_type=new char[10];}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00299}00299     atom\_type=id;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00300}00300     \textcolor{comment}{//strcpy(atom\_type,id);}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00301}00301     x=xx;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00302}00302     y=yy;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00303}00303     z=zz;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00304}00304     valency=v;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00305}00305   standval=valency;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00306}00306     mass=wt;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00307}00307     charge=c;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00308}00308     sigma=s;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00309}00309     epsilon=e;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00310}00310     vanderwaal\_radius=r;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00311}00311     evaluateHybridization();}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00312}00312     \mbox{\hyperlink{classAtom_ada65cf94e26ad7ebd9bb7472e4973860}{cycl}}=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00313}00313 \}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00314}\mbox{\hyperlink{classAtom_aabc42366d6f1218c43571158ed4b46ca}{00314}} \mbox{\hyperlink{classAtom_aa0147d7e49ab90f559b66e38d3d12863}{Atom::Atom}}(\textcolor{keyword}{const} std::string\& \textcolor{keywordtype}{id},\textcolor{keywordtype}{double} xx,\textcolor{keywordtype}{double} yy,\textcolor{keywordtype}{double} zz,\textcolor{keywordtype}{int} v,\textcolor{keywordtype}{double} wt,\textcolor{keywordtype}{double} c,\textcolor{keywordtype}{double} s,\textcolor{keywordtype}{double} e,\textcolor{keywordtype}{double} r,\textcolor{keywordtype}{int} h) : \mbox{\hyperlink{classAtom}{Atom}}::\mbox{\hyperlink{classAtom}{Atom}}(id,xx,yy,zz,v,wt,c,s,e,r) \{hybridization=h;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00315}00315 \textcolor{comment}{/*\{}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00316}00316 \textcolor{comment}{    //atom\_type=id;}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00317}00317 \textcolor{comment}{    //atom\_type=new char[10];}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00318}00318 \textcolor{comment}{    //strcpy(atom\_type,id);}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00319}00319 \textcolor{comment}{    atom\_type=std::string(id);}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00320}00320 \textcolor{comment}{    x=xx;}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00321}00321 \textcolor{comment}{    y=yy;}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00322}00322 \textcolor{comment}{    z=zz;}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00323}00323 \textcolor{comment}{    valency=v;}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00324}00324 \textcolor{comment}{  standval=valency;}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00325}00325 \textcolor{comment}{    mass=wt;}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00326}00326 \textcolor{comment}{    charge=c;}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00327}00327 \textcolor{comment}{    sigma=s;}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00328}00328 \textcolor{comment}{    epsilon=e;}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00329}00329 \textcolor{comment}{    vanderwaal\_radius=r;}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00330}00330 \textcolor{comment}{    hybridization=h;}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00331}00331 \textcolor{comment}{    cycl=false;}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00332}00332 \textcolor{comment}{\}*/}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00333}\mbox{\hyperlink{classAtom_a4a32546c48786b6e531e7177cec70fa2}{00333}} \mbox{\hyperlink{classAtom_aa0147d7e49ab90f559b66e38d3d12863}{Atom::Atom}}(\textcolor{keyword}{const} \mbox{\hyperlink{classAtom}{Atom}}\& to\_copy)}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00334}00334 \{}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00335}00335     valency=to\_copy.valency;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00336}00336   standval=to\_copy.standval;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00337}00337     residue=to\_copy.residue;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00338}00338     \textcolor{comment}{//if(atom\_type) delete[] atom\_type;}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00339}00339     atom\_type=to\_copy.atom\_type;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00340}00340     x=to\_copy.x;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00341}00341     y=to\_copy.y;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00342}00342     z=to\_copy.z;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00343}00343     charge=to\_copy.charge;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00344}00344     sigma=to\_copy.sigma;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00345}00345     epsilon=to\_copy.epsilon;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00346}00346     vanderwaal\_radius=to\_copy.vanderwaal\_radius;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00347}00347     mass=to\_copy.mass;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00348}00348     hybridization=to\_copy.hybridization;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00349}00349     \mbox{\hyperlink{classAtom_ada65cf94e26ad7ebd9bb7472e4973860}{cycl}}=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00350}00350     enercont=to\_copy.enercont;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00351}00351     hsenercont=to\_copy.hsenercont;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00352}00352     \mbox{\hyperlink{classAtom_a5de9929c1ce50f422e1be044b72a6aa0}{mustCycl}}=to\_copy.\mbox{\hyperlink{classAtom_a5de9929c1ce50f422e1be044b72a6aa0}{mustCycl}};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00353}00353     staticcycl=to\_copy.staticcycl;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00354}00354     \textcolor{keywordflow}{if}(to\_copy.\mbox{\hyperlink{classAtom_ae6044b9d3b3c767b145e0995037b422d}{isCycleStatic}}()) \mbox{\hyperlink{classAtom_ada65cf94e26ad7ebd9bb7472e4973860}{cycl}}=to\_copy.\mbox{\hyperlink{classAtom_ada65cf94e26ad7ebd9bb7472e4973860}{cycl}};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00355}00355     formalcharge=to\_copy.formalcharge;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00356}00356     solvwt=to\_copy.solvwt;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00357}00357 \}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00358}\mbox{\hyperlink{classAtom_a6926cfb6d5e61ca21c71476b66547a5e}{00358}} \mbox{\hyperlink{classAtom_a6926cfb6d5e61ca21c71476b66547a5e}{Atom::\string~Atom}}()}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00359}00359 \{}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00360}00360     \textcolor{comment}{//delete[] atom\_type;}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00361}00361 \}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00362}00362 \textcolor{keywordtype}{void} Atom::display\_atomtype()}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00363}00363 \{}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00364}00364     cout<<\textcolor{stringliteral}{"{}Atom Type = "{}}<<atom\_type<<\textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00365}00365 \}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00366}00366 \textcolor{keywordtype}{void} Atom::display\_position()}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00367}00367 \{}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00368}00368     cout<<\textcolor{stringliteral}{"{}X = "{}}<<x<<\textcolor{stringliteral}{"{}\(\backslash\)tY = "{}}<<y<<\textcolor{stringliteral}{"{}\(\backslash\)tZ = "{}}<<z<<\textcolor{stringliteral}{"{}\(\backslash\)tValency = "{}}<<valency<<endl;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00369}00369 \}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00370}00370 \textcolor{keyword}{inline} std::string Atom::seek\_atomtype()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} atom\_type;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00371}\mbox{\hyperlink{classAtom_a58eafe0667e284c2439a640445d5ead1}{00371}} \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classAtom_a58eafe0667e284c2439a640445d5ead1}{Atom::seek\_x}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} x;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00372}\mbox{\hyperlink{classAtom_a237a6c7661dd39f9b781072f7e298813}{00372}} \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classAtom_a237a6c7661dd39f9b781072f7e298813}{Atom::seek\_y}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} y;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00373}\mbox{\hyperlink{classAtom_a0b7e17f3d4bf6503ff0b5b675074d978}{00373}} \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classAtom_a0b7e17f3d4bf6503ff0b5b675074d978}{Atom::seek\_z}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} z;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00374}00374 }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00375}\mbox{\hyperlink{classAtom_a20f51fadb1bca9d68fd2ade73e6f267e}{00375}} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAtom_a20f51fadb1bca9d68fd2ade73e6f267e}{Atom::modify\_x}}(\textcolor{keywordtype}{double} x1) \{x=x1;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00376}\mbox{\hyperlink{classAtom_a95df0e5cede6aa8722f045ab74543fab}{00376}} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAtom_a95df0e5cede6aa8722f045ab74543fab}{Atom::modify\_y}}(\textcolor{keywordtype}{double} y1) \{y=y1;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00377}\mbox{\hyperlink{classAtom_a7b3bf355a04f61fea6ac6fc1e5115253}{00377}} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAtom_a7b3bf355a04f61fea6ac6fc1e5115253}{Atom::modify\_z}}(\textcolor{keywordtype}{double} z1) \{z=z1;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00378}\mbox{\hyperlink{classAtom_ae2ac3a6ffdc90898d06d05eaf374960e}{00378}} \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classAtom_ae2ac3a6ffdc90898d06d05eaf374960e}{Atom::seek\_valency}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} valency;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00379}\mbox{\hyperlink{classAtom_a178c9362bf77d435a3cf64ec83a2fef0}{00379}} \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classAtom_a178c9362bf77d435a3cf64ec83a2fef0}{Atom::seek\_radius}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} vanderwaal\_radius;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00380}\mbox{\hyperlink{classAtom_a2b74c9d1a56b37907b911dff932e06bb}{00380}} \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classAtom_a2b74c9d1a56b37907b911dff932e06bb}{Atom::seek\_charge}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} charge;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00381}\mbox{\hyperlink{classAtom_af064e5513e564187fd4e5726c9c1d5a7}{00381}} \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classAtom_af064e5513e564187fd4e5726c9c1d5a7}{Atom::seek\_sigma}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} sigma;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00382}\mbox{\hyperlink{classAtom_a9affdff9e2e1ac38e17f13428d678044}{00382}} \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classAtom_a9affdff9e2e1ac38e17f13428d678044}{Atom::seek\_epsilon}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} epsilon;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00383}00383 }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00384}00384 \textcolor{comment}{//Method bodies added by Sreyas}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00385}\mbox{\hyperlink{classAtom_a73b92d7b24611f250127856e3b52ed31}{00385}} \textcolor{keyword}{inline} Eigen::Vector3d \mbox{\hyperlink{classAtom_a73b92d7b24611f250127856e3b52ed31}{Atom::getPosition}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} Eigen::Vector3d(x,y,z);\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00386}\mbox{\hyperlink{classAtom_a34fc2756d0f817a9ee6cf91c797d8bcc}{00386}} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAtom_a34fc2756d0f817a9ee6cf91c797d8bcc}{Atom::setPosition}}(\textcolor{keyword}{const} Eigen::Vector3d\& v) \{x=v(0); y=v(1); z=v(2);\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00387}\mbox{\hyperlink{classAtom_a73ca15e8d55ff487d58f5cf1dcc7de6b}{00387}} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAtom_a34fc2756d0f817a9ee6cf91c797d8bcc}{Atom::setPosition}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& xv,\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& yv, \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& zv) \{x=xv;y=yv;z=zv;\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00388}\mbox{\hyperlink{classAtom_afcdbf1522c343bb461c566416305aab6}{00388}} \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classAtom_afcdbf1522c343bb461c566416305aab6}{Atom::distanceFrom}}(\textcolor{keyword}{const} \mbox{\hyperlink{classAtom}{Atom}}* a2)\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} sqrt(sqr(\mbox{\hyperlink{classAtom_a58eafe0667e284c2439a640445d5ead1}{seek\_x}}()-\/a2-\/>\mbox{\hyperlink{classAtom_a58eafe0667e284c2439a640445d5ead1}{seek\_x}}()) + sqr(\mbox{\hyperlink{classAtom_a237a6c7661dd39f9b781072f7e298813}{seek\_y}}()-\/a2-\/>\mbox{\hyperlink{classAtom_a237a6c7661dd39f9b781072f7e298813}{seek\_y}}()) + sqr(\mbox{\hyperlink{classAtom_a0b7e17f3d4bf6503ff0b5b675074d978}{seek\_z}}()-\/a2-\/>\mbox{\hyperlink{classAtom_a0b7e17f3d4bf6503ff0b5b675074d978}{seek\_z}}()));\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00389}\mbox{\hyperlink{classAtom_a37b24c2a91314d1588cbe73ec60cb862}{00389}} \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classAtom_afcdbf1522c343bb461c566416305aab6}{Atom::distanceFrom}}(\textcolor{keyword}{const} Eigen::Vector3d\& v)\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} sqrt(sqr(\mbox{\hyperlink{classAtom_a58eafe0667e284c2439a640445d5ead1}{seek\_x}}()-\/v(0))+sqr(\mbox{\hyperlink{classAtom_a237a6c7661dd39f9b781072f7e298813}{seek\_y}}()-\/v(1))+sqr(\mbox{\hyperlink{classAtom_a0b7e17f3d4bf6503ff0b5b675074d978}{seek\_z}}()-\/v(2)));\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00390}\mbox{\hyperlink{classAtom_a40e4a43205a24f5e64ea0d27994a3efb}{00390}} \textcolor{keyword}{inline} Eigen::Vector3d \mbox{\hyperlink{classAtom_a40e4a43205a24f5e64ea0d27994a3efb}{Atom::bondVectorTo}}(\mbox{\hyperlink{classAtom}{Atom}}* a)\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} Eigen::Vector3d(a-\/>seek\_x()-\/\mbox{\hyperlink{classAtom_a58eafe0667e284c2439a640445d5ead1}{seek\_x}}(),a-\/>seek\_y()-\/\mbox{\hyperlink{classAtom_a237a6c7661dd39f9b781072f7e298813}{seek\_y}}(),a-\/>seek\_z()-\/\mbox{\hyperlink{classAtom_a0b7e17f3d4bf6503ff0b5b675074d978}{seek\_z}}());\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00391}\mbox{\hyperlink{classAtom_a9c42c6cea5bccf13cf2aed896ee3840c}{00391}} \textcolor{keyword}{inline} Eigen::Vector3d \mbox{\hyperlink{classAtom_a9c42c6cea5bccf13cf2aed896ee3840c}{Atom::bondVectorFrom}}(\mbox{\hyperlink{classAtom}{Atom}}* a)\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} Eigen::Vector3d(\mbox{\hyperlink{classAtom_a58eafe0667e284c2439a640445d5ead1}{seek\_x}}()-\/a-\/>seek\_x(),\mbox{\hyperlink{classAtom_a237a6c7661dd39f9b781072f7e298813}{seek\_y}}()-\/a-\/>seek\_y(),\mbox{\hyperlink{classAtom_a0b7e17f3d4bf6503ff0b5b675074d978}{seek\_z}}()-\/a-\/>seek\_z());\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00392}00392 }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00393}00393 \textcolor{keywordtype}{void} Atom::evaluateHybridization()}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00394}00394 \{}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00395}00395     \textcolor{comment}{//if(!atom\_type) \{throw EmptyAtomTypeException();\}}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00396}00396     \textcolor{keywordflow}{switch}(atom\_type[0])}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00397}00397     \{}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00398}00398         \textcolor{keywordflow}{case} \textcolor{charliteral}{'C'}: hybridization=valency-\/1; \textcolor{keywordflow}{break}; \textcolor{comment}{//4 valency -\/> sp[3]}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00399}00399         \textcolor{keywordflow}{case} \textcolor{charliteral}{'S'}: \textcolor{keywordflow}{case} \textcolor{charliteral}{'O'}: hybridization=valency+1; \textcolor{keywordflow}{break}; \textcolor{comment}{//1 valency -\/> sp[2]}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00400}00400         \textcolor{keywordflow}{case} \textcolor{charliteral}{'P'}: \textcolor{keywordflow}{case} \textcolor{charliteral}{'N'}: hybridization=(valency==4)?3:valency; \textcolor{keywordflow}{break}; \textcolor{comment}{//3 valency -\/> sp[3]}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00401}00401         \textcolor{keywordflow}{case} \textcolor{charliteral}{'F'}: \textcolor{keywordflow}{case} \textcolor{charliteral}{'H'}: hybridization=0; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00402}00402     \}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00403}00403 \}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00404}00404 }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00405}00405 std::ostream\& operator<<(std::ostream\& os,\textcolor{keyword}{const} \mbox{\hyperlink{classAtom}{Atom}}\& a)}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00406}00406 \{}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00407}00407     os << a.toString() << \textcolor{stringliteral}{"{}\(\backslash\)t"{}} << a.seek\_x()*10 << \textcolor{stringliteral}{"{}\(\backslash\)t"{}} << a.seek\_y()*10 << \textcolor{stringliteral}{"{}\(\backslash\)t"{}} << a.seek\_z()*10 << \textcolor{stringliteral}{"{}\(\backslash\)t"{}} << a.getStandardValency() << \textcolor{stringliteral}{"{}\(\backslash\)t"{}} << a.seek\_mass()<< \textcolor{stringliteral}{"{}\(\backslash\)t"{}}<< a.seek\_charge()<<\textcolor{stringliteral}{"{}\(\backslash\)t"{}}<<a.seek\_sigma()<<\textcolor{stringliteral}{"{}\(\backslash\)t"{}}<<a.seek\_epsilon()<<\textcolor{stringliteral}{"{}\(\backslash\)t"{}}<<a.seek\_radius();}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00408}00408     \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00409}00409 \}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00410}00410 }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00411}00411 \textcolor{keyword}{class }\mbox{\hyperlink{classMolecule}{Molecule}};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00412}00412 \textcolor{keyword}{namespace }chemstructs}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00413}00413 \{}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00419}\mbox{\hyperlink{structchemstructs_1_1Bond}{00419}}     \textcolor{keyword}{struct }\mbox{\hyperlink{structchemstructs_1_1Bond}{Bond}}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00420}00420     \{}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00421}\mbox{\hyperlink{structchemstructs_1_1Bond_a2afc10e30113e2df12b8f439ac9a118b}{00421}}         \mbox{\hyperlink{classAtom}{Atom}} *\mbox{\hyperlink{structchemstructs_1_1Bond_a2afc10e30113e2df12b8f439ac9a118b}{a1}}; }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00422}\mbox{\hyperlink{structchemstructs_1_1Bond_a6ad02d82e86aa8929454ee8ebe27984f}{00422}}         \mbox{\hyperlink{classAtom}{Atom}} *\mbox{\hyperlink{structchemstructs_1_1Bond_a6ad02d82e86aa8929454ee8ebe27984f}{a2}}; }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00423}\mbox{\hyperlink{structchemstructs_1_1Bond_a8c293ea17ced706feded3210ee4957c9}{00423}}         \textcolor{keywordtype}{int} \mbox{\hyperlink{structchemstructs_1_1Bond_a8c293ea17ced706feded3210ee4957c9}{order}}=1; }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00424}\mbox{\hyperlink{structchemstructs_1_1Bond_a4873437ab0702930b5e6ff7c9bfb5187}{00424}}         Eigen::Vector3d \mbox{\hyperlink{structchemstructs_1_1Bond_a4873437ab0702930b5e6ff7c9bfb5187}{vect}}; }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00427}\mbox{\hyperlink{structchemstructs_1_1Bond_a51f79719a58c3e72bf88d472fee49588}{00427}}         \mbox{\hyperlink{structchemstructs_1_1Bond_a51f79719a58c3e72bf88d472fee49588}{Bond}}(\mbox{\hyperlink{classAtom}{Atom}}* at1,\mbox{\hyperlink{classAtom}{Atom}}* at2) \{\mbox{\hyperlink{structchemstructs_1_1Bond_a2afc10e30113e2df12b8f439ac9a118b}{a1}}=at1; \mbox{\hyperlink{structchemstructs_1_1Bond_a6ad02d82e86aa8929454ee8ebe27984f}{a2}}=at2; \mbox{\hyperlink{structchemstructs_1_1Bond_a4873437ab0702930b5e6ff7c9bfb5187}{vect}}=at1-\/>\mbox{\hyperlink{classAtom_a40e4a43205a24f5e64ea0d27994a3efb}{bondVectorTo}}(at2);\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00428}00428 }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00430}\mbox{\hyperlink{structchemstructs_1_1Bond_a341763d7334b62c90611dfdc52a68106}{00430}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{structchemstructs_1_1Bond_a341763d7334b62c90611dfdc52a68106}{getLength}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{structchemstructs_1_1Bond_a4873437ab0702930b5e6ff7c9bfb5187}{vect}}.norm();\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00431}00431     \};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00436}\mbox{\hyperlink{structchemstructs_1_1Angle}{00436}}     \textcolor{keyword}{struct }\mbox{\hyperlink{structchemstructs_1_1Angle}{Angle}}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00437}00437     \{}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00438}\mbox{\hyperlink{structchemstructs_1_1Angle_a8c05447d42249a1703484a39914c2f9b}{00438}}         \mbox{\hyperlink{classAtom}{Atom}} *\mbox{\hyperlink{structchemstructs_1_1Angle_a8c05447d42249a1703484a39914c2f9b}{a1}}; }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00439}\mbox{\hyperlink{structchemstructs_1_1Angle_adbbc2237b924c3d7541690fbc502a858}{00439}}         \mbox{\hyperlink{classAtom}{Atom}} *\mbox{\hyperlink{structchemstructs_1_1Angle_adbbc2237b924c3d7541690fbc502a858}{a2}}; }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00440}\mbox{\hyperlink{structchemstructs_1_1Angle_a3b477abc452919347f932aba158a93f8}{00440}}         \mbox{\hyperlink{classAtom}{Atom}} *\mbox{\hyperlink{structchemstructs_1_1Angle_a3b477abc452919347f932aba158a93f8}{a3}}; }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00441}\mbox{\hyperlink{structchemstructs_1_1Angle_ab0fd826282490d3cf567a69e9f072b35}{00441}}         \textcolor{keywordtype}{double} \mbox{\hyperlink{structchemstructs_1_1Angle_ab0fd826282490d3cf567a69e9f072b35}{angle}}=0; }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00442}\mbox{\hyperlink{structchemstructs_1_1Angle_ae36dbe4c0bc68b5bc42e0740e9521ad7}{00442}}         Eigen::Vector3d \mbox{\hyperlink{structchemstructs_1_1Angle_ae36dbe4c0bc68b5bc42e0740e9521ad7}{plane}}; }
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00445}\mbox{\hyperlink{structchemstructs_1_1Angle_a98c92bb2bbc671992d32799e271abd18}{00445}}         \mbox{\hyperlink{structchemstructs_1_1Angle_a98c92bb2bbc671992d32799e271abd18}{Angle}}(\mbox{\hyperlink{classAtom}{Atom}}* at1,\mbox{\hyperlink{classAtom}{Atom}}* at2,\mbox{\hyperlink{classAtom}{Atom}}* at3)}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00446}00446         \{}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00447}00447             \mbox{\hyperlink{structchemstructs_1_1Angle_a8c05447d42249a1703484a39914c2f9b}{a1}}=at1; \mbox{\hyperlink{structchemstructs_1_1Angle_adbbc2237b924c3d7541690fbc502a858}{a2}}=at2; \mbox{\hyperlink{structchemstructs_1_1Angle_a3b477abc452919347f932aba158a93f8}{a3}}=at3;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00448}00448             \mbox{\hyperlink{structchemstructs_1_1Angle_ab0fd826282490d3cf567a69e9f072b35}{angle}}=\mbox{\hyperlink{namespacequickgeom_a215bf456c473c34054e4be483d30bd28}{quickgeom::angleBetween}}(at2-\/>\mbox{\hyperlink{classAtom_a40e4a43205a24f5e64ea0d27994a3efb}{bondVectorTo}}(at1),at2-\/>\mbox{\hyperlink{classAtom_a40e4a43205a24f5e64ea0d27994a3efb}{bondVectorTo}}(at3));}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00449}00449             \mbox{\hyperlink{structchemstructs_1_1Angle_ae36dbe4c0bc68b5bc42e0740e9521ad7}{plane}}=\mbox{\hyperlink{namespacequickgeom_a9931a326c1368d02b5249e68a0cd00ee}{quickgeom::planeOf}}(at2-\/>\mbox{\hyperlink{classAtom_a40e4a43205a24f5e64ea0d27994a3efb}{bondVectorTo}}(at1),at2-\/>\mbox{\hyperlink{classAtom_a40e4a43205a24f5e64ea0d27994a3efb}{bondVectorTo}}(at3));}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00450}00450         \}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00451}00451     \};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00452}00452 \}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00454}\mbox{\hyperlink{namespacenetcomm}{00454}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacenetcomm}{netcomm}}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00455}00455 \{}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00456}00456     \textcolor{keyword}{static} \textcolor{keyword}{const} \mbox{\hyperlink{classForceField}{ForceField}}* genff=\textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00457}00457     \textcolor{keywordtype}{int} RCOUNT=0;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00458}00458 \textcolor{preprocessor}{    \#ifndef FFCHARGES}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00459}00459         std::ofstream badsmileslog;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00460}00460 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00461}00461     \textcolor{keyword}{class }\mbox{\hyperlink{structnetcomm_1_1MolRequest}{MolRequest}};}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00462}00462     \textcolor{keyword}{static} \textcolor{keywordtype}{int}* failures;}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00463}00463     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{namespacenetcomm_a001f892bbda26c238fed356e52d472bb}{addRequest}}(\mbox{\hyperlink{classSystem}{System}} m,\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});\textcolor{comment}{// \{molq.push(MolRequest(m,id));\}}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00464}00464     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} processRequest(std::ostream\&,\mbox{\hyperlink{classMolecule}{Molecule}}*\&,\textcolor{keywordtype}{int} src=0);}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00465}00465     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespacenetcomm_a8309a847554fce6c9db839d0125cf6e1}{queueSize}}();}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00466}00466     \textcolor{keyword}{inline} std::vector<MolRequest> drainQueue();}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00467}00467 \}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00468}00468 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacechemtools}{chemtools}}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00469}00469 \{}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00471}\mbox{\hyperlink{namespacechemtools_a330bbc0a28d98a7b8d22150d8e590050}{00471}}     \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespacechemtools_a330bbc0a28d98a7b8d22150d8e590050}{getAngle}}(\mbox{\hyperlink{classAtom}{Atom}}* a1,\mbox{\hyperlink{classAtom}{Atom}}* a2,\mbox{\hyperlink{classAtom}{Atom}}* a3) \{\textcolor{keywordflow}{return} \mbox{\hyperlink{namespacequickgeom_a215bf456c473c34054e4be483d30bd28}{quickgeom::angleBetween}}(a2-\/>\mbox{\hyperlink{classAtom_a40e4a43205a24f5e64ea0d27994a3efb}{bondVectorTo}}(a3),a2-\/>\mbox{\hyperlink{classAtom_a40e4a43205a24f5e64ea0d27994a3efb}{bondVectorTo}}(a1));\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00473}\mbox{\hyperlink{namespacechemtools_af1bacba692469862a68fec24a291334e}{00473}}     \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespacechemtools_af1bacba692469862a68fec24a291334e}{getDihedral}}(\mbox{\hyperlink{classAtom}{Atom}}* a1,\mbox{\hyperlink{classAtom}{Atom}}* a2,\mbox{\hyperlink{classAtom}{Atom}}* a3,\mbox{\hyperlink{classAtom}{Atom}}* a4) \{\textcolor{keywordflow}{return} \mbox{\hyperlink{namespacequickgeom_a215bf456c473c34054e4be483d30bd28}{quickgeom::angleBetween}}(a1-\/>\mbox{\hyperlink{classAtom_a40e4a43205a24f5e64ea0d27994a3efb}{bondVectorTo}}(a2).cross(a2-\/>\mbox{\hyperlink{classAtom_a40e4a43205a24f5e64ea0d27994a3efb}{bondVectorTo}}(a3)),a2-\/>\mbox{\hyperlink{classAtom_a40e4a43205a24f5e64ea0d27994a3efb}{bondVectorTo}}(a3).cross(a3-\/>\mbox{\hyperlink{classAtom_a40e4a43205a24f5e64ea0d27994a3efb}{bondVectorTo}}(a4)));\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00475}\mbox{\hyperlink{namespacechemtools_a38aa10028ccaf681c4a1871c62f53597}{00475}}     \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespacechemtools_a38aa10028ccaf681c4a1871c62f53597}{getImproper}}(\mbox{\hyperlink{classAtom}{Atom}}* a1,\mbox{\hyperlink{classAtom}{Atom}}* a2,\mbox{\hyperlink{classAtom}{Atom}}* a3,\mbox{\hyperlink{classAtom}{Atom}}* a4) \{\textcolor{keywordflow}{return} \mbox{\hyperlink{namespacequickgeom_a215bf456c473c34054e4be483d30bd28}{quickgeom::angleBetween}}(a1-\/>\mbox{\hyperlink{classAtom_a40e4a43205a24f5e64ea0d27994a3efb}{bondVectorTo}}(a2).cross(a1-\/>\mbox{\hyperlink{classAtom_a40e4a43205a24f5e64ea0d27994a3efb}{bondVectorTo}}(a3)),a1-\/>\mbox{\hyperlink{classAtom_a40e4a43205a24f5e64ea0d27994a3efb}{bondVectorTo}}(a3).cross(a1-\/>\mbox{\hyperlink{classAtom_a40e4a43205a24f5e64ea0d27994a3efb}{bondVectorTo}}(a4)));\}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00476}00476 \}}
+\DoxyCodeLine{\Hypertarget{Atom_8hpp_source_l00477}00477 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

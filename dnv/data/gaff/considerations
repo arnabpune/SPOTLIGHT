@@ -1,0 +1,11 @@
+Owing to absence in drugbank drugs, the following possiblities are removed from search space
+-Sulphur atoms attached to Nitro nitrogen
+	?-[N+](=S)[S-]
+	?-[N+](=S)[O-]
+-Sulphur sulphur bonds in S4,S6,SX,SY, etc. (Note: Normal S-S bonds are retained)
+-Oxygen halogen bonds (O-X) are removed
+-Ar-N(X) N-halogen bonds removed (aromatic attached nitrogen)
+-Geminal diols in cycloalkanes are removed
+-Made O C N HN dihedral 180 degrees
+FUTURE
+-Will consider removing C=S in aromatic rings

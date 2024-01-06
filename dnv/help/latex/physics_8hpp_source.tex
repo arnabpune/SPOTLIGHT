@@ -1,0 +1,15 @@
+\hypertarget{physics_8hpp_source}{}\doxysection{physics.\+hpp}
+\label{physics_8hpp_source}\index{support/physics.hpp@{support/physics.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{physics_8hpp_source_l00001}00001 \textcolor{preprocessor}{\#ifndef INCLUDED\_PHYSICS}}
+\DoxyCodeLine{\Hypertarget{physics_8hpp_source_l00002}00002 \textcolor{preprocessor}{\#define INCLUDED\_PHYSICS 1}}
+\DoxyCodeLine{\Hypertarget{physics_8hpp_source_l00003}00003 \textcolor{keyword}{namespace }physics}
+\DoxyCodeLine{\Hypertarget{physics_8hpp_source_l00004}00004 \{}
+\DoxyCodeLine{\Hypertarget{physics_8hpp_source_l00005}00005   \textcolor{keywordtype}{void} gradientDescentPhysics(\textcolor{keyword}{const} \mbox{\hyperlink{classSystem}{System}}\& sys,\mbox{\hyperlink{classMolecule}{Molecule}}* target,\textcolor{keywordtype}{int} nsteps=3500,\textcolor{keywordtype}{double} D=1e-\/4,\textcolor{keywordtype}{double} R=2.5e-\/5,\textcolor{keywordtype}{double} L=2.25e-\/5,\textcolor{keywordtype}{double} L2=5e-\/5);}
+\DoxyCodeLine{\Hypertarget{physics_8hpp_source_l00006}00006   \textcolor{keywordtype}{void} atomisticGradientDescentPhysics(\textcolor{keyword}{const} \mbox{\hyperlink{classSystem}{System}}\& sys,\mbox{\hyperlink{classMolecule}{Molecule}}* target,\textcolor{keywordtype}{int} nsteps=10000,\textcolor{keywordtype}{double} D=3e-\/8,\textcolor{keywordtype}{double} DU=1e-\/6,\textcolor{keywordtype}{double} DS=1e-\/7,\textcolor{keywordtype}{double} R=3e-\/8,\textcolor{keywordtype}{double} L=1e-\/5);}
+\DoxyCodeLine{\Hypertarget{physics_8hpp_source_l00007}00007   \textcolor{keywordtype}{void} optimizeMolecule(\mbox{\hyperlink{classMolecule}{Molecule}}* mol,\textcolor{keyword}{const} \mbox{\hyperlink{classForceField}{ForceField}}\& ff,\textcolor{keywordtype}{int} nsteps=2500,\textcolor{keywordtype}{double} D=2.5e-\/8);}
+\DoxyCodeLine{\Hypertarget{physics_8hpp_source_l00008}00008 \}}
+\DoxyCodeLine{\Hypertarget{physics_8hpp_source_l00009}00009 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

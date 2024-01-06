@@ -1,0 +1,95 @@
+\hypertarget{classquickgeom_1_1ContainerUnion}{}\doxysection{quickgeom\+::Container\+Union Class Reference}
+\label{classquickgeom_1_1ContainerUnion}\index{quickgeom::ContainerUnion@{quickgeom::ContainerUnion}}
+
+
+{\ttfamily \#include \char`\"{}support/commons.\+h\char`\"{}}
+
+Inheritance diagram for quickgeom\+::Container\+Union\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classquickgeom_1_1ContainerUnion}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classquickgeom_1_1ContainerUnion_a12e8f734265da4fdc07daf04836d4ddd}\label{classquickgeom_1_1ContainerUnion_a12e8f734265da4fdc07daf04836d4ddd}} 
+{\bfseries Container\+Union} (const std\+::vector$<$ const \mbox{\hyperlink{classquickgeom_1_1Container}{Container}} $\ast$ $>$ \&conts)
+\begin{DoxyCompactList}\small\item\em Construct a unified region which is the union of all the containers (supplied as pointers) provided in the list. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1ContainerUnion_a455133a730106d201d2d6f9d20fc4329}\label{classquickgeom_1_1ContainerUnion_a455133a730106d201d2d6f9d20fc4329}} 
+{\bfseries Container\+Union} (const \mbox{\hyperlink{classquickgeom_1_1Container}{Container}} $\ast$single)
+\begin{DoxyCompactList}\small\item\em Construct an union with a single onject. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1ContainerUnion_acf97e334507cfee41d1017f0adfa2f1c}\label{classquickgeom_1_1ContainerUnion_acf97e334507cfee41d1017f0adfa2f1c}} 
+bool {\bfseries contains} (double x, double y, double z) const override
+\begin{DoxyCompactList}\small\item\em Checks if the given point is present inside this region. The boundary points are not included. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1ContainerUnion_afc7ad88720062549b80025a57e04a8b4}\label{classquickgeom_1_1ContainerUnion_afc7ad88720062549b80025a57e04a8b4}} 
+double {\bfseries get\+Minimum\+Distance\+From} (double x, double y, double z) const override
+\begin{DoxyCompactList}\small\item\em Same as get\+Minimum\+Distance\+From(const Eigen\+::\+Vector3d\&) but explicitly specifies the coordinates. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1ContainerUnion_ac853769ae631b05401891436c6651b3f}\label{classquickgeom_1_1ContainerUnion_ac853769ae631b05401891436c6651b3f}} 
+const \mbox{\hyperlink{classquickgeom_1_1Cuboid}{Cuboid}} {\bfseries get\+Containing\+Box} () const override
+\begin{DoxyCompactList}\small\item\em Get the smallest possible cuboid enclosing this region. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1ContainerUnion_abda259f530ceca6aed81a0f7747506f8}\label{classquickgeom_1_1ContainerUnion_abda259f530ceca6aed81a0f7747506f8}} 
+const \mbox{\hyperlink{classquickgeom_1_1Sphere}{Sphere}} {\bfseries get\+Containing\+Sphere} () const override
+\begin{DoxyCompactList}\small\item\em Get the smallest possible sphere enclosing this region. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1ContainerUnion_a23dfa84148fe608a2db8e7d719ec5ca7}\label{classquickgeom_1_1ContainerUnion_a23dfa84148fe608a2db8e7d719ec5ca7}} 
+double {\bfseries get\+Volume} () const override
+\begin{DoxyCompactList}\small\item\em Get the volume of this container. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1ContainerUnion_a12e8f734265da4fdc07daf04836d4ddd}\label{classquickgeom_1_1ContainerUnion_a12e8f734265da4fdc07daf04836d4ddd}} 
+{\bfseries Container\+Union} (const std\+::vector$<$ const \mbox{\hyperlink{classquickgeom_1_1Container}{Container}} $\ast$ $>$ \&conts)
+\begin{DoxyCompactList}\small\item\em Construct a unified region which is the union of all the containers (supplied as pointers) provided in the list. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1ContainerUnion_a455133a730106d201d2d6f9d20fc4329}\label{classquickgeom_1_1ContainerUnion_a455133a730106d201d2d6f9d20fc4329}} 
+{\bfseries Container\+Union} (const \mbox{\hyperlink{classquickgeom_1_1Container}{Container}} $\ast$single)
+\begin{DoxyCompactList}\small\item\em Construct an union with a single onject. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1ContainerUnion_acf97e334507cfee41d1017f0adfa2f1c}\label{classquickgeom_1_1ContainerUnion_acf97e334507cfee41d1017f0adfa2f1c}} 
+bool {\bfseries contains} (double x, double y, double z) const override
+\begin{DoxyCompactList}\small\item\em Checks if the given point is present inside this region. The boundary points are not included. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1ContainerUnion_afc7ad88720062549b80025a57e04a8b4}\label{classquickgeom_1_1ContainerUnion_afc7ad88720062549b80025a57e04a8b4}} 
+double {\bfseries get\+Minimum\+Distance\+From} (double x, double y, double z) const override
+\begin{DoxyCompactList}\small\item\em Same as get\+Minimum\+Distance\+From(const Eigen\+::\+Vector3d\&) but explicitly specifies the coordinates. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1ContainerUnion_ac853769ae631b05401891436c6651b3f}\label{classquickgeom_1_1ContainerUnion_ac853769ae631b05401891436c6651b3f}} 
+const \mbox{\hyperlink{classquickgeom_1_1Cuboid}{Cuboid}} {\bfseries get\+Containing\+Box} () const override
+\begin{DoxyCompactList}\small\item\em Get the smallest possible cuboid enclosing this region. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1ContainerUnion_abda259f530ceca6aed81a0f7747506f8}\label{classquickgeom_1_1ContainerUnion_abda259f530ceca6aed81a0f7747506f8}} 
+const \mbox{\hyperlink{classquickgeom_1_1Sphere}{Sphere}} {\bfseries get\+Containing\+Sphere} () const override
+\begin{DoxyCompactList}\small\item\em Get the smallest possible sphere enclosing this region. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1ContainerUnion_a23dfa84148fe608a2db8e7d719ec5ca7}\label{classquickgeom_1_1ContainerUnion_a23dfa84148fe608a2db8e7d719ec5ca7}} 
+double {\bfseries get\+Volume} () const override
+\begin{DoxyCompactList}\small\item\em Get the volume of this container. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1ContainerUnion_a12e8f734265da4fdc07daf04836d4ddd}\label{classquickgeom_1_1ContainerUnion_a12e8f734265da4fdc07daf04836d4ddd}} 
+{\bfseries Container\+Union} (const std\+::vector$<$ const \mbox{\hyperlink{classquickgeom_1_1Container}{Container}} $\ast$ $>$ \&conts)
+\begin{DoxyCompactList}\small\item\em Construct a unified region which is the union of all the containers (supplied as pointers) provided in the list. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1ContainerUnion_a455133a730106d201d2d6f9d20fc4329}\label{classquickgeom_1_1ContainerUnion_a455133a730106d201d2d6f9d20fc4329}} 
+{\bfseries Container\+Union} (const \mbox{\hyperlink{classquickgeom_1_1Container}{Container}} $\ast$single)
+\begin{DoxyCompactList}\small\item\em Construct an union with a single onject. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1ContainerUnion_acf97e334507cfee41d1017f0adfa2f1c}\label{classquickgeom_1_1ContainerUnion_acf97e334507cfee41d1017f0adfa2f1c}} 
+bool {\bfseries contains} (double x, double y, double z) const override
+\begin{DoxyCompactList}\small\item\em Checks if the given point is present inside this region. The boundary points are not included. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1ContainerUnion_afc7ad88720062549b80025a57e04a8b4}\label{classquickgeom_1_1ContainerUnion_afc7ad88720062549b80025a57e04a8b4}} 
+double {\bfseries get\+Minimum\+Distance\+From} (double x, double y, double z) const override
+\begin{DoxyCompactList}\small\item\em Same as get\+Minimum\+Distance\+From(const Eigen\+::\+Vector3d\&) but explicitly specifies the coordinates. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1ContainerUnion_ac853769ae631b05401891436c6651b3f}\label{classquickgeom_1_1ContainerUnion_ac853769ae631b05401891436c6651b3f}} 
+const \mbox{\hyperlink{classquickgeom_1_1Cuboid}{Cuboid}} {\bfseries get\+Containing\+Box} () const override
+\begin{DoxyCompactList}\small\item\em Get the smallest possible cuboid enclosing this region. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1ContainerUnion_abda259f530ceca6aed81a0f7747506f8}\label{classquickgeom_1_1ContainerUnion_abda259f530ceca6aed81a0f7747506f8}} 
+const \mbox{\hyperlink{classquickgeom_1_1Sphere}{Sphere}} {\bfseries get\+Containing\+Sphere} () const override
+\begin{DoxyCompactList}\small\item\em Get the smallest possible sphere enclosing this region. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1ContainerUnion_a23dfa84148fe608a2db8e7d719ec5ca7}\label{classquickgeom_1_1ContainerUnion_a23dfa84148fe608a2db8e7d719ec5ca7}} 
+double {\bfseries get\+Volume} () const override
+\begin{DoxyCompactList}\small\item\em Get the volume of this container. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classquickgeom_1_1ContainerUnion}{Container\+Union}} class allows to take the \textquotesingle{}union\textquotesingle{} of multiple containers as a region. Any point contained in ANY ONE of the containers will be in the union.~\newline
+ The containing box (See \mbox{\hyperlink{classquickgeom_1_1Container_a6b75d074354c0cf66a94c9b62ec7b1f2}{Container\+::get\+Containing\+Box()}}) can sphere (See \mbox{\hyperlink{classquickgeom_1_1Container_aa673b931c7dbe2023c69d0684dc39c91}{Container\+::get\+Containing\+Sphere()}}) will contain the entire region.~\newline
+ 
+
+Definition at line \mbox{\hyperlink{commons_8h_source_l00735}{735}} of file \mbox{\hyperlink{commons_8h_source}{commons.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+support/commons.\+h\item 
+support/commons\+\_\+old\+RNG.\+h\item 
+support/commons\+\_\+omegastable.\+h\end{DoxyCompactItemize}

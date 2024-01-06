@@ -1,0 +1,179 @@
+\hypertarget{classquickgeom_1_1Container}{}\doxysection{quickgeom\+::Container Class Reference}
+\label{classquickgeom_1_1Container}\index{quickgeom::Container@{quickgeom::Container}}
+
+
+{\ttfamily \#include \char`\"{}support/commons.\+h\char`\"{}}
+
+Inheritance diagram for quickgeom\+::Container\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=10.000000cm]{classquickgeom_1_1Container}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_a5ec98f9298032afbd8f295cb3afe7785}\label{classquickgeom_1_1Container_a5ec98f9298032afbd8f295cb3afe7785}} 
+const Eigen\+::\+Vector3d \& {\bfseries get\+Centre} () const
+\begin{DoxyCompactList}\small\item\em Get the geometric centre of this container (an alternative for a \char`\"{}const\char`\"{} \mbox{\hyperlink{classquickgeom_1_1Container}{Container}} object) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_a5fa2f06d9f6007fa58026a4cc47b6d41}\label{classquickgeom_1_1Container_a5fa2f06d9f6007fa58026a4cc47b6d41}} 
+Eigen\+::\+Vector3d {\bfseries get\+Centre} ()
+\begin{DoxyCompactList}\small\item\em Get the geometric centre of this container. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_ade220469edd171f40e84d0a638e41f4a}\label{classquickgeom_1_1Container_ade220469edd171f40e84d0a638e41f4a}} 
+virtual bool {\bfseries contains} (double x, double y, double z) const =0
+\begin{DoxyCompactList}\small\item\em Checks if the given point is present inside this region. The boundary points are not included. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_a54551bbafd1575354c769bf36de32aa8}\label{classquickgeom_1_1Container_a54551bbafd1575354c769bf36de32aa8}} 
+virtual bool {\bfseries contains} (const Eigen\+::\+Vector3d \&r) const
+\begin{DoxyCompactList}\small\item\em Checks if the given point is present inside this region. The boundary points are not included. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_ad99dcd323631ab29ddc9d020725b090b}\label{classquickgeom_1_1Container_ad99dcd323631ab29ddc9d020725b090b}} 
+double {\bfseries get\+Distance\+From} (double x, double y, double z) const
+\begin{DoxyCompactList}\small\item\em Get the distance of this point to the centre of this region. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_aebed0932898ed2d3d0c4cca45609bbe0}\label{classquickgeom_1_1Container_aebed0932898ed2d3d0c4cca45609bbe0}} 
+double {\bfseries get\+Distance\+From} (const Eigen\+::\+Vector3d \&r) const
+\begin{DoxyCompactList}\small\item\em Get the distance of this point to the centre of this region. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_af679b561b1c3bc6aaa48521679c53ded}\label{classquickgeom_1_1Container_af679b561b1c3bc6aaa48521679c53ded}} 
+virtual double {\bfseries get\+Minimum\+Distance\+From} (const Eigen\+::\+Vector3d \&v) const
+\begin{DoxyCompactList}\small\item\em Get the distance from the given point to the closest point on the surface of the region. It is zero if contained inside the region. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_a75ecee47c86d4d5228554b85b97924bb}\label{classquickgeom_1_1Container_a75ecee47c86d4d5228554b85b97924bb}} 
+virtual double {\bfseries get\+Minimum\+Distance\+From} (double x, double y, double z) const =0
+\begin{DoxyCompactList}\small\item\em Same as get\+Minimum\+Distance\+From(const Eigen\+::\+Vector3d\&) but explicitly specifies the coordinates. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_a498e4ab0ab7ffc3b70c8fc89ad083772}\label{classquickgeom_1_1Container_a498e4ab0ab7ffc3b70c8fc89ad083772}} 
+virtual double {\bfseries get\+Volume} () const =0
+\begin{DoxyCompactList}\small\item\em Get the volume of this container. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_a6b75d074354c0cf66a94c9b62ec7b1f2}\label{classquickgeom_1_1Container_a6b75d074354c0cf66a94c9b62ec7b1f2}} 
+virtual const \mbox{\hyperlink{classquickgeom_1_1Cuboid}{Cuboid}} {\bfseries get\+Containing\+Box} () const =0
+\begin{DoxyCompactList}\small\item\em Get the smallest possible cuboid enclosing this region. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_aa673b931c7dbe2023c69d0684dc39c91}\label{classquickgeom_1_1Container_aa673b931c7dbe2023c69d0684dc39c91}} 
+virtual const \mbox{\hyperlink{classquickgeom_1_1Sphere}{Sphere}} {\bfseries get\+Containing\+Sphere} () const =0
+\begin{DoxyCompactList}\small\item\em Get the smallest possible sphere enclosing this region. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_a5ec98f9298032afbd8f295cb3afe7785}\label{classquickgeom_1_1Container_a5ec98f9298032afbd8f295cb3afe7785}} 
+const Eigen\+::\+Vector3d \& {\bfseries get\+Centre} () const
+\begin{DoxyCompactList}\small\item\em Get the geometric centre of this container (an alternative for a \char`\"{}const\char`\"{} \mbox{\hyperlink{classquickgeom_1_1Container}{Container}} object) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_a5fa2f06d9f6007fa58026a4cc47b6d41}\label{classquickgeom_1_1Container_a5fa2f06d9f6007fa58026a4cc47b6d41}} 
+Eigen\+::\+Vector3d {\bfseries get\+Centre} ()
+\begin{DoxyCompactList}\small\item\em Get the geometric centre of this container. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_ade220469edd171f40e84d0a638e41f4a}\label{classquickgeom_1_1Container_ade220469edd171f40e84d0a638e41f4a}} 
+virtual bool {\bfseries contains} (double x, double y, double z) const =0
+\begin{DoxyCompactList}\small\item\em Checks if the given point is present inside this region. The boundary points are not included. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_a54551bbafd1575354c769bf36de32aa8}\label{classquickgeom_1_1Container_a54551bbafd1575354c769bf36de32aa8}} 
+virtual bool {\bfseries contains} (const Eigen\+::\+Vector3d \&r) const
+\begin{DoxyCompactList}\small\item\em Checks if the given point is present inside this region. The boundary points are not included. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_ad99dcd323631ab29ddc9d020725b090b}\label{classquickgeom_1_1Container_ad99dcd323631ab29ddc9d020725b090b}} 
+double {\bfseries get\+Distance\+From} (double x, double y, double z) const
+\begin{DoxyCompactList}\small\item\em Get the distance of this point to the centre of this region. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_aebed0932898ed2d3d0c4cca45609bbe0}\label{classquickgeom_1_1Container_aebed0932898ed2d3d0c4cca45609bbe0}} 
+double {\bfseries get\+Distance\+From} (const Eigen\+::\+Vector3d \&r) const
+\begin{DoxyCompactList}\small\item\em Get the distance of this point to the centre of this region. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_af679b561b1c3bc6aaa48521679c53ded}\label{classquickgeom_1_1Container_af679b561b1c3bc6aaa48521679c53ded}} 
+virtual double {\bfseries get\+Minimum\+Distance\+From} (const Eigen\+::\+Vector3d \&v) const
+\begin{DoxyCompactList}\small\item\em Get the distance from the given point to the closest point on the surface of the region. It is zero if contained inside the region. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_a75ecee47c86d4d5228554b85b97924bb}\label{classquickgeom_1_1Container_a75ecee47c86d4d5228554b85b97924bb}} 
+virtual double {\bfseries get\+Minimum\+Distance\+From} (double x, double y, double z) const =0
+\begin{DoxyCompactList}\small\item\em Same as get\+Minimum\+Distance\+From(const Eigen\+::\+Vector3d\&) but explicitly specifies the coordinates. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_a498e4ab0ab7ffc3b70c8fc89ad083772}\label{classquickgeom_1_1Container_a498e4ab0ab7ffc3b70c8fc89ad083772}} 
+virtual double {\bfseries get\+Volume} () const =0
+\begin{DoxyCompactList}\small\item\em Get the volume of this container. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_a6b75d074354c0cf66a94c9b62ec7b1f2}\label{classquickgeom_1_1Container_a6b75d074354c0cf66a94c9b62ec7b1f2}} 
+virtual const \mbox{\hyperlink{classquickgeom_1_1Cuboid}{Cuboid}} {\bfseries get\+Containing\+Box} () const =0
+\begin{DoxyCompactList}\small\item\em Get the smallest possible cuboid enclosing this region. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_aa673b931c7dbe2023c69d0684dc39c91}\label{classquickgeom_1_1Container_aa673b931c7dbe2023c69d0684dc39c91}} 
+virtual const \mbox{\hyperlink{classquickgeom_1_1Sphere}{Sphere}} {\bfseries get\+Containing\+Sphere} () const =0
+\begin{DoxyCompactList}\small\item\em Get the smallest possible sphere enclosing this region. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_a5ec98f9298032afbd8f295cb3afe7785}\label{classquickgeom_1_1Container_a5ec98f9298032afbd8f295cb3afe7785}} 
+const Eigen\+::\+Vector3d \& {\bfseries get\+Centre} () const
+\begin{DoxyCompactList}\small\item\em Get the geometric centre of this container (an alternative for a \char`\"{}const\char`\"{} \mbox{\hyperlink{classquickgeom_1_1Container}{Container}} object) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_a5fa2f06d9f6007fa58026a4cc47b6d41}\label{classquickgeom_1_1Container_a5fa2f06d9f6007fa58026a4cc47b6d41}} 
+Eigen\+::\+Vector3d {\bfseries get\+Centre} ()
+\begin{DoxyCompactList}\small\item\em Get the geometric centre of this container. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_ade220469edd171f40e84d0a638e41f4a}\label{classquickgeom_1_1Container_ade220469edd171f40e84d0a638e41f4a}} 
+virtual bool {\bfseries contains} (double x, double y, double z) const =0
+\begin{DoxyCompactList}\small\item\em Checks if the given point is present inside this region. The boundary points are not included. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_a54551bbafd1575354c769bf36de32aa8}\label{classquickgeom_1_1Container_a54551bbafd1575354c769bf36de32aa8}} 
+virtual bool {\bfseries contains} (const Eigen\+::\+Vector3d \&r) const
+\begin{DoxyCompactList}\small\item\em Checks if the given point is present inside this region. The boundary points are not included. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_ad99dcd323631ab29ddc9d020725b090b}\label{classquickgeom_1_1Container_ad99dcd323631ab29ddc9d020725b090b}} 
+double {\bfseries get\+Distance\+From} (double x, double y, double z) const
+\begin{DoxyCompactList}\small\item\em Get the distance of this point to the centre of this region. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_aebed0932898ed2d3d0c4cca45609bbe0}\label{classquickgeom_1_1Container_aebed0932898ed2d3d0c4cca45609bbe0}} 
+double {\bfseries get\+Distance\+From} (const Eigen\+::\+Vector3d \&r) const
+\begin{DoxyCompactList}\small\item\em Get the distance of this point to the centre of this region. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_af679b561b1c3bc6aaa48521679c53ded}\label{classquickgeom_1_1Container_af679b561b1c3bc6aaa48521679c53ded}} 
+virtual double {\bfseries get\+Minimum\+Distance\+From} (const Eigen\+::\+Vector3d \&v) const
+\begin{DoxyCompactList}\small\item\em Get the distance from the given point to the closest point on the surface of the region. It is zero if contained inside the region. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_a75ecee47c86d4d5228554b85b97924bb}\label{classquickgeom_1_1Container_a75ecee47c86d4d5228554b85b97924bb}} 
+virtual double {\bfseries get\+Minimum\+Distance\+From} (double x, double y, double z) const =0
+\begin{DoxyCompactList}\small\item\em Same as get\+Minimum\+Distance\+From(const Eigen\+::\+Vector3d\&) but explicitly specifies the coordinates. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_a498e4ab0ab7ffc3b70c8fc89ad083772}\label{classquickgeom_1_1Container_a498e4ab0ab7ffc3b70c8fc89ad083772}} 
+virtual double {\bfseries get\+Volume} () const =0
+\begin{DoxyCompactList}\small\item\em Get the volume of this container. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_a6b75d074354c0cf66a94c9b62ec7b1f2}\label{classquickgeom_1_1Container_a6b75d074354c0cf66a94c9b62ec7b1f2}} 
+virtual const \mbox{\hyperlink{classquickgeom_1_1Cuboid}{Cuboid}} {\bfseries get\+Containing\+Box} () const =0
+\begin{DoxyCompactList}\small\item\em Get the smallest possible cuboid enclosing this region. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_aa673b931c7dbe2023c69d0684dc39c91}\label{classquickgeom_1_1Container_aa673b931c7dbe2023c69d0684dc39c91}} 
+virtual const \mbox{\hyperlink{classquickgeom_1_1Sphere}{Sphere}} {\bfseries get\+Containing\+Sphere} () const =0
+\begin{DoxyCompactList}\small\item\em Get the smallest possible sphere enclosing this region. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_ae9beae0451b3872363956d413656d92f}\label{classquickgeom_1_1Container_ae9beae0451b3872363956d413656d92f}} 
+{\bfseries Container} ()
+\begin{DoxyCompactList}\small\item\em Default empty constructor. Takes the centre to be at (0,0,0) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_ab124cf4f929cd05878a407a9b7d594b9}\label{classquickgeom_1_1Container_ab124cf4f929cd05878a407a9b7d594b9}} 
+{\bfseries Container} (const Eigen\+::\+Vector3d \&v)
+\begin{DoxyCompactList}\small\item\em Construct an abstract container with centre at a point given by the inpue vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_a535c4b21fd7a43ba3827b216af067b13}\label{classquickgeom_1_1Container_a535c4b21fd7a43ba3827b216af067b13}} 
+{\bfseries Container} (double x, double y, double z)
+\begin{DoxyCompactList}\small\item\em Construct an abstract container with centre at (x,y,z) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_ae9beae0451b3872363956d413656d92f}\label{classquickgeom_1_1Container_ae9beae0451b3872363956d413656d92f}} 
+{\bfseries Container} ()
+\begin{DoxyCompactList}\small\item\em Default empty constructor. Takes the centre to be at (0,0,0) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_ab124cf4f929cd05878a407a9b7d594b9}\label{classquickgeom_1_1Container_ab124cf4f929cd05878a407a9b7d594b9}} 
+{\bfseries Container} (const Eigen\+::\+Vector3d \&v)
+\begin{DoxyCompactList}\small\item\em Construct an abstract container with centre at a point given by the inpue vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_a535c4b21fd7a43ba3827b216af067b13}\label{classquickgeom_1_1Container_a535c4b21fd7a43ba3827b216af067b13}} 
+{\bfseries Container} (double x, double y, double z)
+\begin{DoxyCompactList}\small\item\em Construct an abstract container with centre at (x,y,z) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_ae9beae0451b3872363956d413656d92f}\label{classquickgeom_1_1Container_ae9beae0451b3872363956d413656d92f}} 
+{\bfseries Container} ()
+\begin{DoxyCompactList}\small\item\em Default empty constructor. Takes the centre to be at (0,0,0) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_ab124cf4f929cd05878a407a9b7d594b9}\label{classquickgeom_1_1Container_ab124cf4f929cd05878a407a9b7d594b9}} 
+{\bfseries Container} (const Eigen\+::\+Vector3d \&v)
+\begin{DoxyCompactList}\small\item\em Construct an abstract container with centre at a point given by the inpue vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classquickgeom_1_1Container_a535c4b21fd7a43ba3827b216af067b13}\label{classquickgeom_1_1Container_a535c4b21fd7a43ba3827b216af067b13}} 
+{\bfseries Container} (double x, double y, double z)
+\begin{DoxyCompactList}\small\item\em Construct an abstract container with centre at (x,y,z) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{classquickgeom_1_1Container_a1da94403ddee72ae9a96587c24ae4126}{centre}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is the (abstract) \mbox{\hyperlink{classquickgeom_1_1Container}{Container}} class~\newline
+ It allows the user to design many shapes of containers as long as distances to various points can be computed as required by the virtual functions (see functions of this class)~\newline
+ The initial intent of this class is to provide a container to restrain molecule growth (as an alternative to using restraints to hotspot residues)~\newline
+ See Also\+: \mbox{\hyperlink{classquickgeom_1_1Cuboid}{Cuboid}}, \mbox{\hyperlink{classquickgeom_1_1Sphere}{Sphere}} 
+
+Definition at line \mbox{\hyperlink{commons_8h_source_l00598}{598}} of file \mbox{\hyperlink{commons_8h_source}{commons.\+h}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classquickgeom_1_1Container_a1da94403ddee72ae9a96587c24ae4126}\label{classquickgeom_1_1Container_a1da94403ddee72ae9a96587c24ae4126}} 
+\index{quickgeom::Container@{quickgeom::Container}!centre@{centre}}
+\index{centre@{centre}!quickgeom::Container@{quickgeom::Container}}
+\doxysubsubsection{\texorpdfstring{centre}{centre}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d quickgeom\+::\+Container\+::centre\hspace{0.3cm}{\ttfamily [protected]}}
+
+The geometric centre for this container 
+
+Definition at line \mbox{\hyperlink{commons_8h_source_l00601}{601}} of file \mbox{\hyperlink{commons_8h_source}{commons.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+support/commons.\+h\item 
+support/commons\+\_\+old\+RNG.\+h\item 
+support/commons\+\_\+omegastable.\+h\end{DoxyCompactItemize}

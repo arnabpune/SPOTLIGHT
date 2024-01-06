@@ -1,0 +1,857 @@
+\hypertarget{classchemtools_1_1Rule}{}\doxysection{chemtools\+::Rule Class Reference}
+\label{classchemtools_1_1Rule}\index{chemtools::Rule@{chemtools::Rule}}
+
+
+{\ttfamily \#include \char`\"{}forcefield/forcefield.\+hpp\char`\"{}}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_a2b44811817a9e067d947eda4d09167c6}\label{classchemtools_1_1Rule_a2b44811817a9e067d947eda4d09167c6}} 
+{\bfseries Rule} ()
+\begin{DoxyCompactList}\small\item\em The blank constructor. Only to be used as a placeholder. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classchemtools_1_1Rule_ac953f548f0c2eccc0d1642b449a2f50c}{Rule}} (std\+::string src, std\+::string rule, const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$ff=nullptr)
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} constructor. It creates the \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} object taking input in a standard format. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classchemtools_1_1Rule_afc3a3a7e0b95859383b9205291949c1e}{satisfies}} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$s, \mbox{\hyperlink{classAtom}{Atom}} $\ast$n, \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$m) const
+\begin{DoxyCompactList}\small\item\em Checks if rules permit adding in a new atom. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_a11086969bf4f1b8d3e33041000684f08}\label{classchemtools_1_1Rule_a11086969bf4f1b8d3e33041000684f08}} 
+bool {\bfseries satisfies} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$s, \mbox{\hyperlink{classAtom}{Atom}} $\ast$n, const std\+::vector$<$ \mbox{\hyperlink{classAtom}{Atom}} $\ast$ $>$ \&b) const
+\begin{DoxyCompactList}\small\item\em Alternate method for satisfies(\+Atom$\ast$,\+Atom$\ast$,\+Molecule$\ast$) which uses the bonded atom list rather than the \mbox{\hyperlink{classMolecule}{Molecule}} to calculate it. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_a319a5fd0818b5d1fc260df542bc17f20}\label{classchemtools_1_1Rule_a319a5fd0818b5d1fc260df542bc17f20}} 
+bool {\bfseries satisfies} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$s, \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$m, const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$ff=nullptr) const
+\begin{DoxyCompactList}\small\item\em Tests if an atom satisfies the requirements of this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} in it\textquotesingle{}s current state (based on what it is bonded to) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_a958a88abb0ef98d5bf17eface45207aa}\label{classchemtools_1_1Rule_a958a88abb0ef98d5bf17eface45207aa}} 
+bool {\bfseries satisfies} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$s, const std\+::vector$<$ \mbox{\hyperlink{classAtom}{Atom}} $\ast$ $>$ \&bnd, const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$ff=nullptr) const
+\begin{DoxyCompactList}\small\item\em Alternate method for satisfies(\+Atom$\ast$,\+Molecule$\ast$,const Force\+Field$\ast$) which uses the bonded atom list rather than the \mbox{\hyperlink{classMolecule}{Molecule}} to calculate it. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classchemtools_1_1Rule_a0cf5c642e583b5de8365542b343f673e}{satisfies\+Strong}} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$s, \mbox{\hyperlink{classAtom}{Atom}} $\ast$n, \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$m) const
+\item 
+bool \mbox{\hyperlink{classchemtools_1_1Rule_a061aeb5a392c810299374eb51f98bc37}{satisfies\+Strong}} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$s, \mbox{\hyperlink{classAtom}{Atom}} $\ast$n, const std\+::vector$<$ \mbox{\hyperlink{classAtom}{Atom}} $\ast$ $>$ \&b) const
+\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_af468c33b28bebc3ae520b77a8faf7454}\label{classchemtools_1_1Rule_af468c33b28bebc3ae520b77a8faf7454}} 
+const std\+::string \& {\bfseries get\+Centre} () const
+\begin{DoxyCompactList}\small\item\em Get the atom-\/type name on which this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} is defined (an alternative for a \char`\"{}const\char`\"{} \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} object) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_a238dd151ed89d45a7279f96b2e023795}\label{classchemtools_1_1Rule_a238dd151ed89d45a7279f96b2e023795}} 
+std\+::string {\bfseries get\+Centre} ()
+\begin{DoxyCompactList}\small\item\em Get the atom-\/type name on which this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} is defined. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_a9235a6b5144213882c4c76cf96720aeb}\label{classchemtools_1_1Rule_a9235a6b5144213882c4c76cf96720aeb}} 
+const std\+::vector$<$ std\+::string $>$ \& {\bfseries get\+Rule\+Group} () const
+\begin{DoxyCompactList}\small\item\em Get the group of atoms which this rule mentions. (an alternative for a \char`\"{}const\char`\"{} \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} object) \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \& \mbox{\hyperlink{classchemtools_1_1Rule_ac8b4b9f8ba441406b8c687c6459fad32}{get\+Rule\+Group}} ()
+\begin{DoxyCompactList}\small\item\em Get the group of atoms which this rule mentions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_ac78b1a7dd27751d7ef89e314149288c1}\label{classchemtools_1_1Rule_ac78b1a7dd27751d7ef89e314149288c1}} 
+int {\bfseries get\+Max} () const
+\begin{DoxyCompactList}\small\item\em Get the maximum number of bonds allowed by this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} with the atom-\/types listed in it. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_a5664a6d1bf97fc48c559576d3eaa7568}\label{classchemtools_1_1Rule_a5664a6d1bf97fc48c559576d3eaa7568}} 
+int {\bfseries get\+Min} () const
+\begin{DoxyCompactList}\small\item\em Get the minimum number of bonds required by this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} with the atom-\/types listed in it. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classchemtools_1_1Rule_ae4a3156ee433da7534dc9f597b53020b}{predict\+Angle}} (const \mbox{\hyperlink{classForceField}{Force\+Field}} \&ff, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a1, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a2, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a3)
+\begin{DoxyCompactList}\small\item\em Get the angle specified by this rule. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classchemtools_1_1Rule_ad5ac4e125f4bc662d0e83967de6dcfd4}{predict\+Dihedral}} (const \mbox{\hyperlink{classForceField}{Force\+Field}} \&ff, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a1, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a2, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a3, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a4)
+\begin{DoxyCompactList}\small\item\em Get the dihedral specified by this rule. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAtom}{Atom}} $\ast$ \mbox{\hyperlink{classchemtools_1_1Rule_a4aa3442aa7b69829ff53ac15c1884c9e}{suggest}} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$c, const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$ff) const
+\begin{DoxyCompactList}\small\item\em Choose a random atom-\/type from the list stored in this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_a2b44811817a9e067d947eda4d09167c6}\label{classchemtools_1_1Rule_a2b44811817a9e067d947eda4d09167c6}} 
+{\bfseries Rule} ()
+\begin{DoxyCompactList}\small\item\em The blank constructor. Only to be used as a placeholder. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classchemtools_1_1Rule_ac953f548f0c2eccc0d1642b449a2f50c}{Rule}} (std\+::string src, std\+::string rule, const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$ff=nullptr)
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} constructor. It creates the \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} object taking input in a standard format. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classchemtools_1_1Rule_afc3a3a7e0b95859383b9205291949c1e}{satisfies}} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$s, \mbox{\hyperlink{classAtom}{Atom}} $\ast$n, \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$m) const
+\begin{DoxyCompactList}\small\item\em Checks if rules permit adding in a new atom. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_a11086969bf4f1b8d3e33041000684f08}\label{classchemtools_1_1Rule_a11086969bf4f1b8d3e33041000684f08}} 
+bool {\bfseries satisfies} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$s, \mbox{\hyperlink{classAtom}{Atom}} $\ast$n, const std\+::vector$<$ \mbox{\hyperlink{classAtom}{Atom}} $\ast$ $>$ \&b) const
+\begin{DoxyCompactList}\small\item\em Alternate method for satisfies(\+Atom$\ast$,\+Atom$\ast$,\+Molecule$\ast$) which uses the bonded atom list rather than the \mbox{\hyperlink{classMolecule}{Molecule}} to calculate it. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_a319a5fd0818b5d1fc260df542bc17f20}\label{classchemtools_1_1Rule_a319a5fd0818b5d1fc260df542bc17f20}} 
+bool {\bfseries satisfies} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$s, \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$m, const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$ff=nullptr) const
+\begin{DoxyCompactList}\small\item\em Tests if an atom satisfies the requirements of this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} in it\textquotesingle{}s current state (based on what it is bonded to) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_a958a88abb0ef98d5bf17eface45207aa}\label{classchemtools_1_1Rule_a958a88abb0ef98d5bf17eface45207aa}} 
+bool {\bfseries satisfies} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$s, const std\+::vector$<$ \mbox{\hyperlink{classAtom}{Atom}} $\ast$ $>$ \&bnd, const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$ff=nullptr) const
+\begin{DoxyCompactList}\small\item\em Alternate method for satisfies(\+Atom$\ast$,\+Molecule$\ast$,const Force\+Field$\ast$) which uses the bonded atom list rather than the \mbox{\hyperlink{classMolecule}{Molecule}} to calculate it. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classchemtools_1_1Rule_a0cf5c642e583b5de8365542b343f673e}{satisfies\+Strong}} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$s, \mbox{\hyperlink{classAtom}{Atom}} $\ast$n, \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$m) const
+\item 
+bool \mbox{\hyperlink{classchemtools_1_1Rule_a061aeb5a392c810299374eb51f98bc37}{satisfies\+Strong}} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$s, \mbox{\hyperlink{classAtom}{Atom}} $\ast$n, const std\+::vector$<$ \mbox{\hyperlink{classAtom}{Atom}} $\ast$ $>$ \&b) const
+\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_af468c33b28bebc3ae520b77a8faf7454}\label{classchemtools_1_1Rule_af468c33b28bebc3ae520b77a8faf7454}} 
+const std\+::string \& {\bfseries get\+Centre} () const
+\begin{DoxyCompactList}\small\item\em Get the atom-\/type name on which this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} is defined (an alternative for a \char`\"{}const\char`\"{} \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} object) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_a238dd151ed89d45a7279f96b2e023795}\label{classchemtools_1_1Rule_a238dd151ed89d45a7279f96b2e023795}} 
+std\+::string {\bfseries get\+Centre} ()
+\begin{DoxyCompactList}\small\item\em Get the atom-\/type name on which this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} is defined. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_a9235a6b5144213882c4c76cf96720aeb}\label{classchemtools_1_1Rule_a9235a6b5144213882c4c76cf96720aeb}} 
+const std\+::vector$<$ std\+::string $>$ \& {\bfseries get\+Rule\+Group} () const
+\begin{DoxyCompactList}\small\item\em Get the group of atoms which this rule mentions. (an alternative for a \char`\"{}const\char`\"{} \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} object) \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \& \mbox{\hyperlink{classchemtools_1_1Rule_ac8b4b9f8ba441406b8c687c6459fad32}{get\+Rule\+Group}} ()
+\begin{DoxyCompactList}\small\item\em Get the group of atoms which this rule mentions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_ac78b1a7dd27751d7ef89e314149288c1}\label{classchemtools_1_1Rule_ac78b1a7dd27751d7ef89e314149288c1}} 
+int {\bfseries get\+Max} () const
+\begin{DoxyCompactList}\small\item\em Get the maximum number of bonds allowed by this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} with the atom-\/types listed in it. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_a5664a6d1bf97fc48c559576d3eaa7568}\label{classchemtools_1_1Rule_a5664a6d1bf97fc48c559576d3eaa7568}} 
+int {\bfseries get\+Min} () const
+\begin{DoxyCompactList}\small\item\em Get the minimum number of bonds required by this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} with the atom-\/types listed in it. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classchemtools_1_1Rule_ae4a3156ee433da7534dc9f597b53020b}{predict\+Angle}} (const \mbox{\hyperlink{classForceField}{Force\+Field}} \&ff, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a1, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a2, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a3)
+\begin{DoxyCompactList}\small\item\em Get the angle specified by this rule. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classchemtools_1_1Rule_ad5ac4e125f4bc662d0e83967de6dcfd4}{predict\+Dihedral}} (const \mbox{\hyperlink{classForceField}{Force\+Field}} \&ff, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a1, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a2, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a3, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a4)
+\begin{DoxyCompactList}\small\item\em Get the dihedral specified by this rule. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAtom}{Atom}} $\ast$ \mbox{\hyperlink{classchemtools_1_1Rule_a4aa3442aa7b69829ff53ac15c1884c9e}{suggest}} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$c, const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$ff) const
+\begin{DoxyCompactList}\small\item\em Choose a random atom-\/type from the list stored in this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_a2b44811817a9e067d947eda4d09167c6}\label{classchemtools_1_1Rule_a2b44811817a9e067d947eda4d09167c6}} 
+{\bfseries Rule} ()
+\begin{DoxyCompactList}\small\item\em The blank constructor. Only to be used as a placeholder. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classchemtools_1_1Rule_ac953f548f0c2eccc0d1642b449a2f50c}{Rule}} (std\+::string src, std\+::string rule, const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$ff=nullptr)
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} constructor. It creates the \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} object taking input in a standard format. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classchemtools_1_1Rule_afc3a3a7e0b95859383b9205291949c1e}{satisfies}} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$s, \mbox{\hyperlink{classAtom}{Atom}} $\ast$n, \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$m) const
+\begin{DoxyCompactList}\small\item\em Checks if rules permit adding in a new atom. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_a11086969bf4f1b8d3e33041000684f08}\label{classchemtools_1_1Rule_a11086969bf4f1b8d3e33041000684f08}} 
+bool {\bfseries satisfies} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$s, \mbox{\hyperlink{classAtom}{Atom}} $\ast$n, const std\+::vector$<$ \mbox{\hyperlink{classAtom}{Atom}} $\ast$ $>$ \&b) const
+\begin{DoxyCompactList}\small\item\em Alternate method for satisfies(\+Atom$\ast$,\+Atom$\ast$,\+Molecule$\ast$) which uses the bonded atom list rather than the \mbox{\hyperlink{classMolecule}{Molecule}} to calculate it. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_a319a5fd0818b5d1fc260df542bc17f20}\label{classchemtools_1_1Rule_a319a5fd0818b5d1fc260df542bc17f20}} 
+bool {\bfseries satisfies} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$s, \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$m, const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$ff=nullptr) const
+\begin{DoxyCompactList}\small\item\em Tests if an atom satisfies the requirements of this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} in it\textquotesingle{}s current state (based on what it is bonded to) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_a958a88abb0ef98d5bf17eface45207aa}\label{classchemtools_1_1Rule_a958a88abb0ef98d5bf17eface45207aa}} 
+bool {\bfseries satisfies} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$s, const std\+::vector$<$ \mbox{\hyperlink{classAtom}{Atom}} $\ast$ $>$ \&bnd, const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$ff=nullptr) const
+\begin{DoxyCompactList}\small\item\em Alternate method for satisfies(\+Atom$\ast$,\+Molecule$\ast$,const Force\+Field$\ast$) which uses the bonded atom list rather than the \mbox{\hyperlink{classMolecule}{Molecule}} to calculate it. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classchemtools_1_1Rule_a0cf5c642e583b5de8365542b343f673e}{satisfies\+Strong}} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$s, \mbox{\hyperlink{classAtom}{Atom}} $\ast$n, \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$m) const
+\item 
+bool \mbox{\hyperlink{classchemtools_1_1Rule_a061aeb5a392c810299374eb51f98bc37}{satisfies\+Strong}} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$s, \mbox{\hyperlink{classAtom}{Atom}} $\ast$n, const std\+::vector$<$ \mbox{\hyperlink{classAtom}{Atom}} $\ast$ $>$ \&b) const
+\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_af468c33b28bebc3ae520b77a8faf7454}\label{classchemtools_1_1Rule_af468c33b28bebc3ae520b77a8faf7454}} 
+const std\+::string \& {\bfseries get\+Centre} () const
+\begin{DoxyCompactList}\small\item\em Get the atom-\/type name on which this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} is defined (an alternative for a \char`\"{}const\char`\"{} \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} object) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_a238dd151ed89d45a7279f96b2e023795}\label{classchemtools_1_1Rule_a238dd151ed89d45a7279f96b2e023795}} 
+std\+::string {\bfseries get\+Centre} ()
+\begin{DoxyCompactList}\small\item\em Get the atom-\/type name on which this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} is defined. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_a9235a6b5144213882c4c76cf96720aeb}\label{classchemtools_1_1Rule_a9235a6b5144213882c4c76cf96720aeb}} 
+const std\+::vector$<$ std\+::string $>$ \& {\bfseries get\+Rule\+Group} () const
+\begin{DoxyCompactList}\small\item\em Get the group of atoms which this rule mentions. (an alternative for a \char`\"{}const\char`\"{} \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} object) \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \& \mbox{\hyperlink{classchemtools_1_1Rule_ac8b4b9f8ba441406b8c687c6459fad32}{get\+Rule\+Group}} ()
+\begin{DoxyCompactList}\small\item\em Get the group of atoms which this rule mentions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_ac78b1a7dd27751d7ef89e314149288c1}\label{classchemtools_1_1Rule_ac78b1a7dd27751d7ef89e314149288c1}} 
+int {\bfseries get\+Max} () const
+\begin{DoxyCompactList}\small\item\em Get the maximum number of bonds allowed by this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} with the atom-\/types listed in it. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_a5664a6d1bf97fc48c559576d3eaa7568}\label{classchemtools_1_1Rule_a5664a6d1bf97fc48c559576d3eaa7568}} 
+int {\bfseries get\+Min} () const
+\begin{DoxyCompactList}\small\item\em Get the minimum number of bonds required by this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} with the atom-\/types listed in it. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classchemtools_1_1Rule_ae4a3156ee433da7534dc9f597b53020b}{predict\+Angle}} (const \mbox{\hyperlink{classForceField}{Force\+Field}} \&ff, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a1, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a2, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a3)
+\begin{DoxyCompactList}\small\item\em Get the angle specified by this rule. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classchemtools_1_1Rule_ad5ac4e125f4bc662d0e83967de6dcfd4}{predict\+Dihedral}} (const \mbox{\hyperlink{classForceField}{Force\+Field}} \&ff, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a1, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a2, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a3, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a4)
+\begin{DoxyCompactList}\small\item\em Get the dihedral specified by this rule. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAtom}{Atom}} $\ast$ \mbox{\hyperlink{classchemtools_1_1Rule_a4aa3442aa7b69829ff53ac15c1884c9e}{suggest}} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$c, const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$ff) const
+\begin{DoxyCompactList}\small\item\em Choose a random atom-\/type from the list stored in this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_a2b44811817a9e067d947eda4d09167c6}\label{classchemtools_1_1Rule_a2b44811817a9e067d947eda4d09167c6}} 
+{\bfseries Rule} ()
+\begin{DoxyCompactList}\small\item\em The blank constructor. Only to be used as a placeholder. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classchemtools_1_1Rule_ac953f548f0c2eccc0d1642b449a2f50c}{Rule}} (std\+::string src, std\+::string rule, const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$ff=nullptr)
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} constructor. It creates the \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} object taking input in a standard format. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classchemtools_1_1Rule_afc3a3a7e0b95859383b9205291949c1e}{satisfies}} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$s, \mbox{\hyperlink{classAtom}{Atom}} $\ast$n, \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$m) const
+\begin{DoxyCompactList}\small\item\em Checks if rules permit adding in a new atom. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_a11086969bf4f1b8d3e33041000684f08}\label{classchemtools_1_1Rule_a11086969bf4f1b8d3e33041000684f08}} 
+bool {\bfseries satisfies} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$s, \mbox{\hyperlink{classAtom}{Atom}} $\ast$n, const std\+::vector$<$ \mbox{\hyperlink{classAtom}{Atom}} $\ast$ $>$ \&b) const
+\begin{DoxyCompactList}\small\item\em Alternate method for satisfies(\+Atom$\ast$,\+Atom$\ast$,\+Molecule$\ast$) which uses the bonded atom list rather than the \mbox{\hyperlink{classMolecule}{Molecule}} to calculate it. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_a319a5fd0818b5d1fc260df542bc17f20}\label{classchemtools_1_1Rule_a319a5fd0818b5d1fc260df542bc17f20}} 
+bool {\bfseries satisfies} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$s, \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$m, const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$ff=nullptr) const
+\begin{DoxyCompactList}\small\item\em Tests if an atom satisfies the requirements of this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} in it\textquotesingle{}s current state (based on what it is bonded to) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_a958a88abb0ef98d5bf17eface45207aa}\label{classchemtools_1_1Rule_a958a88abb0ef98d5bf17eface45207aa}} 
+bool {\bfseries satisfies} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$s, const std\+::vector$<$ \mbox{\hyperlink{classAtom}{Atom}} $\ast$ $>$ \&bnd, const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$ff=nullptr) const
+\begin{DoxyCompactList}\small\item\em Alternate method for satisfies(\+Atom$\ast$,\+Molecule$\ast$,const Force\+Field$\ast$) which uses the bonded atom list rather than the \mbox{\hyperlink{classMolecule}{Molecule}} to calculate it. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classchemtools_1_1Rule_a0cf5c642e583b5de8365542b343f673e}{satisfies\+Strong}} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$s, \mbox{\hyperlink{classAtom}{Atom}} $\ast$n, \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$m) const
+\item 
+bool \mbox{\hyperlink{classchemtools_1_1Rule_a061aeb5a392c810299374eb51f98bc37}{satisfies\+Strong}} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$s, \mbox{\hyperlink{classAtom}{Atom}} $\ast$n, const std\+::vector$<$ \mbox{\hyperlink{classAtom}{Atom}} $\ast$ $>$ \&b) const
+\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_af468c33b28bebc3ae520b77a8faf7454}\label{classchemtools_1_1Rule_af468c33b28bebc3ae520b77a8faf7454}} 
+const std\+::string \& {\bfseries get\+Centre} () const
+\begin{DoxyCompactList}\small\item\em Get the atom-\/type name on which this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} is defined (an alternative for a \char`\"{}const\char`\"{} \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} object) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_a238dd151ed89d45a7279f96b2e023795}\label{classchemtools_1_1Rule_a238dd151ed89d45a7279f96b2e023795}} 
+std\+::string {\bfseries get\+Centre} ()
+\begin{DoxyCompactList}\small\item\em Get the atom-\/type name on which this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} is defined. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_a9235a6b5144213882c4c76cf96720aeb}\label{classchemtools_1_1Rule_a9235a6b5144213882c4c76cf96720aeb}} 
+const std\+::vector$<$ std\+::string $>$ \& {\bfseries get\+Rule\+Group} () const
+\begin{DoxyCompactList}\small\item\em Get the group of atoms which this rule mentions. (an alternative for a \char`\"{}const\char`\"{} \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} object) \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \& \mbox{\hyperlink{classchemtools_1_1Rule_ac8b4b9f8ba441406b8c687c6459fad32}{get\+Rule\+Group}} ()
+\begin{DoxyCompactList}\small\item\em Get the group of atoms which this rule mentions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_ac78b1a7dd27751d7ef89e314149288c1}\label{classchemtools_1_1Rule_ac78b1a7dd27751d7ef89e314149288c1}} 
+int {\bfseries get\+Max} () const
+\begin{DoxyCompactList}\small\item\em Get the maximum number of bonds allowed by this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} with the atom-\/types listed in it. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classchemtools_1_1Rule_a5664a6d1bf97fc48c559576d3eaa7568}\label{classchemtools_1_1Rule_a5664a6d1bf97fc48c559576d3eaa7568}} 
+int {\bfseries get\+Min} () const
+\begin{DoxyCompactList}\small\item\em Get the minimum number of bonds required by this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} with the atom-\/types listed in it. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classchemtools_1_1Rule_ae4a3156ee433da7534dc9f597b53020b}{predict\+Angle}} (const \mbox{\hyperlink{classForceField}{Force\+Field}} \&ff, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a1, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a2, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a3)
+\begin{DoxyCompactList}\small\item\em Get the angle specified by this rule. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classchemtools_1_1Rule_ad5ac4e125f4bc662d0e83967de6dcfd4}{predict\+Dihedral}} (const \mbox{\hyperlink{classForceField}{Force\+Field}} \&ff, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a1, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a2, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a3, \mbox{\hyperlink{classAtom}{Atom}} $\ast$a4)
+\begin{DoxyCompactList}\small\item\em Get the dihedral specified by this rule. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAtom}{Atom}} $\ast$ \mbox{\hyperlink{classchemtools_1_1Rule_a4aa3442aa7b69829ff53ac15c1884c9e}{suggest}} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$c, const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$ff) const
+\begin{DoxyCompactList}\small\item\em Choose a random atom-\/type from the list stored in this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classchemtools_1_1Rule_a24a54b4166ac48963112712fc2960d86}{angp}} =false
+\item 
+bool \mbox{\hyperlink{classchemtools_1_1Rule_acb8bd28f84ef1abda95437ddd5f4143d}{dihp}} =false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The rule class stores condition data which is used during generation to ensure that the various atom-\/types satisfy their definitions. The exact functioning of the rules is given in the documentation (PDF)~\newline
+ Rules are defined on specific atom-\/types (referred to as the central atom) and satisfying these rules is supposed to ensure that the atom-\/type will mimic all properties as in the forcefield where it was parameterized.~\newline
+ Some extra parameters (which are now not recommended to be used) are not mentioned in documentation\+: They are angle and dihedral forcing. The rule would force a particular angle or dihedral to be used (rather than the standard forcefield parameters). This feature is deprecated since De\+Novo θ. 
+
+Definition at line \mbox{\hyperlink{forcefield_8hpp_source_l00181}{181}} of file \mbox{\hyperlink{forcefield_8hpp_source}{forcefield.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classchemtools_1_1Rule_ac953f548f0c2eccc0d1642b449a2f50c}\label{classchemtools_1_1Rule_ac953f548f0c2eccc0d1642b449a2f50c}} 
+\index{chemtools::Rule@{chemtools::Rule}!Rule@{Rule}}
+\index{Rule@{Rule}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{Rule()}{Rule()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily chemtools\+::\+Rule\+::\+Rule (\begin{DoxyParamCaption}\item[{std\+::string}]{src,  }\item[{std\+::string}]{rule,  }\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$}]{ff = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+The \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} constructor. It creates the \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} object taking input in a standard format. 
+
+It can take only one rule at a time and cannot directly interpret \mbox{\hyperlink{classCategory}{Category}} names (See \mbox{\hyperlink{namespacechemtools_a6c73fdd6c186f091225ee45907fe6b66}{build\+Rules()}} which can take the raw line from the file). A single rule ends with a semicolon \textquotesingle{};\textquotesingle{} or a newline \textquotesingle{}~\newline
+\textquotesingle{} whichever comes first~\newline
+ A sample rule (singular) looks like this 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{H* 1 1}
+\DoxyCodeLine{OH1|FA|CF3 1 1}
+
+\end{DoxyCode}
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em src} & The source atom for which the rule is meant to apply \\
+\hline
+\mbox{\texttt{ in}}  & {\em rule} & The single rule (in string format) \\
+\hline
+\mbox{\texttt{ in}}  & {\em ff} & The \mbox{\hyperlink{classForceField}{Force\+Field}} from which various atom-\/type names used in the rules are referred. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{forcefield_8hpp_source_l01246}{1246}} of file \mbox{\hyperlink{forcefield_8hpp_source}{forcefield.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01247}01247 \{}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01248}01248     centre=src;}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01249}01249     std::vector<std::string> pcs=\mbox{\hyperlink{namespacestringfx_ac6684d09027f7b4ad546ba4d7b3fe8a1}{stringfx::split}}(rule,\textcolor{charliteral}{' '},\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01250}01250     group=\mbox{\hyperlink{namespacestringfx_ac6684d09027f7b4ad546ba4d7b3fe8a1}{stringfx::split}}(pcs[0],\textcolor{charliteral}{'|'});}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01251}01251     \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01252}01252     \{}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01253}01253         \textcolor{keywordflow}{if}(ff)}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01254}01254         \{}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01255}01255             std::vector<std::string> fgroup;}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01256}01256             \textcolor{keywordflow}{for}(std::string\& s : group) \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \mbox{\hyperlink{classBondData}{BondData}}\& b : ff-\/>\mbox{\hyperlink{classForceField_a11ef1ec5670fc1755a3ad4618d63d734}{getAllowedBonds}}(centre)) \textcolor{keywordflow}{if}(\mbox{\hyperlink{namespacestringfx_af1eaea5d953fcbd7614c7736883e3f78}{stringfx::matches}}(s,b.getSecond(centre))) fgroup.push\_back(b.getSecond(centre));}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01257}01257             \textcolor{keywordflow}{if}(fgroup.size()) group=fgroup;}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01258}01258         \}}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01259}01259     \}}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01260}01260     \textcolor{keywordflow}{catch}(\mbox{\hyperlink{classNoBondsAvailableException}{NoBondsAvailableException}} ex) \{cout << \textcolor{stringliteral}{"{}No bonds for atom type: "{}}<<centre<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};\}}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01261}01261     \textcolor{comment}{//cout << pcs << "{}\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01262}01262     min=std::stoi(pcs[1]);}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01263}01263     \textcolor{keywordflow}{if}(pcs.size()>2 \&\& pcs[2][0]!=\textcolor{charliteral}{'-\/'}) max=std::stoi(pcs[2]);}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01264}01264     \textcolor{keywordflow}{if}(pcs.size()>3 \&\& pcs[3][0]!=\textcolor{charliteral}{'-\/'}) \{\mbox{\hyperlink{classchemtools_1_1Rule_a24a54b4166ac48963112712fc2960d86}{angp}}=\textcolor{keyword}{true}; angv=stod(pcs[3]);\}}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01265}01265     \textcolor{keywordflow}{if}(pcs.size()>4 \&\& pcs[4][0]!=\textcolor{charliteral}{'-\/'})}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01266}01266     \{}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01267}01267         \mbox{\hyperlink{classchemtools_1_1Rule_acb8bd28f84ef1abda95437ddd5f4143d}{dihp}}=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01268}01268         std::vector<std::string> pcsd=\mbox{\hyperlink{namespacestringfx_ac6684d09027f7b4ad546ba4d7b3fe8a1}{stringfx::split}}(pcs[4],\textcolor{charliteral}{','});}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01269}01269         dihv=stod(pcsd[0]);}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01270}01270         dihm=stod(pcsd[1]);}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01271}01271     \}}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01272}01272 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classchemtools_1_1Rule_ac953f548f0c2eccc0d1642b449a2f50c}\label{classchemtools_1_1Rule_ac953f548f0c2eccc0d1642b449a2f50c}} 
+\index{chemtools::Rule@{chemtools::Rule}!Rule@{Rule}}
+\index{Rule@{Rule}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{Rule()}{Rule()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily chemtools\+::\+Rule\+::\+Rule (\begin{DoxyParamCaption}\item[{std\+::string}]{src,  }\item[{std\+::string}]{rule,  }\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$}]{ff = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+The \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} constructor. It creates the \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} object taking input in a standard format. 
+
+It can take only one rule at a time and cannot directly interpret \mbox{\hyperlink{classCategory}{Category}} names (See \mbox{\hyperlink{namespacechemtools_a6c73fdd6c186f091225ee45907fe6b66}{build\+Rules()}} which can take the raw line from the file). A single rule ends with a semicolon \textquotesingle{};\textquotesingle{} or a newline \textquotesingle{}~\newline
+\textquotesingle{} whichever comes first~\newline
+ A sample rule (singular) looks like this 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{H* 1 1}
+\DoxyCodeLine{OH1|FA|CF3 1 1}
+
+\end{DoxyCode}
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em src} & The source atom for which the rule is meant to apply \\
+\hline
+\mbox{\texttt{ in}}  & {\em rule} & The single rule (in string format) \\
+\hline
+\mbox{\texttt{ in}}  & {\em ff} & The \mbox{\hyperlink{classForceField}{Force\+Field}} from which various atom-\/type names used in the rules are referred. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classchemtools_1_1Rule_ac953f548f0c2eccc0d1642b449a2f50c}\label{classchemtools_1_1Rule_ac953f548f0c2eccc0d1642b449a2f50c}} 
+\index{chemtools::Rule@{chemtools::Rule}!Rule@{Rule}}
+\index{Rule@{Rule}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{Rule()}{Rule()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily chemtools\+::\+Rule\+::\+Rule (\begin{DoxyParamCaption}\item[{std\+::string}]{src,  }\item[{std\+::string}]{rule,  }\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$}]{ff = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+The \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} constructor. It creates the \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} object taking input in a standard format. 
+
+It can take only one rule at a time and cannot directly interpret \mbox{\hyperlink{classCategory}{Category}} names (See \mbox{\hyperlink{namespacechemtools_a6c73fdd6c186f091225ee45907fe6b66}{build\+Rules()}} which can take the raw line from the file). A single rule ends with a semicolon \textquotesingle{};\textquotesingle{} or a newline \textquotesingle{}~\newline
+\textquotesingle{} whichever comes first~\newline
+ A sample rule (singular) looks like this 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{H* 1 1}
+\DoxyCodeLine{OH1|FA|CF3 1 1}
+
+\end{DoxyCode}
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em src} & The source atom for which the rule is meant to apply \\
+\hline
+\mbox{\texttt{ in}}  & {\em rule} & The single rule (in string format) \\
+\hline
+\mbox{\texttt{ in}}  & {\em ff} & The \mbox{\hyperlink{classForceField}{Force\+Field}} from which various atom-\/type names used in the rules are referred. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classchemtools_1_1Rule_ac953f548f0c2eccc0d1642b449a2f50c}\label{classchemtools_1_1Rule_ac953f548f0c2eccc0d1642b449a2f50c}} 
+\index{chemtools::Rule@{chemtools::Rule}!Rule@{Rule}}
+\index{Rule@{Rule}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{Rule()}{Rule()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily chemtools\+::\+Rule\+::\+Rule (\begin{DoxyParamCaption}\item[{std\+::string}]{src,  }\item[{std\+::string}]{rule,  }\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$}]{ff = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+The \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} constructor. It creates the \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}} object taking input in a standard format. 
+
+It can take only one rule at a time and cannot directly interpret \mbox{\hyperlink{classCategory}{Category}} names (See \mbox{\hyperlink{namespacechemtools_a6c73fdd6c186f091225ee45907fe6b66}{build\+Rules()}} which can take the raw line from the file). A single rule ends with a semicolon \textquotesingle{};\textquotesingle{} or a newline \textquotesingle{}~\newline
+\textquotesingle{} whichever comes first~\newline
+ A sample rule (singular) looks like this 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{H* 1 1}
+\DoxyCodeLine{OH1|FA|CF3 1 1}
+
+\end{DoxyCode}
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em src} & The source atom for which the rule is meant to apply \\
+\hline
+\mbox{\texttt{ in}}  & {\em rule} & The single rule (in string format) \\
+\hline
+\mbox{\texttt{ in}}  & {\em ff} & The \mbox{\hyperlink{classForceField}{Force\+Field}} from which various atom-\/type names used in the rules are referred. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classchemtools_1_1Rule_ac8b4b9f8ba441406b8c687c6459fad32}\label{classchemtools_1_1Rule_ac8b4b9f8ba441406b8c687c6459fad32}} 
+\index{chemtools::Rule@{chemtools::Rule}!getRuleGroup@{getRuleGroup}}
+\index{getRuleGroup@{getRuleGroup}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{getRuleGroup()}{getRuleGroup()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ \& chemtools\+::\+Rule\+::get\+Rule\+Group (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the group of atoms which this rule mentions. 
+
+This does not include the centre atom (see \mbox{\hyperlink{classchemtools_1_1Rule_a238dd151ed89d45a7279f96b2e023795}{get\+Centre()}})~\newline
+ This will return all the atom-\/types to which the central atom can bond which are mentioned in this rule. 
+
+Definition at line \mbox{\hyperlink{forcefield_8hpp_source_l00237}{237}} of file \mbox{\hyperlink{forcefield_8hpp_source}{forcefield.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l00237}00237 \{\textcolor{keywordflow}{return} group;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classchemtools_1_1Rule_ac8b4b9f8ba441406b8c687c6459fad32}\label{classchemtools_1_1Rule_ac8b4b9f8ba441406b8c687c6459fad32}} 
+\index{chemtools::Rule@{chemtools::Rule}!getRuleGroup@{getRuleGroup}}
+\index{getRuleGroup@{getRuleGroup}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{getRuleGroup()}{getRuleGroup()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ \& chemtools\+::\+Rule\+::get\+Rule\+Group (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the group of atoms which this rule mentions. 
+
+This does not include the centre atom (see \mbox{\hyperlink{classchemtools_1_1Rule_a238dd151ed89d45a7279f96b2e023795}{get\+Centre()}})~\newline
+ This will return all the atom-\/types to which the central atom can bond which are mentioned in this rule. 
+
+Definition at line \mbox{\hyperlink{forcefield__precomp_8hpp_source_l00226}{226}} of file \mbox{\hyperlink{forcefield__precomp_8hpp_source}{forcefield\+\_\+precomp.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l00226}00226 \{\textcolor{keywordflow}{return} group;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classchemtools_1_1Rule_ac8b4b9f8ba441406b8c687c6459fad32}\label{classchemtools_1_1Rule_ac8b4b9f8ba441406b8c687c6459fad32}} 
+\index{chemtools::Rule@{chemtools::Rule}!getRuleGroup@{getRuleGroup}}
+\index{getRuleGroup@{getRuleGroup}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{getRuleGroup()}{getRuleGroup()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ \& chemtools\+::\+Rule\+::get\+Rule\+Group (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the group of atoms which this rule mentions. 
+
+This does not include the centre atom (see \mbox{\hyperlink{classchemtools_1_1Rule_a238dd151ed89d45a7279f96b2e023795}{get\+Centre()}})~\newline
+ This will return all the atom-\/types to which the central atom can bond which are mentioned in this rule. 
+
+Definition at line \mbox{\hyperlink{forcefield__precomp__omega__stable_8hpp_source_l00222}{222}} of file \mbox{\hyperlink{forcefield__precomp__omega__stable_8hpp_source}{forcefield\+\_\+precomp\+\_\+omega\+\_\+stable.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l00222}00222 \{\textcolor{keywordflow}{return} group;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classchemtools_1_1Rule_ac8b4b9f8ba441406b8c687c6459fad32}\label{classchemtools_1_1Rule_ac8b4b9f8ba441406b8c687c6459fad32}} 
+\index{chemtools::Rule@{chemtools::Rule}!getRuleGroup@{getRuleGroup}}
+\index{getRuleGroup@{getRuleGroup}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{getRuleGroup()}{getRuleGroup()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ \& chemtools\+::\+Rule\+::get\+Rule\+Group (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the group of atoms which this rule mentions. 
+
+This does not include the centre atom (see \mbox{\hyperlink{classchemtools_1_1Rule_a238dd151ed89d45a7279f96b2e023795}{get\+Centre()}})~\newline
+ This will return all the atom-\/types to which the central atom can bond which are mentioned in this rule. 
+
+Definition at line \mbox{\hyperlink{forcefield__precomp__omega__stable2_8hpp_source_l00226}{226}} of file \mbox{\hyperlink{forcefield__precomp__omega__stable2_8hpp_source}{forcefield\+\_\+precomp\+\_\+omega\+\_\+stable2.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l00226}00226 \{\textcolor{keywordflow}{return} group;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classchemtools_1_1Rule_ae4a3156ee433da7534dc9f597b53020b}\label{classchemtools_1_1Rule_ae4a3156ee433da7534dc9f597b53020b}} 
+\index{chemtools::Rule@{chemtools::Rule}!predictAngle@{predictAngle}}
+\index{predictAngle@{predictAngle}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{predictAngle()}{predictAngle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ chemtools\+::\+Rule\+::predict\+Angle (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} \&}]{ff,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a1,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a2,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the angle specified by this rule. 
+
+Older versions of De\+Novo allowed specifying an angle to override the force-\/field parameters when bonding to this atom as the center.~\newline
+ \begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000005}{Deprecated}}]It is deprecated since De\+Novo θ (at-\/least). Support is not guaranteed for previous versions and absent in newer versions. \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{forcefield_8hpp_source_l01314}{1314}} of file \mbox{\hyperlink{forcefield_8hpp_source}{forcefield.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01315}01315 \{}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01316}01316     std::vector<double> p=ff.\mbox{\hyperlink{classForceField_a008b06865581950f90f100bd04b139cf}{getAngleParamtersFailsafe}}(a1,a2,a3);}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01317}01317     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classchemtools_1_1Rule_a24a54b4166ac48963112712fc2960d86}{angp}}) p[0]=angv;}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01318}01318     \textcolor{keywordflow}{return} p;}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01319}01319 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classchemtools_1_1Rule_ae4a3156ee433da7534dc9f597b53020b}\label{classchemtools_1_1Rule_ae4a3156ee433da7534dc9f597b53020b}} 
+\index{chemtools::Rule@{chemtools::Rule}!predictAngle@{predictAngle}}
+\index{predictAngle@{predictAngle}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{predictAngle()}{predictAngle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ chemtools\+::\+Rule\+::predict\+Angle (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} \&}]{ff,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a1,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a2,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the angle specified by this rule. 
+
+Older versions of De\+Novo allowed specifying an angle to override the force-\/field parameters when bonding to this atom as the center.~\newline
+ \begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000011}{Deprecated}}]It is deprecated since De\+Novo θ (at-\/least). Support is not guaranteed for previous versions and absent in newer versions. \end{DoxyRefDesc}
+\mbox{\Hypertarget{classchemtools_1_1Rule_ae4a3156ee433da7534dc9f597b53020b}\label{classchemtools_1_1Rule_ae4a3156ee433da7534dc9f597b53020b}} 
+\index{chemtools::Rule@{chemtools::Rule}!predictAngle@{predictAngle}}
+\index{predictAngle@{predictAngle}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{predictAngle()}{predictAngle()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ chemtools\+::\+Rule\+::predict\+Angle (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} \&}]{ff,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a1,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a2,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the angle specified by this rule. 
+
+Older versions of De\+Novo allowed specifying an angle to override the force-\/field parameters when bonding to this atom as the center.~\newline
+ \begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000017}{Deprecated}}]It is deprecated since De\+Novo θ (at-\/least). Support is not guaranteed for previous versions and absent in newer versions. \end{DoxyRefDesc}
+\mbox{\Hypertarget{classchemtools_1_1Rule_ae4a3156ee433da7534dc9f597b53020b}\label{classchemtools_1_1Rule_ae4a3156ee433da7534dc9f597b53020b}} 
+\index{chemtools::Rule@{chemtools::Rule}!predictAngle@{predictAngle}}
+\index{predictAngle@{predictAngle}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{predictAngle()}{predictAngle()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ chemtools\+::\+Rule\+::predict\+Angle (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} \&}]{ff,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a1,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a2,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the angle specified by this rule. 
+
+Older versions of De\+Novo allowed specifying an angle to override the force-\/field parameters when bonding to this atom as the center.~\newline
+ \begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000023}{Deprecated}}]It is deprecated since De\+Novo θ (at-\/least). Support is not guaranteed for previous versions and absent in newer versions. \end{DoxyRefDesc}
+\mbox{\Hypertarget{classchemtools_1_1Rule_ad5ac4e125f4bc662d0e83967de6dcfd4}\label{classchemtools_1_1Rule_ad5ac4e125f4bc662d0e83967de6dcfd4}} 
+\index{chemtools::Rule@{chemtools::Rule}!predictDihedral@{predictDihedral}}
+\index{predictDihedral@{predictDihedral}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{predictDihedral()}{predictDihedral()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ chemtools\+::\+Rule\+::predict\+Dihedral (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} \&}]{ff,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a1,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a2,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a3,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a4 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the dihedral specified by this rule. 
+
+Older versions of De\+Novo allowed specifying an dihedral value to override the force-\/field parameters when bonding to this atom as the center.~\newline
+ \begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000006}{Deprecated}}]It is deprecated since De\+Novo θ (at-\/least). Support is not guaranteed for previous versions and absent in newer versions. \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{forcefield_8hpp_source_l01320}{1320}} of file \mbox{\hyperlink{forcefield_8hpp_source}{forcefield.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01321}01321 \{}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01322}01322     std::vector<double> p=ff.\mbox{\hyperlink{classForceField_a2e27b4bf5bea870617379cdb657cefd7}{getDihedralParametersFailsafe}}(a1,a2,a3,a4);}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01323}01323     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classchemtools_1_1Rule_acb8bd28f84ef1abda95437ddd5f4143d}{dihp}}) \{p[0]=dihv; p[2]=dihm;\}}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01324}01324     \textcolor{keywordflow}{return} p;}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01325}01325 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classchemtools_1_1Rule_ad5ac4e125f4bc662d0e83967de6dcfd4}\label{classchemtools_1_1Rule_ad5ac4e125f4bc662d0e83967de6dcfd4}} 
+\index{chemtools::Rule@{chemtools::Rule}!predictDihedral@{predictDihedral}}
+\index{predictDihedral@{predictDihedral}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{predictDihedral()}{predictDihedral()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ chemtools\+::\+Rule\+::predict\+Dihedral (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} \&}]{ff,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a1,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a2,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a3,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a4 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the dihedral specified by this rule. 
+
+Older versions of De\+Novo allowed specifying an dihedral value to override the force-\/field parameters when bonding to this atom as the center.~\newline
+ \begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000012}{Deprecated}}]It is deprecated since De\+Novo θ (at-\/least). Support is not guaranteed for previous versions and absent in newer versions. \end{DoxyRefDesc}
+\mbox{\Hypertarget{classchemtools_1_1Rule_ad5ac4e125f4bc662d0e83967de6dcfd4}\label{classchemtools_1_1Rule_ad5ac4e125f4bc662d0e83967de6dcfd4}} 
+\index{chemtools::Rule@{chemtools::Rule}!predictDihedral@{predictDihedral}}
+\index{predictDihedral@{predictDihedral}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{predictDihedral()}{predictDihedral()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ chemtools\+::\+Rule\+::predict\+Dihedral (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} \&}]{ff,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a1,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a2,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a3,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a4 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the dihedral specified by this rule. 
+
+Older versions of De\+Novo allowed specifying an dihedral value to override the force-\/field parameters when bonding to this atom as the center.~\newline
+ \begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000018}{Deprecated}}]It is deprecated since De\+Novo θ (at-\/least). Support is not guaranteed for previous versions and absent in newer versions. \end{DoxyRefDesc}
+\mbox{\Hypertarget{classchemtools_1_1Rule_ad5ac4e125f4bc662d0e83967de6dcfd4}\label{classchemtools_1_1Rule_ad5ac4e125f4bc662d0e83967de6dcfd4}} 
+\index{chemtools::Rule@{chemtools::Rule}!predictDihedral@{predictDihedral}}
+\index{predictDihedral@{predictDihedral}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{predictDihedral()}{predictDihedral()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ chemtools\+::\+Rule\+::predict\+Dihedral (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} \&}]{ff,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a1,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a2,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a3,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a4 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the dihedral specified by this rule. 
+
+Older versions of De\+Novo allowed specifying an dihedral value to override the force-\/field parameters when bonding to this atom as the center.~\newline
+ \begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000024}{Deprecated}}]It is deprecated since De\+Novo θ (at-\/least). Support is not guaranteed for previous versions and absent in newer versions. \end{DoxyRefDesc}
+\mbox{\Hypertarget{classchemtools_1_1Rule_afc3a3a7e0b95859383b9205291949c1e}\label{classchemtools_1_1Rule_afc3a3a7e0b95859383b9205291949c1e}} 
+\index{chemtools::Rule@{chemtools::Rule}!satisfies@{satisfies}}
+\index{satisfies@{satisfies}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{satisfies()}{satisfies()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily bool chemtools\+::\+Rule\+::satisfies (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{n,  }\item[{\mbox{\hyperlink{classMolecule}{Molecule}} $\ast$}]{m }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if rules permit adding in a new atom. 
+
+This functions checks to see if rules on the atom-\/types described by \textquotesingle{}s\textquotesingle{} and \textquotesingle{}n\textquotesingle{} allow \textquotesingle{}n\textquotesingle{} (a new atom with no bonds upto now) to bond to a source atom \textquotesingle{}s\textquotesingle{}.~\newline
+ This function returns negative (false) if bonding these two atoms would violate a rule constraint (eg. the maximum limit of bonds allowed for \textquotesingle{}s\textquotesingle{} or \textquotesingle{}n\textquotesingle{} with the other). 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em s} & The source atom which is already present in the molecule to which the new atom is to be attached \\
+\hline
+\mbox{\texttt{ in}}  & {\em n} & The new atom which is being trialled. It has no bonds upto now. \\
+\hline
+\mbox{\texttt{ in}}  & {\em m} & The molecule from which \textquotesingle{}s\textquotesingle{} comes. This will be used to find all the atoms bonded to \textquotesingle{}s\textquotesingle{} ~\newline
+See also\+: satisfies(\+Atom$\ast$,\+Molecule$\ast$,const Force\+Field$\ast$) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l04811}{4811}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l04811}04811 \{\textcolor{keywordflow}{return} \mbox{\hyperlink{classchemtools_1_1Rule_afc3a3a7e0b95859383b9205291949c1e}{chemtools::Rule::satisfies}}(s,n,src-\/>getBondedAtoms(s));\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classchemtools_1_1Rule_afc3a3a7e0b95859383b9205291949c1e}\label{classchemtools_1_1Rule_afc3a3a7e0b95859383b9205291949c1e}} 
+\index{chemtools::Rule@{chemtools::Rule}!satisfies@{satisfies}}
+\index{satisfies@{satisfies}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{satisfies()}{satisfies()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily bool chemtools\+::\+Rule\+::satisfies (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{n,  }\item[{\mbox{\hyperlink{classMolecule}{Molecule}} $\ast$}]{m }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if rules permit adding in a new atom. 
+
+This functions checks to see if rules on the atom-\/types described by \textquotesingle{}s\textquotesingle{} and \textquotesingle{}n\textquotesingle{} allow \textquotesingle{}n\textquotesingle{} (a new atom with no bonds upto now) to bond to a source atom \textquotesingle{}s\textquotesingle{}.~\newline
+ This function returns negative (false) if bonding these two atoms would violate a rule constraint (eg. the maximum limit of bonds allowed for \textquotesingle{}s\textquotesingle{} or \textquotesingle{}n\textquotesingle{} with the other). 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em s} & The source atom which is already present in the molecule to which the new atom is to be attached \\
+\hline
+\mbox{\texttt{ in}}  & {\em n} & The new atom which is being trialled. It has no bonds upto now. \\
+\hline
+\mbox{\texttt{ in}}  & {\em m} & The molecule from which \textquotesingle{}s\textquotesingle{} comes. This will be used to find all the atoms bonded to \textquotesingle{}s\textquotesingle{} ~\newline
+See also\+: satisfies(\+Atom$\ast$,\+Molecule$\ast$,const Force\+Field$\ast$) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classchemtools_1_1Rule_afc3a3a7e0b95859383b9205291949c1e}\label{classchemtools_1_1Rule_afc3a3a7e0b95859383b9205291949c1e}} 
+\index{chemtools::Rule@{chemtools::Rule}!satisfies@{satisfies}}
+\index{satisfies@{satisfies}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{satisfies()}{satisfies()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily bool chemtools\+::\+Rule\+::satisfies (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{n,  }\item[{\mbox{\hyperlink{classMolecule}{Molecule}} $\ast$}]{m }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if rules permit adding in a new atom. 
+
+This functions checks to see if rules on the atom-\/types described by \textquotesingle{}s\textquotesingle{} and \textquotesingle{}n\textquotesingle{} allow \textquotesingle{}n\textquotesingle{} (a new atom with no bonds upto now) to bond to a source atom \textquotesingle{}s\textquotesingle{}.~\newline
+ This function returns negative (false) if bonding these two atoms would violate a rule constraint (eg. the maximum limit of bonds allowed for \textquotesingle{}s\textquotesingle{} or \textquotesingle{}n\textquotesingle{} with the other). 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em s} & The source atom which is already present in the molecule to which the new atom is to be attached \\
+\hline
+\mbox{\texttt{ in}}  & {\em n} & The new atom which is being trialled. It has no bonds upto now. \\
+\hline
+\mbox{\texttt{ in}}  & {\em m} & The molecule from which \textquotesingle{}s\textquotesingle{} comes. This will be used to find all the atoms bonded to \textquotesingle{}s\textquotesingle{} ~\newline
+See also\+: satisfies(\+Atom$\ast$,\+Molecule$\ast$,const Force\+Field$\ast$) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classchemtools_1_1Rule_afc3a3a7e0b95859383b9205291949c1e}\label{classchemtools_1_1Rule_afc3a3a7e0b95859383b9205291949c1e}} 
+\index{chemtools::Rule@{chemtools::Rule}!satisfies@{satisfies}}
+\index{satisfies@{satisfies}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{satisfies()}{satisfies()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily bool chemtools\+::\+Rule\+::satisfies (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{n,  }\item[{\mbox{\hyperlink{classMolecule}{Molecule}} $\ast$}]{m }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if rules permit adding in a new atom. 
+
+This functions checks to see if rules on the atom-\/types described by \textquotesingle{}s\textquotesingle{} and \textquotesingle{}n\textquotesingle{} allow \textquotesingle{}n\textquotesingle{} (a new atom with no bonds upto now) to bond to a source atom \textquotesingle{}s\textquotesingle{}.~\newline
+ This function returns negative (false) if bonding these two atoms would violate a rule constraint (eg. the maximum limit of bonds allowed for \textquotesingle{}s\textquotesingle{} or \textquotesingle{}n\textquotesingle{} with the other). 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em s} & The source atom which is already present in the molecule to which the new atom is to be attached \\
+\hline
+\mbox{\texttt{ in}}  & {\em n} & The new atom which is being trialled. It has no bonds upto now. \\
+\hline
+\mbox{\texttt{ in}}  & {\em m} & The molecule from which \textquotesingle{}s\textquotesingle{} comes. This will be used to find all the atoms bonded to \textquotesingle{}s\textquotesingle{} ~\newline
+See also\+: satisfies(\+Atom$\ast$,\+Molecule$\ast$,const Force\+Field$\ast$) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classchemtools_1_1Rule_a061aeb5a392c810299374eb51f98bc37}\label{classchemtools_1_1Rule_a061aeb5a392c810299374eb51f98bc37}} 
+\index{chemtools::Rule@{chemtools::Rule}!satisfiesStrong@{satisfiesStrong}}
+\index{satisfiesStrong@{satisfiesStrong}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{satisfiesStrong()}{satisfiesStrong()}\hspace{0.1cm}{\footnotesize\ttfamily [1/8]}}
+{\footnotesize\ttfamily bool chemtools\+::\+Rule\+::satisfies\+Strong (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{n,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{classAtom}{Atom}} $\ast$ $>$ \&}]{b }\end{DoxyParamCaption}) const}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000004}{Deprecated}}]An alternate function for satisfies\+Strong(\+Atom$\ast$,\+Atom$\ast$,\+Molecule$\ast$) \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l04849}{4849}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l04850}04850 \{}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l04851}04851   \textcolor{keywordflow}{if}(group[0][0]==\textcolor{charliteral}{'@'}) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l04852}04852   \textcolor{keywordtype}{int} c=0;}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l04853}04853   \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* a : bnd)}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l04854}04854   \{}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l04855}04855     \textcolor{keywordflow}{if}(contains(group,a-\/>toString())) c++;}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l04856}04856     \textcolor{keywordflow}{if}(c>=max) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l04857}04857   \}}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l04858}04858   \textcolor{keywordflow}{if}(contains(group,n-\/>\mbox{\hyperlink{classAtom_a189def3b8bade8507d49cfd7de881178}{toString}}())) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l04859}04859   \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} (c>=min);}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l04860}04860 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classchemtools_1_1Rule_a061aeb5a392c810299374eb51f98bc37}\label{classchemtools_1_1Rule_a061aeb5a392c810299374eb51f98bc37}} 
+\index{chemtools::Rule@{chemtools::Rule}!satisfiesStrong@{satisfiesStrong}}
+\index{satisfiesStrong@{satisfiesStrong}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{satisfiesStrong()}{satisfiesStrong()}\hspace{0.1cm}{\footnotesize\ttfamily [2/8]}}
+{\footnotesize\ttfamily bool chemtools\+::\+Rule\+::satisfies\+Strong (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{n,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{classAtom}{Atom}} $\ast$ $>$ \&}]{b }\end{DoxyParamCaption}) const}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000010}{Deprecated}}]An alternate function for satisfies\+Strong(\+Atom$\ast$,\+Atom$\ast$,\+Molecule$\ast$) \end{DoxyRefDesc}
+\mbox{\Hypertarget{classchemtools_1_1Rule_a061aeb5a392c810299374eb51f98bc37}\label{classchemtools_1_1Rule_a061aeb5a392c810299374eb51f98bc37}} 
+\index{chemtools::Rule@{chemtools::Rule}!satisfiesStrong@{satisfiesStrong}}
+\index{satisfiesStrong@{satisfiesStrong}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{satisfiesStrong()}{satisfiesStrong()}\hspace{0.1cm}{\footnotesize\ttfamily [3/8]}}
+{\footnotesize\ttfamily bool chemtools\+::\+Rule\+::satisfies\+Strong (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{n,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{classAtom}{Atom}} $\ast$ $>$ \&}]{b }\end{DoxyParamCaption}) const}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000016}{Deprecated}}]An alternate function for satisfies\+Strong(\+Atom$\ast$,\+Atom$\ast$,\+Molecule$\ast$) \end{DoxyRefDesc}
+\mbox{\Hypertarget{classchemtools_1_1Rule_a061aeb5a392c810299374eb51f98bc37}\label{classchemtools_1_1Rule_a061aeb5a392c810299374eb51f98bc37}} 
+\index{chemtools::Rule@{chemtools::Rule}!satisfiesStrong@{satisfiesStrong}}
+\index{satisfiesStrong@{satisfiesStrong}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{satisfiesStrong()}{satisfiesStrong()}\hspace{0.1cm}{\footnotesize\ttfamily [4/8]}}
+{\footnotesize\ttfamily bool chemtools\+::\+Rule\+::satisfies\+Strong (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{n,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{classAtom}{Atom}} $\ast$ $>$ \&}]{b }\end{DoxyParamCaption}) const}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000022}{Deprecated}}]An alternate function for satisfies\+Strong(\+Atom$\ast$,\+Atom$\ast$,\+Molecule$\ast$) \end{DoxyRefDesc}
+\mbox{\Hypertarget{classchemtools_1_1Rule_a0cf5c642e583b5de8365542b343f673e}\label{classchemtools_1_1Rule_a0cf5c642e583b5de8365542b343f673e}} 
+\index{chemtools::Rule@{chemtools::Rule}!satisfiesStrong@{satisfiesStrong}}
+\index{satisfiesStrong@{satisfiesStrong}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{satisfiesStrong()}{satisfiesStrong()}\hspace{0.1cm}{\footnotesize\ttfamily [5/8]}}
+{\footnotesize\ttfamily bool chemtools\+::\+Rule\+::satisfies\+Strong (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{n,  }\item[{\mbox{\hyperlink{classMolecule}{Molecule}} $\ast$}]{m }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000003}{Deprecated}}]Same as satisfies(\+Atom$\ast$,\+Atom$\ast$,\+Molecule$\ast$) but does the calculation assuming that the extra bond between the source and new atom is also present \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l04848}{4848}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l04848}04848 \{\textcolor{keywordflow}{return} \mbox{\hyperlink{classchemtools_1_1Rule_a0cf5c642e583b5de8365542b343f673e}{chemtools::Rule::satisfiesStrong}}(s,n,src-\/>getBondedAtoms(s));\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classchemtools_1_1Rule_a0cf5c642e583b5de8365542b343f673e}\label{classchemtools_1_1Rule_a0cf5c642e583b5de8365542b343f673e}} 
+\index{chemtools::Rule@{chemtools::Rule}!satisfiesStrong@{satisfiesStrong}}
+\index{satisfiesStrong@{satisfiesStrong}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{satisfiesStrong()}{satisfiesStrong()}\hspace{0.1cm}{\footnotesize\ttfamily [6/8]}}
+{\footnotesize\ttfamily bool chemtools\+::\+Rule\+::satisfies\+Strong (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{n,  }\item[{\mbox{\hyperlink{classMolecule}{Molecule}} $\ast$}]{m }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000009}{Deprecated}}]Same as satisfies(\+Atom$\ast$,\+Atom$\ast$,\+Molecule$\ast$) but does the calculation assuming that the extra bond between the source and new atom is also present \end{DoxyRefDesc}
+\mbox{\Hypertarget{classchemtools_1_1Rule_a0cf5c642e583b5de8365542b343f673e}\label{classchemtools_1_1Rule_a0cf5c642e583b5de8365542b343f673e}} 
+\index{chemtools::Rule@{chemtools::Rule}!satisfiesStrong@{satisfiesStrong}}
+\index{satisfiesStrong@{satisfiesStrong}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{satisfiesStrong()}{satisfiesStrong()}\hspace{0.1cm}{\footnotesize\ttfamily [7/8]}}
+{\footnotesize\ttfamily bool chemtools\+::\+Rule\+::satisfies\+Strong (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{n,  }\item[{\mbox{\hyperlink{classMolecule}{Molecule}} $\ast$}]{m }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000015}{Deprecated}}]Same as satisfies(\+Atom$\ast$,\+Atom$\ast$,\+Molecule$\ast$) but does the calculation assuming that the extra bond between the source and new atom is also present \end{DoxyRefDesc}
+\mbox{\Hypertarget{classchemtools_1_1Rule_a0cf5c642e583b5de8365542b343f673e}\label{classchemtools_1_1Rule_a0cf5c642e583b5de8365542b343f673e}} 
+\index{chemtools::Rule@{chemtools::Rule}!satisfiesStrong@{satisfiesStrong}}
+\index{satisfiesStrong@{satisfiesStrong}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{satisfiesStrong()}{satisfiesStrong()}\hspace{0.1cm}{\footnotesize\ttfamily [8/8]}}
+{\footnotesize\ttfamily bool chemtools\+::\+Rule\+::satisfies\+Strong (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{n,  }\item[{\mbox{\hyperlink{classMolecule}{Molecule}} $\ast$}]{m }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000021}{Deprecated}}]Same as satisfies(\+Atom$\ast$,\+Atom$\ast$,\+Molecule$\ast$) but does the calculation assuming that the extra bond between the source and new atom is also present \end{DoxyRefDesc}
+\mbox{\Hypertarget{classchemtools_1_1Rule_a4aa3442aa7b69829ff53ac15c1884c9e}\label{classchemtools_1_1Rule_a4aa3442aa7b69829ff53ac15c1884c9e}} 
+\index{chemtools::Rule@{chemtools::Rule}!suggest@{suggest}}
+\index{suggest@{suggest}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{suggest()}{suggest()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classAtom}{Atom}} $\ast$ chemtools\+::\+Rule\+::suggest (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{c,  }\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$}]{ff }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Choose a random atom-\/type from the list stored in this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}}. 
+
+This function returns a random atom that will (according to this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}}) satisfy the requirements of the central atom.~\newline
+When multiple atoms are specified using the \textquotesingle{}$\vert$\textquotesingle{} separator or a \mbox{\hyperlink{classCategory}{Category}}, it is assumed that any of these atoms can be used to satisfy the rule and selection of each is equally likely~\newline
+Atom-\/type reweighting is likely to work at this stage as well, but hasn\textquotesingle{}t been tested so far 
+
+Definition at line \mbox{\hyperlink{forcefield_8hpp_source_l01326}{1326}} of file \mbox{\hyperlink{forcefield_8hpp_source}{forcefield.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classchemtools_1_1Rule_l01326}01326 \{\textcolor{keywordflow}{return} ff-\/>\mbox{\hyperlink{classForceField_a388e3f80e59286f915299e61341d078f}{getAtom}}(randomSelect(group));\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classchemtools_1_1Rule_a4aa3442aa7b69829ff53ac15c1884c9e}\label{classchemtools_1_1Rule_a4aa3442aa7b69829ff53ac15c1884c9e}} 
+\index{chemtools::Rule@{chemtools::Rule}!suggest@{suggest}}
+\index{suggest@{suggest}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{suggest()}{suggest()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classAtom}{Atom}} $\ast$ chemtools\+::\+Rule\+::suggest (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{c,  }\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$}]{ff }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Choose a random atom-\/type from the list stored in this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}}. 
+
+This function returns a random atom that will (according to this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}}) satisfy the requirements of the central atom.~\newline
+When multiple atoms are specified using the \textquotesingle{}$\vert$\textquotesingle{} separator or a \mbox{\hyperlink{classCategory}{Category}}, it is assumed that any of these atoms can be used to satisfy the rule and selection of each is equally likely~\newline
+Atom-\/type reweighting is likely to work at this stage as well, but hasn\textquotesingle{}t been tested so far \mbox{\Hypertarget{classchemtools_1_1Rule_a4aa3442aa7b69829ff53ac15c1884c9e}\label{classchemtools_1_1Rule_a4aa3442aa7b69829ff53ac15c1884c9e}} 
+\index{chemtools::Rule@{chemtools::Rule}!suggest@{suggest}}
+\index{suggest@{suggest}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{suggest()}{suggest()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classAtom}{Atom}} $\ast$ chemtools\+::\+Rule\+::suggest (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{c,  }\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$}]{ff }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Choose a random atom-\/type from the list stored in this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}}. 
+
+This function returns a random atom that will (according to this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}}) satisfy the requirements of the central atom.~\newline
+When multiple atoms are specified using the \textquotesingle{}$\vert$\textquotesingle{} separator or a \mbox{\hyperlink{classCategory}{Category}}, it is assumed that any of these atoms can be used to satisfy the rule and selection of each is equally likely~\newline
+Atom-\/type reweighting is likely to work at this stage as well, but hasn\textquotesingle{}t been tested so far \mbox{\Hypertarget{classchemtools_1_1Rule_a4aa3442aa7b69829ff53ac15c1884c9e}\label{classchemtools_1_1Rule_a4aa3442aa7b69829ff53ac15c1884c9e}} 
+\index{chemtools::Rule@{chemtools::Rule}!suggest@{suggest}}
+\index{suggest@{suggest}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{suggest()}{suggest()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classAtom}{Atom}} $\ast$ chemtools\+::\+Rule\+::suggest (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{c,  }\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$}]{ff }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Choose a random atom-\/type from the list stored in this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}}. 
+
+This function returns a random atom that will (according to this \mbox{\hyperlink{classchemtools_1_1Rule}{Rule}}) satisfy the requirements of the central atom.~\newline
+When multiple atoms are specified using the \textquotesingle{}$\vert$\textquotesingle{} separator or a \mbox{\hyperlink{classCategory}{Category}}, it is assumed that any of these atoms can be used to satisfy the rule and selection of each is equally likely~\newline
+Atom-\/type reweighting is likely to work at this stage as well, but hasn\textquotesingle{}t been tested so far 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classchemtools_1_1Rule_a24a54b4166ac48963112712fc2960d86}\label{classchemtools_1_1Rule_a24a54b4166ac48963112712fc2960d86}} 
+\index{chemtools::Rule@{chemtools::Rule}!angp@{angp}}
+\index{angp@{angp}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{angp}{angp}}
+{\footnotesize\ttfamily bool chemtools\+::\+Rule\+::angp =false}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000001}{Deprecated}}]Has a preferred angle? \end{DoxyRefDesc}
+
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000007}{Deprecated}}]Has a preferred angle? \end{DoxyRefDesc}
+
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000013}{Deprecated}}]Has a preferred angle? \end{DoxyRefDesc}
+
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000019}{Deprecated}}]Has a preferred angle? \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{forcefield_8hpp_source_l00188}{188}} of file \mbox{\hyperlink{forcefield_8hpp_source}{forcefield.\+hpp}}.
+
+\mbox{\Hypertarget{classchemtools_1_1Rule_acb8bd28f84ef1abda95437ddd5f4143d}\label{classchemtools_1_1Rule_acb8bd28f84ef1abda95437ddd5f4143d}} 
+\index{chemtools::Rule@{chemtools::Rule}!dihp@{dihp}}
+\index{dihp@{dihp}!chemtools::Rule@{chemtools::Rule}}
+\doxysubsubsection{\texorpdfstring{dihp}{dihp}}
+{\footnotesize\ttfamily bool chemtools\+::\+Rule\+::dihp =false}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000002}{Deprecated}}]Has a preferred dihedral? \end{DoxyRefDesc}
+
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000008}{Deprecated}}]Has a preferred dihedral? \end{DoxyRefDesc}
+
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000014}{Deprecated}}]Has a preferred dihedral? \end{DoxyRefDesc}
+
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000020}{Deprecated}}]Has a preferred dihedral? \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{forcefield_8hpp_source_l00189}{189}} of file \mbox{\hyperlink{forcefield_8hpp_source}{forcefield.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+forcefield/forcefield.\+hpp\item 
+forcefield/forcefield\+\_\+precomp.\+hpp\item 
+forcefield/forcefield\+\_\+precomp\+\_\+omega\+\_\+stable.\+hpp\item 
+forcefield/forcefield\+\_\+precomp\+\_\+omega\+\_\+stable2.\+hpp\item 
+graph/Molecule.\+hpp\end{DoxyCompactItemize}

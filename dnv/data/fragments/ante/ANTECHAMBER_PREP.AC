@@ -1,0 +1,26 @@
+CHARGE      0.00 ( 0 )
+Formula: H6 C5 O1 
+ATOM      1  C   UNL     1      -1.558  -0.065  -0.076  0.000000        c3
+ATOM      2  C1  UNL     1      -0.780   1.217   0.002  0.000000        c2
+ATOM      3  C2  UNL     1       0.557   1.214   0.052  0.000000        c2
+ATOM      4  O   UNL     1       1.324   0.067   0.046  0.000000        os
+ATOM      5  C3  UNL     1       0.666  -1.143   0.059  0.000000        c2
+ATOM      6  C4  UNL     1      -0.668  -1.269   0.011  0.000000        c2
+ATOM      7  H   UNL     1      -2.109  -0.093  -1.023  0.000000        hc
+ATOM      8  H1  UNL     1      -2.289  -0.095   0.738  0.000000        hc
+ATOM      9  H2  UNL     1      -1.328   2.153   0.020  0.000000        ha
+ATOM     10  H3  UNL     1       1.176   2.099   0.104  0.000000        h4
+ATOM     11  H4  UNL     1       1.362  -1.967   0.116  0.000000        h4
+ATOM     12  H5  UNL     1      -1.127  -2.251   0.035  0.000000        ha
+BOND    1    1    2    1      C   C1
+BOND    2    1    6    1      C   C4
+BOND    3    1    7    1      C    H
+BOND    4    1    8    1      C   H1
+BOND    5    2    3    2     C1   C2
+BOND    6    2    9    1     C1   H2
+BOND    7    3    4    1     C2    O
+BOND    8    3   10    1     C2   H3
+BOND    9    4    5    1      O   C3
+BOND   10    5    6    2     C3   C4
+BOND   11    5   11    1     C3   H4
+BOND   12    6   12    1     C4   H5

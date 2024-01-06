@@ -1,0 +1,960 @@
+\hypertarget{classProtein}{}\doxysection{Protein Class Reference}
+\label{classProtein}\index{Protein@{Protein}}
+
+
+{\ttfamily \#include \char`\"{}graph/\+Molecule.\+hpp\char`\"{}}
+
+Inheritance diagram for Protein\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classProtein}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classProtein_aef48e3a117623ccc8a147121ec1641a4}\label{classProtein_aef48e3a117623ccc8a147121ec1641a4}} 
+{\bfseries Protein} (const \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$m)
+\begin{DoxyCompactList}\small\item\em Recast a loaded molecule as a protein. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classProtein_a55a1911f0720e807e6090283d3ffde3c}\label{classProtein_a55a1911f0720e807e6090283d3ffde3c}} 
+{\bfseries Protein} (const std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Load protein from TXT format (hotspot is unspecified). See also\+: \mbox{\hyperlink{classProtein_a373cf280d68f85746f879e37ae33d0bb}{Protein(const std\+::string\& protein,const std\+::string\& hotspot)}} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classProtein_a373cf280d68f85746f879e37ae33d0bb}{Protein}} (const std\+::string \&protfile, const std\+::string \&hostspotfile)
+\begin{DoxyCompactList}\small\item\em Load the protein from TXT formats. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classProtein_ad4304651d74cda836c78c4a6a4a3fe32}{Protein}} (const std\+::string \&infile, const \mbox{\hyperlink{classForceField}{Force\+Field}} \&ff, std\+::vector$<$ int $>$ hotspotreses, const std\+::string \&format=\char`\"{}pdb\char`\"{})
+\begin{DoxyCompactList}\small\item\em Load from a standard format file (PDB or GRO) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classProtein_a11405423e75fdbb8c1a042fd9de3decb}\label{classProtein_a11405423e75fdbb8c1a042fd9de3decb}} 
+virtual int {\bfseries get\+Hotspot\+Atom\+Count} () const
+\begin{DoxyCompactList}\small\item\em Get the total number of atoms in hotspot residues. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProtein_a66043d39960157fd6e8f4ce86049b565}{load\+Hotspot}} (const std\+::string \&hostspotfile)
+\begin{DoxyCompactList}\small\item\em Load the hotspot atoms from a TXT file. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classAtom}{Atom}} $\ast$ $>$ \mbox{\hyperlink{classProtein_a1df41025f0ba253dca7e380c563a8b14}{generate\+Seeds}} (const \mbox{\hyperlink{classSystem}{System}} \&p, const std\+::vector$<$ \mbox{\hyperlink{classAtom}{Atom}} $\ast$ $>$ \&seedtypes=std\+::vector$<$ \mbox{\hyperlink{classAtom}{Atom}} $\ast$ $>$(), int maxseed=1, double RC=1.\+0, bool allowH=true, bool dense=false, double densval=0.\+005)
+\begin{DoxyCompactList}\small\item\em Generate seeds near the hotspot. De\+Novo\textquotesingle{}s default seeding algorithm. \end{DoxyCompactList}\item 
+virtual std\+::pair$<$ double, double $>$ \mbox{\hyperlink{classProtein_aaa512fd669808b02b1e34d07b6cc6c3b}{calculate\+Non\+Bonding\+Energy}} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$dummy, bool write=false) override
+\begin{DoxyCompactList}\small\item\em Calculate the total non-\/bonding interaction energy of an atom with this protein. \end{DoxyCompactList}\item 
+virtual std\+::pair$<$ double, double $>$ \mbox{\hyperlink{classProtein_a2d0252c97759de4ffb4966756ccd6246}{calculate\+Non\+Bonding\+Energy}} (\mbox{\hyperlink{classMolecule}{Molecule}} $\ast$drug, bool write=false)
+\begin{DoxyCompactList}\small\item\em Calculate the total non-\/bonded interaction energy of a molecule to the \mbox{\hyperlink{classProtein}{Protein}}. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classProtein_a284f503a736bda8f790d456d7c681e4b}{get\+Hotspot\+Binding\+Energy}} ()
+\item 
+\mbox{\Hypertarget{classProtein_adcdfc51649c63040a39940cb4f476919}\label{classProtein_adcdfc51649c63040a39940cb4f476919}} 
+const std\+::vector$<$ \mbox{\hyperlink{classAtom}{Atom}} $\ast$ $>$ \& {\bfseries get\+Hotspot\+Atoms} () const
+\begin{DoxyCompactList}\small\item\em Get the entire list of atoms (as a list of pointers) which belong to the \char`\"{}hotspot\char`\"{} of this macromolecule (alternate method for a \char`\"{}const\char`\"{} \mbox{\hyperlink{classProtein}{Protein}} object) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classProtein_a08d728b314eb27ae2b5328c037214952}\label{classProtein_a08d728b314eb27ae2b5328c037214952}} 
+std\+::vector$<$ \mbox{\hyperlink{classAtom}{Atom}} $\ast$ $>$ {\bfseries get\+Hotspot\+Atoms} ()
+\begin{DoxyCompactList}\small\item\em Get the entire list of atoms (as a list of pointers) which belong to the \char`\"{}hotspot\char`\"{} of this macromolecule. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classSystem}{System}} $>$ \mbox{\hyperlink{classProtein_a8ed448721245cce660f85d8a2a04bdba}{generate\+Ligands}} (const \mbox{\hyperlink{classForceField}{Force\+Field}} \&ff, int n, int sizemin, const std\+::string \&logfilename=\char`\"{}dnv\+\_\+protgen.\+log\char`\"{}, std\+::vector$<$ \mbox{\hyperlink{classAtom}{Atom}} $\ast$ $>$ seedtypes=std\+::vector$<$ \mbox{\hyperlink{classAtom}{Atom}} $\ast$ $>$(), int seednum=10, bool dense=false, double rmax=2, double ecut=1, int osccount=5, int tottries=250, int tries\+\_\+per\+\_\+lig=45, double temp=298, const std\+::string \&seedfile=\char`\"{}seeds.\+pdb\char`\"{}, bool restr=false, bool superseed=false, bool reseed=false, bool deseed=false, const \mbox{\hyperlink{classquickgeom_1_1Container}{quickgeom\+::\+Container}} $\ast$contbox=nullptr, \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$initmol=nullptr, bool prune=false, int prunedepth=3)
+\begin{DoxyCompactList}\small\item\em Generate Ligands (the main generation function to be called externally). \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classSystem}{System}} $>$ \mbox{\hyperlink{classProtein_a8217eb46ef682c446e420d8e89cd9ba6}{generate\+Ligands}} (const \mbox{\hyperlink{classForceField}{Force\+Field}} \&ff, int n, int sizemin, const std\+::string \&logfilename=\char`\"{}dnv\+\_\+protgen.\+log\char`\"{}, std\+::vector$<$ \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$ $>$ rootmols=std\+::vector$<$ \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$ $>$(), double rmax=2, double ecut=1, int osccount=5, int tottries=250, int tries\+\_\+per\+\_\+lig=45, double temp=298, bool restr=false, bool superseed=false, bool reseed=false, bool deseed=false, const \mbox{\hyperlink{classquickgeom_1_1Container}{quickgeom\+::\+Container}} $\ast$contbox=nullptr, \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$initmol=nullptr, bool prune=false, int prunedepth=3)
+\begin{DoxyCompactList}\small\item\em The primary generation algorithm which is expected to be used externally. It has a large number of tunable parameters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMolecule}{Molecule}} $\ast$ \mbox{\hyperlink{classProtein_a6890cbb6c32672687e1e00f1141395e4}{quick\+Prune}} (const \mbox{\hyperlink{classForceField}{Force\+Field}} \&ff, \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$p, std\+::string logfilename=\char`\"{}dnv\+\_\+prune.\+log\char`\"{}, int iters=100, int expand=0, int tries\+\_\+per\+\_\+lig=45, double temp=298, int prunedepth=3, bool restr=false, bool forceexp=false)
+\begin{DoxyCompactList}\small\item\em Quickly prune a molecule in attempt to improve it\textquotesingle{}s interaction to this protein by making modifications to the terminal atoms. See the pruning algorithm in the document for more details. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ double, double $>$ $>$ \mbox{\hyperlink{classProtein_a26b510bc5ca31cd7ffc0420c25f4b379}{get\+Radial\+Charge\+Distribution}} (const Eigen\+::\+Vector3d \&centre, double resol=0.\+01, double maxr=15, bool onlyhspt=false)
+\begin{DoxyCompactList}\small\item\em Get the radial charge distribution for this receptor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+This is the \mbox{\hyperlink{classProtein}{Protein}} class. De\+Novo was initially designed to work mainly with protein receptors, and hence the class-\/name \char`\"{}\+Protein\char`\"{}.~\newline
+ The \mbox{\hyperlink{classProtein}{Protein}} class actually represents any standard macromolecule receptor on which the generation of binding ligands is desired. It is derived from the \mbox{\hyperlink{classMolecule}{Molecule}} class, signfying that all \mbox{\hyperlink{classMolecule}{Molecule}} functions are valid when called on a \mbox{\hyperlink{classProtein}{Protein}} as well.~\newline
+ The generation procedure expects at-\/least one \mbox{\hyperlink{classProtein}{Protein}} object to be present in the \mbox{\hyperlink{classSystem}{System}} at the start of generation, and that this part of the system will remain unchanged throughout the run.~\newline
+ The \mbox{\hyperlink{classProtein}{Protein}} class, in addition to storing atoms (similar to the \mbox{\hyperlink{classMolecule}{Molecule}} class), also marks some atoms as \char`\"{}hotspot\char`\"{} atoms. The hotspot is the desired target domain of the protein on which the generation must be carried out. Hotspots can active sites of the macromolecule which are targetted for competetive inhibition, or some other allosteric sites.~\newline
+ From De\+Novo σ onwards, Proteins can be loaded directly from PDB or GRO files given that the atom-\/type names are correct 
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l03064}{3064}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classProtein_a373cf280d68f85746f879e37ae33d0bb}\label{classProtein_a373cf280d68f85746f879e37ae33d0bb}} 
+\index{Protein@{Protein}!Protein@{Protein}}
+\index{Protein@{Protein}!Protein@{Protein}}
+\doxysubsubsection{\texorpdfstring{Protein()}{Protein()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Protein\+::\+Protein (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{protfile,  }\item[{const std\+::string \&}]{hostspotfile }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Load the protein from TXT formats. 
+
+This function is to load the \mbox{\hyperlink{classProtein}{Protein}} from the old TXT format. One file has the entire protein (including the hotspot), and the other has only the hotspot atoms.~\newline
+ See algorithm PDF for details of TXT format. 
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l03081}{3081}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classProtein_l03081}03081 : \mbox{\hyperlink{classProtein}{Protein}}(protfile) \{\mbox{\hyperlink{classProtein_a66043d39960157fd6e8f4ce86049b565}{loadHotspot}}(hostspotfile);\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProtein_ad4304651d74cda836c78c4a6a4a3fe32}\label{classProtein_ad4304651d74cda836c78c4a6a4a3fe32}} 
+\index{Protein@{Protein}!Protein@{Protein}}
+\index{Protein@{Protein}!Protein@{Protein}}
+\doxysubsubsection{\texorpdfstring{Protein()}{Protein()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Protein\+::\+Protein (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{infile,  }\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} \&}]{ff,  }\item[{std\+::vector$<$ int $>$}]{hotspotreses,  }\item[{const std\+::string \&}]{format = {\ttfamily \char`\"{}pdb\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Load from a standard format file (PDB or GRO) 
+
+This function is used by the latest De\+Novo versions. The input files are in standard formats~\newline
+This requires a \mbox{\hyperlink{classForceField}{Force\+Field}} to be passed separately.~\newline
+ See Also\+: \mbox{\hyperlink{classIncompleteForceField}{Incomplete\+Force\+Field}} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em hotspotreses} & Hotspot residue numbers. All atoms which belong to these residues are marked as \char`\"{}hotspot atoms\char`\"{} \\
+\hline
+\mbox{\texttt{ in}}  & {\em format} & The file format which is being loaded. (\char`\"{}pdb\char`\"{} and \char`\"{}gro\char`\"{} are the supported values) See Also\+: \mbox{\hyperlink{classMolecule_a834ac3e93af40e0f03bf1bb83c1ccb3e}{Molecule\+::\+Molecule(const std\+::string\&,const Force\+Field\& ff,const std\+::string\&,bool,bool,char)}} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l03088}{3088}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classProtein_l03088}03088                                                                                                                   : \mbox{\hyperlink{classMolecule_a7e7d290ae641518ad4c4d5303b519d0f}{Molecule}}(infile,ff,format,\textcolor{keyword}{false})}
+\DoxyCodeLine{\Hypertarget{classProtein_l03089}03089   \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03090}03090         \mbox{\hyperlink{classMolecule_a3e459e9ae52f281073d4821b9af72b60}{type}}=1;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03091}03091         hotspotatoms=std::vector<Atom*>();}
+\DoxyCodeLine{\Hypertarget{classProtein_l03092}03092         \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* a : atoms) \{\textcolor{keywordflow}{if}(contains(hotspotreses,a-\/>getResidueNumber())) hotspotatoms.push\_back(a);\}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03093}03093         HN=hotspotatoms.size();}
+\DoxyCodeLine{\Hypertarget{classProtein_l03094}03094   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classProtein_aaa512fd669808b02b1e34d07b6cc6c3b}\label{classProtein_aaa512fd669808b02b1e34d07b6cc6c3b}} 
+\index{Protein@{Protein}!calculateNonBondingEnergy@{calculateNonBondingEnergy}}
+\index{calculateNonBondingEnergy@{calculateNonBondingEnergy}!Protein@{Protein}}
+\doxysubsubsection{\texorpdfstring{calculateNonBondingEnergy()}{calculateNonBondingEnergy()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual std\+::pair$<$ double, double $>$ Protein\+::calculate\+Non\+Bonding\+Energy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{dummy,  }\item[{bool}]{write = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calculate the total non-\/bonding interaction energy of an atom with this protein. 
+
+This method uses L-\/J and charge parameters of the supplied atom (and itself) to calculate the non-\/bonding interaction energy of this single atom with the \mbox{\hyperlink{classProtein}{Protein}} (or macromolecule).~\newline
+ See DIEL (dielectric constant used in simulation). Refer to the \char`\"{}\+Charges\char`\"{} section in the algorithm document. 
+
+Reimplemented from \mbox{\hyperlink{classMolecule_a973b1a0e85f2a3cf1e5c55dbe24c54e3}{Molecule}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classspecific_1_1ProteinEnsemble_a360628797e049d572da9df4887d9a3c8}{specific\+::\+Protein\+Ensemble}}.
+
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l03227}{3227}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classProtein_l03228}03228     \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03229}03229         \textcolor{keywordtype}{double} r=get<0>(\mbox{\hyperlink{classMolecule_a973b1a0e85f2a3cf1e5c55dbe24c54e3}{Molecule::calculateNonBondingEnergy}}(dummy,write));}
+\DoxyCodeLine{\Hypertarget{classProtein_l03230}03230         \textcolor{keywordtype}{double} thsbe=0;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03231}03231         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<HN;i++) thsbe+=\mbox{\hyperlink{namespacechemtools_a4d736b938261879ac0c621cd97172a7a}{chemtools::getNonbondingPotential}}(dummy,hotspotatoms[i]);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03232}03232         \textcolor{keywordflow}{return} make\_pair(r,thsbe);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03233}03233     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProtein_a2d0252c97759de4ffb4966756ccd6246}\label{classProtein_a2d0252c97759de4ffb4966756ccd6246}} 
+\index{Protein@{Protein}!calculateNonBondingEnergy@{calculateNonBondingEnergy}}
+\index{calculateNonBondingEnergy@{calculateNonBondingEnergy}!Protein@{Protein}}
+\doxysubsubsection{\texorpdfstring{calculateNonBondingEnergy()}{calculateNonBondingEnergy()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual std\+::pair$<$ double, double $>$ Protein\+::calculate\+Non\+Bonding\+Energy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMolecule}{Molecule}} $\ast$}]{drug,  }\item[{bool}]{write = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Calculate the total non-\/bonded interaction energy of a molecule to the \mbox{\hyperlink{classProtein}{Protein}}. 
+
+This method is the compiled energy De\+Novo interaction calculation method. It calculates the interaction energy of the target \mbox{\hyperlink{classMolecule}{Molecule}} object with itself (using L-\/J parameters and charges). It calculates the energy contribution of each atom and assigns it to the respective atoms. (See \mbox{\hyperlink{classAtom_a6054acec965e008ad281764b7b4e5f5d}{Atom\+::set\+Energy\+Contribution(double c)}})~\newline
+ See also\+: DIEL (dielectric constant used in simulation). For more details refer to the \char`\"{}\+Charges\char`\"{} section in the algorithm document. 
+
+Reimplemented in \mbox{\hyperlink{classspecific_1_1ProteinEnsemble_ac08cb6704c791024f1dc2f74cc9f2316}{specific\+::\+Protein\+Ensemble}}.
+
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l03237}{3237}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classProtein_l03238}03238     \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03239}03239         drug-\/>\mbox{\hyperlink{classMolecule_adebb2c740099c5db4f14137bb1609877}{myBE}}=0;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03240}03240         drug-\/>\mbox{\hyperlink{classMolecule_a6647358091d946bb02dbcf3ce35b7d5e}{myHBE}}=0;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03241}03241     \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* a :drug-\/>\mbox{\hyperlink{classMolecule_a7d42c427c602da77f79246fe39246fb9}{getAtoms}}())}
+\DoxyCodeLine{\Hypertarget{classProtein_l03242}03242     \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03243}03243             \textcolor{keyword}{const} std::pair<double,double>\& p=a-\/>setEnergyContribution(\mbox{\hyperlink{classProtein_aaa512fd669808b02b1e34d07b6cc6c3b}{calculateNonBondingEnergy}}(a,write));}
+\DoxyCodeLine{\Hypertarget{classProtein_l03244}03244       drug-\/>\mbox{\hyperlink{classMolecule_adebb2c740099c5db4f14137bb1609877}{myBE}}+=get<0>(p);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03245}03245       drug-\/>\mbox{\hyperlink{classMolecule_a6647358091d946bb02dbcf3ce35b7d5e}{myHBE}}+=get<1>(p);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03246}03246     \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03247}03247         \textcolor{keywordflow}{return} make\_pair(drug-\/>\mbox{\hyperlink{classMolecule_adebb2c740099c5db4f14137bb1609877}{myBE}},drug-\/>\mbox{\hyperlink{classMolecule_a6647358091d946bb02dbcf3ce35b7d5e}{myHBE}});}
+\DoxyCodeLine{\Hypertarget{classProtein_l03248}03248     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProtein_a8ed448721245cce660f85d8a2a04bdba}\label{classProtein_a8ed448721245cce660f85d8a2a04bdba}} 
+\index{Protein@{Protein}!generateLigands@{generateLigands}}
+\index{generateLigands@{generateLigands}!Protein@{Protein}}
+\doxysubsubsection{\texorpdfstring{generateLigands()}{generateLigands()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classSystem}{System}} $>$ Protein\+::generate\+Ligands (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} \&}]{ff,  }\item[{int}]{n,  }\item[{int}]{sizemin,  }\item[{const std\+::string \&}]{logfilename = {\ttfamily \char`\"{}dnv\+\_\+protgen.log\char`\"{}},  }\item[{std\+::vector$<$ \mbox{\hyperlink{classAtom}{Atom}} $\ast$ $>$}]{seedtypes = {\ttfamily std\+:\+:vector$<$\mbox{\hyperlink{classAtom}{Atom}}$\ast$$>$()},  }\item[{int}]{seednum = {\ttfamily 10},  }\item[{bool}]{dense = {\ttfamily false},  }\item[{double}]{rmax = {\ttfamily 2},  }\item[{double}]{ecut = {\ttfamily 1},  }\item[{int}]{osccount = {\ttfamily 5},  }\item[{int}]{tottries = {\ttfamily 250},  }\item[{int}]{tries\+\_\+per\+\_\+lig = {\ttfamily 45},  }\item[{double}]{temp = {\ttfamily 298},  }\item[{const std\+::string \&}]{seedfile = {\ttfamily \char`\"{}seeds.pdb\char`\"{}},  }\item[{bool}]{restr = {\ttfamily false},  }\item[{bool}]{superseed = {\ttfamily false},  }\item[{bool}]{reseed = {\ttfamily false},  }\item[{bool}]{deseed = {\ttfamily false},  }\item[{const \mbox{\hyperlink{classquickgeom_1_1Container}{quickgeom\+::\+Container}} $\ast$}]{contbox = {\ttfamily nullptr},  }\item[{\mbox{\hyperlink{classMolecule}{Molecule}} $\ast$}]{initmol = {\ttfamily nullptr},  }\item[{bool}]{prune = {\ttfamily false},  }\item[{int}]{prunedepth = {\ttfamily 3} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate Ligands (the main generation function to be called externally). 
+
+This function is used when you want to begin the generation from scratch (No seeds placed yet).~\newline
+ The remaining algorithm is described in generate\+Ligands(const Force\+Field\&,int,int,const std\+::string\&,std\+::vector$<$\+Molecule$\ast$$>$,double,double,int,int,int,double,bool,bool,bool,bool,\+Molecule$\ast$,bool,int) and int the algorithm PDF 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em seedtypes} & The allowed atom-\/types to be used as seeds (std\+::vector$<$\+Atom$\ast$$>$). An atom-\/type is randomly picked from this list for each seed atom, hence if an atom type is present multiple times in the list, it has a higher chance of being selected (see seed-\/reweighting in algorithm PDF) \\
+\hline
+\mbox{\texttt{ in}}  & {\em seednum} & The number of seeds to generate (int) \\
+\hline
+\mbox{\texttt{ in}}  & {\em seedfile} & The file to which the initially generated seeds must be written (Default\+: seeds.\+pdb) ~\newline
+The other parameters are described in the other section (see above link) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l03265}{3265}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classProtein_l03266}03266     \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03267}03267         \mbox{\hyperlink{classSystem}{System}} tempS(ff); tempS.temp=temp;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03268}03268         tempS.addMolecule(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{classProtein_l03269}03269         std::vector<Molecule*> rmols;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03270}03270         std::vector<Atom*> seeds=\mbox{\hyperlink{classProtein_a1df41025f0ba253dca7e380c563a8b14}{generateSeeds}}(tempS,seedtypes,seednum,rmax,dense);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03271}03271         std::vector<double> startbes,starthbes;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03272}03272         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<seeds.size();i++)}
+\DoxyCodeLine{\Hypertarget{classProtein_l03273}03273     \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03274}03274             \textcolor{keyword}{const} \textcolor{keyword}{auto}\& p=this-\/>\mbox{\hyperlink{classProtein_aaa512fd669808b02b1e34d07b6cc6c3b}{calculateNonBondingEnergy}}(seeds[i]);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03275}03275       startbes.push\_back(get<0>(p)); seeds[i]-\/>setEnergyContribution(startbes[startbes.size()-\/1]);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03276}03276       starthbes.push\_back(get<1>(p)); seeds[i]-\/>setHotspotEnergyContribution(starthbes[starthbes.size()-\/1]);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03277}03277             \mbox{\hyperlink{classMolecule}{Molecule}}* fmol=\textcolor{keyword}{new} \mbox{\hyperlink{classMolecule_a7e7d290ae641518ad4c4d5303b519d0f}{Molecule}}(\textcolor{keyword}{new} \mbox{\hyperlink{classAtom}{Atom}}(*seeds[i]));}
+\DoxyCodeLine{\Hypertarget{classProtein_l03278}03278             fmol-\/>\mbox{\hyperlink{classMolecule_adebb2c740099c5db4f14137bb1609877}{myBE}}=startbes[startbes.size()-\/1];}
+\DoxyCodeLine{\Hypertarget{classProtein_l03279}03279             fmol-\/>\mbox{\hyperlink{classMolecule_a6647358091d946bb02dbcf3ce35b7d5e}{myHBE}}=startbes[starthbes.size()-\/1];}
+\DoxyCodeLine{\Hypertarget{classProtein_l03280}03280             rmols.push\_back(fmol);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03281}03281     \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03282}03282         \mbox{\hyperlink{classMolecule}{Molecule}}* seedm=\textcolor{keyword}{new} \mbox{\hyperlink{classMolecule_a7e7d290ae641518ad4c4d5303b519d0f}{Molecule}}(0);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03283}03283     \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* a : seeds) seedm-\/>\mbox{\hyperlink{classMolecule_aadf1f51e311a11e69385ff51602b86bc}{addAtom}}(a);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03284}03284     seedm-\/>\mbox{\hyperlink{classMolecule_a72616aa9d293190a9a0372a735f76966}{dumpMol}}(seedfile);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03285}03285         \textcolor{keywordflow}{return} \mbox{\hyperlink{classProtein_a8ed448721245cce660f85d8a2a04bdba}{generateLigands}}(ff,n,sizemin,logfilename,rmols,rmax,ecut,osccount,tottries,tries\_per\_lig,temp,restr,superseed,reseed,deseed,contbox,initmol,prune,prunedepth);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03286}03286     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProtein_a8217eb46ef682c446e420d8e89cd9ba6}\label{classProtein_a8217eb46ef682c446e420d8e89cd9ba6}} 
+\index{Protein@{Protein}!generateLigands@{generateLigands}}
+\index{generateLigands@{generateLigands}!Protein@{Protein}}
+\doxysubsubsection{\texorpdfstring{generateLigands()}{generateLigands()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classSystem}{System}} $>$ Protein\+::generate\+Ligands (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} \&}]{ff,  }\item[{int}]{n,  }\item[{int}]{sizemin,  }\item[{const std\+::string \&}]{logfilename = {\ttfamily \char`\"{}dnv\+\_\+protgen.log\char`\"{}},  }\item[{std\+::vector$<$ \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$ $>$}]{rootmols = {\ttfamily std\+:\+:vector$<$\mbox{\hyperlink{classMolecule}{Molecule}}$\ast$$>$()},  }\item[{double}]{rmax = {\ttfamily 2},  }\item[{double}]{ecut = {\ttfamily 1},  }\item[{int}]{osccount = {\ttfamily 5},  }\item[{int}]{tottries = {\ttfamily 250},  }\item[{int}]{tries\+\_\+per\+\_\+lig = {\ttfamily 45},  }\item[{double}]{temp = {\ttfamily 298},  }\item[{bool}]{restr = {\ttfamily false},  }\item[{bool}]{superseed = {\ttfamily false},  }\item[{bool}]{reseed = {\ttfamily false},  }\item[{bool}]{deseed = {\ttfamily false},  }\item[{const \mbox{\hyperlink{classquickgeom_1_1Container}{quickgeom\+::\+Container}} $\ast$}]{contbox = {\ttfamily nullptr},  }\item[{\mbox{\hyperlink{classMolecule}{Molecule}} $\ast$}]{initmol = {\ttfamily nullptr},  }\item[{bool}]{prune = {\ttfamily false},  }\item[{int}]{prunedepth = {\ttfamily 3} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The primary generation algorithm which is expected to be used externally. It has a large number of tunable parameters. 
+
+The main generation begins from here. It uses seed molecules (which must be manually supplied), from which the growth continues.~\newline
+Each molecule accepted as monte-\/carlo step is written to indexed files under the name GENERATING\+\_\+mol\+\_\+$\ast$.pdb ~\newline
+This method can also be used for {\bfseries{extensive pruning}} (complete generation instead of quick filtering while pruning a molecule) ~\newline
+The generation is logged extensively and log files can go upto being as big as 2.\+5\+GB for a single long generation. ~\newline
+For the complete algorithm, see the PDF document 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ff} & The forcefield to use for generation (See \mbox{\hyperlink{classForceField}{Force\+Field}}) \\
+\hline
+\mbox{\texttt{ in}}  & {\em n} & The number of molecules to generate \\
+\hline
+\mbox{\texttt{ in}}  & {\em sizemin} & The minimum size required. Growth will continue until this size is reached. If the valencies are satisfied eariler, the molecule is rejected unconditonally. \\
+\hline
+\mbox{\texttt{ in}}  & {\em logfilename} & The name of the logfile to write to (Default\+: dnv\+\_\+protgen.\+log). By default, in the parallel job, only the acceptances at each stage are recorded in the main log file. Other logfiles (one per each core used) are generated under the general name \texorpdfstring{$<$}{<}logfilename\texorpdfstring{$>$}{>}\+\_\+\+\_\+\texorpdfstring{$<$}{<}core\+\_\+number\texorpdfstring{$>$}{>} \\
+\hline
+\mbox{\texttt{ in}}  & {\em rootmols} & The root molecules to begin with. These root molecules are divided among the cores (equally as far as possible), at the beginning of generation. If the number of cores assigned exceeds the seeds provided, each core is randomly assigned one eof the molecules ensuring that each molecule is assigned at-\/least once. \\
+\hline
+\mbox{\texttt{ in}}  & {\em rmax} & Redundandant deprecated parameter. See generate\+Ligands(const Force\+Field\&,int,int,const std\+::string\&,std\+::vector$<$\+Atom$\ast$$>$,int,bool,double rmax,double,int,int,int,double,const std\+::string\&,bool,bool,bool,bool,\+Molecule$\ast$,bool,int) \\
+\hline
+\mbox{\texttt{ in}}  & {\em ecut} & The energy tolerance (k\+J/mol). If two molecules have energy within this tolerance level, the newer molecule is unconditonally accepted (irrespective of which is more stable). (Default 1k\+J/mol) \\
+\hline
+\mbox{\texttt{ in}}  & {\em osccount} & The number of oscillations after which a final batch of molecules is accepted. See algorithm PDF for more details. \\
+\hline
+\mbox{\texttt{ in}}  & {\em tottries} & The total number of consecutive tries (for each core), before it stops the generation. Only if there are \textquotesingle{}tottries\textquotesingle{} consecutive {\bfseries{failures in generation}} (not rejections) does the generation stop. This is written in the log file of the respective core before quitting (Default\+: 250) \\
+\hline
+\mbox{\texttt{ in}}  & {\em tries\+\_\+per\+\_\+lig} & The total number of tries per ligand in attempting to grow. (See algorithm flowchart in the PDF) (Default\+: 45) \\
+\hline
+\mbox{\texttt{ in}}  & {\em temp} & Temperature at which the system is. Unit is Kelvin (Default\+: 298K) \\
+\hline
+\mbox{\texttt{ in}}  & {\em restr} & Restrain the growth to stay within a limited distance from the \char`\"{}hotspot\char`\"{}. This distance can be varied by changing the global variable RESTRAINDISTANCE. By default, RESTRAINDISTANCE=0.\+8 nm, but restrained growth is turned off. \\
+\hline
+\mbox{\texttt{ in}}  & {\em superseed} & The superseed mode -\/ Adds newer seeds during generation (based on interaction energies) to ensure faster convergence (See algorithm PDF) \\
+\hline
+\mbox{\texttt{ in}}  & {\em reseed} & The reseed mode -\/ Adds newer seeds during generation (based on interaction energies) to ensure faster convergence (See algorithm PDF) \\
+\hline
+\mbox{\texttt{ in}}  & {\em deseed} & Deseed flag -\/ When used with superseed or reseed, whenever a new seed is added, the source seed is removed. (See algorithm PDF) \\
+\hline
+\mbox{\texttt{ in}}  & {\em initmol} & An inital template molecule to compete the generation with. If nothing is provided, the growth starts from scratch. Otherwise, the generation proceeds from this stage. This molecule is also taken as the template if the \char`\"{}prune\char`\"{} option is turned on \\
+\hline
+\mbox{\texttt{ in}}  & {\em prune} & A flag that (if switched on) instructs De\+Novo to prune the template molecule instead of growing De\+Novo molecules to compete with it. \\
+\hline
+\mbox{\texttt{ in}}  & {\em prunedepth} & The depth of pruning. ~\newline
+A sample invocation of this method is shown here (an excerpt from the standard generation CPP file) 
+\begin{DoxyCode}{1}
+\DoxyCodeLine{\mbox{\hyperlink{classForceField}{ForceField}} ff(\textcolor{stringliteral}{"{}dnv/data/final\_ff\_parameters.ffin"{}},\textcolor{stringliteral}{"{}dnv/data/categories.data"{}});}
+\DoxyCodeLine{ff.loadBondParameters();}
+\DoxyCodeLine{ff.loadRules(\textcolor{stringliteral}{"{}dnv/data/definitions.data"{}});}
+\DoxyCodeLine{\mbox{\hyperlink{classIncompleteForceField}{IncompleteForceField}} protff(\textcolor{stringliteral}{"{}dnv/data/protff.ffin"{}}); protff.loadResidues(\textcolor{stringliteral}{"{}dnv/data/protein.rtp"{}});}
+\DoxyCodeLine{std::vector<int> hsres=\{323,324,325,375,376,377,378,379,380,381,382,383,390,391,392,395,396,412,413,414,415,416,417,423,424,425,426,427,428,465,466,467,468,469,470,471,472,473,474,477,478,479,480,481,482\};}
+\DoxyCodeLine{\mbox{\hyperlink{classProtein}{Protein}} p(\textcolor{stringliteral}{"{}protein\_file.pdb"{}},protff,hsres,format);}
+\DoxyCodeLine{std::vector<Atom*> seeds;}
+\DoxyCodeLine{seeds.push\_back(ff.getAtom(\textcolor{stringliteral}{"{}CT1"{}}));}
+\DoxyCodeLine{seeds.push\_back(ff.getAtom(\textcolor{stringliteral}{"{}CT2"{}}));}
+\DoxyCodeLine{seeds.push\_back(ff.getAtom(\textcolor{stringliteral}{"{}CT3"{}}));}
+\DoxyCodeLine{seeds.push\_back(ff.getAtom(\textcolor{stringliteral}{"{}CA"{}}));}
+\DoxyCodeLine{...}
+\DoxyCodeLine{}
+\DoxyCodeLine{...}
+\DoxyCodeLine{std::vector<System> mols=p.generateLigands(ff,num,size,\textcolor{stringliteral}{"{}<log\_name>.log"{}},seeds,seednum,\textcolor{keyword}{false},0.8,1,5,300,50,298,\textcolor{stringliteral}{"{}seeds.pdb"{}},<restrain?>,<superseed?>,<reseed?>,<deseed?>);}
+
+\end{DoxyCode}
+ The result is obtained as a collection of system into \char`\"{}mols\char`\"{}, after which you can use \mbox{\hyperlink{classSystem_a3018ff2fa3c6b4c5b59c6d999ee28dfe}{System\+::get\+Drug\+Molecule()}} to get the generated drugs, and \mbox{\hyperlink{classMolecule_a72616aa9d293190a9a0372a735f76966}{Molecule\+::dump\+Mol()}} to dump it to a PDB~\newline
+ Note\+: The relative paths are correct (relative to \char`\"{}dnv\char`\"{} wherever it was installed, but the path must be corrected for these lines for using standard De\+Novo parameters in your CPP) ~\newline
+See Also\+: \mbox{\hyperlink{classProtein_a6890cbb6c32672687e1e00f1141395e4}{quick\+Prune()}}, Pruning -\/ the procedure (in the algorithm PDF) for details on pruning \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l03333}{3333}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classProtein_l03337}03337   \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03338}03338         \textcolor{comment}{//Setup}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03339}03339         envprot=\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03340}03340         RNG::init();}
+\DoxyCodeLine{\Hypertarget{classProtein_l03341}03341 \textcolor{preprocessor}{        \#ifndef SERIAL}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03342}03342             \textcolor{keywordtype}{int} K[omp\_get\_max\_threads()+1]; \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<=omp\_get\_max\_threads();i++) K[i]=0;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03343}03343 \textcolor{preprocessor}{        \#else}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03344}03344             \textcolor{keywordtype}{int} K[2]; K[0]=0; K[1]=0;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03345}03345 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03346}03346 \textcolor{preprocessor}{        \#ifndef FFCHARGES}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03347}03347             netcomm::genff=\&ff;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03348}03348             netcomm::badsmileslog.open(\textcolor{stringliteral}{"{}badsmiles.log"{}});}
+\DoxyCodeLine{\Hypertarget{classProtein_l03349}03349             netcomm::failures=\&K[0];}
+\DoxyCodeLine{\Hypertarget{classProtein_l03350}03350 \textcolor{preprocessor}{            \#ifndef NOZMQ}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03351}03351 \textcolor{preprocessor}{                \#ifndef SERIAL}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03352}03352                     zmqio::initThreads(cout,omp\_get\_max\_threads());}
+\DoxyCodeLine{\Hypertarget{classProtein_l03353}03353 \textcolor{preprocessor}{                \#else}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03354}03354                     zmqio::initThreads(cout);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03355}03355 \textcolor{preprocessor}{                \#endif}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03356}03356 \textcolor{preprocessor}{            \#endif}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03357}03357 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03358}03358         \textcolor{comment}{/*\#ifndef FFCHARGES //FFCHARGES = 1 -\/> Use only ForceField charges}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03359}03359 \textcolor{comment}{            cout << "{}Opening socket to "{}<<IPADDR<<"{} on port "{}<<PORT<<"{} ... "{};}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03360}03360 \textcolor{comment}{            \#ifndef NOZMQ}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03361}03361 \textcolor{comment}{                cout << "{}ZMQIO ... "{};}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03362}03362 \textcolor{comment}{                zmqio::init();}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03363}03363 \textcolor{comment}{            \#else}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03364}03364 \textcolor{comment}{                cout << "{}NetIO ... "{};}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03365}03365 \textcolor{comment}{                netio::init();}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03366}03366 \textcolor{comment}{            \#endif}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03367}03367 \textcolor{comment}{            cout << "{}done!\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03368}03368 \textcolor{comment}{        \#endif*/}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03369}03369         \textcolor{keywordtype}{int} tvar,maxsize=90,rootsize=-\/1;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03370}03370     std::vector<System> ret;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03371}03371         std::ofstream\& commonlogfile=fileExists(logfilename);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03372}03372     \mbox{\hyperlink{classSystem}{System}} main(ff); main.temp=temp; main.addMolecule(\textcolor{keyword}{this}); \textcolor{keywordflow}{if}(contbox) main.setContainer(contbox);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03373}03373         std::vector<System> coll;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03374}03374 }
+\DoxyCodeLine{\Hypertarget{classProtein_l03375}03375         \textcolor{keywordtype}{int} osc=0;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03376}03376         \textcolor{keyword}{volatile} \textcolor{keywordtype}{bool} lock=\textcolor{keyword}{false},lockcoll=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03377}03377 }
+\DoxyCodeLine{\Hypertarget{classProtein_l03378}03378     commonlogfile << \textcolor{stringliteral}{"{}Seeds\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03379}03379     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<rootmols.size();i++) \{rootmols[i]-\/>describeStructure(commonlogfile); commonlogfile <<\textcolor{stringliteral}{"{}\(\backslash\)twith energy: "{}}<<rootmols[i]-\/>myBE<<\textcolor{stringliteral}{"{}("{}}<<rootmols[i]-\/>myHBE<<\textcolor{stringliteral}{"{})\(\backslash\)n"{}};\}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03380}03380     \textcolor{comment}{//int rv;}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03381}03381         \textcolor{keywordflow}{if}(initmol)}
+\DoxyCodeLine{\Hypertarget{classProtein_l03382}03382         \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03383}03383             \mbox{\hyperlink{classSystem}{System}} initsys=main;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03384}03384             this-\/>\mbox{\hyperlink{classProtein_aaa512fd669808b02b1e34d07b6cc6c3b}{calculateNonBondingEnergy}}(initmol);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03385}03385             initsys.\mbox{\hyperlink{classSystem_a03019561c7b913a1c548b6a0c63173e4}{addMolecule}}(initmol);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03386}03386             initmol-\/>\mbox{\hyperlink{classMolecule_a3e459e9ae52f281073d4821b9af72b60}{type}}=0;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03387}03387             initmol-\/>\mbox{\hyperlink{classMolecule_a72616aa9d293190a9a0372a735f76966}{dumpMol}}(\textcolor{stringliteral}{"{}inital\_template.pdb"{}});}
+\DoxyCodeLine{\Hypertarget{classProtein_l03388}03388             coll.push\_back(initsys);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03389}03389             \textcolor{keywordflow}{if}(prune) \{rootmols=std::vector<Molecule*>(1,initmol); rootsize=initmol-\/>\mbox{\hyperlink{classMolecule_a4c6228c3225bd9571ba276841caa7c90}{getEffectiveSize}}(); maxsize=rootsize+sizemin+3;\}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03390}03390         \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03391}03391         \textcolor{keywordflow}{if}(prune \&\& !initmol) prune=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03392}03392         \textcolor{keywordtype}{bool} smilehandle=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03393}03393         \textcolor{keywordtype}{bool} generate=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03394}03394 \textcolor{preprocessor}{        \#ifndef SERIAL}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03395}03395         \textcolor{keywordflow}{if}(!USE\_PHYSICS) commonlogfile << \textcolor{stringliteral}{"{}Primary Optimzation: On \(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03396}03396         \textcolor{keywordflow}{else} commonlogfile << \textcolor{stringliteral}{"{}Primary Optimzation: Off \(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03397}03397 }
+\DoxyCodeLine{\Hypertarget{classProtein_l03398}03398         \textcolor{keywordflow}{if}(FORCE\_CHARGES) commonlogfile << \textcolor{stringliteral}{"{}Using uniform charge balancing to get integer net charges. \(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03399}03399         \textcolor{keywordflow}{else} commonlogfile << \textcolor{stringliteral}{"{}WARN: Net charges per molecule may not be integers \(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03400}03400 }
+\DoxyCodeLine{\Hypertarget{classProtein_l03401}03401 \textcolor{preprocessor}{        \#ifndef FFCHARGES}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03402}03402         commonlogfile << \textcolor{stringliteral}{"{}Default FF Charges: Off (using external charges) \(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03403}03403 \textcolor{preprocessor}{        \#else}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03404}03404         commonlogfile << \textcolor{stringliteral}{"{}Default FF Charges: On \(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03405}03405 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03406}03406         commonlogfile.flush();}
+\DoxyCodeLine{\Hypertarget{classProtein_l03407}03407         std::vector<Molecule*> threadseeds[omp\_get\_max\_threads()];}
+\DoxyCodeLine{\Hypertarget{classProtein_l03408}03408         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<omp\_get\_max\_threads();i++) threadseeds[i]=std::vector<Molecule*>();}
+\DoxyCodeLine{\Hypertarget{classProtein_l03409}03409         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<rootmols.size();i++) threadseeds[i\%omp\_get\_max\_threads()].push\_back(rootmols[i]);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03410}03410         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<omp\_get\_max\_threads();i++)  \{\textcolor{keywordflow}{if}(!threadseeds[i].size()) threadseeds[i].push\_back(randomSelect(rootmols));\}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03411}03411         commonlogfile << \textcolor{stringliteral}{"{}Parallelized run begins with CPU count: "{}}<<omp\_get\_num\_procs()<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03412}03412         cout << \textcolor{stringliteral}{"{}Parallelized run begins with CPU count: "{}}<<omp\_get\_num\_procs()<<\textcolor{stringliteral}{"{}, and \string~"{}}<<threadseeds[0].size()<<\textcolor{stringliteral}{"{} seeds per core, with trial limit="{}}<<tottries<<\textcolor{stringliteral}{"{} per core\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03413}03413 \textcolor{preprocessor}{        \#ifndef NOINTERFACE}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03414}03414         cin >> tvar;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03415}03415 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03416}03416 \textcolor{preprocessor}{        \#pragma omp parallel}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03417}03417         \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03418}03418             \textcolor{keywordtype}{int} \textcolor{keywordtype}{id}=omp\_get\_thread\_num();}
+\DoxyCodeLine{\Hypertarget{classProtein_l03419}03419             cout << \textcolor{stringliteral}{"{}Thread no "{}}+to\_string(\textcolor{keywordtype}{id})+\textcolor{stringliteral}{"{}\(\backslash\)thas "{}}+to\_string(threadseeds[\textcolor{keywordtype}{id}].size())+\textcolor{stringliteral}{"{} seeds\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03420}03420 \textcolor{preprocessor}{            \#ifndef FFCHARGES}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03421}03421                 \textcolor{comment}{//bool smilehandle=(id==0); //The thread with ID=0 will handle SMILES}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03422}03422                 \textcolor{comment}{//bool generate=(id!=0);}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03423}03423                 cout << \textcolor{stringliteral}{"{}Using external charges for thread "{}}+to\_string(\textcolor{keywordtype}{id})+\textcolor{stringliteral}{"{} "{}}+to\_string(generate)+\textcolor{stringliteral}{"{} "{}}+to\_string(smilehandle)+\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03424}03424 \textcolor{preprocessor}{            \#else}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03425}03425                 cout << \textcolor{stringliteral}{"{}Using forcefield charges\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03426}03426 \textcolor{preprocessor}{            \#endif}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03427}03427 \textcolor{preprocessor}{        \#else}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03428}03428             \textcolor{keywordtype}{int} \textcolor{keywordtype}{id}=0;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03429}03429             cout << \textcolor{stringliteral}{"{}Serial Job\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03430}03430 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03431}03431 }
+\DoxyCodeLine{\Hypertarget{classProtein_l03432}03432             \textcolor{keywordtype}{int} F=0,L=0,common\_seedlength=0;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03433}03433             \textcolor{keywordtype}{bool} dels;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03434}03434             \mbox{\hyperlink{classMolecule}{Molecule}}* testm;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03435}03435             \mbox{\hyperlink{classSystem}{System}} s1=\mbox{\hyperlink{classSystem}{System}}(\mbox{\hyperlink{classForceField}{ForceField}}());}
+\DoxyCodeLine{\Hypertarget{classProtein_l03436}03436             \mbox{\hyperlink{classMolecule}{Molecule}} *chosenroot,*common\_newroot=\textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03437}03437             \textcolor{keywordtype}{double} e1,e2,P,common\_avgenergy;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03438}03438 \textcolor{preprocessor}{            \#ifndef SERIAL}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03439}03439             cout << \textcolor{stringliteral}{"{}Starting on processor: "{}}+to\_string(\textcolor{keywordtype}{id})+\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03440}03440             std::ofstream\& logfile=fileExists(logfilename+\textcolor{stringliteral}{"{}\_\_"{}}+to\_string(\textcolor{keywordtype}{id}));}
+\DoxyCodeLine{\Hypertarget{classProtein_l03441}03441             logfile << \textcolor{stringliteral}{"{}Starting on processor/thread: "{}}+to\_string(\textcolor{keywordtype}{id})+\textcolor{stringliteral}{"{} generation: "{}}+to\_string(generate)+\textcolor{stringliteral}{"{}, smiles: "{}}+to\_string(smilehandle)+\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03442}03442             logfile << \textcolor{stringliteral}{"{}Using seeds: "{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03443}03443             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<threadseeds[id].size();i++) \{threadseeds[id][i]-\/>describeStructure(logfile); logfile <<\textcolor{stringliteral}{"{}\(\backslash\)twith energy: "{}}<<threadseeds[id][i]-\/>myBE<<\textcolor{stringliteral}{"{}("{}}<<threadseeds[id][i]-\/>myHBE<<\textcolor{stringliteral}{"{})\(\backslash\)n"{}};\}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03444}03444             logfile.flush();}
+\DoxyCodeLine{\Hypertarget{classProtein_l03445}03445 \textcolor{preprocessor}{            \#else}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03446}03446                 std::ofstream\& logfile=commonlogfile;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03447}03447 \textcolor{preprocessor}{            \#endif}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03448}03448 }
+\DoxyCodeLine{\Hypertarget{classProtein_l03449}03449         \textcolor{keywordflow}{while}(ret.size()<n)}
+\DoxyCodeLine{\Hypertarget{classProtein_l03450}03450         \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03451}03451                 \textcolor{keywordflow}{if}(generate)}
+\DoxyCodeLine{\Hypertarget{classProtein_l03452}03452                 \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03453}03453                     dels=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03454}03454               \textcolor{keywordflow}{if}(K[\textcolor{keywordtype}{id}]>tottries) \{logfile << \textcolor{stringliteral}{"{}All tries over. Quitting with results uptil now!\(\backslash\)n"{}}; commonlogfile <<\textcolor{keywordtype}{id}<<\textcolor{stringliteral}{"{}: All tries over. Quitting with results uptil now!\(\backslash\)n"{}}; logfile.close(); \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03455}03455               \textcolor{keywordflow}{if}(F>25) \textcolor{comment}{//Rejected 25 molecules in a row}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03456}03456               \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03457}03457                 \textcolor{comment}{//main.temp+=1;}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03458}03458                 commonlogfile << \textcolor{stringliteral}{"{}25 Rejections (by energy) in a row. Heating system by 1K. Current temperature: "{}}+to\_string(main.temp)+\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03459}03459                 F=0;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03460}03460               \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03461}03461               s1=main;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03462}03462 \textcolor{preprocessor}{                    \#ifndef SERIAL}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03463}03463                         chosenroot=randomSelect(threadseeds[\textcolor{keywordtype}{id}]);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03464}03464 \textcolor{preprocessor}{                    \#else}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03465}03465                         chosenroot=randomSelect(rootmols);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03466}03466 \textcolor{preprocessor}{                    \#endif}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03467}03467               testm=\textcolor{keyword}{new} \mbox{\hyperlink{classMolecule_a7e7d290ae641518ad4c4d5303b519d0f}{Molecule}}(chosenroot);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03468}03468                     testm-\/>\mbox{\hyperlink{classMolecule_a3e459e9ae52f281073d4821b9af72b60}{type}}=0;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03469}03469 \textcolor{preprocessor}{                    \#ifndef FRAGGROW}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03470}03470                     \textcolor{keywordflow}{if}(prune)}
+\DoxyCodeLine{\Hypertarget{classProtein_l03471}03471                         testm-\/>\mbox{\hyperlink{classMolecule_a6351ba55249d7e5659dfbb397dd0e069}{makePruneFragment}}((\textcolor{keywordtype}{int})RNG::throwarandompoint(\textcolor{keywordtype}{id},0,prunedepth)+1);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03472}03472 \textcolor{preprocessor}{                    \#endif}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03473}03473                     \textcolor{comment}{//logfile << "{}Loaded seed: "{}<<rootmols[rv]-\/>toString()<<"{} with energy: "{}<<seeds[rv]-\/>getEnergyContribution()<<"{}\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03474}03474               \textcolor{comment}{//testm-\/>set\_binding\_energy(startbes[rv]);}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03475}03475               \textcolor{comment}{//testm-\/>myBE=startbes[rv];}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03476}03476               \textcolor{comment}{//testm-\/>set\_hotspot\_binding\_energy(starthbes[rv]);}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03477}03477               \textcolor{comment}{//testm-\/>myHBE=starthbes[rv];}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03478}03478               \textcolor{comment}{//cout << "{}Success\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03479}03479               s1.\mbox{\hyperlink{classSystem_a03019561c7b913a1c548b6a0c63173e4}{addMolecule}}(testm);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03480}03480                     \textcolor{keywordflow}{if}(superseed || reseed)}
+\DoxyCodeLine{\Hypertarget{classProtein_l03481}03481                     \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03482}03482                         common\_seedlength=testm-\/>\mbox{\hyperlink{classMolecule_a6946cbe0d8daa9b2386d85ca7faf0cd1}{getSize}}();}
+\DoxyCodeLine{\Hypertarget{classProtein_l03483}03483                         common\_avgenergy=testm-\/>\mbox{\hyperlink{classMolecule_adebb2c740099c5db4f14137bb1609877}{myBE}}/common\_seedlength;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03484}03484                     \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03485}03485                     \textcolor{keywordflow}{if}(!QUIET) cout << testm-\/>\mbox{\hyperlink{classMolecule_a4c6228c3225bd9571ba276841caa7c90}{getEffectiveSize}}() << \textcolor{stringliteral}{"{} is effective size of testm to begin with\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03486}03486                     logfile << testm-\/>\mbox{\hyperlink{classMolecule_a4c6228c3225bd9571ba276841caa7c90}{getEffectiveSize}}() << \textcolor{stringliteral}{"{} is effective size of testm to begin with\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03487}03487 \textcolor{preprocessor}{                            \#ifndef FRAGGROW}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03488}03488                         \textcolor{keywordflow}{if}(prune) testm-\/>\mbox{\hyperlink{classMolecule_adc8c0ae7c7ce4f851344d9b4b6479602}{samplegrow}}(logfile,s1,sizemin+rootsize,tries\_per\_lig,maxsize,LEVELLIMIT,restr,superseed,reseed,deseed,common\_newroot,common\_seedlength,\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{classProtein_l03489}03489                         \textcolor{keywordflow}{else} testm-\/>\mbox{\hyperlink{classMolecule_adc8c0ae7c7ce4f851344d9b4b6479602}{samplegrow}}(logfile,s1,sizemin,tries\_per\_lig,maxsize,LEVELLIMIT,restr,superseed,reseed,deseed,common\_newroot,common\_seedlength,\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{classProtein_l03490}03490 \textcolor{preprocessor}{                            \#else}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03491}03491                                 testm-\/>fragmentgrow(logfile,s1,frags,sizemin,tries\_per\_lig,maxsize,LEVELLIMIT,restr,\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{classProtein_l03492}03492 \textcolor{preprocessor}{                            \#endif}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03493}03493                     logfile << testm-\/>\mbox{\hyperlink{classMolecule_a4c6228c3225bd9571ba276841caa7c90}{getEffectiveSize}}() << \textcolor{stringliteral}{"{} is effective size of testm after generation\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03494}03494 \textcolor{preprocessor}{                    \#ifndef NOSEEDCHECK}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03495}03495                         \textcolor{keywordflow}{if}(!prune \&\& !main.ff-\/>isSatisfied(testm-\/>\mbox{\hyperlink{classMolecule_a75dace1f6d0736e85fbe517a0f26e136}{getAtom}}(0),testm-\/>\mbox{\hyperlink{classMolecule_aef77043ab98f1008a15a1e52d85b827e}{getBondedAtoms}}(testm-\/>\mbox{\hyperlink{classMolecule_a75dace1f6d0736e85fbe517a0f26e136}{getAtom}}(0)))) \{logfile << \textcolor{stringliteral}{"{}Rejecting molecule due to unsatisfied seed atom\(\backslash\)n"{}}; \textcolor{keyword}{delete} testm; \textcolor{keywordflow}{continue};\}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03496}03496 \textcolor{preprocessor}{                    \#endif}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03497}03497                     \textcolor{keywordflow}{if}(!QUIET) cout << testm-\/>\mbox{\hyperlink{classMolecule_a4c6228c3225bd9571ba276841caa7c90}{getEffectiveSize}}() << \textcolor{stringliteral}{"{} is effective size of testm after generation\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03498}03498 }
+\DoxyCodeLine{\Hypertarget{classProtein_l03499}03499                     \textcolor{keywordflow}{if}(superseed \&\& common\_newroot \&\& testm-\/>\mbox{\hyperlink{classMolecule_a6946cbe0d8daa9b2386d85ca7faf0cd1}{getSize}}()>common\_seedlength)}
+\DoxyCodeLine{\Hypertarget{classProtein_l03500}03500                     \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03501}03501                         \textcolor{keywordflow}{if}(!QUIET) cout << \textcolor{stringliteral}{"{}Superseed: "{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03502}03502                         \textcolor{keywordflow}{if}(testm-\/>\mbox{\hyperlink{classMolecule_a50d2a2068fcda1e9676eb5d8e3aac9f2}{getRandomBondableAtom}}() \&\& testm-\/>\mbox{\hyperlink{classMolecule_a75dace1f6d0736e85fbe517a0f26e136}{getAtom}}(common\_seedlength)-\/>\mbox{\hyperlink{classAtom_a2880996f52ed3be7e17eb5151820f8b6}{getEnergyContribution}}()<common\_avgenergy)}
+\DoxyCodeLine{\Hypertarget{classProtein_l03503}03503                         \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03504}03504 \textcolor{preprocessor}{                            \#ifndef SERIAL}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03505}03505                                 threadseeds[id].push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{classMolecule_a7e7d290ae641518ad4c4d5303b519d0f}{Molecule}}(common\_newroot));}
+\DoxyCodeLine{\Hypertarget{classProtein_l03506}03506                                 \textcolor{keywordflow}{if}(deseed) dels=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03507}03507                                 \textcolor{keywordflow}{if}(!QUIET) cout << \textcolor{stringliteral}{"{}Added new molecule of size = "{}}<<common\_newroot-\/>\mbox{\hyperlink{classMolecule_a6946cbe0d8daa9b2386d85ca7faf0cd1}{getSize}}()<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03508}03508                                 common\_newroot-\/>\mbox{\hyperlink{classMolecule_a72616aa9d293190a9a0372a735f76966}{dumpMol}}(\textcolor{stringliteral}{"{}newseed\_"{}}+to\_string(\textcolor{keywordtype}{id})+\textcolor{stringliteral}{"{}\_"{}}+to\_string(threadseeds[\textcolor{keywordtype}{id}].size())+\textcolor{stringliteral}{"{}.pdb"{}});}
+\DoxyCodeLine{\Hypertarget{classProtein_l03509}03509 \textcolor{preprocessor}{                            \#else}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03510}03510                                 rootmols.push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{classMolecule_a7e7d290ae641518ad4c4d5303b519d0f}{Molecule}}(common\_newroot)); \textcolor{keywordflow}{if}(deseed) dels=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03511}03511                                 \textcolor{keywordflow}{if}(!QUIET) cout << \textcolor{stringliteral}{"{}Added new molecule of size = "{}}<<common\_newroot-\/>\mbox{\hyperlink{classMolecule_a6946cbe0d8daa9b2386d85ca7faf0cd1}{getSize}}()<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03512}03512                                 common\_newroot-\/>\mbox{\hyperlink{classMolecule_a72616aa9d293190a9a0372a735f76966}{dumpMol}}(\textcolor{stringliteral}{"{}newseed\_serial\_"{}}+to\_string(rootmols.size())+\textcolor{stringliteral}{"{}.pdb"{}});}
+\DoxyCodeLine{\Hypertarget{classProtein_l03513}03513 \textcolor{preprocessor}{                            \#endif}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03514}03514                         \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03515}03515                         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(!QUIET) cout << \textcolor{stringliteral}{"{}No change\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03516}03516                         \textcolor{keyword}{delete} common\_newroot;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03517}03517                         common\_newroot=\textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03518}03518                     \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03519}03519                     \textcolor{keywordflow}{if}(reseed)}
+\DoxyCodeLine{\Hypertarget{classProtein_l03520}03520                     \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03521}03521                         \mbox{\hyperlink{classAtom}{Atom}} *tatm,*fatm=\textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03522}03522                         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=common\_seedlength;i<testm-\/>\mbox{\hyperlink{classMolecule_a6946cbe0d8daa9b2386d85ca7faf0cd1}{getSize}}();i++)}
+\DoxyCodeLine{\Hypertarget{classProtein_l03523}03523                         \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03524}03524                             tatm=testm-\/>\mbox{\hyperlink{classMolecule_a75dace1f6d0736e85fbe517a0f26e136}{getAtom}}(i);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03525}03525                             \textcolor{keywordflow}{if}(tatm-\/>\mbox{\hyperlink{classAtom_a99ed78f1b94d694b0f3fac609fd92934}{isHydrogen}}()) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03526}03526                             \textcolor{keywordflow}{if}(tatm-\/>\mbox{\hyperlink{classAtom_a2880996f52ed3be7e17eb5151820f8b6}{getEnergyContribution}}()<common\_avgenergy) \{\textcolor{keywordflow}{if}(!fatm || tatm-\/>\mbox{\hyperlink{classAtom_a2880996f52ed3be7e17eb5151820f8b6}{getEnergyContribution}}()<fatm-\/>\mbox{\hyperlink{classAtom_a2880996f52ed3be7e17eb5151820f8b6}{getEnergyContribution}}()) fatm=tatm;\}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03527}03527                         \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03528}03528                         \textcolor{keywordflow}{if}(fatm) \{rootmols.push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{classMolecule_a7e7d290ae641518ad4c4d5303b519d0f}{Molecule}}(\textcolor{keyword}{new} \mbox{\hyperlink{classAtom}{Atom}}(*fatm))); commonlogfile << \textcolor{stringliteral}{"{}Seed added: "{}} << fatm-\/>\mbox{\hyperlink{classAtom_a189def3b8bade8507d49cfd7de881178}{toString}}() << \textcolor{stringliteral}{"{}\(\backslash\)tTotal seeds: "{}}<<rootmols.size()<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};\}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03529}03529                         \textcolor{keywordflow}{if}(deseed \&\& fatm) dels=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03530}03530                     \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03531}03531                     \textcolor{keywordflow}{if}(dels)}
+\DoxyCodeLine{\Hypertarget{classProtein_l03532}03532                     \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03533}03533                         \textcolor{keywordtype}{int} delind=\mbox{\hyperlink{classMolecule_aa13276cae00e350b9b28c07cb82ebcec}{::indexOf}}(chosenroot,rootmols);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03534}03534                         \textcolor{keyword}{delete} rootmols[delind];}
+\DoxyCodeLine{\Hypertarget{classProtein_l03535}03535                         \textcolor{comment}{//delete chosenroot;}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03536}03536                         rootmols.erase(rootmols.begin()+delind);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03537}03537                         commonlogfile << \textcolor{stringliteral}{"{}Seed erased.\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03538}03538                     \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03539}03539 }
+\DoxyCodeLine{\Hypertarget{classProtein_l03540}03540                     \textcolor{keywordflow}{if}(testm-\/>\mbox{\hyperlink{classMolecule_a4c6228c3225bd9571ba276841caa7c90}{getEffectiveSize}}()<=0) logfile << \textcolor{stringliteral}{"{}It (testm) had negative size with "{}}<<testm-\/>\mbox{\hyperlink{classMolecule_ab9512050a395e0ebb8fbba92f0a91222}{HC}}<<\textcolor{stringliteral}{"{} hydrogens\(\backslash\)n"{}}; \textcolor{comment}{//Check may be removed soon}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03541}03541               \textcolor{keywordflow}{if}(testm-\/>\mbox{\hyperlink{classMolecule_a4c6228c3225bd9571ba276841caa7c90}{getEffectiveSize}}()<sizemin)}
+\DoxyCodeLine{\Hypertarget{classProtein_l03542}03542                     \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03543}03543                         cout << \textcolor{stringliteral}{"{}Deleteing molecule\(\backslash\)n"{}}; logfile << \textcolor{stringliteral}{"{}Deleteing molecule for short size: "{}}<<testm-\/>\mbox{\hyperlink{classMolecule_a4c6228c3225bd9571ba276841caa7c90}{getEffectiveSize}}()<<\textcolor{stringliteral}{"{}(H:"{}}<<(testm-\/>\mbox{\hyperlink{classMolecule_ab9512050a395e0ebb8fbba92f0a91222}{HC}})<<\textcolor{stringliteral}{"{}) described by: "{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03544}03544                         testm-\/>\mbox{\hyperlink{classMolecule_a728fa63d31ed43876593086571e82cf6}{describeStructure}}(logfile);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03545}03545                         logfile<<\textcolor{stringliteral}{"{}, over required"{}}<<sizemin<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03546}03546                         \textcolor{keyword}{delete} testm; K[id]++;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03547}03547                         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03548}03548                         \textcolor{comment}{//if(!smilehandle) continue;}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03549}03549                     \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03550}03550               K[id]=0;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03551}03551                     \textcolor{comment}{/*for(Atom* temp : testm-\/>getAtoms())}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03552}03552 \textcolor{comment}{                    \{}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03553}03553 \textcolor{comment}{                        switch(temp-\/>toString()[0])}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03554}03554 \textcolor{comment}{                        \{}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03555}03555 \textcolor{comment}{                            case 'H': case 'C': break;}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03556}03556 \textcolor{comment}{                            case 'N': testm-\/>pE+=4.5; break;}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03557}03557 \textcolor{comment}{                            case 'O': testm-\/>pE+=6; break;}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03558}03558 \textcolor{comment}{                            default: testm-\/>pE+=10; break;}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03559}03559 \textcolor{comment}{                        \}}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03560}03560 \textcolor{comment}{                        if(main.ff.getCategory("{}aromatic"{}).contains(temp)) \{testm-\/>pE-\/=22;\}}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03561}03561 \textcolor{comment}{                        else if(main.ff.getCategory("{}alkene"{}).contains(temp)) \{testm-\/>pE-\/=5;\}}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03562}03562 \textcolor{comment}{                        else if(temp-\/>isCyclized()) \{testm-\/>pE-\/=12;\}}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03563}03563 \textcolor{comment}{                    \}*/} \textcolor{comment}{//Uncomment to penalize/reward by entropy (and polarity)}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03564}03564 \textcolor{preprocessor}{                    \#ifndef FFCHARGES}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03565}03565                         \mbox{\hyperlink{classForceField}{ForceField}} nff(*main.ff);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03566}03566                         testm-\/>\mbox{\hyperlink{classMolecule_aa0590f11faa97d063d7542f91587898c}{calculateBondOrders2}}(nff);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03567}03567                         netcomm::processRequest(logfile,testm,\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{classProtein_l03568}03568                         \textcolor{comment}{//cout << "{}Completed generation of a molecule by: "{}+to\_string(id)+"{}\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03569}03569                         logfile << \textcolor{stringliteral}{"{}Completed generation of a molecule by: "{}}+to\_string(\textcolor{keywordtype}{id})+\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03570}03570                         \textcolor{comment}{//logfile << "{}Added request. Size now: "{}+to\_string(netcomm::queueSize())+"{}\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03571}03571                         \textcolor{comment}{//while(testm!=netcomm::processRequest()) \{\}}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03572}03572 \textcolor{preprocessor}{                    \#endif}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03573}03573                 \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03574}03574                 \textcolor{keywordflow}{if}(smilehandle)}
+\DoxyCodeLine{\Hypertarget{classProtein_l03575}03575                 \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03576}03576                     \textcolor{comment}{//if(!testm) \{lockcoll=false; continue;\}}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03577}03577                     \textcolor{keywordflow}{if}(!testm) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03578}03578                     \textcolor{keywordflow}{if}(USE\_PHYSICS)}
+\DoxyCodeLine{\Hypertarget{classProtein_l03579}03579                     \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03580}03580                         \textcolor{comment}{/*cout << "{}Completed rigid-\/body gradient descent\(\backslash\)n"{};*/}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03581}03581                         testm-\/>\mbox{\hyperlink{classMolecule_a72616aa9d293190a9a0372a735f76966}{dumpMol}}(\textcolor{stringliteral}{"{}GENERATING\_mol\_preopt."{}}+to\_string(\textcolor{keywordtype}{id})+\textcolor{stringliteral}{"{}\_"{}}+to\_string(L)+\textcolor{stringliteral}{"{}.pdb"{}},\&ff);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03582}03582                         physics::gradientDescentPhysics(main,testm,RBDESCSTEPS);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03583}03583                         physics::atomisticGradientDescentPhysics(main,testm,FULLDESCSTEPS);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03584}03584                         logfile << \textcolor{stringliteral}{"{}Minimized molecule by: "{}}<<\textcolor{keywordtype}{id}<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03585}03585                         logfile.flush();}
+\DoxyCodeLine{\Hypertarget{classProtein_l03586}03586                     \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03587}03587                     \textcolor{keywordflow}{if}(FORCE\_CHARGES) this-\/>\mbox{\hyperlink{classProtein_aaa512fd669808b02b1e34d07b6cc6c3b}{calculateNonBondingEnergy}}(testm);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03588}03588                     e1=testm-\/>\mbox{\hyperlink{classMolecule_a008ae56ec47345e906b08db6d2fd2b1c}{binding\_energy}}()+testm-\/>\mbox{\hyperlink{classMolecule_abf3e45c79a7ae3fbb0fc174544debc1e}{pE}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03589}03589                     \textcolor{comment}{//if(e1!=e1 || e1==0.0000) \{logfile << "{}Rejecting unstable molecule.\(\backslash\)n"{}; delete testm; lockcoll=false; continue;\}}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03590}03590                     \textcolor{keywordflow}{if}(e1!=e1 || e1==0.0000) \{logfile << \textcolor{stringliteral}{"{}Rejecting unstable molecule.\(\backslash\)n"{}}; \textcolor{keyword}{delete} testm; \textcolor{keywordflow}{continue};\}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03591}03591                     \textcolor{keywordflow}{while}(lockcoll) \{\}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03592}03592                     lockcoll=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03593}03593                 \textcolor{keywordflow}{if}(coll.size())}
+\DoxyCodeLine{\Hypertarget{classProtein_l03594}03594                 \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03595}03595                         e2=coll[coll.size()-\/1].getDrugMolecule()-\/>\mbox{\hyperlink{classMolecule_a008ae56ec47345e906b08db6d2fd2b1c}{binding\_energy}}()+coll[coll.size()-\/1].getDrugMolecule()-\/>pE;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03596}03596                   \textcolor{keywordflow}{if}(abs(e1-\/e2)<ecut) \{coll.push\_back(s1); logfile << \textcolor{stringliteral}{"{}Similar energies ("{}}<<e1<<\textcolor{stringliteral}{"{},"{}}<<e2<<\textcolor{stringliteral}{"{}) encountered\(\backslash\)n. "{}}<<coll.size()<<\textcolor{stringliteral}{"{} molecules collected.\(\backslash\)n"{}}; commonlogfile << to\_string(\textcolor{keywordtype}{id})+\textcolor{stringliteral}{"{}: Similar energies ("{}}+to\_string(e1)+\textcolor{stringliteral}{"{},"{}}+to\_string(e2)+\textcolor{stringliteral}{"{}) encountered\(\backslash\)n. "{}}+to\_string(coll.size())+\textcolor{stringliteral}{"{} molecules collected.\(\backslash\)n"{}}; lockcoll=\textcolor{keyword}{false}; \textcolor{keywordflow}{continue};\}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03597}03597                   P=RNG::throwarandompoint(\textcolor{keywordtype}{id},0,1);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03598}03598                   \textcolor{keywordflow}{if}(P>boltzmannFactor(e1-\/e2,s1.\mbox{\hyperlink{classSystem_ad1674d51a2b296f65e361eade8ad253e}{temp}})) \{logfile << \textcolor{stringliteral}{"{}Rejecting molecule of energy "{}}<<e1<<\textcolor{stringliteral}{"{} over more stable "{}}<<e2<<\textcolor{stringliteral}{"{} with P="{}}<<boltzmannFactor(e1-\/e2,s1.\mbox{\hyperlink{classSystem_ad1674d51a2b296f65e361eade8ad253e}{temp}})<<\textcolor{stringliteral}{"{}, throwing value in (0,1): "{}}<<P<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}}; F++;  \textcolor{keyword}{delete} testm; lockcoll=\textcolor{keyword}{false}; \textcolor{keywordflow}{continue};\}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03599}03599                   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03600}03600                   \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03601}03601                     F=0;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03602}03602                     coll.push\_back(s1);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03603}03603                     lockcoll=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03604}03604                     \textcolor{comment}{//coll=std::vector<System>(1,s1);}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03605}03605                     \textcolor{keywordflow}{if}(e1>e2) osc++;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03606}03606                     commonlogfile << \textcolor{stringliteral}{"{}Accepting (possibly lower) energy molecule: "{}}+to\_string(e1)+\textcolor{stringliteral}{"{} over "{}}+to\_string(e2)+\textcolor{stringliteral}{"{}\(\backslash\)n"{}}; testm-\/>\mbox{\hyperlink{classMolecule_a728fa63d31ed43876593086571e82cf6}{describeStructure}}(commonlogfile);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03607}03607                     commonlogfile << \textcolor{stringliteral}{"{}Oscillations upto now: "{}}+to\_string(osc)+\textcolor{stringliteral}{"{}\(\backslash\)nCommits upto now: "{}}+to\_string(ret.size())+\textcolor{stringliteral}{"{}/"{}}+to\_string(n)+\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03608}03608                             commonlogfile.flush();}
+\DoxyCodeLine{\Hypertarget{classProtein_l03609}03609                     testm-\/>\mbox{\hyperlink{classMolecule_a72616aa9d293190a9a0372a735f76966}{dumpMol}}(\textcolor{stringliteral}{"{}GENERATING\_mol."{}}+to\_string(\textcolor{keywordtype}{id})+\textcolor{stringliteral}{"{}\_"{}}+to\_string(++L)+\textcolor{stringliteral}{"{}.pdb"{}},\&ff);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03610}03610                    \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03611}03611                    \textcolor{comment}{//if(coll.size()>=n) \{logfile << "{}Accumulated sufficient ligands: "{}<<n<<"{}\(\backslash\)n"{}; return coll;\}}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03612}03612                    \textcolor{keywordflow}{if}(osc>=osccount)}
+\DoxyCodeLine{\Hypertarget{classProtein_l03613}03613                    \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03614}03614                             \textcolor{keywordflow}{while}(lock) \{\}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03615}03615                             lock=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03616}03616                             cout << \textcolor{stringliteral}{"{}Oscillations reached cutoff="{}}<<osccount<<\textcolor{stringliteral}{"{}. Will commit some molecules\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03617}03617                             commonlogfile << \textcolor{stringliteral}{"{}Oscillations reached cutoff. Will commit some molecules\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03618}03618                             e1=0; \textcolor{keywordtype}{double} ex; \textcolor{keywordtype}{int} nc=0;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03619}03619                             \textcolor{keywordflow}{for}(\mbox{\hyperlink{classSystem}{System}}\& s : coll)}
+\DoxyCodeLine{\Hypertarget{classProtein_l03620}03620                             \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03621}03621                                  ex=required\_energy(s.getDrugMolecule());}
+\DoxyCodeLine{\Hypertarget{classProtein_l03622}03622                                  \textcolor{keywordflow}{if}(ex>0) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03623}03623                                  e1+=ex;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03624}03624                                  nc++;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03625}03625                             \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03626}03626                             e1/=nc;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03627}03627                             logfile << \textcolor{stringliteral}{"{}Committing some molecules: Average binding energy (hotspot) = "{}}+to\_string(e1)+\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03628}03628                     std::vector<int> delinds;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03629}03629                     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<coll.size();i++)}
+\DoxyCodeLine{\Hypertarget{classProtein_l03630}03630                     \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03631}03631                       \textcolor{keywordflow}{if}(i==0) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03632}03632                                 \textcolor{comment}{//if(prune) \{if(initmol-\/>myBE<coll[i].getDrugMolecule()-\/>myBE) continue;\}}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03633}03633                       \textcolor{keywordflow}{if}(required\_energy(coll[i].getDrugMolecule())>e1 || (initmol \&\& initmol-\/>\mbox{\hyperlink{classMolecule_adebb2c740099c5db4f14137bb1609877}{myBE}}<coll[i].getDrugMolecule()-\/>myBE))}
+\DoxyCodeLine{\Hypertarget{classProtein_l03634}03634                       \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03635}03635                         commonlogfile << \textcolor{stringliteral}{"{}Deleteing collected molecule\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03636}03636                         coll[i].getDrugMolecule()-\/>describeStructure();}
+\DoxyCodeLine{\Hypertarget{classProtein_l03637}03637                         delinds.push\_back(i);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03638}03638                         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03639}03639                       \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03640}03640                       ret.push\_back(coll[i]);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03641}03641                       \textcolor{comment}{//commonlogfile << "{}Committing with binding energy(array index: "{}<<i<<"{}): "{}<<required\_energy(coll[i].getDrugMolecule())<<"{}\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03642}03642                         cout << \textcolor{stringliteral}{"{}Committing with binding energy(array index: "{}}<<i<<\textcolor{stringliteral}{"{}): "{}}<<required\_energy(coll[i].getDrugMolecule())<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03643}03643                     \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03644}03644                     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\& i : delinds)}
+\DoxyCodeLine{\Hypertarget{classProtein_l03645}03645                     \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03646}03646                       coll[i].getDrugMolecule()-\/>describeStructure();}
+\DoxyCodeLine{\Hypertarget{classProtein_l03647}03647                         \textcolor{keyword}{delete} coll[i].getDrugMolecule();}
+\DoxyCodeLine{\Hypertarget{classProtein_l03648}03648                     \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03649}03649                     cout << \textcolor{stringliteral}{"{}Current commit size: "{}}<<ret.size()<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03650}03650                     \textcolor{keywordflow}{if}(ret.size()) coll=std::vector<System>(1,ret[ret.size()-\/1]);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03651}03651                     \textcolor{keywordflow}{else} coll=std::vector<System>();}
+\DoxyCodeLine{\Hypertarget{classProtein_l03652}03652                     osc=0;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03653}03653                             lock=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03654}03654                     \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03655}03655                 \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03656}03656                 \textcolor{keywordflow}{else} \{coll.push\_back(s1);\}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03657}03657                     lockcoll=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03658}03658                 \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03659}03659         \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03660}03660 \textcolor{preprocessor}{        \#ifndef SERIAL}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03661}03661         \} \textcolor{comment}{//End the OMP parallel pragma}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03662}03662 \textcolor{preprocessor}{        \#pragma omp barrier}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03663}03663 \textcolor{preprocessor}{        \#ifndef NOZMQ}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03664}03664             zmqio::stopThreads(cout);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03665}03665 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03666}03666 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03667}03667         \textcolor{keywordflow}{if}(!ret.size())}
+\DoxyCodeLine{\Hypertarget{classProtein_l03668}03668         \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03669}03669             commonlogfile<<\textcolor{stringliteral}{"{}ERR: Nothing was generated\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03670}03670             cout << \textcolor{stringliteral}{"{}WARN: No molecules could be generated.\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03671}03671         \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03672}03672         commonlogfile.close();}
+\DoxyCodeLine{\Hypertarget{classProtein_l03673}03673         \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03674}03674   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProtein_a1df41025f0ba253dca7e380c563a8b14}\label{classProtein_a1df41025f0ba253dca7e380c563a8b14}} 
+\index{Protein@{Protein}!generateSeeds@{generateSeeds}}
+\index{generateSeeds@{generateSeeds}!Protein@{Protein}}
+\doxysubsubsection{\texorpdfstring{generateSeeds()}{generateSeeds()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classAtom}{Atom}} $\ast$ $>$ Protein\+::generate\+Seeds (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classSystem}{System}} \&}]{p,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{classAtom}{Atom}} $\ast$ $>$ \&}]{seedtypes = {\ttfamily std\+:\+:vector$<$\mbox{\hyperlink{classAtom}{Atom}}$\ast$$>$()},  }\item[{int}]{maxseed = {\ttfamily 1},  }\item[{double}]{RC = {\ttfamily 1.0},  }\item[{bool}]{allowH = {\ttfamily true},  }\item[{bool}]{dense = {\ttfamily false},  }\item[{double}]{densval = {\ttfamily 0.005} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate seeds near the hotspot. De\+Novo\textquotesingle{}s default seeding algorithm. 
+
+This seeding algorithm spreads seeds in the closest available free-\/space near the hotspot region of the protein. It keeps a minimum radius of spreading at 0.\+1nm and tries upto \char`\"{}\+RC\char`\"{}. ~\newline
+ See the seeding algorithm in the PDF for more details 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p} & The system. This system must contain this protein, and the temperature and \mbox{\hyperlink{classForceField}{Force\+Field}} of this system will be used. All atoms mentioned in seedtypes must be present in this \mbox{\hyperlink{classForceField}{Force\+Field}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em seedtypes} & The list of atom-\/types allowed to be used as seeds. For each position, an atom-\/type is selected randomly from the seed-\/list hence by repeating one atom-\/type, you can roughly double it\textquotesingle{}s probability to appear as a seed (See seed reweighting in the PDF)~\newline
+As a general principle, it is useful to avoid hydrogen atoms as seeds (due to their small vanderwaal radius) \\
+\hline
+\mbox{\texttt{ in}}  & {\em maxseed} & Maximum number of seeds to try to generate \\
+\hline
+\mbox{\texttt{ in}}  & {\em RC} & The maximum radius upto which to try. If seeds are placed too far from the hotspot, it is likely that major contributions of interaction energy may not come from the hotspot region, hence the binders are likely to loose specificity (Default\+: 1nm) \\
+\hline
+\mbox{\texttt{ in}}  & {\em allowH} & If set to true, hydrogen atoms are allowed to be seeds. It is set to true by default because it is assumed that the user will provide a valid seed-\/list and if hydrogen atoms are included in this list, they must be considered for seeds. \\
+\hline
+\mbox{\texttt{ in}}  & {\em dense} & It determines the sparseness of distribution of the seeds. When dense mode is switched on, most of the seeds will be present in a very small (nearly spherical) region. Switching it off allows more spreading, but must be used with caution to ensure that the seeds do not leave the key regions (See PDF or source code for exact details -\/ Default\+: off) \\
+\hline
+\mbox{\texttt{ in}}  & {\em densval} & The rate of spreading (usually very small) when using \char`\"{}dense\char`\"{} mode. It allows finer control of the spreading during seeding. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l03174}{3174}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classProtein_l03175}03175     \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03176}03176         \textcolor{keyword}{const} \mbox{\hyperlink{classForceField}{ForceField}}\& ff=*p.\mbox{\hyperlink{classSystem_a9e485ee26141788c9f971a47703bb4a0}{ff}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03177}03177         Eigen::Vector3d cog(0,0,0); \textcolor{comment}{//Centre of geometry}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03178}03178         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<HN;i++)}
+\DoxyCodeLine{\Hypertarget{classProtein_l03179}03179             cog=cog+hotspotatoms[i]-\/>getPosition();}
+\DoxyCodeLine{\Hypertarget{classProtein_l03180}03180         cog/=HN;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03181}03181         Eigen::Vector3d fpos; \textcolor{keywordtype}{double} fen;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03182}03182         fpos=cog;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03183}03183         std::vector<Atom*> seeds;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03184}03184         \textcolor{keywordtype}{bool} fnd=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03185}03185         \textcolor{keywordflow}{if}(!QUIET) cout << \textcolor{stringliteral}{"{}Using seed dispersion of "{}}<<((dense)?densval:0.075)<<\textcolor{stringliteral}{"{} per ring\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03186}03186         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{double} rc=0.1;rc<RC+0.1;rc+=(dense)?densval:0.075) \textcolor{comment}{//increments of 0.075A lengths (for radial check)}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03187}03187         \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03188}03188             std::vector<Eigen::Vector3d> vecs;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03189}03189             \textcolor{comment}{/*if(dense)*/} vecs=\mbox{\hyperlink{namespacequickgeom_a78c6886551455b71fe88580560aae508}{quickgeom::getRandomVectorsInShell}}(cog,rc,2*maxseed);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03190}03190             \textcolor{comment}{//else vecs=quickgeom::getRandomVectorsInShell(cog,rc,maxseed/6);}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03191}03191             \textcolor{keywordflow}{for}(Eigen::Vector3d\& v : vecs)}
+\DoxyCodeLine{\Hypertarget{classProtein_l03192}03192             \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03193}03193                 \mbox{\hyperlink{classAtom}{Atom}}* testa=(seedtypes.size())?\textcolor{keyword}{new} \mbox{\hyperlink{classAtom}{Atom}}(*randomSelect(seedtypes)):((!allowH)?ff.\mbox{\hyperlink{classForceField_a8328f9fbf5155ffaebfc14543d59d82c}{getRandomNonHAtomByType}}():ff.\mbox{\hyperlink{classForceField_a2be69fc1bd6346deab02dea6f67d7a45}{getRandomAtomByType}}());}
+\DoxyCodeLine{\Hypertarget{classProtein_l03194}03194                 testa-\/>\mbox{\hyperlink{classAtom_a34fc2756d0f817a9ee6cf91c797d8bcc}{setPosition}}(v);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03195}03195                 \textcolor{keywordflow}{if}(!p.\mbox{\hyperlink{classSystem_a32339c7c2ec9b648c3f3847960b39c19}{strongWVCheck}}(testa)) \{\textcolor{keyword}{delete} testa; \textcolor{keywordflow}{continue};\}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03196}03196                 \textcolor{keywordflow}{if}(get<0>(this-\/>\mbox{\hyperlink{classProtein_aaa512fd669808b02b1e34d07b6cc6c3b}{calculateNonBondingEnergy}}(testa))>0) \{\textcolor{keyword}{delete} testa; \textcolor{keywordflow}{continue};\} \textcolor{comment}{// || boltzmannFactor(hsbe,p.temp)>throwarandompoint(0,1)) continue;}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03197}03197                 \textcolor{keywordflow}{if}(p.\mbox{\hyperlink{classSystem_a9e485ee26141788c9f971a47703bb4a0}{ff}}-\/>\mbox{\hyperlink{classForceField_ab5bfc00e94bac57310cc3a4778e11342}{hasCategory}}(\textcolor{stringliteral}{"{}ring"{}}) \&\& p.\mbox{\hyperlink{classSystem_a9e485ee26141788c9f971a47703bb4a0}{ff}}-\/>\mbox{\hyperlink{classForceField_a5a30c5a7760b5c791c5b34f9bd133506}{getCategory}}(\textcolor{stringliteral}{"{}ring"{}}).\mbox{\hyperlink{classCategory_a3ffa41a593852318c167862171166f1b}{contains}}(testa)) testa-\/>\mbox{\hyperlink{classAtom_a5de9929c1ce50f422e1be044b72a6aa0}{mustCycl}}=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03198}03198                 seeds.push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{classAtom}{Atom}}(*testa));}
+\DoxyCodeLine{\Hypertarget{classProtein_l03199}03199                 \textcolor{keywordflow}{if}(seeds.size()>=maxseed)}
+\DoxyCodeLine{\Hypertarget{classProtein_l03200}03200                 \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03201}03201                     \textcolor{keywordflow}{if}(!QUIET)}
+\DoxyCodeLine{\Hypertarget{classProtein_l03202}03202                     \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03203}03203                         \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* a : seeds)}
+\DoxyCodeLine{\Hypertarget{classProtein_l03204}03204                             cout << a-\/>toString()<<\textcolor{stringliteral}{"{}\(\backslash\)t"{}}<<a-\/>getPosition().transpose()<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03205}03205                     \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03206}03206                     \textcolor{keywordflow}{return} seeds;\textcolor{comment}{//\{fnd=true; break;\}}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03207}03207                 \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03208}03208             \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03209}03209             \textcolor{keywordflow}{if}(fnd) \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03210}03210         \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03211}03211         \textcolor{keywordflow}{if}(!seeds.size())}
+\DoxyCodeLine{\Hypertarget{classProtein_l03212}03212         \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03213}03213             cout << \textcolor{stringliteral}{"{}Failed to generate seed in "{}}<<RC<<\textcolor{stringliteral}{"{} nm radius from: "{}}<<cog(0)<<\textcolor{stringliteral}{"{} "{}}<<cog(1)<<\textcolor{stringliteral}{"{} "{}}<<cog(2)<<\textcolor{stringliteral}{"{} -\/ the COG (Centre of Geometry)\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03214}03214             \textcolor{keywordflow}{return} std::vector<Atom*>();}
+\DoxyCodeLine{\Hypertarget{classProtein_l03215}03215         \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03216}03216         \textcolor{comment}{/*for(auto\& a : seeds)}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03217}03217 \textcolor{comment}{            cout << get<0>(a)-\/>toString()<<"{}\(\backslash\)t"{}<<(get<1>(a)) << "{}\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03218}03218 \textcolor{comment}{        beta=1100;}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03219}03219 \textcolor{comment}{        //for(int i=0;i<maxseed;i++) fseeds.push\_back(get<0>(weighedSelectBoltzmann(seeds,p.temp)));}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03220}03220 \textcolor{comment}{        beta=4.17;*/}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03221}03221         \textcolor{keywordflow}{return} seeds;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03222}03222     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProtein_a284f503a736bda8f790d456d7c681e4b}\label{classProtein_a284f503a736bda8f790d456d7c681e4b}} 
+\index{Protein@{Protein}!getHotspotBindingEnergy@{getHotspotBindingEnergy}}
+\index{getHotspotBindingEnergy@{getHotspotBindingEnergy}!Protein@{Protein}}
+\doxysubsubsection{\texorpdfstring{getHotspotBindingEnergy()}{getHotspotBindingEnergy()}}
+{\footnotesize\ttfamily double Protein\+::get\+Hotspot\+Binding\+Energy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000051}{Deprecated}}]After calculating the non-\/bonded energy (see Protein\+::calculate\+Non\+Bonding\+Energy(\+Molecule$\ast$)), the hotspot energy can be got through this function \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l03250}{3250}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classProtein_l03250}03250 \{\textcolor{keywordflow}{return} hsbe;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProtein_a26b510bc5ca31cd7ffc0420c25f4b379}\label{classProtein_a26b510bc5ca31cd7ffc0420c25f4b379}} 
+\index{Protein@{Protein}!getRadialChargeDistribution@{getRadialChargeDistribution}}
+\index{getRadialChargeDistribution@{getRadialChargeDistribution}!Protein@{Protein}}
+\doxysubsubsection{\texorpdfstring{getRadialChargeDistribution()}{getRadialChargeDistribution()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ double, double $>$ $>$ Protein\+::get\+Radial\+Charge\+Distribution (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector3d \&}]{centre,  }\item[{double}]{resol = {\ttfamily 0.01},  }\item[{double}]{maxr = {\ttfamily 15},  }\item[{bool}]{onlyhspt = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the radial charge distribution for this receptor. 
+
+The charge distribution as a function of radius from a point can be calculated by this method.~\newline
+It will give the total charge for each distance. The resolution can be specified 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em centre} & The centre from which to calculate the Radial Charge Distribution \\
+\hline
+\mbox{\texttt{ in}}  & {\em resol} & The resolution (in nm). The charge is summed in steps of \char`\"{}resol\char`\"{}. (Default\+: 0.\+01nm) \\
+\hline
+\mbox{\texttt{ in}}  & {\em maxr} & Maximum radius upto which to search. If the molecule is larger than this value, the program automatically expands to accomodate it. (Default 15nm) \\
+\hline
+\mbox{\texttt{ in}}  & {\em onlyhspt} & Use only hotspot atoms for calculation of the charges (Default\+: off) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l03823}{3823}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classProtein_l03824}03824   \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03825}03825     std::vector<std::pair<double,double>> ret;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03826}03826     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{double} i=resol;i<maxr;i+=resol) ret.push\_back(make\_pair(i,0));}
+\DoxyCodeLine{\Hypertarget{classProtein_l03827}03827     \textcolor{keywordtype}{double} d;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03828}03828     \textcolor{keywordtype}{int} ind;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03829}03829     std::vector<Atom*>\& atlist=(onlyhspt)?hotspotatoms:atoms;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03830}03830     \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* a : atlist)}
+\DoxyCodeLine{\Hypertarget{classProtein_l03831}03831     \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03832}03832       d=a-\/>distanceFrom(centre);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03833}03833       ind=(int)(d/resol);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03834}03834       \textcolor{keywordflow}{if}(ind>ret.size())}
+\DoxyCodeLine{\Hypertarget{classProtein_l03835}03835             \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03836}03836                 cout << \textcolor{stringliteral}{"{}Large protein: \(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03837}03837                 \textcolor{keywordflow}{return} \mbox{\hyperlink{classProtein_a26b510bc5ca31cd7ffc0420c25f4b379}{getRadialChargeDistribution}}(centre,resol,maxr+10);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03838}03838             \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03839}03839       get<1>(ret[ind])+=a-\/>seek\_charge();}
+\DoxyCodeLine{\Hypertarget{classProtein_l03840}03840     \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03841}03841     \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03842}03842   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProtein_a66043d39960157fd6e8f4ce86049b565}\label{classProtein_a66043d39960157fd6e8f4ce86049b565}} 
+\index{Protein@{Protein}!loadHotspot@{loadHotspot}}
+\index{loadHotspot@{loadHotspot}!Protein@{Protein}}
+\doxysubsubsection{\texorpdfstring{loadHotspot()}{loadHotspot()}}
+{\footnotesize\ttfamily void Protein\+::load\+Hotspot (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{hostspotfile }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Load the hotspot atoms from a TXT file. 
+
+This is an old function (preserved for backward support). It is used to load the protein from De\+Novo\textquotesingle{}s TXT formar (see PDF)~\newline
+The hotspot atoms have to be separately placed in a TXT file which will be loaded. 
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l03127}{3127}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classProtein_l03128}03128     \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03129}03129         ifstream f;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03130}03130         f.open(hostspotfile,ios::in);\textcolor{comment}{//opening file containing the data set}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03131}03131         f>>HN;\textcolor{comment}{//first number in the file contains the number of atoms}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03132}03132     hotspotatoms=std::vector<Atom*>(HN);\textcolor{comment}{// hotspotatoms.reserve(HN);}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03133}03133         \textcolor{comment}{//hotspotatoms=new Atom*[HN];}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03134}03134         \textcolor{keywordtype}{int} i=0,v;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03135}03135         \textcolor{keywordtype}{double} x,y,z,wt,c,s,e,r;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03136}03136         \textcolor{keywordflow}{for}(;i<HN;++i)\textcolor{comment}{//copying atom co-\/ordinates and other information from file}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03137}03137         \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03138}03138             \textcolor{keywordtype}{char} *\textcolor{keywordtype}{id}=\textcolor{keyword}{new} \textcolor{keywordtype}{char}[8];}
+\DoxyCodeLine{\Hypertarget{classProtein_l03139}03139             f>>\textcolor{keywordtype}{id}>>x>>y>>z>>v>>wt>>c>>s>>e>>r;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03140}03140             hotspotatoms[i]=\textcolor{keyword}{new} \mbox{\hyperlink{classAtom}{Atom}}(\textcolor{keywordtype}{id},x/10.0,y/10.0,z/10.0,v,wt,c,s,e,r);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03141}03141         \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03142}03142     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProtein_a6890cbb6c32672687e1e00f1141395e4}\label{classProtein_a6890cbb6c32672687e1e00f1141395e4}} 
+\index{Protein@{Protein}!quickPrune@{quickPrune}}
+\index{quickPrune@{quickPrune}!Protein@{Protein}}
+\doxysubsubsection{\texorpdfstring{quickPrune()}{quickPrune()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$ Protein\+::quick\+Prune (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} \&}]{ff,  }\item[{\mbox{\hyperlink{classMolecule}{Molecule}} $\ast$}]{p,  }\item[{std\+::string}]{logfilename = {\ttfamily \char`\"{}dnv\+\_\+prune.log\char`\"{}},  }\item[{int}]{iters = {\ttfamily 100},  }\item[{int}]{expand = {\ttfamily 0},  }\item[{int}]{tries\+\_\+per\+\_\+lig = {\ttfamily 45},  }\item[{double}]{temp = {\ttfamily 298},  }\item[{int}]{prunedepth = {\ttfamily 3},  }\item[{bool}]{restr = {\ttfamily false},  }\item[{bool}]{forceexp = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Quickly prune a molecule in attempt to improve it\textquotesingle{}s interaction to this protein by making modifications to the terminal atoms. See the pruning algorithm in the document for more details. 
+
+Unlike a complete generation, this method quickly removes the terminal and regrows recursively for multiple times (as many iterations are specified), and selects the most stable alternative 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ff} & The \mbox{\hyperlink{classForceField}{Force\+Field}} to use for this generation \\
+\hline
+\mbox{\texttt{ in}}  & {\em p} & The molecule to prune \\
+\hline
+\mbox{\texttt{ in}}  & {\em logfilename} & The name of the logfile into which the pruning is logged. This logging is not as extensive as \mbox{\hyperlink{classProtein_a8ed448721245cce660f85d8a2a04bdba}{generate\+Ligands()}}. (Default filename\+: dnv\+\_\+prune.\+log) \\
+\hline
+\mbox{\texttt{ in}}  & {\em iters} & The number of iterations (and hence number of newly generated molecules) to try before concluding (Default\+: 100) \\
+\hline
+\mbox{\texttt{ in}}  & {\em expand} & Allow expansion while pruning (i.\+e. allow the final molecule to be larger by \textquotesingle{}expand\textquotesingle{} atoms than the initial molecule). Default\+: No expansion. \\
+\hline
+\mbox{\texttt{ in}}  & {\em tries\+\_\+per\+\_\+lig} & See \mbox{\hyperlink{classProtein_a8ed448721245cce660f85d8a2a04bdba}{generate\+Ligands()}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em temp} & The \mbox{\hyperlink{classSystem}{System}} temperature at which the growth is carried out (Default\+: 298K) \\
+\hline
+\mbox{\texttt{ in}}  & {\em prunedepth} & Depth of pruning (See algorithm PDF or \mbox{\hyperlink{classMolecule_a6351ba55249d7e5659dfbb397dd0e069}{make\+Prune\+Fragment()}}) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l03686}{3686}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classProtein_l03687}03687     \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03688}03688         envprot=\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03689}03689         \textcolor{keywordtype}{int} \textcolor{keywordtype}{id}=0;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03690}03690         \textcolor{keywordflow}{if}(!p) \textcolor{keywordflow}{return} p;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03691}03691         p-\/>\mbox{\hyperlink{classMolecule_a3e459e9ae52f281073d4821b9af72b60}{type}}=0;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03692}03692         \textcolor{keywordtype}{int} tsize=p-\/>\mbox{\hyperlink{classMolecule_a4c6228c3225bd9571ba276841caa7c90}{getEffectiveSize}}()+expand;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03693}03693         \mbox{\hyperlink{classMolecule}{Molecule}}* curmol=p;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03694}03694         this-\/>\mbox{\hyperlink{classProtein_aaa512fd669808b02b1e34d07b6cc6c3b}{calculateNonBondingEnergy}}(curmol);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03695}03695         \mbox{\hyperlink{classSystem}{System}} main(ff); main.temp=temp; main.addMolecule(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{classProtein_l03696}03696         \textcolor{keyword}{volatile} \textcolor{keywordtype}{bool} lock=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03697}03697         \textcolor{keyword}{volatile} \textcolor{keywordtype}{int} K=0;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03698}03698         \textcolor{keyword}{volatile} \textcolor{keywordtype}{int} i=0;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03699}03699 \textcolor{preprocessor}{        \#ifndef SERIAL}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03700}03700 \textcolor{preprocessor}{            \#pragma omp parallel private(id)}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03701}03701             \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03702}03702                 \textcolor{keywordtype}{id}=omp\_get\_thread\_num();}
+\DoxyCodeLine{\Hypertarget{classProtein_l03703}03703                 std::ofstream logfile; logfile.open(logfilename+\textcolor{stringliteral}{"{}\_\_"{}}+to\_string(\textcolor{keywordtype}{id}));}
+\DoxyCodeLine{\Hypertarget{classProtein_l03704}03704                 \textcolor{comment}{//for(int i=0;i<iters/omp\_get\_max\_threads()+1;i++)}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03705}03705 \textcolor{preprocessor}{        \#else}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03706}03706             std::ofstream\& logfile=fileExists(logfilename);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03707}03707 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03708}03708         \textcolor{keywordflow}{for}(;i<iters;i++)}
+\DoxyCodeLine{\Hypertarget{classProtein_l03709}03709         \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03710}03710             \mbox{\hyperlink{classMolecule}{Molecule}}* tempm=\textcolor{keyword}{new} \mbox{\hyperlink{classMolecule_a7e7d290ae641518ad4c4d5303b519d0f}{Molecule}}(curmol);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03711}03711             tempm-\/>\mbox{\hyperlink{classMolecule_a6351ba55249d7e5659dfbb397dd0e069}{makePruneFragment}}(prunedepth);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03712}03712             \textcolor{comment}{//tempm-\/>dumpMol("{}prunefrag.pdb"{});}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03713}03713             \mbox{\hyperlink{classSystem}{System}} s1=main;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03714}03714             s1.\mbox{\hyperlink{classSystem_a03019561c7b913a1c548b6a0c63173e4}{addMolecule}}(tempm);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03715}03715             tempm-\/>\mbox{\hyperlink{classMolecule_adc8c0ae7c7ce4f851344d9b4b6479602}{samplegrow}}(logfile,s1,tsize,tries\_per\_lig,tsize+5,LEVELLIMIT,restr,\textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{false},NULLMOL,0,\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{classProtein_l03716}03716             \textcolor{keywordflow}{if}(forceexp \&\& tempm-\/>\mbox{\hyperlink{classMolecule_a4c6228c3225bd9571ba276841caa7c90}{getEffectiveSize}}()<tsize)}
+\DoxyCodeLine{\Hypertarget{classProtein_l03717}03717             \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03718}03718                 logfile << \textcolor{stringliteral}{"{}Deleteing molecule due to small size "{}}<<tempm-\/>\mbox{\hyperlink{classMolecule_a4c6228c3225bd9571ba276841caa7c90}{getEffectiveSize}}()<<\textcolor{stringliteral}{"{} over "{}}<<tsize<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}}; logfile.flush();}
+\DoxyCodeLine{\Hypertarget{classProtein_l03719}03719                 \textcolor{keyword}{delete} tempm;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03720}03720                 \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03721}03721             \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03722}03722 \textcolor{preprocessor}{            \#ifndef FFCHARGES}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03723}03723                 \mbox{\hyperlink{classForceField}{ForceField}} nff=ff;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03724}03724                 tempm-\/>\mbox{\hyperlink{classMolecule_aa0590f11faa97d063d7542f91587898c}{calculateBondOrders2}}(nff);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03725}03725                 netcomm::processRequest(logfile,tempm,\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{classProtein_l03726}03726 \textcolor{preprocessor}{            \#endif}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03727}03727             \textcolor{comment}{//if(forceexp \&\& tempm-\/>getEffectiveSize()<p-\/>getEffectiveSize()+expand) \{delete testm; continue;\}}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03728}03728             \textcolor{keywordflow}{if}(USE\_PHYSICS)}
+\DoxyCodeLine{\Hypertarget{classProtein_l03729}03729             \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03730}03730                 physics::gradientDescentPhysics(main,tempm,RBDESCSTEPS);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03731}03731                 physics::atomisticGradientDescentPhysics(main,tempm,FULLDESCSTEPS);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03732}03732                 this-\/>\mbox{\hyperlink{classProtein_aaa512fd669808b02b1e34d07b6cc6c3b}{calculateNonBondingEnergy}}(tempm);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03733}03733             \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03734}03734             \textcolor{keywordflow}{if}(tempm-\/>\mbox{\hyperlink{classMolecule_adebb2c740099c5db4f14137bb1609877}{myBE}}<curmol-\/>\mbox{\hyperlink{classMolecule_adebb2c740099c5db4f14137bb1609877}{myBE}})}
+\DoxyCodeLine{\Hypertarget{classProtein_l03735}03735             \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03736}03736                 \textcolor{keywordflow}{while}(lock) \{\}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03737}03737                 lock=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03738}03738                 \textcolor{keywordflow}{if}(tempm-\/>\mbox{\hyperlink{classMolecule_adebb2c740099c5db4f14137bb1609877}{myBE}}>curmol-\/>\mbox{\hyperlink{classMolecule_adebb2c740099c5db4f14137bb1609877}{myBE}}) \{lock=\textcolor{keyword}{false}; \textcolor{keyword}{delete} tempm; \textcolor{keywordflow}{continue};\} \textcolor{comment}{//It is possible that while waiting, another thread commits a more stable molecule which may (unfortunately) be overwritten by this thread}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03739}03739                 logfile << \textcolor{stringliteral}{"{}Accepting molecule with energy: "{}}+to\_string(tempm-\/>\mbox{\hyperlink{classMolecule_adebb2c740099c5db4f14137bb1609877}{myBE}})+\textcolor{stringliteral}{"{} over less stable "{}}+to\_string(curmol-\/>\mbox{\hyperlink{classMolecule_adebb2c740099c5db4f14137bb1609877}{myBE}})+\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03740}03740                 curmol=tempm;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03741}03741                 tempm-\/>\mbox{\hyperlink{classMolecule_a72616aa9d293190a9a0372a735f76966}{dumpMol}}(logfile);}
+\DoxyCodeLine{\Hypertarget{classProtein_l03742}03742                 lock=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03743}03743                 logfile.flush();}
+\DoxyCodeLine{\Hypertarget{classProtein_l03744}03744             \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03745}03745             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03746}03746             \{}
+\DoxyCodeLine{\Hypertarget{classProtein_l03747}03747                 logfile << \textcolor{stringliteral}{"{}Rejecting molecule with energy: "{}}+to\_string(tempm-\/>\mbox{\hyperlink{classMolecule_adebb2c740099c5db4f14137bb1609877}{myBE}})+\textcolor{stringliteral}{"{} over more stable "{}}+to\_string(curmol-\/>\mbox{\hyperlink{classMolecule_adebb2c740099c5db4f14137bb1609877}{myBE}})+\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03748}03748                 \textcolor{keyword}{delete} tempm;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03749}03749             \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03750}03750         \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03751}03751 \textcolor{preprocessor}{        \#ifndef SERIAL}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03752}03752             cout << \textcolor{stringliteral}{"{}Process "{}}+to\_string(\textcolor{keywordtype}{id})+\textcolor{stringliteral}{"{} hit loop end\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classProtein_l03753}03753             \}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03754}03754 \textcolor{preprocessor}{            \#pragma omp barrier}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03755}03755 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{\Hypertarget{classProtein_l03756}03756         \textcolor{keywordflow}{return} curmol;}
+\DoxyCodeLine{\Hypertarget{classProtein_l03757}03757     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+graph/Molecule.\+hpp\end{DoxyCompactItemize}

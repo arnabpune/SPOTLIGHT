@@ -1,0 +1,15 @@
+#!/bin/bash
+
+rej=$2
+while test 1 -eq 1
+do
+	if test -n "$rej"
+	then
+		grep "Rejecting" $1* |sed /"molecule due to unsatisfied"/d
+	fi
+grep "Accepting" "$1" -A3 --color=auto
+echo `grep temp "$1"|tail -1|grep -oE "Current.*$"`K
+echo "---------------------------------------------------------"
+echo
+sleep 10
+done

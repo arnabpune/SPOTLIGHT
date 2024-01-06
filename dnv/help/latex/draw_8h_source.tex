@@ -1,0 +1,138 @@
+\hypertarget{draw_8h_source}{}\doxysection{draw.\+h}
+\label{draw_8h_source}\index{/home/venkata/cpp/draw/draw.h@{/home/venkata/cpp/draw/draw.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00001}00001 \textcolor{preprocessor}{\#ifndef INCLUDED\_DRAW}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00002}00002 \textcolor{preprocessor}{\#define INCLUDED\_DRAW 1}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00003}00003 \textcolor{comment}{//\#include "{}commons/commons.h"{}}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00004}00004 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00005}00005 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00006}00006 \textcolor{preprocessor}{\#include <thread>}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00007}00007 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00008}00008 \textcolor{keyword}{namespace }draw}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00009}00009 \{}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00010}00010   \textcolor{keyword}{inline} \textcolor{keyword}{static} \textcolor{keywordtype}{char} superpose(\textcolor{keywordtype}{char} c1,\textcolor{keywordtype}{char} c2) \{\textcolor{keywordflow}{return} c2;\}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00011}\mbox{\hyperlink{classdraw_1_1Screen}{00011}}   \textcolor{keyword}{class }\mbox{\hyperlink{classdraw_1_1Screen}{Screen}}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00012}00012   \{}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00013}00013   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00014}00014     \textcolor{keywordtype}{int} lines,columns,buffer=0,gscale=1;}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00015}00015     \textcolor{keywordtype}{char} FILL=\textcolor{charliteral}{'\#'},EMPTY=\textcolor{charliteral}{' '};}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00016}00016     std::vector<char*> screen;}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00017}00017   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00018}00018     \mbox{\hyperlink{classdraw_1_1Screen}{Screen}}() : \mbox{\hyperlink{classdraw_1_1Screen}{Screen}}(50,50) \{\}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00019}00019     \mbox{\hyperlink{classdraw_1_1Screen}{Screen}}(\textcolor{keywordtype}{int} w,\textcolor{keywordtype}{int} h)}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00020}00020     \{}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00021}00021       columns=w; lines=h;}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00022}00022       screen=std::vector<char*>();}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00023}00023       \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<h;i++) screen.push\_back(\textcolor{keyword}{new} \textcolor{keywordtype}{char}[w]);}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00024}00024       \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<h;i++) \{\textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=0;j<w;j++) screen[i][j]=EMPTY;\}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00025}00025     \}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00026}00026     \mbox{\hyperlink{classdraw_1_1Screen}{\string~Screen}}() \{\textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<lines;i++) \textcolor{keyword}{delete}[] screen[i];\}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00028}00028     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} getWidth()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} columns;\}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00029}00029     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} getColumns()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} getWidth();\}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00030}00030     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} getLines()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} lines;\}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00031}00031     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} getRows()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} getLines();\}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00032}00032     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} getBuffer()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} buffer;\}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00033}00033     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} setBuffer(\textcolor{keywordtype}{double} b) \{buffer=b;\}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00035}00035     \textcolor{keywordtype}{void} draw(std::ostream\& os=std::cout)}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00036}00036     \{}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00037}00037       predraw(os);}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00038}00038       \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=lines-\/1;i>=0;i-\/-\/) \{ os << \textcolor{stringliteral}{"{}\(\backslash\)n"{}}; \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=0;j<columns;j++) os << screen[i][j];\}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00039}00039       postdraw(os);}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00040}00040       \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<buffer;i++) os << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00041}00041     \}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00043}00043   \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00044}00044     \textcolor{keywordtype}{void} set(\textcolor{keywordtype}{int} x,\textcolor{keywordtype}{int} y,\textcolor{keywordtype}{bool} v,\textcolor{keywordtype}{bool} leak=\textcolor{keyword}{false})}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00045}00045     \{}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00046}00046       \textcolor{keywordflow}{if}(leak)}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00047}00047       \{}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00048}00048         \textcolor{keywordflow}{if}(x<0 || x>=getRows()) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00049}00049         \textcolor{keywordflow}{if}(y<0 || y>=getColumns()) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00050}00050       \}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00051}00051       screen[x][y]=(v)?FILL:EMPTY;}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00052}00052     \}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00053}00053     \textcolor{keywordtype}{void} set(\textcolor{keywordtype}{int} x,\textcolor{keywordtype}{int} y,\textcolor{keywordtype}{char} v,\textcolor{keywordtype}{bool} leak=\textcolor{keyword}{false})}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00054}00054     \{}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00055}00055       \textcolor{keywordflow}{if}(leak)}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00056}00056       \{}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00057}00057         \textcolor{keywordflow}{if}(x<0 || x>=getRows()) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00058}00058         \textcolor{keywordflow}{if}(y<0 || y>=getColumns()) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00059}00059       \}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00060}00060       screen[x][y]=v;}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00061}00061     \}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00062}00062     \textcolor{keywordtype}{char} get(\textcolor{keywordtype}{int} x,\textcolor{keywordtype}{int} y,\textcolor{keywordtype}{bool} leak=\textcolor{keyword}{false})\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00063}00063 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00064}00064       \textcolor{keywordflow}{if}(leak)}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00065}00065       \{}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00066}00066         \textcolor{keywordflow}{if}(x<0 || x>=getRows()) \textcolor{keywordflow}{return} EMPTY;}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00067}00067         \textcolor{keywordflow}{if}(y<0 || y>=getColumns()) \textcolor{keywordflow}{return} EMPTY;}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00068}00068       \}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00069}00069       \textcolor{keywordflow}{return} screen[x][y];}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00070}00070     \}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00071}00071 }
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00072}00072   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00073}00073     \textcolor{keywordtype}{void} plot(\textcolor{keywordtype}{int} y,\textcolor{keywordtype}{int} x,\textcolor{keywordtype}{bool} v,\textcolor{keywordtype}{bool} leak=\textcolor{keyword}{false}) \textcolor{comment}{//Variables are badly named. Give (x,y) as input}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00074}00074     \{}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00075}00075       \textcolor{keywordflow}{if}(leak)}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00076}00076       \{}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00077}00077         \textcolor{keywordflow}{if}(x<0 || x>=getRows()) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00078}00078         \textcolor{keywordflow}{if}(y<0 || y>=getColumns()) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00079}00079       \}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00080}00080       screen[x][y]=(v)?FILL:EMPTY;}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00081}00081     \}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00082}00082     \textcolor{keywordtype}{void} plot(\textcolor{keywordtype}{int} y,\textcolor{keywordtype}{int} x,\textcolor{keywordtype}{char} v,\textcolor{keywordtype}{bool} leak=\textcolor{keyword}{false}) \textcolor{comment}{//Variables are badly named. Give (x,y) as input}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00083}00083     \{}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00084}00084       \textcolor{keywordflow}{if}(leak)}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00085}00085       \{}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00086}00086         \textcolor{keywordflow}{if}(x<0 || x>=getRows()) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00087}00087         \textcolor{keywordflow}{if}(y<0 || y>=getColumns()) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00088}00088       \}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00089}00089       screen[x][y]=v;}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00090}00090     \}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00091}00091     \textcolor{keywordtype}{char} at(\textcolor{keywordtype}{int} y,\textcolor{keywordtype}{int} x)\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} screen[x][y];\} \textcolor{comment}{//Variables are badly named. You will get (x,y) as input}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00092}00092 }
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00093}00093     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} predraw(std::ostream\& os) \{\}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00094}00094     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} postdraw(std::ostream\& os) \{\}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00095}00095 }
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00096}00096     \textcolor{comment}{//Drawing methods}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00097}00097     \textcolor{keywordtype}{void} drawLine(\textcolor{keywordtype}{int} y1,\textcolor{keywordtype}{int} x1,\textcolor{keywordtype}{int} y2,\textcolor{keywordtype}{int} x2,\textcolor{keywordtype}{char} chare=\textcolor{charliteral}{' '},\textcolor{keywordtype}{bool} trace=\textcolor{keyword}{false}) \textcolor{comment}{//Variables are badly names (Give input as x1,y1,x2,y2)}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00098}00098     \{}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00099}00099       \textcolor{keywordtype}{double} slope=((double)(x2-\/x1))/((y2-\/y1)),cutoff=((\textcolor{keywordtype}{double})(lines))/((columns));}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00100}00100       std::cout << \textcolor{stringliteral}{"{}Cutoff: "{}}<<cutoff<<\textcolor{stringliteral}{"{}\(\backslash\)tSlope: "{}}<<slope<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00101}00101       \textcolor{keywordtype}{char} fillc=chare;}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00102}00102       \textcolor{keywordflow}{if}(chare==EMPTY)}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00103}00103       \{}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00104}00104         \textcolor{keywordflow}{if}(abs(slope)<cutoff) fillc=\textcolor{charliteral}{'='};}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00105}00105         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(abs(slope)>1/cutoff) fillc=\textcolor{charliteral}{'|'};}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00106}00106         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00107}00107         \{}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00108}00108           \textcolor{keywordflow}{if}(slope<1) fillc=\textcolor{charliteral}{'/'};}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00109}00109           \textcolor{keywordflow}{else} fillc=\textcolor{charliteral}{'\(\backslash\)\(\backslash\)'};}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00110}00110         \}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00111}00111       \}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00112}00112       \textcolor{comment}{//slope*=gscale;}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00113}00113       set(x1,y1,superpose(get(x1,y1,\textcolor{keyword}{true}),fillc),\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00114}00114       \textcolor{keywordtype}{int} yp;}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00115}00115       \textcolor{keywordtype}{int} start=1,end=x2-\/x1;}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00116}00116       \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=start;i<end;i++)}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00117}00117       \{}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00118}00118         yp=(int)(i/slope)+y1;}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00119}00119         set(x1+i,yp,superpose(get(x1+i,yp,\textcolor{keyword}{true}),fillc),\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00120}00120       \}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00121}00121       start=1; end=y2-\/y1;}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00122}00122       \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=start;i<end;i++)}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00123}00123       \{}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00124}00124         yp=(int)(i*slope) +x1;}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00125}00125         set(yp,y1+i,superpose(get(yp,y1+i,\textcolor{keyword}{true}),fillc),\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00126}00126       \}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00127}00127     \}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00128}00128 }
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00129}00129     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} clear() \{\textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<lines;i++) \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=0;j<columns;j++) screen[i][j]=EMPTY;\}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00130}00130   \};}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00131}00131 \}}
+\DoxyCodeLine{\Hypertarget{draw_8h_source_l00132}00132 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

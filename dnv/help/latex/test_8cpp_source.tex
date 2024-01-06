@@ -1,0 +1,65 @@
+\hypertarget{test_8cpp_source}{}\doxysection{test.\+cpp}
+\label{test_8cpp_source}\index{bin/test.cpp@{bin/test.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#define FFCHARGES 1}}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00002}00002 \textcolor{preprocessor}{\#define STATICDATA 1}}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00003}00003 \textcolor{preprocessor}{\#include "{}graph/Molecule.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00005}00005 \textcolor{keywordtype}{int} main(\textcolor{keywordtype}{int} argc,\textcolor{keywordtype}{char}** argv)}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00006}00006 \{}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00007}00007  DIEL/=3.0;}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00008}00008  \mbox{\hyperlink{classquickgeom_1_1Cuboid}{quickgeom::Cuboid}}* region=\textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00009}00009  std::string fnam=\textcolor{stringliteral}{"{}"{}},format=\textcolor{stringliteral}{"{}pdb"{}},progname=(argc>7)?argv[7]:\textcolor{stringliteral}{"{}dnv\_protgen"{}},flagcodes=(argc>8)?argv[8]:\textcolor{stringliteral}{"{}0000"{}};}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00010}00010  \textcolor{keywordtype}{int} size=(argc>3)?std::stoi(argv[3]):15,num=(argc>4)?std::stoi(argv[4]):25,osc=(argc>5)?std::stoi(argv[5]):5,seednum=(argc>6)?std::stoi(argv[6]):30,tempv;}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00011}00011  \textcolor{keywordflow}{if}(argc>1) fnam=argv[1];}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00012}00012  \textcolor{keywordflow}{if}(argc>2) format=argv[2];}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00013}00013  \textcolor{keywordflow}{else} \{cout << \textcolor{stringliteral}{"{}Enter filename: "{}}; cin >>fnam;\}}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00014}00014  cout << \textcolor{stringliteral}{"{}Under: '"{}}<<progname<<\textcolor{stringliteral}{"{}': Generating "{}}<<num<<\textcolor{stringliteral}{"{} drugs of size="{}}<<size<<\textcolor{stringliteral}{"{} using "{}}<<seednum<<\textcolor{stringliteral}{"{} seeds, accumulating the best for every "{}}<<osc<<\textcolor{stringliteral}{"{} oscillations\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00015}00015  \textcolor{keywordflow}{if}(flagcodes!=\textcolor{stringliteral}{"{}0000"{}}) cout << \textcolor{stringliteral}{"{}Running with: "{}}<<((flagcodes[0]!=\textcolor{charliteral}{'0'})?\textcolor{stringliteral}{"{}restraint "{}}+to\_string(RESTRAINDISTANCE)+\textcolor{stringliteral}{"{}A "{}}:\textcolor{stringliteral}{"{}"{}})<<((flagcodes[1]!=\textcolor{charliteral}{'0'})?\textcolor{stringliteral}{"{}superseed "{}}:\textcolor{stringliteral}{"{}"{}})<<((flagcodes[2]!=\textcolor{charliteral}{'0'})?\textcolor{stringliteral}{"{}reseed "{}}:\textcolor{stringliteral}{"{}"{}})<<((flagcodes[2]!=\textcolor{charliteral}{'0'})?\textcolor{stringliteral}{"{}deseed "{}}:\textcolor{stringliteral}{"{}"{}})<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00016}00016  cin >> tempv;}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00017}00017  \mbox{\hyperlink{classForceField}{ForceField}} ff(\textcolor{stringliteral}{"{}/home/venkata/dnv/data/final\_ff\_parameters.ffin"{}},\textcolor{stringliteral}{"{}/home/venkata/dnv/data/categories.data"{}});}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00018}00018  ff.loadBondParameters();}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00019}00019  ff.loadRules(\textcolor{stringliteral}{"{}/home/venkata/dnvs/data/definitions.data"{}});}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00020}00020  \mbox{\hyperlink{classIncompleteForceField}{IncompleteForceField}} protff(\textcolor{stringliteral}{"{}/home/venkata/dnv/data/protff.ffin"{}}); protff.loadResidues(\textcolor{stringliteral}{"{}/home/venkata/dnv/data/protein.rtp"{}});}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00021}00021 sad}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00022}00022  std::vector<int> hsres=\{800,900\};}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00024}00024  \mbox{\hyperlink{classProtein}{Protein}} p(fnam,protff,hsres,format);}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00025}00025  std::vector<Atom*> seeds;}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00026}00026  seeds.push\_back(ff.getAtom(\textcolor{stringliteral}{"{}CT1"{}}));}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00027}00027  seeds.push\_back(ff.getAtom(\textcolor{stringliteral}{"{}CT2"{}}));}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00028}00028  seeds.push\_back(ff.getAtom(\textcolor{stringliteral}{"{}CT3"{}}));}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00029}00029  seeds.push\_back(ff.getAtom(\textcolor{stringliteral}{"{}CA"{}}));}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00030}00030  seeds.push\_back(ff.getAtom(\textcolor{stringliteral}{"{}NX"{}}));}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00031}00031  seeds.push\_back(ff.getAtom(\textcolor{stringliteral}{"{}CAS"{}}));}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00032}00032  seeds.push\_back(ff.getAtom(\textcolor{stringliteral}{"{}NX"{}}));}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00033}00033  seeds.push\_back(ff.getAtom(\textcolor{stringliteral}{"{}CPT"{}}));}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00034}00034  seeds.push\_back(ff.getAtom(\textcolor{stringliteral}{"{}NY"{}}));}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00035}00035  seeds.push\_back(ff.getAtom(\textcolor{stringliteral}{"{}CY"{}}));}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00036}00036  seeds.push\_back(ff.getAtom(\textcolor{stringliteral}{"{}CT2x"{}}));}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00037}00037  seeds.push\_back(ff.getAtom(\textcolor{stringliteral}{"{}CT1x"{}}));}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00038}00038  seeds.push\_back(ff.getAtom(\textcolor{stringliteral}{"{}CP2"{}}));}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00039}00039  seeds.push\_back(ff.getAtom(\textcolor{stringliteral}{"{}CE1A"{}}));}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00040}00040  seeds.push\_back(ff.getAtom(\textcolor{stringliteral}{"{}CE2A"{}}));}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00041}00041  seeds.push\_back(ff.getAtom(\textcolor{stringliteral}{"{}PL"{}}));}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00042}00042  seeds.push\_back(ff.getAtom(\textcolor{stringliteral}{"{}SL"{}}));}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00043}00043  seeds.push\_back(ff.getAtom(\textcolor{stringliteral}{"{}C3"{}}));}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00044}00044  seeds.push\_back(ff.getAtom(\textcolor{stringliteral}{"{}OH1"{}}));}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00045}00045  seeds.push\_back(ff.getAtom(\textcolor{stringliteral}{"{}OC"{}}));}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00048}00048  \mbox{\hyperlink{classMolecule}{Molecule}}* templatemol=(argc>9)?\textcolor{keyword}{new} \mbox{\hyperlink{classMolecule}{Molecule}}(std::string(argv[9]),ff,\textcolor{stringliteral}{"{}pdb"{}},\textcolor{keyword}{true}):\textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00049}00049  \textcolor{keywordtype}{int} K=0;}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00050}00050  std::vector<System> mols=p.generateLigands(ff,num,size,progname+\textcolor{stringliteral}{"{}.log"{}},seeds,seednum,\textcolor{keyword}{false},1.2,1,osc,300,50,298,\textcolor{stringliteral}{"{}seeds\_"{}}+progname+\textcolor{stringliteral}{"{}.pdb"{}},(flagcodes[0]!=\textcolor{charliteral}{'0'}),(flagcodes[1]!=\textcolor{charliteral}{'0'}),(flagcodes[2]!=\textcolor{charliteral}{'0'}),(flagcodes[3]!=\textcolor{charliteral}{'0'}),region,templatemol,\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00051}00051  \textcolor{keywordflow}{for}(\mbox{\hyperlink{classSystem}{System}}\& s : mols)}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00052}00052  \{}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00053}00053   \mbox{\hyperlink{classMolecule}{Molecule}}* m=s.getDrugMolecule();}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00054}00054   \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* a : m-\/>getAtoms()) cout <<a-\/>toString()<<\textcolor{stringliteral}{"{}  "{}}<<ff.isSatisfied(a,m-\/>getBondedAtoms(a))<<\textcolor{stringliteral}{"{},"{}}<<a-\/>isCyclized()<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00055}00055   m-\/>dumpMol(\textcolor{stringliteral}{"{}result\_prot\_"{}}+progname+\textcolor{stringliteral}{"{}\_"{}}+to\_string(K)+\textcolor{stringliteral}{"{}.pdb"{}},\&ff);}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00056}00056   K++;}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00057}00057  \}}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00058}00058 \}}
+\DoxyCodeLine{\Hypertarget{test_8cpp_source_l00059}00059 }
+
+\end{DoxyCode}

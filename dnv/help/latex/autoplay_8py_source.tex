@@ -1,0 +1,52 @@
+\hypertarget{autoplay_8py_source}{}\doxysection{autoplay.\+py}
+\label{autoplay_8py_source}\index{bin/autoplay.py@{bin/autoplay.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00001}00001 \textcolor{keyword}{import} os}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00002}00002 \textcolor{keyword}{from} chimera \textcolor{keyword}{import} runCommand \textcolor{keyword}{as} rc \textcolor{comment}{\# use 'rc' as shorthand for runCommand}}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00003}00003 \textcolor{keyword}{from} chimera \textcolor{keyword}{import} replyobj}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00005}00005 \textcolor{keyword}{def }fileen(fnam):}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00006}00006     f=open(fnam,\textcolor{stringliteral}{'r'})}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00007}00007     \textcolor{keywordflow}{for} x \textcolor{keywordflow}{in} f:}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00008}00008         ens=str.split(str.split(x,\textcolor{stringliteral}{' '})[1],\textcolor{stringliteral}{'\(\backslash\)t'})}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00009}00009         en=float(ens[0])}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00010}00010         hen=float(ens[1])}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00011}00011         \textcolor{keywordflow}{break}}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00012}00012     \textcolor{keywordflow}{return} en,hen}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00013}00013 \textcolor{keyword}{def }filekey(fnam):}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00014}00014     e1,e2=fileen(fnam)}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00015}00015     \textcolor{keywordflow}{return} e1}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00016}00016 \textcolor{comment}{\#os.chdir("{}/home/venkata/CADD/betacatenin/results/size19"{})}}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00017}00017 file\_names = [fn \textcolor{keywordflow}{for} fn \textcolor{keywordflow}{in} os.listdir(\textcolor{stringliteral}{"{}."{}}) \textcolor{keywordflow}{if} fn.endswith(\textcolor{stringliteral}{"{}.pdb"{}})] \textcolor{comment}{\#Select all PDB files in this folder}}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00018}00018 file\_names=sorted(file\_names,key=filekey,reverse=\textcolor{keyword}{False})}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00019}00019 \textcolor{comment}{\#rc("{}open protein.gro"{})}}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00020}00020 i=0}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00021}00021 rc(\textcolor{stringliteral}{"{}2dlabel create energy xpos 0.05 ypos 0.95"{}})}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00022}00022 rc(\textcolor{stringliteral}{"{}2dlabel create henergy xpos 0.05 ypos 0.9"{}})}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00023}00023 ind=0}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00024}00024 rc(\textcolor{stringliteral}{"{}surf"{}})}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00025}00025 \textcolor{keywordflow}{while} ind<len(file\_names):}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00026}00026         fn=file\_names[ind]}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00027}00027         print(\textcolor{stringliteral}{"{}Loading:"{}},fn)}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00028}00028         en,hen=fileen(fn)}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00029}00029         rc(\textcolor{stringliteral}{"{}2dlabel change energy text \(\backslash\)"{}Energy: "{}}+str(en)+\textcolor{stringliteral}{"{}\(\backslash\)"{}"{}})}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00030}00030         rc(\textcolor{stringliteral}{"{}2dlabel change henergy text \(\backslash\)"{}Hotspot Energy: "{}}+str(hen)+\textcolor{stringliteral}{"{}\(\backslash\)"{}"{}})}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00031}00031         replyobj.status(\textcolor{stringliteral}{"{}Processing "{}} + fn)  \textcolor{comment}{\#show what file we're working on}}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00032}00032         rc(\textcolor{stringliteral}{"{}open "{}} + fn)}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00033}00033     \textcolor{comment}{\#rc("{}align DNV \string~DNV"{}) \# put ligand in front of remainder of molecule}}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00034}00034         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} i:}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00035}00035             rc(\textcolor{stringliteral}{"{}focus: DNV"{}}) \textcolor{comment}{\# center/zoom ligand}}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00036}00036             i=1}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00037}00037         rc(\textcolor{stringliteral}{"{}surf: DNV"{}}) \textcolor{comment}{\# surface ligand}}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00038}00038         \textcolor{comment}{\#rc("{}preset apply publication 1"{}) \# make everything look nice}}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00039}00039         rc(\textcolor{stringliteral}{"{}surftransp 55"{}}) \textcolor{comment}{\# make the surface a little bit see-\/through}}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00040}00040         rc(\textcolor{stringliteral}{"{}pause"{}})}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00041}00041         rc(\textcolor{stringliteral}{"{}close: DNV"{}})}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00042}00042         ind+=1}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00043}00043     \textcolor{comment}{\# save image to a file that ends in .png rather than .pdb}}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00044}00044     \textcolor{comment}{\#png\_name = fn[:-\/3] + "{}png"{}}}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00045}00045     \textcolor{comment}{\#rc("{}copy file "{} + png\_name + "{} supersample 3"{})}}
+\DoxyCodeLine{\Hypertarget{autoplay_8py_source_l00046}00046     \textcolor{comment}{\#rc("{}close all"{})}}
+
+\end{DoxyCode}

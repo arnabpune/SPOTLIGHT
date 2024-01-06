@@ -1,0 +1,948 @@
+\hypertarget{classAtom}{}\doxysection{Atom Class Reference}
+\label{classAtom}\index{Atom@{Atom}}
+
+
+{\ttfamily \#include \char`\"{}graph/\+Atom.\+hpp\char`\"{}}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAtom_aa0147d7e49ab90f559b66e38d3d12863}\label{classAtom_aa0147d7e49ab90f559b66e38d3d12863}} 
+{\bfseries Atom} ()
+\begin{DoxyCompactList}\small\item\em Blank default constructor -\/ Try not to use this. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAtom_a50f99f8c3699f185e81ba75dae79582d}{Atom}} (double x, double y, double z, int v=0)
+\begin{DoxyCompactList}\small\item\em Construct an atom with only position and valency. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAtom_a9cd1d283f5c273ead929f65f40ef1496}{Atom}} (const std\+::string \&name, double x, double y, double z, int v=0)
+\begin{DoxyCompactList}\small\item\em Construct an atom with only name, position and valency. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAtom_a2fbb082cb25ea5ebab3abe022ea5bafe}{Atom}} (const std\+::string \&name, double x, double y, double z, int v, double weight, double charge, double sigma, double epsilon, double vanderwaal\+\_\+rad)
+\begin{DoxyCompactList}\small\item\em The main \mbox{\hyperlink{classAtom}{Atom}} constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAtom_aabc42366d6f1218c43571158ed4b46ca}{Atom}} (const std\+::string \&, double, double, double, int, double, double, double, double, double, int)
+\begin{DoxyCompactList}\small\item\em Another similar constructor. This also allows specifying the hybridization. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAtom_a4a32546c48786b6e531e7177cec70fa2}{Atom}} (const \mbox{\hyperlink{classAtom}{Atom}} \&)
+\begin{DoxyCompactList}\small\item\em The standard copy constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_a6926cfb6d5e61ca21c71476b66547a5e}\label{classAtom_a6926cfb6d5e61ca21c71476b66547a5e}} 
+{\bfseries $\sim$\+Atom} ()
+\begin{DoxyCompactList}\small\item\em The standard destructor for the \mbox{\hyperlink{classAtom}{Atom}} class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_a58eafe0667e284c2439a640445d5ead1}\label{classAtom_a58eafe0667e284c2439a640445d5ead1}} 
+double {\bfseries seek\+\_\+x} () const
+\begin{DoxyCompactList}\small\item\em Get the x-\/coordinate from the atom\textquotesingle{}s position. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_a237a6c7661dd39f9b781072f7e298813}\label{classAtom_a237a6c7661dd39f9b781072f7e298813}} 
+double {\bfseries seek\+\_\+y} () const
+\begin{DoxyCompactList}\small\item\em Get the y-\/coordinate from the atom\textquotesingle{}s position. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_a0b7e17f3d4bf6503ff0b5b675074d978}\label{classAtom_a0b7e17f3d4bf6503ff0b5b675074d978}} 
+double {\bfseries seek\+\_\+z} () const
+\begin{DoxyCompactList}\small\item\em Get the z-\/coordinate from the atom\textquotesingle{}s position. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_a20f51fadb1bca9d68fd2ade73e6f267e}\label{classAtom_a20f51fadb1bca9d68fd2ade73e6f267e}} 
+void {\bfseries modify\+\_\+x} (double)
+\begin{DoxyCompactList}\small\item\em Set the x-\/coordinate of the atom\textquotesingle{}s position. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_a95df0e5cede6aa8722f045ab74543fab}\label{classAtom_a95df0e5cede6aa8722f045ab74543fab}} 
+void {\bfseries modify\+\_\+y} (double)
+\begin{DoxyCompactList}\small\item\em Set the y-\/coordinate of the atom\textquotesingle{}s position. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_a7b3bf355a04f61fea6ac6fc1e5115253}\label{classAtom_a7b3bf355a04f61fea6ac6fc1e5115253}} 
+void {\bfseries modify\+\_\+z} (double)
+\begin{DoxyCompactList}\small\item\em Set the z-\/coordinate of the atom\textquotesingle{}s position. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_ae2ac3a6ffdc90898d06d05eaf374960e}\label{classAtom_ae2ac3a6ffdc90898d06d05eaf374960e}} 
+int {\bfseries seek\+\_\+valency} () const
+\begin{DoxyCompactList}\small\item\em Get the number of free valencies this atom has. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_a2b74c9d1a56b37907b911dff932e06bb}\label{classAtom_a2b74c9d1a56b37907b911dff932e06bb}} 
+double {\bfseries seek\+\_\+charge} () const
+\begin{DoxyCompactList}\small\item\em Get the force-\/field (or otherwise loaded) charge parameter for this atom. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_af064e5513e564187fd4e5726c9c1d5a7}\label{classAtom_af064e5513e564187fd4e5726c9c1d5a7}} 
+double {\bfseries seek\+\_\+sigma} () const
+\begin{DoxyCompactList}\small\item\em Get the force-\/field (or otherwise loaded) sigma parameter for this atom. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_a9affdff9e2e1ac38e17f13428d678044}\label{classAtom_a9affdff9e2e1ac38e17f13428d678044}} 
+double {\bfseries seek\+\_\+epsilon} () const
+\begin{DoxyCompactList}\small\item\em Get the force-\/field (or otherwise loaded) epsilon parameter for this atom. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_a178c9362bf77d435a3cf64ec83a2fef0}\label{classAtom_a178c9362bf77d435a3cf64ec83a2fef0}} 
+double {\bfseries seek\+\_\+radius} () const
+\begin{DoxyCompactList}\small\item\em Get the force-\/field (or otherwise loaded) vanderwaal radius for this atom. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_af900546a51ebf4433b0553cee98fd9ea}\label{classAtom_af900546a51ebf4433b0553cee98fd9ea}} 
+double {\bfseries seek\+\_\+mass} () const
+\begin{DoxyCompactList}\small\item\em Get the mass of this atom. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_a189def3b8bade8507d49cfd7de881178}\label{classAtom_a189def3b8bade8507d49cfd7de881178}} 
+const std\+::string \& {\bfseries to\+String} () const
+\begin{DoxyCompactList}\small\item\em Gives the atom name for this atom. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAtom_a48d5030a816e990082fdd825b0735779}{make\+Seed}} ()
+\begin{DoxyCompactList}\small\item\em Make the atom a seed. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_ac0a1d0cf5d49d00aac74074f36a0b1f3}\label{classAtom_ac0a1d0cf5d49d00aac74074f36a0b1f3}} 
+bool {\bfseries is\+Seed} ()
+\begin{DoxyCompactList}\small\item\em A wrapper for \char`\"{}seed\char`\"{}. Checks if this atom is a seed or not. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAtom_a9eb04d5b5e7b60694e96e5f9dd20bfac}{set\+Valency}} (int n)
+\begin{DoxyCompactList}\small\item\em Set the number of free valencies. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_a262d1cb2ea75ec2ced42bc995bc49fc3}\label{classAtom_a262d1cb2ea75ec2ced42bc995bc49fc3}} 
+int {\bfseries get\+Standard\+Valency} () const
+\begin{DoxyCompactList}\small\item\em Get the force-\/field (or otherwise loaded) maximum allowed valency for this atom. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_a828b40fa9e19f714f73d9b325b43456b}\label{classAtom_a828b40fa9e19f714f73d9b325b43456b}} 
+float {\bfseries get\+Solvation\+Correction} () const
+\begin{DoxyCompactList}\small\item\em Get the approximate solvation correction for this atom-\/type. It must be preloaded from the \mbox{\hyperlink{classForceField}{Force\+Field}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAtom_a2446287c633dd5bc14c91706294f47e7}{set\+Solvation\+Correction}} (float w)
+\begin{DoxyCompactList}\small\item\em Set the approximate solvation correction for this atom-\/type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_a73b92d7b24611f250127856e3b52ed31}\label{classAtom_a73b92d7b24611f250127856e3b52ed31}} 
+Eigen\+::\+Vector3d {\bfseries get\+Position} () const
+\begin{DoxyCompactList}\small\item\em Returns this complete position of the enitre atom in an \char`\"{}\+Eigen\+::\+Vector3d\char`\"{} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_a34fc2756d0f817a9ee6cf91c797d8bcc}\label{classAtom_a34fc2756d0f817a9ee6cf91c797d8bcc}} 
+void {\bfseries set\+Position} (const Eigen\+::\+Vector3d \&v)
+\begin{DoxyCompactList}\small\item\em Allows setting the position of the atom by providing an \char`\"{}\+Eigen\+::\+Vector3d\char`\"{} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_a73ca15e8d55ff487d58f5cf1dcc7de6b}\label{classAtom_a73ca15e8d55ff487d58f5cf1dcc7de6b}} 
+void {\bfseries set\+Position} (const double \&x, const double \&y, const double \&z)
+\begin{DoxyCompactList}\small\item\em Allows setting the position of the atom by providing three coordinates (x,y,z). \end{DoxyCompactList}\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{classAtom_a40e4a43205a24f5e64ea0d27994a3efb}{bond\+Vector\+To}} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$a) const
+\begin{DoxyCompactList}\small\item\em Get a vector from this atom {\bfseries{to}} \textquotesingle{}a\textquotesingle{}. \end{DoxyCompactList}\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{classAtom_a9c42c6cea5bccf13cf2aed896ee3840c}{bond\+Vector\+From}} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$a) const
+\begin{DoxyCompactList}\small\item\em Get a vector {\bfseries{from}} \textquotesingle{}a\textquotesingle{} to this atom. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classAtom_afcdbf1522c343bb461c566416305aab6}{distance\+From}} (const \mbox{\hyperlink{classAtom}{Atom}} $\ast$a2) const
+\begin{DoxyCompactList}\small\item\em Evaluates the distance from \char`\"{}this\char`\"{} atom to another. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classAtom_a37b24c2a91314d1588cbe73ec60cb862}{distance\+From}} (const Eigen\+::\+Vector3d \&v) const
+\begin{DoxyCompactList}\small\item\em Evaluates the distance from \char`\"{}this\char`\"{} atom to a random point specified by the vector \textquotesingle{}v\textquotesingle{}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classAtom_a99ed78f1b94d694b0f3fac609fd92934}{is\+Hydrogen}} () const
+\begin{DoxyCompactList}\small\item\em Tests if this atom is a hydrogen atom. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_a3082999bd6c416335c36e02db4dd72a0}\label{classAtom_a3082999bd6c416335c36e02db4dd72a0}} 
+int {\bfseries get\+Hybridization} () const
+\begin{DoxyCompactList}\small\item\em Get the force-\/field (or otherwise loaded) hybridization of this atom. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_a6d1ed6f7432ecc88bee6faa26294cd08}\label{classAtom_a6d1ed6f7432ecc88bee6faa26294cd08}} 
+void {\bfseries add\+Bond} ()
+\begin{DoxyCompactList}\small\item\em A simple wrapper to reduce the valency by 1. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classAtom_acd1d81d4d5011bd1cf6b53e6ec5830dd}{can\+Bond}} ()
+\begin{DoxyCompactList}\small\item\em Checks if this atom can make further bonds. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAtom_ae3b533e03a1068404f44d540ad1233bc}{set\+Residue}} (const std\+::string \&r)
+\begin{DoxyCompactList}\small\item\em Store the source residue name in this \mbox{\hyperlink{classAtom}{Atom}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAtom_aeb7eda860229abf7d7a2a739cc69d93d}{set\+Residue\+Number}} (const int r)
+\begin{DoxyCompactList}\small\item\em Store the source residue number in this \mbox{\hyperlink{classAtom}{Atom}} object. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classAtom_a3dd3cacebe4d5e003c6688ba384f0f1d}{get\+Residue}} () const
+\begin{DoxyCompactList}\small\item\em Get the assigned residue name. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classAtom_aa9f217ee767668f753e7c109f9a85f89}{get\+Residue\+Number}} () const
+\begin{DoxyCompactList}\small\item\em Get the assigned residue number. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMolecule}{Molecule}} $\ast$ \mbox{\hyperlink{classAtom_a7f11ffde12820bfba43872c4ffcef897}{get\+Molecule}} () const
+\begin{DoxyCompactList}\small\item\em Returns the Molecule$\ast$ (pointer) to which it belongs (if assigned) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAtom_a4e61f555e5bfcf7ff0d567b0919bbbda}{set\+Molecule}} (\mbox{\hyperlink{classMolecule}{Molecule}} $\ast$mp)
+\begin{DoxyCompactList}\small\item\em Assign a \mbox{\hyperlink{classMolecule}{Molecule}} to this atom. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classAtom_a6054acec965e008ad281764b7b4e5f5d}{set\+Energy\+Contribution}} (double e)
+\begin{DoxyCompactList}\small\item\em Do NOT use this method directly. It manually sets the interaction energy of this atom to the \mbox{\hyperlink{classProtein}{Protein}} (or other macromolecule) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_a414742465b01672a7628ce7c4d172a4f}\label{classAtom_a414742465b01672a7628ce7c4d172a4f}} 
+std\+::pair$<$ double, double $>$ {\bfseries set\+Energy\+Contribution} (const std\+::pair$<$ double, double $>$ \&p)
+\begin{DoxyCompactList}\small\item\em Set energy contribution value of total and hotspot together as a pair (total,hotspot). See Also\+: \mbox{\hyperlink{classAtom_a6054acec965e008ad281764b7b4e5f5d}{set\+Energy\+Contribution(double)}}, \mbox{\hyperlink{classAtom_a6e6ad3000e35fb4f424f9e82ac414311}{set\+Hotspot\+Energy\+Contribution(double)}} \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classAtom_a2880996f52ed3be7e17eb5151820f8b6}{get\+Energy\+Contribution}} () const
+\begin{DoxyCompactList}\small\item\em Get the interaction energy of this atom with the \mbox{\hyperlink{classProtein}{Protein}} (or other macromolecule in the \mbox{\hyperlink{classSystem}{System}}) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classAtom_a6e6ad3000e35fb4f424f9e82ac414311}{set\+Hotspot\+Energy\+Contribution}} (double e)
+\begin{DoxyCompactList}\small\item\em Do NOT use this method directly. It manually sets the interaction energy of this atom to the \char`\"{}hotspot\char`\"{}. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classAtom_a2f86902bf6ab6db4786c50adeba5152b}{get\+Hotspot\+Energy\+Contribution}} () const
+\begin{DoxyCompactList}\small\item\em Get the interaction energy of this atom to the hotspot. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{classAtom_a0c7d44f806c193ac59a36adbcea5601b}{get\+Chain}} () const
+\begin{DoxyCompactList}\small\item\em Get the chain ID (as a character) if specified. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAtom_ab5f96b153b78cfbac9ae08db5ced89f7}{set\+Chain}} (char c)
+\begin{DoxyCompactList}\small\item\em Specify the original chain ID from which this atom was picked. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_a7c13f0e363a2d00322c43f781f93ccc0}\label{classAtom_a7c13f0e363a2d00322c43f781f93ccc0}} 
+bool {\bfseries set\+Cyclized} (bool v=true)
+\begin{DoxyCompactList}\small\item\em A wrapper for cycl=true/false. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_a1816a8312c1cd338b507522c6c1bde6b}\label{classAtom_a1816a8312c1cd338b507522c6c1bde6b}} 
+bool {\bfseries is\+Cyclized} () const
+\begin{DoxyCompactList}\small\item\em A wrapper for cylc. Checks is the atom has cyclized or not. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAtom_a1d20924773ee1da9d94477d8917da147}{seal}} ()
+\begin{DoxyCompactList}\small\item\em Do not allow this atom to make further bonds. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAtom_a0b80c1ab0fb1561978f22fe86d10d30e}{set\+Charge}} (double c)
+\begin{DoxyCompactList}\small\item\em Manually set partial charge for this \mbox{\hyperlink{classAtom}{Atom}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAtom_ab29fbedd1c19260cdb667ceda59d5045}{rename}} (const std\+::string \&an)
+\begin{DoxyCompactList}\small\item\em Developer only method. Allows \char`\"{}renaming\char`\"{} an atom. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_a63a05e871b9eaefa8650d8609d6563e8}\label{classAtom_a63a05e871b9eaefa8650d8609d6563e8}} 
+void {\bfseries set\+Position\+Deviation} (double v)
+\begin{DoxyCompactList}\small\item\em Set the (simulated or otherwise obtained) deviation from mean position of the atom. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_a8aa6002bc6603c2991b6832befd4f0e6}\label{classAtom_a8aa6002bc6603c2991b6832befd4f0e6}} 
+double {\bfseries get\+Position\+Deviation} () const
+\begin{DoxyCompactList}\small\item\em Get the (simulated or otherwise obtained) deviation from mean position of the atom. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAtom_acee254086dd2d298507fbaf816c2483d}{make\+Cycle\+Static}} ()
+\begin{DoxyCompactList}\small\item\em Preserve cyclization state (cyclized? y/n) when copying this atom (Default\+: off) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_ae6044b9d3b3c767b145e0995037b422d}\label{classAtom_ae6044b9d3b3c767b145e0995037b422d}} 
+bool {\bfseries is\+Cycle\+Static} () const
+\begin{DoxyCompactList}\small\item\em Is cyclization state (cyclized? y/n) preserved when copying this atom (Default\+: off). See Also\+: \mbox{\hyperlink{classAtom_acee254086dd2d298507fbaf816c2483d}{make\+Cycle\+Static()}} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_a62a89f6b887e412565228f3242e32ee4}\label{classAtom_a62a89f6b887e412565228f3242e32ee4}} 
+void {\bfseries set\+Standard\+Valency} (int sv)
+\begin{DoxyCompactList}\small\item\em Assign the standard valency value for this atom. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_a6806200f78456a4486ff2a974c05ee30}\label{classAtom_a6806200f78456a4486ff2a974c05ee30}} 
+double {\bfseries get\+Formal\+Charge} () const
+\begin{DoxyCompactList}\small\item\em Return the (loaded) formal charge for this atom type (this is usually 0) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_a22f3cf77e722c7934684407174a14fdb}\label{classAtom_a22f3cf77e722c7934684407174a14fdb}} 
+void {\bfseries set\+Formal\+Charge} (double fc)
+\begin{DoxyCompactList}\small\item\em Assign (load) a formal charge for this atom. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAtom_a4bec102d7acca0968ea757450fd0f6a9}\label{classAtom_a4bec102d7acca0968ea757450fd0f6a9}} 
+void {\bfseries assign\+Atom} (const \mbox{\hyperlink{classAtom}{Atom}} $\ast$to\+\_\+copy, bool copypos=false)
+\begin{DoxyCompactList}\small\item\em Reassign basic parameters (including atom-\/type name) to match supplied atom. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classAtom_a1f608e1364ea55e308375d0a866ce863}{seed}} =false
+\item 
+bool \mbox{\hyperlink{classAtom_ada65cf94e26ad7ebd9bb7472e4973860}{cycl}} =false
+\item 
+bool \mbox{\hyperlink{classAtom_a5de9929c1ce50f422e1be044b72a6aa0}{must\+Cycl}} =false
+\item 
+int \mbox{\hyperlink{classAtom_af5d753dfd1f6c69ed18be8d1baf72c32}{hashvalue}} =0
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classAtom_ad11c393edfbf40afa38aad0e70bfd2ae}{hashvector}}
+\item 
+double \mbox{\hyperlink{classAtom_a4c63bddb98ac4001372af2f6e5279fe5}{posdev}} =0
+\item 
+bool \mbox{\hyperlink{classAtom_ae7bf1b3c1c783a12feda31c128aff099}{genpurpflag}} =false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is the \mbox{\hyperlink{classAtom}{Atom}} class. It is the most fundamental building-\/block for molecule generation using De\+Novo. An atom object contains all the force-\/field parameters (see\+: \mbox{\hyperlink{classForceField}{Force\+Field}}) and position data contained in it. The \mbox{\hyperlink{classMolecule}{Molecule}} class uses arrays of these Atom$\ast$ (pointers) and defines connections between them in order to manage molecules All position information is stored in double precision and the unit of distance in De\+Novo is nm
+
+This class makes use of the Eigen libraries. See Eigen\+: \href{http://eigen.tuxfamily.org/}{\texttt{ http\+://eigen.\+tuxfamily.\+org/}} for more details. (git repo\+: \href{https://gitlab.com/libeigen/eigen.git}{\texttt{ https\+://gitlab.\+com/libeigen/eigen.\+git}}) 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00039}{39}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAtom_a50f99f8c3699f185e81ba75dae79582d}\label{classAtom_a50f99f8c3699f185e81ba75dae79582d}} 
+\index{Atom@{Atom}!Atom@{Atom}}
+\index{Atom@{Atom}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{Atom()}{Atom()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily Atom\+::\+Atom (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{z,  }\item[{int}]{v = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct an atom with only position and valency. 
+
+Construct a dummy \char`\"{}\+DUM\char`\"{} atom at a given location. It is given valency \textquotesingle{}v\textquotesingle{} (default\+: 0). It carries L-\/J parameters close to a Carbon atom.~\newline
+ It is usually used as a placeholder 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00067}{67}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00067}00067 : \mbox{\hyperlink{classAtom_aa0147d7e49ab90f559b66e38d3d12863}{Atom}}(\textcolor{stringliteral}{"{}DUM"{}},x,y,z,v) \{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAtom_a9cd1d283f5c273ead929f65f40ef1496}\label{classAtom_a9cd1d283f5c273ead929f65f40ef1496}} 
+\index{Atom@{Atom}!Atom@{Atom}}
+\index{Atom@{Atom}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{Atom()}{Atom()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily Atom\+::\+Atom (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{z,  }\item[{int}]{v = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Construct an atom with only name, position and valency. 
+
+Construct an atom with given name at a given location. It is given valency \textquotesingle{}v\textquotesingle{} (default\+: 0). It carries L-\/J parameters close to a Carbon atom.~\newline
+ It is usually used as a placeholder 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00283}{283}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00283}00283                                                                      \{}
+\DoxyCodeLine{\Hypertarget{classAtom_l00284}00284     valency=v;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00285}00285   standval=valency;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00286}00286     atom\_type = nm;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00287}00287     x=xx;y=yy;z=zz;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00288}00288     mass=12.065;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00289}00289     charge=0.0;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00290}00290     sigma=0.405358916754; epsilon = 0.08368;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00291}00291     vanderwaal\_radius = sigma/2.0;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00292}00292     \mbox{\hyperlink{classAtom_ada65cf94e26ad7ebd9bb7472e4973860}{cycl}}=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{classAtom_l00293}00293 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAtom_a2fbb082cb25ea5ebab3abe022ea5bafe}\label{classAtom_a2fbb082cb25ea5ebab3abe022ea5bafe}} 
+\index{Atom@{Atom}!Atom@{Atom}}
+\index{Atom@{Atom}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{Atom()}{Atom()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily Atom\+::\+Atom (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{z,  }\item[{int}]{v,  }\item[{double}]{weight,  }\item[{double}]{charge,  }\item[{double}]{sigma,  }\item[{double}]{epsilon,  }\item[{double}]{vanderwaal\+\_\+rad }\end{DoxyParamCaption})}
+
+
+
+The main \mbox{\hyperlink{classAtom}{Atom}} constructor. 
+
+This constructor loads all the data required including charge, L-\/J parameters (sigma,epsilon) as well as position (x,y,z) and valency (v).~\newline
+ It is recommended you use this constructor if you ever have to directly construct an atom. See also\+: \mbox{\hyperlink{classForceField_a388e3f80e59286f915299e61341d078f}{Force\+Field\+::get\+Atom()}} 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00295}{295}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00296}00296 \{}
+\DoxyCodeLine{\Hypertarget{classAtom_l00297}00297     \textcolor{comment}{//atom\_type=id;}}
+\DoxyCodeLine{\Hypertarget{classAtom_l00298}00298     \textcolor{comment}{//atom\_type=new char[10];}}
+\DoxyCodeLine{\Hypertarget{classAtom_l00299}00299     atom\_type=id;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00300}00300     \textcolor{comment}{//strcpy(atom\_type,id);}}
+\DoxyCodeLine{\Hypertarget{classAtom_l00301}00301     x=xx;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00302}00302     y=yy;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00303}00303     z=zz;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00304}00304     valency=v;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00305}00305   standval=valency;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00306}00306     mass=wt;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00307}00307     charge=c;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00308}00308     sigma=s;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00309}00309     epsilon=e;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00310}00310     vanderwaal\_radius=r;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00311}00311     evaluateHybridization();}
+\DoxyCodeLine{\Hypertarget{classAtom_l00312}00312     \mbox{\hyperlink{classAtom_ada65cf94e26ad7ebd9bb7472e4973860}{cycl}}=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{classAtom_l00313}00313 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAtom_aabc42366d6f1218c43571158ed4b46ca}\label{classAtom_aabc42366d6f1218c43571158ed4b46ca}} 
+\index{Atom@{Atom}!Atom@{Atom}}
+\index{Atom@{Atom}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{Atom()}{Atom()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily Atom\+::\+Atom (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{id,  }\item[{double}]{xx,  }\item[{double}]{yy,  }\item[{double}]{zz,  }\item[{int}]{v,  }\item[{double}]{wt,  }\item[{double}]{c,  }\item[{double}]{s,  }\item[{double}]{e,  }\item[{double}]{r,  }\item[{int}]{h }\end{DoxyParamCaption})}
+
+
+
+Another similar constructor. This also allows specifying the hybridization. 
+
+Another main \mbox{\hyperlink{classAtom}{Atom}} constructor. See \mbox{\hyperlink{classAtom}{Atom(char$\ast$ name,double x,double y,double z,int v,double weight,double charge,double sigma,double,double)}} .~\newline
+ This constructor also allows you to explicitly mention the hybridization of this atom. See also\+: \mbox{\hyperlink{classForceField_a388e3f80e59286f915299e61341d078f}{Force\+Field\+::get\+Atom()}} 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00314}{314}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00314}00314 : \mbox{\hyperlink{classAtom_aa0147d7e49ab90f559b66e38d3d12863}{Atom::Atom}}(\textcolor{keywordtype}{id},xx,yy,zz,v,wt,c,s,e,r) \{hybridization=h;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAtom_a4a32546c48786b6e531e7177cec70fa2}\label{classAtom_a4a32546c48786b6e531e7177cec70fa2}} 
+\index{Atom@{Atom}!Atom@{Atom}}
+\index{Atom@{Atom}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{Atom()}{Atom()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily Atom\+::\+Atom (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classAtom}{Atom}} \&}]{to\+\_\+copy }\end{DoxyParamCaption})}
+
+
+
+The standard copy constructor. 
+
+The standard copy constructor is safe to use directly (barring some technicalities).~\newline
+ Note the definition. You cannot pass a pointer to copy. Please dereference it ONLY before passing to this method 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00333}{333}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00334}00334 \{}
+\DoxyCodeLine{\Hypertarget{classAtom_l00335}00335     valency=to\_copy.valency;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00336}00336   standval=to\_copy.standval;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00337}00337     residue=to\_copy.residue;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00338}00338     \textcolor{comment}{//if(atom\_type) delete[] atom\_type;}}
+\DoxyCodeLine{\Hypertarget{classAtom_l00339}00339     atom\_type=to\_copy.atom\_type;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00340}00340     x=to\_copy.x;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00341}00341     y=to\_copy.y;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00342}00342     z=to\_copy.z;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00343}00343     charge=to\_copy.charge;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00344}00344     sigma=to\_copy.sigma;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00345}00345     epsilon=to\_copy.epsilon;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00346}00346     vanderwaal\_radius=to\_copy.vanderwaal\_radius;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00347}00347     mass=to\_copy.mass;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00348}00348     hybridization=to\_copy.hybridization;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00349}00349     \mbox{\hyperlink{classAtom_ada65cf94e26ad7ebd9bb7472e4973860}{cycl}}=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{classAtom_l00350}00350     enercont=to\_copy.enercont;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00351}00351     hsenercont=to\_copy.hsenercont;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00352}00352     \mbox{\hyperlink{classAtom_a5de9929c1ce50f422e1be044b72a6aa0}{mustCycl}}=to\_copy.\mbox{\hyperlink{classAtom_a5de9929c1ce50f422e1be044b72a6aa0}{mustCycl}};}
+\DoxyCodeLine{\Hypertarget{classAtom_l00353}00353     staticcycl=to\_copy.staticcycl;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00354}00354     \textcolor{keywordflow}{if}(to\_copy.\mbox{\hyperlink{classAtom_ae6044b9d3b3c767b145e0995037b422d}{isCycleStatic}}()) \mbox{\hyperlink{classAtom_ada65cf94e26ad7ebd9bb7472e4973860}{cycl}}=to\_copy.\mbox{\hyperlink{classAtom_ada65cf94e26ad7ebd9bb7472e4973860}{cycl}};}
+\DoxyCodeLine{\Hypertarget{classAtom_l00355}00355     formalcharge=to\_copy.formalcharge;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00356}00356     solvwt=to\_copy.solvwt;}
+\DoxyCodeLine{\Hypertarget{classAtom_l00357}00357 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAtom_a9c42c6cea5bccf13cf2aed896ee3840c}\label{classAtom_a9c42c6cea5bccf13cf2aed896ee3840c}} 
+\index{Atom@{Atom}!bondVectorFrom@{bondVectorFrom}}
+\index{bondVectorFrom@{bondVectorFrom}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{bondVectorFrom()}{bondVectorFrom()}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d Atom\+::bond\+Vector\+From (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get a vector {\bfseries{from}} \textquotesingle{}a\textquotesingle{} to this atom. 
+
+Returns an Eigen\+::\+Vector3d object pointing to \char`\"{}this\char`\"{} atom {\bfseries{from the target atom}} (See also\+: \mbox{\hyperlink{classAtom_a40e4a43205a24f5e64ea0d27994a3efb}{bond\+Vector\+To(\+Atom$\ast$) const}}).~\newline
+The magnitude of this vector will match the value of distance\+From(\+Atom$\ast$ a) \begin{DoxyReturn}{Returns}
+Vector (Eigen\+::\+Vector3d object) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00391}{391}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00391}00391 \{\textcolor{keywordflow}{return} Eigen::Vector3d(\mbox{\hyperlink{classAtom_a58eafe0667e284c2439a640445d5ead1}{seek\_x}}()-\/a-\/>seek\_x(),\mbox{\hyperlink{classAtom_a237a6c7661dd39f9b781072f7e298813}{seek\_y}}()-\/a-\/>seek\_y(),\mbox{\hyperlink{classAtom_a0b7e17f3d4bf6503ff0b5b675074d978}{seek\_z}}()-\/a-\/>seek\_z());\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAtom_a40e4a43205a24f5e64ea0d27994a3efb}\label{classAtom_a40e4a43205a24f5e64ea0d27994a3efb}} 
+\index{Atom@{Atom}!bondVectorTo@{bondVectorTo}}
+\index{bondVectorTo@{bondVectorTo}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{bondVectorTo()}{bondVectorTo()}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d Atom\+::bond\+Vector\+To (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get a vector from this atom {\bfseries{to}} \textquotesingle{}a\textquotesingle{}. 
+
+Returns an Eigen\+::\+Vector3d object pointing from \char`\"{}this\char`\"{} atom {\bfseries{to the target atom}} (See also\+: \mbox{\hyperlink{classAtom_a9c42c6cea5bccf13cf2aed896ee3840c}{bond\+Vector\+From(\+Atom$\ast$) const}}).~\newline
+ The magnitude of this vector will match the value of distance\+From(\+Atom$\ast$ a) \begin{DoxyReturn}{Returns}
+Vector (Eigen\+::\+Vector3d object) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00390}{390}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00390}00390 \{\textcolor{keywordflow}{return} Eigen::Vector3d(a-\/>seek\_x()-\/\mbox{\hyperlink{classAtom_a58eafe0667e284c2439a640445d5ead1}{seek\_x}}(),a-\/>seek\_y()-\/\mbox{\hyperlink{classAtom_a237a6c7661dd39f9b781072f7e298813}{seek\_y}}(),a-\/>seek\_z()-\/\mbox{\hyperlink{classAtom_a0b7e17f3d4bf6503ff0b5b675074d978}{seek\_z}}());\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAtom_acd1d81d4d5011bd1cf6b53e6ec5830dd}\label{classAtom_acd1d81d4d5011bd1cf6b53e6ec5830dd}} 
+\index{Atom@{Atom}!canBond@{canBond}}
+\index{canBond@{canBond}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{canBond()}{canBond()}}
+{\footnotesize\ttfamily bool Atom\+::can\+Bond (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if this atom can make further bonds. 
+
+This method basically checks if the atom has any free valencies or not. It is equivalent to \mbox{\hyperlink{classAtom_ae2ac3a6ffdc90898d06d05eaf374960e}{seek\+\_\+valency()}}\texorpdfstring{$>$}{>}0 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00160}{160}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00160}00160 \{\textcolor{keywordflow}{return} valency;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAtom_afcdbf1522c343bb461c566416305aab6}\label{classAtom_afcdbf1522c343bb461c566416305aab6}} 
+\index{Atom@{Atom}!distanceFrom@{distanceFrom}}
+\index{distanceFrom@{distanceFrom}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{distanceFrom()}{distanceFrom()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double Atom\+::distance\+From (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{a2 }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Evaluates the distance from \char`\"{}this\char`\"{} atom to another. 
+
+\begin{DoxyReturn}{Returns}
+double\+: distance (in nm) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00388}{388}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00388}00388 \{\textcolor{keywordflow}{return} sqrt(sqr(\mbox{\hyperlink{classAtom_a58eafe0667e284c2439a640445d5ead1}{seek\_x}}()-\/a2-\/>\mbox{\hyperlink{classAtom_a58eafe0667e284c2439a640445d5ead1}{seek\_x}}()) + sqr(\mbox{\hyperlink{classAtom_a237a6c7661dd39f9b781072f7e298813}{seek\_y}}()-\/a2-\/>\mbox{\hyperlink{classAtom_a237a6c7661dd39f9b781072f7e298813}{seek\_y}}()) + sqr(\mbox{\hyperlink{classAtom_a0b7e17f3d4bf6503ff0b5b675074d978}{seek\_z}}()-\/a2-\/>\mbox{\hyperlink{classAtom_a0b7e17f3d4bf6503ff0b5b675074d978}{seek\_z}}()));\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAtom_a37b24c2a91314d1588cbe73ec60cb862}\label{classAtom_a37b24c2a91314d1588cbe73ec60cb862}} 
+\index{Atom@{Atom}!distanceFrom@{distanceFrom}}
+\index{distanceFrom@{distanceFrom}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{distanceFrom()}{distanceFrom()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Atom\+::distance\+From (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector3d \&}]{v }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Evaluates the distance from \char`\"{}this\char`\"{} atom to a random point specified by the vector \textquotesingle{}v\textquotesingle{}. 
+
+\begin{DoxyReturn}{Returns}
+double\+: distance (in nm) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00389}{389}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00389}00389 \{\textcolor{keywordflow}{return} sqrt(sqr(\mbox{\hyperlink{classAtom_a58eafe0667e284c2439a640445d5ead1}{seek\_x}}()-\/v(0))+sqr(\mbox{\hyperlink{classAtom_a237a6c7661dd39f9b781072f7e298813}{seek\_y}}()-\/v(1))+sqr(\mbox{\hyperlink{classAtom_a0b7e17f3d4bf6503ff0b5b675074d978}{seek\_z}}()-\/v(2)));\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAtom_a0c7d44f806c193ac59a36adbcea5601b}\label{classAtom_a0c7d44f806c193ac59a36adbcea5601b}} 
+\index{Atom@{Atom}!getChain@{getChain}}
+\index{getChain@{getChain}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{getChain()}{getChain()}}
+{\footnotesize\ttfamily char Atom\+::get\+Chain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the chain ID (as a character) if specified. 
+
+This method is used to get the Chain ID to which this atom belongs. It is useful when using Proteins with multiple chains.~\newline
+ Default\+: \textquotesingle{}A\textquotesingle{} \begin{DoxyReturn}{Returns}
+The one-\/character ID of the chain (as according to PDB) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00205}{205}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00205}00205 \{\textcolor{keywordflow}{return} chain;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAtom_a2880996f52ed3be7e17eb5151820f8b6}\label{classAtom_a2880996f52ed3be7e17eb5151820f8b6}} 
+\index{Atom@{Atom}!getEnergyContribution@{getEnergyContribution}}
+\index{getEnergyContribution@{getEnergyContribution}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{getEnergyContribution()}{getEnergyContribution()}}
+{\footnotesize\ttfamily double Atom\+::get\+Energy\+Contribution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the interaction energy of this atom with the \mbox{\hyperlink{classProtein}{Protein}} (or other macromolecule in the \mbox{\hyperlink{classSystem}{System}}) 
+
+Get the calculated energy contribution of this atom. If not calculated (by Protein\+::calculate\+Non\+Bonding\+Energy(\+Molecule $\ast$) or otherwise), it is 0 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00194}{194}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00194}00194 \{\textcolor{keywordflow}{return} enercont;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAtom_a2f86902bf6ab6db4786c50adeba5152b}\label{classAtom_a2f86902bf6ab6db4786c50adeba5152b}} 
+\index{Atom@{Atom}!getHotspotEnergyContribution@{getHotspotEnergyContribution}}
+\index{getHotspotEnergyContribution@{getHotspotEnergyContribution}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{getHotspotEnergyContribution()}{getHotspotEnergyContribution()}}
+{\footnotesize\ttfamily double Atom\+::get\+Hotspot\+Energy\+Contribution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the interaction energy of this atom to the hotspot. 
+
+Get the calculated energy contribution of this atom to the hotspot (see \mbox{\hyperlink{classProtein}{Protein}} class) atoms. If not calculated (by Protein\+::calculate\+Non\+Bonding\+Energy(\+Molecule$\ast$) or otherwise), it is 0 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00200}{200}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00200}00200 \{\textcolor{keywordflow}{return} hsenercont;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAtom_a7f11ffde12820bfba43872c4ffcef897}\label{classAtom_a7f11ffde12820bfba43872c4ffcef897}} 
+\index{Atom@{Atom}!getMolecule@{getMolecule}}
+\index{getMolecule@{getMolecule}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{getMolecule()}{getMolecule()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$ Atom\+::get\+Molecule (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the Molecule$\ast$ (pointer) to which it belongs (if assigned) 
+
+If assigned, returns the \mbox{\hyperlink{classMolecule}{Molecule}} to which this atom belongs. Unless you are very sure that you have assigned the pointers of the parent \mbox{\hyperlink{classMolecule}{Molecule}} objects to the atoms, do NOT use this method.~\newline
+Consider \mbox{\hyperlink{classMolecule_afcdacd3ae6feb61f05cdc306ed8ab29d}{Molecule\+::get\+Atom(int)}}, and \mbox{\hyperlink{classMolecule_a7d42c427c602da77f79246fe39246fb9}{Molecule\+::get\+Atoms()}}.~\newline
+It is better to access atom pointrs from the \mbox{\hyperlink{classMolecule}{Molecule}} object than vice-\/versa \begin{DoxyReturn}{Returns}
+Molecule$\ast$\+: Pointer to the \mbox{\hyperlink{classMolecule}{Molecule}} object in which it belongs 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00183}{183}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00183}00183 \{\textcolor{keywordflow}{return} myMol;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAtom_a3dd3cacebe4d5e003c6688ba384f0f1d}\label{classAtom_a3dd3cacebe4d5e003c6688ba384f0f1d}} 
+\index{Atom@{Atom}!getResidue@{getResidue}}
+\index{getResidue@{getResidue}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{getResidue()}{getResidue()}}
+{\footnotesize\ttfamily const std\+::string \& Atom\+::get\+Residue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the assigned residue name. 
+
+Get back the residue name which was set for this atom.~\newline
+ \mbox{\hyperlink{classResidue}{Residue}} names are automatically loaded when loading from a PDB or GRO file (see \mbox{\hyperlink{classMolecule_a834ac3e93af40e0f03bf1bb83c1ccb3e}{Molecule\+::\+Molecule(const std\+::string\&,const Force\+Field\&,const std\+::string\&,bool,bool,char)}})~\newline
+Alternatively, then can be set by\+: \mbox{\hyperlink{classAtom_ae3b533e03a1068404f44d540ad1233bc}{set\+Residue(const std\+::string\& s)}} \begin{DoxyReturn}{Returns}
+const std\+::string\&\+: The residue name for this atom 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00172}{172}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00172}00172 \{\textcolor{keywordflow}{return} residue;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAtom_aa9f217ee767668f753e7c109f9a85f89}\label{classAtom_aa9f217ee767668f753e7c109f9a85f89}} 
+\index{Atom@{Atom}!getResidueNumber@{getResidueNumber}}
+\index{getResidueNumber@{getResidueNumber}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{getResidueNumber()}{getResidueNumber()}}
+{\footnotesize\ttfamily int Atom\+::get\+Residue\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the assigned residue number. 
+
+Get back the residue name which was set for this atom.~\newline
+ \mbox{\hyperlink{classResidue}{Residue}} numbers are automatically loaded when loading from a PDB or GRO file (see \mbox{\hyperlink{classMolecule_a834ac3e93af40e0f03bf1bb83c1ccb3e}{Molecule\+::\+Molecule(const std\+::string\&,const Force\+Field\&,const std\+::string\&,bool,bool,char)}})~\newline
+Alternatively, then can be set by\+: \mbox{\hyperlink{classAtom_ae3b533e03a1068404f44d540ad1233bc}{set\+Residue(const std\+::string\& s)}} \begin{DoxyReturn}{Returns}
+const std\+::string\&\+: The residue name for this atom 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00178}{178}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00178}00178 \{\textcolor{keywordflow}{return} resnum;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAtom_a99ed78f1b94d694b0f3fac609fd92934}\label{classAtom_a99ed78f1b94d694b0f3fac609fd92934}} 
+\index{Atom@{Atom}!isHydrogen@{isHydrogen}}
+\index{isHydrogen@{isHydrogen}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{isHydrogen()}{isHydrogen()}}
+{\footnotesize\ttfamily bool Atom\+::is\+Hydrogen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Tests if this atom is a hydrogen atom. 
+
+Hydrogen atoms are defined to be\textquotesingle{}light\textquotesingle{} atoms. This method is used to make the distinction between light and heavy atoms. 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00153}{153}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00153}00153 \{\textcolor{keywordflow}{return} atom\_type[0]==\textcolor{charliteral}{'H'};\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAtom_acee254086dd2d298507fbaf816c2483d}\label{classAtom_acee254086dd2d298507fbaf816c2483d}} 
+\index{Atom@{Atom}!makeCycleStatic@{makeCycleStatic}}
+\index{makeCycleStatic@{makeCycleStatic}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{makeCycleStatic()}{makeCycleStatic()}}
+{\footnotesize\ttfamily void Atom\+::make\+Cycle\+Static (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Preserve cyclization state (cyclized? y/n) when copying this atom (Default\+: off) 
+
+This can be useful if you want to set the cyclization state of a template molecule\textquotesingle{}s atoms before generation 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00229}{229}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00229}00229 \{staticcycl=\textcolor{keyword}{true};\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAtom_a48d5030a816e990082fdd825b0735779}\label{classAtom_a48d5030a816e990082fdd825b0735779}} 
+\index{Atom@{Atom}!makeSeed@{makeSeed}}
+\index{makeSeed@{makeSeed}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{makeSeed()}{makeSeed()}}
+{\footnotesize\ttfamily void Atom\+::make\+Seed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Make the atom a seed. 
+
+A wrapper for \char`\"{}seed=true\char`\"{}. This atom is then declared to be a seed atom. See the algorthim for more details 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00113}{113}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00113}00113 \{\mbox{\hyperlink{classAtom_a1f608e1364ea55e308375d0a866ce863}{seed}}=\textcolor{keyword}{true};\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAtom_ab29fbedd1c19260cdb667ceda59d5045}\label{classAtom_ab29fbedd1c19260cdb667ceda59d5045}} 
+\index{Atom@{Atom}!rename@{rename}}
+\index{rename@{rename}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{rename()}{rename()}}
+{\footnotesize\ttfamily void Atom\+::rename (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{an }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Developer only method. Allows \char`\"{}renaming\char`\"{} an atom. 
+
+This method will change the \char`\"{}name\char`\"{} of the atom. Note that none of the parameters are changed even if the new name is defined differently in the force-\/field. 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00222}{222}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00222}00222 \{atom\_type=an;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAtom_a1d20924773ee1da9d94477d8917da147}\label{classAtom_a1d20924773ee1da9d94477d8917da147}} 
+\index{Atom@{Atom}!seal@{seal}}
+\index{seal@{seal}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{seal()}{seal()}}
+{\footnotesize\ttfamily void Atom\+::seal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Do not allow this atom to make further bonds. 
+
+This method rejects all remaining valencies of this atom. The number of free valecies of this atom are set to 0 (irrespective of it connection count and max-\/valency).~\newline
+It is useful when using polyatomic seeds (see algorithm PDF for details about seeds) if you want to grow from a specific atom only 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00215}{215}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00215}00215 \{valency=0;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAtom_ab5f96b153b78cfbac9ae08db5ced89f7}\label{classAtom_ab5f96b153b78cfbac9ae08db5ced89f7}} 
+\index{Atom@{Atom}!setChain@{setChain}}
+\index{setChain@{setChain}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{setChain()}{setChain()}}
+{\footnotesize\ttfamily void Atom\+::set\+Chain (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Specify the original chain ID from which this atom was picked. 
+
+\+: Allows user to manually specify the chain ID (in case multiple chains are present). If nothing is specified, chain is \textquotesingle{}A\textquotesingle{}~\newline
+See also\+: \mbox{\hyperlink{classMolecule_a834ac3e93af40e0f03bf1bb83c1ccb3e}{Molecule\+::\+Molecule(const std\+::string\&,const Force\+Field\&,const std\+::string\&,bool,bool,char)}} 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00208}{208}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00208}00208 \{chain=c;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAtom_a0b80c1ab0fb1561978f22fe86d10d30e}\label{classAtom_a0b80c1ab0fb1561978f22fe86d10d30e}} 
+\index{Atom@{Atom}!setCharge@{setCharge}}
+\index{setCharge@{setCharge}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{setCharge()}{setCharge()}}
+{\footnotesize\ttfamily void Atom\+::set\+Charge (\begin{DoxyParamCaption}\item[{double}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Manually set partial charge for this \mbox{\hyperlink{classAtom}{Atom}} object. 
+
+Allows rewriting the initally loaded charge parameter for the atom. It is highly recommended that you load the atom with proper parameters using complete force-\/fields (see\+: \mbox{\hyperlink{classForceField}{Force\+Field}}), and use Force\+Field\+::get\+Atom(const std\+::string\& atom\+\_\+name) to get the complete atom (with all information)~\newline
+ Do not load the atom first and then assign the charge. Also, manual charge assignment is rarely a good substitute for well parameterized force-\/fields when using De\+Novo 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00219}{219}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00219}00219 \{charge=c;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAtom_a6054acec965e008ad281764b7b4e5f5d}\label{classAtom_a6054acec965e008ad281764b7b4e5f5d}} 
+\index{Atom@{Atom}!setEnergyContribution@{setEnergyContribution}}
+\index{setEnergyContribution@{setEnergyContribution}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{setEnergyContribution()}{setEnergyContribution()}}
+{\footnotesize\ttfamily double Atom\+::set\+Energy\+Contribution (\begin{DoxyParamCaption}\item[{double}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Do NOT use this method directly. It manually sets the interaction energy of this atom to the \mbox{\hyperlink{classProtein}{Protein}} (or other macromolecule) 
+
+This method may cause severe errors in computing \char`\"{}\+De\+Novo interaction energy\char`\"{} for growth. See\+: Protein\+::calculate\+Non\+Bonding\+Energy(\+Molecule$\ast$).~\newline
+ This method assigns each atom\textquotesingle{}s energy contribution 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00189}{189}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00189}00189 \{\textcolor{keywordflow}{return} enercont=e;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAtom_a6e6ad3000e35fb4f424f9e82ac414311}\label{classAtom_a6e6ad3000e35fb4f424f9e82ac414311}} 
+\index{Atom@{Atom}!setHotspotEnergyContribution@{setHotspotEnergyContribution}}
+\index{setHotspotEnergyContribution@{setHotspotEnergyContribution}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{setHotspotEnergyContribution()}{setHotspotEnergyContribution()}}
+{\footnotesize\ttfamily double Atom\+::set\+Hotspot\+Energy\+Contribution (\begin{DoxyParamCaption}\item[{double}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Do NOT use this method directly. It manually sets the interaction energy of this atom to the \char`\"{}hotspot\char`\"{}. 
+
+This method may cause severe errors in computing \char`\"{}\+De\+Novo interaction energy\char`\"{} for growth. See\+: Protein\+::calculate\+Non\+Bonding\+Energy(\+Molecule$\ast$).~\newline
+ This method assigns each atom\textquotesingle{}s energy contribution (even to the hotspot). See \mbox{\hyperlink{classProtein}{Protein}} class for explanation of \char`\"{}hotspot\char`\"{}s 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00197}{197}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00197}00197 \{\textcolor{keywordflow}{return} hsenercont=e;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAtom_a4e61f555e5bfcf7ff0d567b0919bbbda}\label{classAtom_a4e61f555e5bfcf7ff0d567b0919bbbda}} 
+\index{Atom@{Atom}!setMolecule@{setMolecule}}
+\index{setMolecule@{setMolecule}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{setMolecule()}{setMolecule()}}
+{\footnotesize\ttfamily void Atom\+::set\+Molecule (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMolecule}{Molecule}} $\ast$}]{mp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Assign a \mbox{\hyperlink{classMolecule}{Molecule}} to this atom. 
+
+Allows you to assign a \mbox{\hyperlink{classMolecule}{Molecule}} (pointer) to this atom. It is usually meant for the tracability of parent \mbox{\hyperlink{classMolecule}{Molecule}} object from the atoms.~\newline
+It is {\bfseries{not recommended}} that you assign any other \mbox{\hyperlink{classMolecule}{Molecule}} to this atom as it might not be compatible with many standard procedures in De\+Novo 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00186}{186}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00186}00186 \{myMol=mp;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAtom_ae3b533e03a1068404f44d540ad1233bc}\label{classAtom_ae3b533e03a1068404f44d540ad1233bc}} 
+\index{Atom@{Atom}!setResidue@{setResidue}}
+\index{setResidue@{setResidue}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{setResidue()}{setResidue()}}
+{\footnotesize\ttfamily void Atom\+::set\+Residue (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Store the source residue name in this \mbox{\hyperlink{classAtom}{Atom}} object. 
+
+Sets the residue name for this \mbox{\hyperlink{classAtom}{Atom}} object to that of the residue it belongs to.~\newline
+ It is useful when loading proteins, dna, etc. from a forcefield with specific atom names for atom of each of it\textquotesingle{}s residues.~\newline
+ By default no standard residue name is taken (default residue name is DNV). 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00163}{163}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00163}00163 \{residue=r;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAtom_aeb7eda860229abf7d7a2a739cc69d93d}\label{classAtom_aeb7eda860229abf7d7a2a739cc69d93d}} 
+\index{Atom@{Atom}!setResidueNumber@{setResidueNumber}}
+\index{setResidueNumber@{setResidueNumber}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{setResidueNumber()}{setResidueNumber()}}
+{\footnotesize\ttfamily void Atom\+::set\+Residue\+Number (\begin{DoxyParamCaption}\item[{const int}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Store the source residue number in this \mbox{\hyperlink{classAtom}{Atom}} object. 
+
+Sets the residue number for this \mbox{\hyperlink{classAtom}{Atom}} object to that of the residue it belongs to.~\newline
+ It is useful when loading proteins, dna, etc. from a forcefield with specific atom names for atom of each of it\textquotesingle{}s residues.~\newline
+ (Default residue number is 1). 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00166}{166}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00166}00166 \{resnum=r;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAtom_a2446287c633dd5bc14c91706294f47e7}\label{classAtom_a2446287c633dd5bc14c91706294f47e7}} 
+\index{Atom@{Atom}!setSolvationCorrection@{setSolvationCorrection}}
+\index{setSolvationCorrection@{setSolvationCorrection}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{setSolvationCorrection()}{setSolvationCorrection()}}
+{\footnotesize\ttfamily void Atom\+::set\+Solvation\+Correction (\begin{DoxyParamCaption}\item[{float}]{w }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the approximate solvation correction for this atom-\/type. 
+
+Use to manually set the contribution weight for this atom-\/type. If you are doing this manually for one atom-\/type, you are likely going to have to do it for all in the \mbox{\hyperlink{classForceField}{Force\+Field}} 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00125}{125}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00125}00125 \{solvwt=w;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAtom_a9eb04d5b5e7b60694e96e5f9dd20bfac}\label{classAtom_a9eb04d5b5e7b60694e96e5f9dd20bfac}} 
+\index{Atom@{Atom}!setValency@{setValency}}
+\index{setValency@{setValency}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{setValency()}{setValency()}}
+{\footnotesize\ttfamily void Atom\+::set\+Valency (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the number of free valencies. 
+
+Allows manually setting the number of free valecies for this atom. Unless you are using an unparametrized atom-\/type (or are not using a Force-\/field at all), it is not recommended to use this method 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00118}{118}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classAtom_l00118}00118 \{valency=n;\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classAtom_ada65cf94e26ad7ebd9bb7472e4973860}\label{classAtom_ada65cf94e26ad7ebd9bb7472e4973860}} 
+\index{Atom@{Atom}!cycl@{cycl}}
+\index{cycl@{cycl}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{cycl}{cycl}}
+{\footnotesize\ttfamily bool Atom\+::cycl =false}
+
+Has the atom cyclized? 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00052}{52}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+\mbox{\Hypertarget{classAtom_ae7bf1b3c1c783a12feda31c128aff099}\label{classAtom_ae7bf1b3c1c783a12feda31c128aff099}} 
+\index{Atom@{Atom}!genpurpflag@{genpurpflag}}
+\index{genpurpflag@{genpurpflag}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{genpurpflag}{genpurpflag}}
+{\footnotesize\ttfamily bool Atom\+::genpurpflag =false}
+
+General purpose flag 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00057}{57}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+\mbox{\Hypertarget{classAtom_af5d753dfd1f6c69ed18be8d1baf72c32}\label{classAtom_af5d753dfd1f6c69ed18be8d1baf72c32}} 
+\index{Atom@{Atom}!hashvalue@{hashvalue}}
+\index{hashvalue@{hashvalue}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{hashvalue}{hashvalue}}
+{\footnotesize\ttfamily int Atom\+::hashvalue =0}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000027}{Deprecated}}]\mbox{\hyperlink{classAtom}{Atom}}\textquotesingle{}s unique hash value (deprecated -\/ See \mbox{\hyperlink{classAtom_ad11c393edfbf40afa38aad0e70bfd2ae}{Atom\+::hashvector}}) \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00054}{54}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+\mbox{\Hypertarget{classAtom_ad11c393edfbf40afa38aad0e70bfd2ae}\label{classAtom_ad11c393edfbf40afa38aad0e70bfd2ae}} 
+\index{Atom@{Atom}!hashvector@{hashvector}}
+\index{hashvector@{hashvector}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{hashvector}{hashvector}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ Atom\+::hashvector}
+
+\mbox{\hyperlink{classAtom}{Atom}}\textquotesingle{}s unique hash-\/vector (still under development) 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00055}{55}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+\mbox{\Hypertarget{classAtom_a5de9929c1ce50f422e1be044b72a6aa0}\label{classAtom_a5de9929c1ce50f422e1be044b72a6aa0}} 
+\index{Atom@{Atom}!mustCycl@{mustCycl}}
+\index{mustCycl@{mustCycl}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{mustCycl}{mustCycl}}
+{\footnotesize\ttfamily bool Atom\+::must\+Cycl =false}
+
+Does this atom need to cyclize? 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00053}{53}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+\mbox{\Hypertarget{classAtom_a4c63bddb98ac4001372af2f6e5279fe5}\label{classAtom_a4c63bddb98ac4001372af2f6e5279fe5}} 
+\index{Atom@{Atom}!posdev@{posdev}}
+\index{posdev@{posdev}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{posdev}{posdev}}
+{\footnotesize\ttfamily double Atom\+::posdev =0}
+
+Deviation from equilibrium position -\/ Used to calculate error in potential energy calculations (Default\+: 0) 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00056}{56}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+\mbox{\Hypertarget{classAtom_a1f608e1364ea55e308375d0a866ce863}\label{classAtom_a1f608e1364ea55e308375d0a866ce863}} 
+\index{Atom@{Atom}!seed@{seed}}
+\index{seed@{seed}!Atom@{Atom}}
+\doxysubsubsection{\texorpdfstring{seed}{seed}}
+{\footnotesize\ttfamily bool Atom\+::seed =false}
+
+Is this a seed atom? 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00051}{51}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+graph/Atom.\+hpp\end{DoxyCompactItemize}

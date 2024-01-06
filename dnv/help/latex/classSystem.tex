@@ -1,0 +1,745 @@
+\hypertarget{classSystem}{}\doxysection{System Class Reference}
+\label{classSystem}\index{System@{System}}
+
+
+{\ttfamily \#include \char`\"{}graph/\+Molecule.\+hpp\char`\"{}}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSystem_a6c4bed880e0f33a943630f01a9f12ebc}\label{classSystem_a6c4bed880e0f33a943630f01a9f12ebc}} 
+{\bfseries System} (const \mbox{\hyperlink{classForceField}{Force\+Field}} \&cff)
+\begin{DoxyCompactList}\small\item\em The default constructor. Construction of a \mbox{\hyperlink{classSystem}{System}} requires a \mbox{\hyperlink{classForceField}{Force\+Field}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSystem_a9dd6c24612a98e55eaf1ec971bc44f4a}{System}} (const \mbox{\hyperlink{classSystem}{System}} \&sys)
+\begin{DoxyCompactList}\small\item\em The default copy constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSystem_a03019561c7b913a1c548b6a0c63173e4}{add\+Molecule}} (\mbox{\hyperlink{classMolecule}{Molecule}} $\ast$m)
+\begin{DoxyCompactList}\small\item\em Add a molecule to the given \mbox{\hyperlink{classSystem}{System}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtensor3D__int}{Grid}} \& \mbox{\hyperlink{classSystem_ab40a2d763cf2f23f4565f663aedc25df}{grid}} ()
+\item 
+const \mbox{\hyperlink{classtensor3D__int}{Grid}} \& \mbox{\hyperlink{classSystem_a16b9a0c9fe6a3d66e86aa79ad1caf0bf}{grid}} () const
+\item 
+void \mbox{\hyperlink{classSystem_ac2f56ead0bec07a4087ecdbbc35ca342}{generate\+Grid}} (int, int, int, double)
+\item 
+void \mbox{\hyperlink{classSystem_ab81926c5657aae717c8367444d36ef65}{set\+Force\+Field}} (const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$ffd)
+\begin{DoxyCompactList}\small\item\em Allows changing the \mbox{\hyperlink{classForceField}{Force\+Field}} linked with this system after construction. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSystem_aa54246e4bbdfe2debb3644896dd9974d}\label{classSystem_aa54246e4bbdfe2debb3644896dd9974d}} 
+void {\bfseries set\+Temperature} (const double \&t)
+\begin{DoxyCompactList}\small\item\em Set the temperature of the system. Default temperature is 298K. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSystem_a7cf3560ee79c016ad592955c73fa07b8}{set\+Container}} (const \mbox{\hyperlink{classquickgeom_1_1Container}{quickgeom\+::\+Container}} $\ast$cnt)
+\begin{DoxyCompactList}\small\item\em Set the container for restraining growth to within it. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSystem_a3b370e570c93eedee6b34d2b90122434}{occupied}} (int x, int y, int z) const
+\item 
+const std\+::vector$<$ \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$ $>$ \& \mbox{\hyperlink{classSystem_a9a511120c5458822e88f2136aa7fdb2e}{get\+Molecules}} () const
+\begin{DoxyCompactList}\small\item\em Get all the molecules contained in this \mbox{\hyperlink{classSystem}{System}}. (alternate method for a \char`\"{}const\char`\"{} \mbox{\hyperlink{classSystem}{System}} object) \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$ $>$ \& \mbox{\hyperlink{classSystem_aab0e0d51deed8d446ef9c8ec0e04a3e1}{get\+Molecules}} ()
+\begin{DoxyCompactList}\small\item\em Get all the molecules contained in this \mbox{\hyperlink{classSystem}{System}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSystem}{System}} \mbox{\hyperlink{classSystem_a92f7bb1329be0fa3e57dcfdcf27d3d1e}{clone}} () const
+\begin{DoxyCompactList}\small\item\em Make a copy of this system. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSystem}{System}} \mbox{\hyperlink{classSystem_a78b3ba967ba01efe852aaa094e35fde7}{clone}} (std\+::vector$<$ \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$ $>$ omit) const
+\begin{DoxyCompactList}\small\item\em Make a copy of this system. Explicitly copy some molecules as well. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSystem}{System}} \mbox{\hyperlink{classSystem_a0d7d7e69a30b17df52277b288b47cfd9}{clone}} (\mbox{\hyperlink{classMolecule}{Molecule}} $\ast$omit) const
+\begin{DoxyCompactList}\small\item\em Make a copy of this system. Explicitly copy a particular \mbox{\hyperlink{classMolecule}{Molecule}}. \end{DoxyCompactList}\item 
+Eigen\+::\+Vector3i \mbox{\hyperlink{classSystem_a1f603feb6e6e6bec7e2d4e0296ec99e9}{get\+Closest\+Free\+Space}} (int x, int y, int z, int maxtries)
+\item 
+void \mbox{\hyperlink{classSystem_a020170c74357f6f2534767bbf32f94c2}{dump\+System}} (const std\+::string \&output\+\_\+file) const
+\begin{DoxyCompactList}\small\item\em Dump all the molecules in this \mbox{\hyperlink{classSystem}{System}} sequentially into a file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSystem_a66fa28ef19e6be5e55e8c188e7ef4e18}{dump\+System}} (const std\+::string \&output\+\_\+file, const std\+::string \&txt\+\_\+file) const
+\begin{DoxyCompactList}\small\item\em Dump all the molecules in this \mbox{\hyperlink{classSystem}{System}} sequentially into a file. Dump TXT files (checkpoints) into a separate files. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMolecule}{Molecule}} $\ast$ \mbox{\hyperlink{classSystem_a3018ff2fa3c6b4c5b59c6d999ee28dfe}{get\+Drug\+Molecule}} () const
+\item 
+\mbox{\hyperlink{classMolecule}{Molecule}} $\ast$ \mbox{\hyperlink{classSystem_a667946c9718ecd9c7991ea04277a7e8b}{pop\+Drug\+Molecule}} ()
+\item 
+\mbox{\hyperlink{classProtein}{Protein}} $\ast$ \mbox{\hyperlink{classSystem_ad9f7387804eeb148d60d439e9a8bd9b2}{get\+Protein\+Molecule}} () const
+\item 
+\mbox{\Hypertarget{classSystem_a8c29d6d26c126549670faf843dddb1f7}\label{classSystem_a8c29d6d26c126549670faf843dddb1f7}} 
+void {\bfseries empty\+System} ()
+\begin{DoxyCompactList}\small\item\em Empty this system (Remove all molecules) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSystem_a32339c7c2ec9b648c3f3847960b39c19}{strong\+WVCheck}} (\mbox{\hyperlink{classMolecule}{Molecule}} $\ast$exm) const
+\begin{DoxyCompactList}\small\item\em Checks if a molecule is clashing with any of the molecules in the \mbox{\hyperlink{classSystem}{System}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSystem_a74dce148064c0f5a9fd12c56f9f7fee8}{strong\+WVCheck}} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$exm) const
+\begin{DoxyCompactList}\small\item\em Checks if an atom is clashing with any of the molecules in the \mbox{\hyperlink{classSystem}{System}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{classSystem_adc283f24de0855bba920e7c12504ae16}{grid\+Offset}}
+\item 
+int \mbox{\hyperlink{classSystem_a80c86784a03aad0b070fbae0c6766b27}{grid\+\_\+width}}
+\item 
+int \mbox{\hyperlink{classSystem_af1d5163ce4afd2e6f3cae0f4ba81a25d}{grid\+\_\+height}}
+\item 
+int \mbox{\hyperlink{classSystem_a8234c3dc0fa1830f09947ffe67d0268f}{grid\+\_\+depth}}
+\item 
+int \mbox{\hyperlink{classSystem_aa6e3e2c827e5dacc5b6898ca3e2b51f5}{grid\+\_\+resolution}}
+\item 
+const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$ \mbox{\hyperlink{classSystem_a9e485ee26141788c9f971a47703bb4a0}{ff}}
+\item 
+double \mbox{\hyperlink{classSystem_ad1674d51a2b296f65e361eade8ad253e}{temp}} =298
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classSystem}{System}} class is designed envisaging a true physical \char`\"{}system\char`\"{} with multiple interacting components.~\newline
+ It is this object that also stores ambient condition data (such as temperature), and the multiple components in this \mbox{\hyperlink{classSystem}{System}} are expected to \char`\"{}interact\char`\"{} with each other~\newline
+ From a more algorithmic perspective, all \mbox{\hyperlink{classMolecule}{Molecule}} objects in a given \mbox{\hyperlink{classSystem}{System}} have non-\/bonding interaction energies calculated between them (during generation). The exception to this is that two macromolecules (\mbox{\hyperlink{classProtein}{Protein}} class objects), if present in the same system do not have interaction energies calculated automatically (you can specifically perform this time-\/taking calculation)~\newline
+ This algorithm assumes all atoms of a macromolecule to be stationary during generation.~\newline
+ See algorithm PDF for more details on generation. 
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l00104}{104}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSystem_a9dd6c24612a98e55eaf1ec971bc44f4a}\label{classSystem_a9dd6c24612a98e55eaf1ec971bc44f4a}} 
+\index{System@{System}!System@{System}}
+\index{System@{System}!System@{System}}
+\doxysubsubsection{\texorpdfstring{System()}{System()}}
+{\footnotesize\ttfamily System\+::\+System (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classSystem}{System}} \&}]{sys }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The default copy constructor. 
+
+The Molecules of this system are not explicitly cloned. Only pointers are copied.~\newline
+See \mbox{\hyperlink{classSystem_a78b3ba967ba01efe852aaa094e35fde7}{clone(std\+::vector$<$\+Molecule$\ast$$>$) const }}for other options in cloning 
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l00124}{124}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classSystem_l00124}00124                               : \mbox{\hyperlink{classSystem_a9e485ee26141788c9f971a47703bb4a0}{ff}}(sys.\mbox{\hyperlink{classSystem_a9e485ee26141788c9f971a47703bb4a0}{ff}})}
+\DoxyCodeLine{\Hypertarget{classSystem_l00125}00125     \{}
+\DoxyCodeLine{\Hypertarget{classSystem_l00126}00126         mols=sys.mols;}
+\DoxyCodeLine{\Hypertarget{classSystem_l00127}00127         \mbox{\hyperlink{classSystem_adc283f24de0855bba920e7c12504ae16}{gridOffset}}=sys.\mbox{\hyperlink{classSystem_adc283f24de0855bba920e7c12504ae16}{gridOffset}};}
+\DoxyCodeLine{\Hypertarget{classSystem_l00128}00128         \mbox{\hyperlink{classSystem_a80c86784a03aad0b070fbae0c6766b27}{grid\_width}}=sys.\mbox{\hyperlink{classSystem_a80c86784a03aad0b070fbae0c6766b27}{grid\_width}};}
+\DoxyCodeLine{\Hypertarget{classSystem_l00129}00129         \mbox{\hyperlink{classSystem_af1d5163ce4afd2e6f3cae0f4ba81a25d}{grid\_height}}=sys.\mbox{\hyperlink{classSystem_af1d5163ce4afd2e6f3cae0f4ba81a25d}{grid\_height}};}
+\DoxyCodeLine{\Hypertarget{classSystem_l00130}00130         \mbox{\hyperlink{classSystem_a8234c3dc0fa1830f09947ffe67d0268f}{grid\_depth}}=sys.\mbox{\hyperlink{classSystem_a8234c3dc0fa1830f09947ffe67d0268f}{grid\_depth}};}
+\DoxyCodeLine{\Hypertarget{classSystem_l00131}00131         \mbox{\hyperlink{classSystem_aa6e3e2c827e5dacc5b6898ca3e2b51f5}{grid\_resolution}}=sys.\mbox{\hyperlink{classSystem_aa6e3e2c827e5dacc5b6898ca3e2b51f5}{grid\_resolution}};}
+\DoxyCodeLine{\Hypertarget{classSystem_l00132}00132         myGrid=sys.myGrid;}
+\DoxyCodeLine{\Hypertarget{classSystem_l00133}00133         restrbox=sys.restrbox;}
+\DoxyCodeLine{\Hypertarget{classSystem_l00134}00134         \mbox{\hyperlink{classSystem_ad1674d51a2b296f65e361eade8ad253e}{temp}}=sys.\mbox{\hyperlink{classSystem_ad1674d51a2b296f65e361eade8ad253e}{temp}};}
+\DoxyCodeLine{\Hypertarget{classSystem_l00135}00135     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSystem_a03019561c7b913a1c548b6a0c63173e4}\label{classSystem_a03019561c7b913a1c548b6a0c63173e4}} 
+\index{System@{System}!addMolecule@{addMolecule}}
+\index{addMolecule@{addMolecule}!System@{System}}
+\doxysubsubsection{\texorpdfstring{addMolecule()}{addMolecule()}}
+{\footnotesize\ttfamily void System\+::add\+Molecule (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMolecule}{Molecule}} $\ast$}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a molecule to the given \mbox{\hyperlink{classSystem}{System}}. 
+
+This method adds a molecule to this system. A single molecule can be part of multiple systems, but as only pointers are held in a \mbox{\hyperlink{classSystem}{System}}, changes in one reflect on the other. ~\newline
+ See the \mbox{\hyperlink{classSystem_a92f7bb1329be0fa3e57dcfdcf27d3d1e}{clone()}} methods to avoid this. 
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l00140}{140}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classSystem_l00140}00140 \{mols.push\_back(m);\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSystem_a92f7bb1329be0fa3e57dcfdcf27d3d1e}\label{classSystem_a92f7bb1329be0fa3e57dcfdcf27d3d1e}} 
+\index{System@{System}!clone@{clone}}
+\index{clone@{clone}!System@{System}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSystem}{System}} System\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Make a copy of this system. 
+
+This method makes a copy of the given \mbox{\hyperlink{classSystem}{System}} with all the parameters. None of the Molecules in the system are copied. The pointers point to the same object.~\newline
+This is the same as using the assignment operator~\newline
+ See also\+: \mbox{\hyperlink{classSystem_a78b3ba967ba01efe852aaa094e35fde7}{clone(std\+::vector$<$\+Molecule$\ast$$>$ omit) const }}and \mbox{\hyperlink{classSystem_a0d7d7e69a30b17df52277b288b47cfd9}{clone(\+Molecule$\ast$ omit) const}} 
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l03912}{3912}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classSystem_l03912}03912 \{\textcolor{keywordflow}{return} *\textcolor{keyword}{this};\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSystem_a0d7d7e69a30b17df52277b288b47cfd9}\label{classSystem_a0d7d7e69a30b17df52277b288b47cfd9}} 
+\index{System@{System}!clone@{clone}}
+\index{clone@{clone}!System@{System}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSystem}{System}} System\+::clone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMolecule}{Molecule}} $\ast$}]{omit }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Make a copy of this system. Explicitly copy a particular \mbox{\hyperlink{classMolecule}{Molecule}}. 
+
+This method makes a copy of the given \mbox{\hyperlink{classSystem}{System}} with all the parameters.~\newline
+It is basically a wrapper for calling clone(std\+::vector$<$\+Molecule$\ast$$>$ omit) with a single \mbox{\hyperlink{classMolecule}{Molecule}} pointer 
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l00185}{185}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classSystem_l00185}00185 \{std::vector<Molecule*> tmp; tmp.push\_back(omit); \textcolor{keywordflow}{return} \mbox{\hyperlink{classSystem_a92f7bb1329be0fa3e57dcfdcf27d3d1e}{clone}}(tmp);\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSystem_a78b3ba967ba01efe852aaa094e35fde7}\label{classSystem_a78b3ba967ba01efe852aaa094e35fde7}} 
+\index{System@{System}!clone@{clone}}
+\index{clone@{clone}!System@{System}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSystem}{System}} System\+::clone (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$ $>$}]{omit }\end{DoxyParamCaption}) const}
+
+
+
+Make a copy of this system. Explicitly copy some molecules as well. 
+
+This method makes a copy of the given \mbox{\hyperlink{classSystem}{System}} with all the parameters. Specified molecules (if they are in the system) are also separately cloned and added to the new \mbox{\hyperlink{classSystem}{System}}. Other \mbox{\hyperlink{classMolecule}{Molecule}} pointers point to their old objects. 
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l03913}{3913}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classSystem_l03914}03914 \{}
+\DoxyCodeLine{\Hypertarget{classSystem_l03915}03915     \mbox{\hyperlink{classSystem}{System}} ret=this-\/>\mbox{\hyperlink{classSystem_a92f7bb1329be0fa3e57dcfdcf27d3d1e}{clone}}();}
+\DoxyCodeLine{\Hypertarget{classSystem_l03916}03916     ret.mols=std::vector<Molecule*>();}
+\DoxyCodeLine{\Hypertarget{classSystem_l03917}03917     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<mols.size();i++)}
+\DoxyCodeLine{\Hypertarget{classSystem_l03918}03918     \{}
+\DoxyCodeLine{\Hypertarget{classSystem_l03919}03919         \textcolor{keywordflow}{if}(contains(omit,mols[i]))}
+\DoxyCodeLine{\Hypertarget{classSystem_l03920}03920             ret.mols.push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{classMolecule}{Molecule}}(mols[i]));}
+\DoxyCodeLine{\Hypertarget{classSystem_l03921}03921         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{classSystem_l03922}03922             ret.mols.push\_back(mols[i]);}
+\DoxyCodeLine{\Hypertarget{classSystem_l03923}03923     \}}
+\DoxyCodeLine{\Hypertarget{classSystem_l03924}03924     \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{\Hypertarget{classSystem_l03925}03925 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSystem_a020170c74357f6f2534767bbf32f94c2}\label{classSystem_a020170c74357f6f2534767bbf32f94c2}} 
+\index{System@{System}!dumpSystem@{dumpSystem}}
+\index{dumpSystem@{dumpSystem}!System@{System}}
+\doxysubsubsection{\texorpdfstring{dumpSystem()}{dumpSystem()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void System\+::dump\+System (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{output\+\_\+file }\end{DoxyParamCaption}) const}
+
+
+
+Dump all the molecules in this \mbox{\hyperlink{classSystem}{System}} sequentially into a file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em output\+\_\+file} & Name of the file to which output must be written (type\+: std\+::string) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l03954}{3954}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classSystem_l03955}03955 \{}
+\DoxyCodeLine{\Hypertarget{classSystem_l03956}03956     ofstream f; f.open(of);}
+\DoxyCodeLine{\Hypertarget{classSystem_l03957}03957     \textcolor{keywordflow}{for}(\mbox{\hyperlink{classMolecule}{Molecule}}* m : mols)}
+\DoxyCodeLine{\Hypertarget{classSystem_l03958}03958     \{}
+\DoxyCodeLine{\Hypertarget{classSystem_l03959}03959         \textcolor{keywordflow}{if}(m-\/>type==1) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{classSystem_l03960}03960         m-\/>dumpMol(f);}
+\DoxyCodeLine{\Hypertarget{classSystem_l03961}03961     \}}
+\DoxyCodeLine{\Hypertarget{classSystem_l03962}03962     f.close();}
+\DoxyCodeLine{\Hypertarget{classSystem_l03963}03963     cout << \textcolor{stringliteral}{"{}Dumped system to: "{}}<<of<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classSystem_l03964}03964 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSystem_a66fa28ef19e6be5e55e8c188e7ef4e18}\label{classSystem_a66fa28ef19e6be5e55e8c188e7ef4e18}} 
+\index{System@{System}!dumpSystem@{dumpSystem}}
+\index{dumpSystem@{dumpSystem}!System@{System}}
+\doxysubsubsection{\texorpdfstring{dumpSystem()}{dumpSystem()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void System\+::dump\+System (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{output\+\_\+file,  }\item[{const std\+::string \&}]{txt\+\_\+file }\end{DoxyParamCaption}) const}
+
+
+
+Dump all the molecules in this \mbox{\hyperlink{classSystem}{System}} sequentially into a file. Dump TXT files (checkpoints) into a separate files. 
+
+This method creates two files. One is the normal PDB dump with multiple molecules. The other is a TXT file (the original format for De\+Novo). ~\newline
+ Newer versions of De\+Novo can rad directly from PDB files, and hence this method is rarely used. However, it is kept for backward support.~\newline
+TXT files are the standard (and only) input for all De\+Novo versions before SIGMA (β,Ɣ(++), δ(++(H)), η(++)) 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em output\+\_\+file} & Name of the file to which normal (PDB) output must be written (type\+: std\+::string) \\
+\hline
+\mbox{\texttt{ in}}  & {\em txt\+\_\+file} & Name of the file to which TXT output must be written (type\+: std\+::string) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l03965}{3965}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classSystem_l03966}03966 \{}
+\DoxyCodeLine{\Hypertarget{classSystem_l03967}03967     \mbox{\hyperlink{classSystem_a020170c74357f6f2534767bbf32f94c2}{dumpSystem}}(of);}
+\DoxyCodeLine{\Hypertarget{classSystem_l03968}03968     ofstream f; f.open(tf,fstream::out);}
+\DoxyCodeLine{\Hypertarget{classSystem_l03969}03969     \textcolor{keywordflow}{for}(\mbox{\hyperlink{classMolecule}{Molecule}}* m : mols)}
+\DoxyCodeLine{\Hypertarget{classSystem_l03970}03970     \{}
+\DoxyCodeLine{\Hypertarget{classSystem_l03971}03971         \textcolor{keywordflow}{if}(m-\/>type==1) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{classSystem_l03972}03972         m-\/>dumpMolAsTxt(f);}
+\DoxyCodeLine{\Hypertarget{classSystem_l03973}03973     \}}
+\DoxyCodeLine{\Hypertarget{classSystem_l03974}03974     f.close();}
+\DoxyCodeLine{\Hypertarget{classSystem_l03975}03975     cout << \textcolor{stringliteral}{"{}Dumped system(cpt) to: "{}}<<tf<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classSystem_l03976}03976 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSystem_ac2f56ead0bec07a4087ecdbbc35ca342}\label{classSystem_ac2f56ead0bec07a4087ecdbbc35ca342}} 
+\index{System@{System}!generateGrid@{generateGrid}}
+\index{generateGrid@{generateGrid}!System@{System}}
+\doxysubsubsection{\texorpdfstring{generateGrid()}{generateGrid()}}
+{\footnotesize\ttfamily void System\+::generate\+Grid (\begin{DoxyParamCaption}\item[{int}]{marX = {\ttfamily DEFAULT\+\_\+MARX},  }\item[{int}]{marY = {\ttfamily 5},  }\item[{int}]{marZ = {\ttfamily 5},  }\item[{double}]{res = {\ttfamily 10} }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000038}{Deprecated}}]Grid functions are deprecated \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l03882}{3882}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classSystem_l03883}03883 \{}
+\DoxyCodeLine{\Hypertarget{classSystem_l03884}03884     cout << \textcolor{stringliteral}{"{}Begin grid construction\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classSystem_l03885}03885     std::vector<double> xvals,yvals,zvals;}
+\DoxyCodeLine{\Hypertarget{classSystem_l03886}03886   \textcolor{keywordflow}{for}(\mbox{\hyperlink{classMolecule}{Molecule}}* m : mols)}
+\DoxyCodeLine{\Hypertarget{classSystem_l03887}03887   \{}
+\DoxyCodeLine{\Hypertarget{classSystem_l03888}03888     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<m-\/>getSize();i++)}
+\DoxyCodeLine{\Hypertarget{classSystem_l03889}03889     \{}
+\DoxyCodeLine{\Hypertarget{classSystem_l03890}03890         xvals.push\_back(m-\/>getAtom(i)-\/>seek\_x());}
+\DoxyCodeLine{\Hypertarget{classSystem_l03891}03891         yvals.push\_back(m-\/>getAtom(i)-\/>seek\_y());}
+\DoxyCodeLine{\Hypertarget{classSystem_l03892}03892         zvals.push\_back(m-\/>getAtom(i)-\/>seek\_z());}
+\DoxyCodeLine{\Hypertarget{classSystem_l03893}03893     \}}
+\DoxyCodeLine{\Hypertarget{classSystem_l03894}03894   \}}
+\DoxyCodeLine{\Hypertarget{classSystem_l03895}03895     \textcolor{keywordtype}{double} mX,MX,mY,MY,mZ,MZ,wX,wY,wZ;}
+\DoxyCodeLine{\Hypertarget{classSystem_l03896}03896     mX=maths::min(xvals); MX=maths::max(xvals);}
+\DoxyCodeLine{\Hypertarget{classSystem_l03897}03897     mY=maths::min(yvals); MY=maths::max(yvals);}
+\DoxyCodeLine{\Hypertarget{classSystem_l03898}03898     mZ=maths::min(zvals); MZ=maths::max(zvals);}
+\DoxyCodeLine{\Hypertarget{classSystem_l03899}03899     cout <<\textcolor{stringliteral}{"{}Will generate grid: xrange["{}}<<mX<<\textcolor{stringliteral}{"{}:"{}}<<MX<<\textcolor{stringliteral}{"{}],yrange["{}}<<mY<<\textcolor{stringliteral}{"{}:"{}}<<MY<<\textcolor{stringliteral}{"{}],zrange["{}}<<mZ<<\textcolor{stringliteral}{"{}:"{}}<<MZ<<\textcolor{stringliteral}{"{}]\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classSystem_l03900}03900     wX=(MX-\/mX)+2*marX; wY=(MY-\/mY)+2*marY; wZ=(MZ-\/mZ)+2*marZ;}
+\DoxyCodeLine{\Hypertarget{classSystem_l03901}03901     \mbox{\hyperlink{classSystem_adc283f24de0855bba920e7c12504ae16}{gridOffset}}=Eigen::Vector3d(mX-\/marX,mY-\/marY,mZ-\/marZ);}
+\DoxyCodeLine{\Hypertarget{classSystem_l03902}03902     \textcolor{keywordtype}{int} wid=(int)(wX*res+1),hei=(int)(wY*res+1),dep=(int)(wZ*res+1);}
+\DoxyCodeLine{\Hypertarget{classSystem_l03903}03903     myGrid=\textcolor{keyword}{new} \mbox{\hyperlink{classtensor3D__int}{tensor3D\_int}}(wid,hei,dep);}
+\DoxyCodeLine{\Hypertarget{classSystem_l03904}03904     \mbox{\hyperlink{classSystem_a80c86784a03aad0b070fbae0c6766b27}{grid\_width}}=wid; \mbox{\hyperlink{classSystem_af1d5163ce4afd2e6f3cae0f4ba81a25d}{grid\_height}}=hei; \mbox{\hyperlink{classSystem_a8234c3dc0fa1830f09947ffe67d0268f}{grid\_depth}}=dep;}
+\DoxyCodeLine{\Hypertarget{classSystem_l03905}03905     \mbox{\hyperlink{classSystem_aa6e3e2c827e5dacc5b6898ca3e2b51f5}{grid\_resolution}}=res;}
+\DoxyCodeLine{\Hypertarget{classSystem_l03906}03906     myGrid-\/>fill\_with\_zero();}
+\DoxyCodeLine{\Hypertarget{classSystem_l03907}03907     cout << \textcolor{stringliteral}{"{}Empty grid created.\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classSystem_l03908}03908   \textcolor{keywordflow}{for}(\mbox{\hyperlink{classMolecule}{Molecule}}* m : mols)}
+\DoxyCodeLine{\Hypertarget{classSystem_l03909}03909         m-\/>loadGrid(*\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{classSystem_l03910}03910     cout << \textcolor{stringliteral}{"{}Grid filled with data\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classSystem_l03911}03911 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSystem_a1f603feb6e6e6bec7e2d4e0296ec99e9}\label{classSystem_a1f603feb6e6e6bec7e2d4e0296ec99e9}} 
+\index{System@{System}!getClosestFreeSpace@{getClosestFreeSpace}}
+\index{getClosestFreeSpace@{getClosestFreeSpace}!System@{System}}
+\doxysubsubsection{\texorpdfstring{getClosestFreeSpace()}{getClosestFreeSpace()}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3i System\+::get\+Closest\+Free\+Space (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{z,  }\item[{int}]{maxtries = {\ttfamily 1e4} }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000040}{Deprecated}}]Grid functions are deprecated \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l03926}{3926}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classSystem_l03927}03927 \{}
+\DoxyCodeLine{\Hypertarget{classSystem_l03928}03928     \textcolor{keywordflow}{if}(!\mbox{\hyperlink{classSystem_a3b370e570c93eedee6b34d2b90122434}{occupied}}(x,y,z))}
+\DoxyCodeLine{\Hypertarget{classSystem_l03929}03929     \{}
+\DoxyCodeLine{\Hypertarget{classSystem_l03930}03930         \textcolor{keywordflow}{if}(!\mbox{\hyperlink{classSystem_a3b370e570c93eedee6b34d2b90122434}{occupied}}(x+1,y,z) \&\& !\mbox{\hyperlink{classSystem_a3b370e570c93eedee6b34d2b90122434}{occupied}}(x-\/1,y,z) \&\& !\mbox{\hyperlink{classSystem_a3b370e570c93eedee6b34d2b90122434}{occupied}}(x,y+1,z) \&\& !\mbox{\hyperlink{classSystem_a3b370e570c93eedee6b34d2b90122434}{occupied}}(x,y-\/1,z) \&\& !\mbox{\hyperlink{classSystem_a3b370e570c93eedee6b34d2b90122434}{occupied}}(x,y,z+1) \&\& !\mbox{\hyperlink{classSystem_a3b370e570c93eedee6b34d2b90122434}{occupied}}(x,y,z-\/1))}
+\DoxyCodeLine{\Hypertarget{classSystem_l03931}03931             \textcolor{keywordflow}{return} Eigen::Vector3i(x,y,z);}
+\DoxyCodeLine{\Hypertarget{classSystem_l03932}03932     \}}
+\DoxyCodeLine{\Hypertarget{classSystem_l03933}03933     \textcolor{keywordflow}{if}(!maxtries) \{cout <<\textcolor{stringliteral}{"{}Sorry maxtries are up\(\backslash\)n."{}}; \textcolor{keywordflow}{return} Eigen::Vector3i(x,y,z);\}}
+\DoxyCodeLine{\Hypertarget{classSystem_l03934}03934     \textcolor{keywordtype}{int} rd=throwarandompoint(0,6);}
+\DoxyCodeLine{\Hypertarget{classSystem_l03935}03935     \textcolor{keywordflow}{switch}(rd)}
+\DoxyCodeLine{\Hypertarget{classSystem_l03936}03936     \{}
+\DoxyCodeLine{\Hypertarget{classSystem_l03937}03937         \textcolor{keywordflow}{case} 0:}
+\DoxyCodeLine{\Hypertarget{classSystem_l03938}03938             \textcolor{keywordflow}{return} \mbox{\hyperlink{classSystem_a1f603feb6e6e6bec7e2d4e0296ec99e9}{getClosestFreeSpace}}(x-\/1,y,z,maxtries-\/1);}
+\DoxyCodeLine{\Hypertarget{classSystem_l03939}03939         \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{\Hypertarget{classSystem_l03940}03940             \textcolor{keywordflow}{return} \mbox{\hyperlink{classSystem_a1f603feb6e6e6bec7e2d4e0296ec99e9}{getClosestFreeSpace}}(x,y-\/1,z,maxtries-\/1);}
+\DoxyCodeLine{\Hypertarget{classSystem_l03941}03941         \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{\Hypertarget{classSystem_l03942}03942             \textcolor{keywordflow}{return} \mbox{\hyperlink{classSystem_a1f603feb6e6e6bec7e2d4e0296ec99e9}{getClosestFreeSpace}}(x,y,z-\/1,maxtries-\/1);}
+\DoxyCodeLine{\Hypertarget{classSystem_l03943}03943         \textcolor{keywordflow}{case} 3:}
+\DoxyCodeLine{\Hypertarget{classSystem_l03944}03944             \textcolor{keywordflow}{return} \mbox{\hyperlink{classSystem_a1f603feb6e6e6bec7e2d4e0296ec99e9}{getClosestFreeSpace}}(x+1,y,z,maxtries-\/1);}
+\DoxyCodeLine{\Hypertarget{classSystem_l03945}03945         \textcolor{keywordflow}{case} 4:}
+\DoxyCodeLine{\Hypertarget{classSystem_l03946}03946             \textcolor{keywordflow}{return} \mbox{\hyperlink{classSystem_a1f603feb6e6e6bec7e2d4e0296ec99e9}{getClosestFreeSpace}}(x,y+1,z,maxtries-\/1);}
+\DoxyCodeLine{\Hypertarget{classSystem_l03947}03947         \textcolor{keywordflow}{case} 5:}
+\DoxyCodeLine{\Hypertarget{classSystem_l03948}03948             \textcolor{keywordflow}{return} \mbox{\hyperlink{classSystem_a1f603feb6e6e6bec7e2d4e0296ec99e9}{getClosestFreeSpace}}(x,y,z+1,maxtries-\/1);}
+\DoxyCodeLine{\Hypertarget{classSystem_l03949}03949         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{classSystem_l03950}03950             cout << \textcolor{stringliteral}{"{}Warning: failed random int\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{classSystem_l03951}03951             \textcolor{keywordflow}{return} Eigen::Vector3i(x,y,z);}
+\DoxyCodeLine{\Hypertarget{classSystem_l03952}03952     \}}
+\DoxyCodeLine{\Hypertarget{classSystem_l03953}03953 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSystem_a3018ff2fa3c6b4c5b59c6d999ee28dfe}\label{classSystem_a3018ff2fa3c6b4c5b59c6d999ee28dfe}} 
+\index{System@{System}!getDrugMolecule@{getDrugMolecule}}
+\index{getDrugMolecule@{getDrugMolecule}!System@{System}}
+\doxysubsubsection{\texorpdfstring{getDrugMolecule()}{getDrugMolecule()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$ System\+::get\+Drug\+Molecule (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the first non-\/macromolecule object from the list of molecules in this \mbox{\hyperlink{classSystem}{System}} 
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l03977}{3977}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classSystem_l03978}03978 \{}
+\DoxyCodeLine{\Hypertarget{classSystem_l03979}03979     \textcolor{keywordflow}{for}(\mbox{\hyperlink{classMolecule}{Molecule}}* m : mols) \{\textcolor{keywordflow}{if}(m-\/>type!=1) \textcolor{keywordflow}{return} m;\}}
+\DoxyCodeLine{\Hypertarget{classSystem_l03980}03980     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{classSystem_l03981}03981 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSystem_aab0e0d51deed8d446ef9c8ec0e04a3e1}\label{classSystem_aab0e0d51deed8d446ef9c8ec0e04a3e1}} 
+\index{System@{System}!getMolecules@{getMolecules}}
+\index{getMolecules@{getMolecules}!System@{System}}
+\doxysubsubsection{\texorpdfstring{getMolecules()}{getMolecules()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$ $>$ \& System\+::get\+Molecules (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get all the molecules contained in this \mbox{\hyperlink{classSystem}{System}}. 
+
+This method returns all the \mbox{\hyperlink{classMolecule}{Molecule}} objects (as pointers) contained in this \mbox{\hyperlink{classSystem}{System}}.~\newline
+ Any changes made to molecules returned by this method will reflect on the molecules in the system as well.~\newline
+ Use \mbox{\hyperlink{classMolecule_a21ee086bf224ec95f24aae555e94b5b9}{Molecule\+::\+Molecule(const Molecule$\ast$)}} to manually copy a molecule to avoid this. \begin{DoxyReturn}{Returns}
+std\+::vector of \mbox{\hyperlink{classMolecule}{Molecule}} object pointers (std\+::vector$<$\+Molecule$\ast$$>$) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l00173}{173}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classSystem_l00173}00173 \{\textcolor{keywordflow}{return} mols;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSystem_a9a511120c5458822e88f2136aa7fdb2e}\label{classSystem_a9a511120c5458822e88f2136aa7fdb2e}} 
+\index{System@{System}!getMolecules@{getMolecules}}
+\index{getMolecules@{getMolecules}!System@{System}}
+\doxysubsubsection{\texorpdfstring{getMolecules()}{getMolecules()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$ $>$ \& System\+::get\+Molecules (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get all the molecules contained in this \mbox{\hyperlink{classSystem}{System}}. (alternate method for a \char`\"{}const\char`\"{} \mbox{\hyperlink{classSystem}{System}} object) 
+
+This method returns all the \mbox{\hyperlink{classMolecule}{Molecule}} objects (as pointers) contained in this \mbox{\hyperlink{classSystem}{System}}.~\newline
+ Any changes made to molecules returned by this method will reflect on the molecules in the system as well.~\newline
+ Use \mbox{\hyperlink{classMolecule_a21ee086bf224ec95f24aae555e94b5b9}{Molecule\+::\+Molecule(const Molecule$\ast$)}} to manually copy a molecule to avoid this. \begin{DoxyReturn}{Returns}
+std\+::vector of \mbox{\hyperlink{classMolecule}{Molecule}} object pointers (std\+::vector$<$\+Molecule$\ast$$>$) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l00168}{168}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classSystem_l00168}00168 \{\textcolor{keywordflow}{return} mols;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSystem_ad9f7387804eeb148d60d439e9a8bd9b2}\label{classSystem_ad9f7387804eeb148d60d439e9a8bd9b2}} 
+\index{System@{System}!getProteinMolecule@{getProteinMolecule}}
+\index{getProteinMolecule@{getProteinMolecule}!System@{System}}
+\doxysubsubsection{\texorpdfstring{getProteinMolecule()}{getProteinMolecule()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classProtein}{Protein}} $\ast$ System\+::get\+Protein\+Molecule (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the first macromolecule object (\mbox{\hyperlink{classProtein}{Protein}}) from the list of molecules in this \mbox{\hyperlink{classSystem}{System}} 
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l03998}{3998}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classSystem_l03999}03999 \{}
+\DoxyCodeLine{\Hypertarget{classSystem_l04000}04000     \textcolor{keywordflow}{for}(\mbox{\hyperlink{classMolecule}{Molecule}}* m : mols) \{\textcolor{keywordflow}{if}(m-\/>type==1) \textcolor{keywordflow}{return} (\mbox{\hyperlink{classProtein}{Protein}}*)m;\}}
+\DoxyCodeLine{\Hypertarget{classSystem_l04001}04001     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{classSystem_l04002}04002 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSystem_ab40a2d763cf2f23f4565f663aedc25df}\label{classSystem_ab40a2d763cf2f23f4565f663aedc25df}} 
+\index{System@{System}!grid@{grid}}
+\index{grid@{grid}!System@{System}}
+\doxysubsubsection{\texorpdfstring{grid()}{grid()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classtensor3D__int}{Grid}} \& System\+::grid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000036}{Deprecated}}]Grid functions are deprecated \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l00146}{146}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classSystem_l00146}00146 \{\textcolor{keywordflow}{return} *myGrid;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSystem_a16b9a0c9fe6a3d66e86aa79ad1caf0bf}\label{classSystem_a16b9a0c9fe6a3d66e86aa79ad1caf0bf}} 
+\index{System@{System}!grid@{grid}}
+\index{grid@{grid}!System@{System}}
+\doxysubsubsection{\texorpdfstring{grid()}{grid()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classtensor3D__int}{Grid}} \& System\+::grid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000037}{Deprecated}}]Grid functions are deprecated \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l00148}{148}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classSystem_l00148}00148 \{\textcolor{keywordflow}{return} *myGrid;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSystem_a3b370e570c93eedee6b34d2b90122434}\label{classSystem_a3b370e570c93eedee6b34d2b90122434}} 
+\index{System@{System}!occupied@{occupied}}
+\index{occupied@{occupied}!System@{System}}
+\doxysubsubsection{\texorpdfstring{occupied()}{occupied()}}
+{\footnotesize\ttfamily bool System\+::occupied (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{z }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000039}{Deprecated}}]Grid functions are deprecated \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l00163}{163}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classSystem_l00163}00163 \{\textcolor{keywordflow}{return} (\textcolor{keywordtype}{bool})((myGrid)?(*myGrid)(x,y,z):\textcolor{keyword}{false});\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSystem_a667946c9718ecd9c7991ea04277a7e8b}\label{classSystem_a667946c9718ecd9c7991ea04277a7e8b}} 
+\index{System@{System}!popDrugMolecule@{popDrugMolecule}}
+\index{popDrugMolecule@{popDrugMolecule}!System@{System}}
+\doxysubsubsection{\texorpdfstring{popDrugMolecule()}{popDrugMolecule()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMolecule}{Molecule}} $\ast$ System\+::pop\+Drug\+Molecule (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the first non-\/macromolecule object from the list of molecules in this \mbox{\hyperlink{classSystem}{System}} and remove it from the \mbox{\hyperlink{classSystem}{System}} 
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l03982}{3982}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classSystem_l03983}03983 \{}
+\DoxyCodeLine{\Hypertarget{classSystem_l03984}03984     \textcolor{keywordtype}{int} ind=-\/1;}
+\DoxyCodeLine{\Hypertarget{classSystem_l03985}03985     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<mols.size();i++)}
+\DoxyCodeLine{\Hypertarget{classSystem_l03986}03986     \{}
+\DoxyCodeLine{\Hypertarget{classSystem_l03987}03987         \textcolor{keywordflow}{if}(mols[i]-\/>type!=1)}
+\DoxyCodeLine{\Hypertarget{classSystem_l03988}03988         \{}
+\DoxyCodeLine{\Hypertarget{classSystem_l03989}03989             ind=i;}
+\DoxyCodeLine{\Hypertarget{classSystem_l03990}03990             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{classSystem_l03991}03991         \}}
+\DoxyCodeLine{\Hypertarget{classSystem_l03992}03992     \}}
+\DoxyCodeLine{\Hypertarget{classSystem_l03993}03993     \textcolor{keywordflow}{if}(ind==-\/1) \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{classSystem_l03994}03994     \mbox{\hyperlink{classMolecule}{Molecule}}* ret=mols[ind];}
+\DoxyCodeLine{\Hypertarget{classSystem_l03995}03995     mols.erase(mols.begin()+ind);}
+\DoxyCodeLine{\Hypertarget{classSystem_l03996}03996     \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{\Hypertarget{classSystem_l03997}03997 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSystem_a7cf3560ee79c016ad592955c73fa07b8}\label{classSystem_a7cf3560ee79c016ad592955c73fa07b8}} 
+\index{System@{System}!setContainer@{setContainer}}
+\index{setContainer@{setContainer}!System@{System}}
+\doxysubsubsection{\texorpdfstring{setContainer()}{setContainer()}}
+{\footnotesize\ttfamily void System\+::set\+Container (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classquickgeom_1_1Container}{quickgeom\+::\+Container}} $\ast$}]{cnt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the container for restraining growth to within it. 
+
+The Container (supplied as a pointer) will be the region (if set) to which growth is restrained. You can further restrain it using hotspot atoms as well. 
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l00160}{160}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classSystem_l00160}00160 \{restrbox=cnt;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSystem_ab81926c5657aae717c8367444d36ef65}\label{classSystem_ab81926c5657aae717c8367444d36ef65}} 
+\index{System@{System}!setForceField@{setForceField}}
+\index{setForceField@{setForceField}!System@{System}}
+\doxysubsubsection{\texorpdfstring{setForceField()}{setForceField()}}
+{\footnotesize\ttfamily void System\+::set\+Force\+Field (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classForceField}{Force\+Field}} $\ast$}]{ffd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Allows changing the \mbox{\hyperlink{classForceField}{Force\+Field}} linked with this system after construction. 
+
+This method allows assigning a new \mbox{\hyperlink{classForceField}{Force\+Field}} to the \mbox{\hyperlink{classSystem}{System}} at run-\/time.~\newline
+ However, it is recommended to keep using the \mbox{\hyperlink{classForceField}{Force\+Field}} with which the \mbox{\hyperlink{classSystem}{System}} was constructed throughout its lifetime. 
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l00154}{154}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classSystem_l00154}00154 \{\mbox{\hyperlink{classSystem_a9e485ee26141788c9f971a47703bb4a0}{ff}}=ffd;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSystem_a74dce148064c0f5a9fd12c56f9f7fee8}\label{classSystem_a74dce148064c0f5a9fd12c56f9f7fee8}} 
+\index{System@{System}!strongWVCheck@{strongWVCheck}}
+\index{strongWVCheck@{strongWVCheck}!System@{System}}
+\doxysubsubsection{\texorpdfstring{strongWVCheck()}{strongWVCheck()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool System\+::strong\+WVCheck (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAtom}{Atom}} $\ast$}]{exm }\end{DoxyParamCaption}) const}
+
+
+
+Checks if an atom is clashing with any of the molecules in the \mbox{\hyperlink{classSystem}{System}}. 
+
+This method uses vanderwaal radii of all the atoms to check if the \mbox{\hyperlink{classAtom}{Atom}} being considered clashes with any other in the \mbox{\hyperlink{classSystem}{System}}. ~\newline
+ The input molecule {\bfseries{must not}} belong to any molecule present in the \mbox{\hyperlink{classSystem}{System}}~\newline
+ See also\+: \mbox{\hyperlink{classSystem_a32339c7c2ec9b648c3f3847960b39c19}{strong\+WVCheck(\+Molecule$\ast$) const}} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em exm} & The atom being examined. (Atom$\ast$) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l04019}{4019}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classSystem_l04020}04020 \{}
+\DoxyCodeLine{\Hypertarget{classSystem_l04021}04021     \textcolor{keywordflow}{for}(\mbox{\hyperlink{classMolecule}{Molecule}}* m : mols)}
+\DoxyCodeLine{\Hypertarget{classSystem_l04022}04022     \{}
+\DoxyCodeLine{\Hypertarget{classSystem_l04023}04023         \textcolor{comment}{//if(m==exm) continue;}}
+\DoxyCodeLine{\Hypertarget{classSystem_l04024}04024         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<m-\/>getSize();i++)}
+\DoxyCodeLine{\Hypertarget{classSystem_l04025}04025         \{}
+\DoxyCodeLine{\Hypertarget{classSystem_l04026}04026             \textcolor{keywordflow}{if}(m-\/>getAtom(i)-\/>isHydrogen()) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{classSystem_l04027}04027             \textcolor{keywordflow}{if}(m-\/>getAtom(i)-\/>distanceFrom(exa)<(m-\/>getAtom(i)-\/>seek\_sigma()+exa-\/>seek\_sigma())/2) \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \textcolor{comment}{//check fails: Atom clashes with protein}}
+\DoxyCodeLine{\Hypertarget{classSystem_l04028}04028             \textcolor{comment}{//if(m-\/>return\_atom(i)-\/>distanceFrom(exa)<0.24) return false; //check fails: Atom clashes with protein}}
+\DoxyCodeLine{\Hypertarget{classSystem_l04029}04029         \}}
+\DoxyCodeLine{\Hypertarget{classSystem_l04030}04030     \}}
+\DoxyCodeLine{\Hypertarget{classSystem_l04031}04031     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{classSystem_l04032}04032 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSystem_a32339c7c2ec9b648c3f3847960b39c19}\label{classSystem_a32339c7c2ec9b648c3f3847960b39c19}} 
+\index{System@{System}!strongWVCheck@{strongWVCheck}}
+\index{strongWVCheck@{strongWVCheck}!System@{System}}
+\doxysubsubsection{\texorpdfstring{strongWVCheck()}{strongWVCheck()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool System\+::strong\+WVCheck (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMolecule}{Molecule}} $\ast$}]{exm }\end{DoxyParamCaption}) const}
+
+
+
+Checks if a molecule is clashing with any of the molecules in the \mbox{\hyperlink{classSystem}{System}}. 
+
+This method uses vanderwaal radii of all the atoms to check if the \mbox{\hyperlink{classMolecule}{Molecule}} being considered clashes with any other in the \mbox{\hyperlink{classSystem}{System}}. ~\newline
+ The input molecule does not necessarily have to belong to the \mbox{\hyperlink{classSystem}{System}}~\newline
+ See also\+: \mbox{\hyperlink{classSystem_a74dce148064c0f5a9fd12c56f9f7fee8}{strong\+WVCheck(\+Atom$\ast$) const}} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em exm} & The molecule being examined. (Molecule$\ast$) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l04003}{4003}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{classSystem_l04004}04004 \{}
+\DoxyCodeLine{\Hypertarget{classSystem_l04005}04005     \textcolor{keywordflow}{for}(\mbox{\hyperlink{classMolecule}{Molecule}}* m : mols)}
+\DoxyCodeLine{\Hypertarget{classSystem_l04006}04006     \{}
+\DoxyCodeLine{\Hypertarget{classSystem_l04007}04007         \textcolor{keywordflow}{if}(m==exm) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{classSystem_l04008}04008         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<m-\/>getSize();i++)}
+\DoxyCodeLine{\Hypertarget{classSystem_l04009}04009         \{}
+\DoxyCodeLine{\Hypertarget{classSystem_l04010}04010             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=0;j<exm-\/>\mbox{\hyperlink{classMolecule_a6946cbe0d8daa9b2386d85ca7faf0cd1}{getSize}}();j++)}
+\DoxyCodeLine{\Hypertarget{classSystem_l04011}04011             \{}
+\DoxyCodeLine{\Hypertarget{classSystem_l04012}04012                 \textcolor{keywordflow}{if}(m-\/>getAtom(i)-\/>distanceFrom(exm-\/>\mbox{\hyperlink{classMolecule_a75dace1f6d0736e85fbe517a0f26e136}{getAtom}}(j))<(m-\/>getAtom(i)-\/>seek\_sigma()+exm-\/>\mbox{\hyperlink{classMolecule_a75dace1f6d0736e85fbe517a0f26e136}{getAtom}}(j)-\/>\mbox{\hyperlink{classAtom_af064e5513e564187fd4e5726c9c1d5a7}{seek\_sigma}}())/2) \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \textcolor{comment}{//check fails: Atom clashes with protein}}
+\DoxyCodeLine{\Hypertarget{classSystem_l04013}04013                 \textcolor{comment}{//if(m-\/>return\_atom(i)-\/>distanceFrom(exm-\/>return\_atom(j))<0.24) return false; //check fails: Atom clashes with protein}}
+\DoxyCodeLine{\Hypertarget{classSystem_l04014}04014             \}}
+\DoxyCodeLine{\Hypertarget{classSystem_l04015}04015         \}}
+\DoxyCodeLine{\Hypertarget{classSystem_l04016}04016     \}}
+\DoxyCodeLine{\Hypertarget{classSystem_l04017}04017     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{classSystem_l04018}04018 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classSystem_a9e485ee26141788c9f971a47703bb4a0}\label{classSystem_a9e485ee26141788c9f971a47703bb4a0}} 
+\index{System@{System}!ff@{ff}}
+\index{ff@{ff}!System@{System}}
+\doxysubsubsection{\texorpdfstring{ff}{ff}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classForceField}{Force\+Field}}$\ast$ System\+::ff}
+
+The \mbox{\hyperlink{classForceField}{Force\+Field}} (object pointer) linked to this \mbox{\hyperlink{classSystem}{System}}. De\+Novo versions upto θ2 used a direct copy of the object.~\newline
+ Owing to the enormous number of copies created per system while loading into a queue, this was changed to a pointer 
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l00116}{116}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+\mbox{\Hypertarget{classSystem_a8234c3dc0fa1830f09947ffe67d0268f}\label{classSystem_a8234c3dc0fa1830f09947ffe67d0268f}} 
+\index{System@{System}!grid\_depth@{grid\_depth}}
+\index{grid\_depth@{grid\_depth}!System@{System}}
+\doxysubsubsection{\texorpdfstring{grid\_depth}{grid\_depth}}
+{\footnotesize\ttfamily int System\+::grid\+\_\+depth}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000034}{Deprecated}}]Grid variables are deprecated \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l00114}{114}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+\mbox{\Hypertarget{classSystem_af1d5163ce4afd2e6f3cae0f4ba81a25d}\label{classSystem_af1d5163ce4afd2e6f3cae0f4ba81a25d}} 
+\index{System@{System}!grid\_height@{grid\_height}}
+\index{grid\_height@{grid\_height}!System@{System}}
+\doxysubsubsection{\texorpdfstring{grid\_height}{grid\_height}}
+{\footnotesize\ttfamily int System\+::grid\+\_\+height}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000033}{Deprecated}}]Grid variables are deprecated \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l00113}{113}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+\mbox{\Hypertarget{classSystem_aa6e3e2c827e5dacc5b6898ca3e2b51f5}\label{classSystem_aa6e3e2c827e5dacc5b6898ca3e2b51f5}} 
+\index{System@{System}!grid\_resolution@{grid\_resolution}}
+\index{grid\_resolution@{grid\_resolution}!System@{System}}
+\doxysubsubsection{\texorpdfstring{grid\_resolution}{grid\_resolution}}
+{\footnotesize\ttfamily int System\+::grid\+\_\+resolution}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000035}{Deprecated}}]Grid variables are deprecated \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l00115}{115}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+\mbox{\Hypertarget{classSystem_a80c86784a03aad0b070fbae0c6766b27}\label{classSystem_a80c86784a03aad0b070fbae0c6766b27}} 
+\index{System@{System}!grid\_width@{grid\_width}}
+\index{grid\_width@{grid\_width}!System@{System}}
+\doxysubsubsection{\texorpdfstring{grid\_width}{grid\_width}}
+{\footnotesize\ttfamily int System\+::grid\+\_\+width}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000032}{Deprecated}}]Grid variables are deprecated \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l00112}{112}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+\mbox{\Hypertarget{classSystem_adc283f24de0855bba920e7c12504ae16}\label{classSystem_adc283f24de0855bba920e7c12504ae16}} 
+\index{System@{System}!gridOffset@{gridOffset}}
+\index{gridOffset@{gridOffset}!System@{System}}
+\doxysubsubsection{\texorpdfstring{gridOffset}{gridOffset}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d System\+::grid\+Offset}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000031}{Deprecated}}]Grid variables are deprecated \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l00111}{111}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+\mbox{\Hypertarget{classSystem_ad1674d51a2b296f65e361eade8ad253e}\label{classSystem_ad1674d51a2b296f65e361eade8ad253e}} 
+\index{System@{System}!temp@{temp}}
+\index{temp@{temp}!System@{System}}
+\doxysubsubsection{\texorpdfstring{temp}{temp}}
+{\footnotesize\ttfamily double System\+::temp =298}
+
+\mbox{\hyperlink{classSystem}{System}} temperature 
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l00117}{117}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+graph/Molecule.\+hpp\end{DoxyCompactItemize}

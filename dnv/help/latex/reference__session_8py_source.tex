@@ -1,0 +1,341 @@
+\hypertarget{reference__session_8py_source}{}\doxysection{reference\+\_\+session.\+py}
+\label{reference__session_8py_source}\index{chimera/reference\_session.py@{chimera/reference\_session.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00001}00001 \textcolor{keyword}{import} cPickle, base64}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00002}00002 \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00003}00003     \textcolor{keyword}{from} SimpleSession.versions.v65 \textcolor{keyword}{import} beginRestore,\(\backslash\)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00004}00004         registerAfterModelsCB, reportRestoreError, checkVersion}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00005}00005 \textcolor{keywordflow}{except} ImportError:}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00006}00006     \textcolor{keyword}{from} chimera \textcolor{keyword}{import} UserError}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00007}00007     \textcolor{keywordflow}{raise} UserError(\textcolor{stringliteral}{'Cannot open session that was saved in a'}}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00008}00008         \textcolor{stringliteral}{' newer version of Chimera; update your version'})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00009}00009 checkVersion([1, 13, 1, 41965])}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00010}00010 \textcolor{keyword}{import} chimera}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00011}00011 \textcolor{keyword}{from} chimera \textcolor{keyword}{import} replyobj}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00012}00012 replyobj.status(\textcolor{stringliteral}{'Restoring session...'}, \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00013}00013     blankAfter=0)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00014}00014 replyobj.status(\textcolor{stringliteral}{'Beginning session restore...'}, \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00015}00015     blankAfter=0, secondary=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00016}00016 beginRestore()}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00018}00018 \textcolor{keyword}{def }restoreCoreModels():}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00019}00019     \textcolor{keyword}{from} SimpleSession.versions.v65 \textcolor{keyword}{import} init, restoreViewer, \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00020}00020          restoreMolecules, restoreColors, restoreSurfaces, \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00021}00021          restoreVRML, restorePseudoBondGroups, restoreModelAssociations}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00022}00022     molInfo = cPickle.loads(base64.b64decode(\textcolor{stringliteral}{'gAJ9cQEoVRFyaWJib25JbnNpZGVDb2xvcnECSwFOfYdVCWJhbGxTY2FsZXEDSwFHP9AAAAAAAAB9h1UJcG9pbnRTaXplcQRLAUc/8AAAAAAAAH2HVQVjb2xvcnEFSwFLAH2HVQpyaWJib25UeXBlcQZLAUsAfYdVCnN0aWNrU2NhbGVxB0sBRz/wAAAAAAAAfYdVDG1tQ0lGSGVhZGVyc3EIXXEJTmFVDGFyb21hdGljTW9kZXEKSwFLAX2HVQp2ZHdEZW5zaXR5cQtLAUdAFAAAAAAAAH2HVQZoaWRkZW5xDEsBiX2HVQ1hcm9tYXRpY0NvbG9ycQ1LAU59h1UPcmliYm9uU21vb3RoaW5ncQ5LAUsAfYdVCWF1dG9jaGFpbnEPSwGIfYdVCnBkYlZlcnNpb25xEEsBSwJ9h1UIb3B0aW9uYWxxEX1xElUIb3BlbmVkQXNxE4iJSwEoVTUvaG9tZS92ZW5rYXRhL2NwcC90cmFuc2Zlci9mdW5kYW1lbnRhbF90ZXN0cy9iZW56LnBkYnEUVQNQREJxFU6JdHEWfYeHc1UPbG93ZXJDYXNlQ2hhaW5zcRdLAYl9h1UJbGluZVdpZHRocRhLAUc/8AAAAAAAAH2HVQ9yZXNpZHVlTGFiZWxQb3NxGUsBSwB9h1UEbmFtZXEaSwFYCAAAAGJlbnoucGRifYdVD2Fyb21hdGljRGlzcGxheXEbSwGJfYdVD3JpYmJvblN0aWZmbmVzc3EcSwFHP+mZmZmZmZp9h1UKcGRiSGVhZGVyc3EdXXEefXEfKFgGAAAAQ09NUE5EXXEgWBEAAABDT01QTkQgICAgVU5OQU1FRHEhYVgGAAAAQVVUSE9SXXEiWCcAAABBVVRIT1IgICAgR0VORVJBVEVEIEJZIE9QRU4gQkFCRUwgMy4wLjBxI2F1YVUDaWRzcSRLAUsASwCGfYdVDnN1cmZhY2VPcGFjaXR5cSVLAUe/8AAAAAAAAH2HVRBhcm9tYXRpY0xpbmVUeXBlcSZLAUsCfYdVFHJpYmJvbkhpZGVzTWFpbmNoYWlucSdLAYh9h1UHZGlzcGxheXEoSwGIfYd1Lg=='}))}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00023}00023     resInfo = cPickle.loads(base64.b64decode(\textcolor{stringliteral}{'gAJ9cQEoVQZpbnNlcnRxAksBVQEgfYdVC2ZpbGxEaXNwbGF5cQNLAYl9h1UEbmFtZXEESwFYAwAAAFVOTH2HVQVjaGFpbnEFSwFYAwAAAGhldH2HVQ5yaWJib25EcmF3TW9kZXEGSwFLAn2HVQJzc3EHSwGJiYZ9h1UIbW9sZWN1bGVxCEsBSwB9h1ULcmliYm9uQ29sb3JxCUsBTn2HVQVsYWJlbHEKSwFYAAAAAH2HVQpsYWJlbENvbG9ycQtLAU59h1UIZmlsbE1vZGVxDEsBSwF9h1UFaXNIZXRxDUsBiH2HVQtsYWJlbE9mZnNldHEOSwFOfYdVCHBvc2l0aW9ucQ9dcRBLAUsBhnERYVUNcmliYm9uRGlzcGxheXESSwGJfYdVCG9wdGlvbmFscRN9VQRzc0lkcRRLAUr/////fYd1Lg=='}))}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00024}00024     atomInfo = cPickle.loads(base64.b64decode(\textcolor{stringliteral}{'gAJ9cQEoVQdyZXNpZHVlcQJLDEsBfYdVCHZkd0NvbG9ycQNLDE59h1UEbmFtZXEESwxYAQAAAEh9cQVYAQAAAENdcQYoSwBLAUsCSwNLBEsFZXOHVQN2ZHdxB0sMiX2HVQ5zdXJmYWNlRGlzcGxheXEISwyJfYdVBWNvbG9ycQlLDEsBfXEKSwJdcQsoSwZLB0sISwlLCksLZXOHVQlpZGF0bVR5cGVxDEsMiX2HVQZhbHRMb2NxDUsMVQB9h1UFbGFiZWxxDksMWAAAAAB9h1UOc3VyZmFjZU9wYWNpdHlxD0sMR7/wAAAAAAAAfYdVB2VsZW1lbnRxEEsMSwF9cRFLBl1xEihLAEsBSwJLA0sESwVlc4dVCmxhYmVsQ29sb3JxE0sMSwF9cRRLAl1xFShLBksHSwhLCUsKSwtlc4dVDHN1cmZhY2VDb2xvcnEWSwxLAX1xF0sCXXEYKEsGSwdLCEsJSwpLC2Vzh1UPc3VyZmFjZUNhdGVnb3J5cRlLDFgEAAAAbWFpbn2HVQZyYWRpdXNxGksMRz/7MzNAAAAAfXEbRz/wAAAAAAAAXXEcKEsGSwdLCEsJSwpLC2Vzh1UKY29vcmRJbmRleHEdXXEeSwBLDIZxH2FVC2xhYmVsT2Zmc2V0cSBLDE59h1USbWluaW11bUxhYmVsUmFkaXVzcSFLDEcAAAAAAAAAAH2HVQhkcmF3TW9kZXEiSwxLAn2HVQhvcHRpb25hbHEjfXEkKFUMc2VyaWFsTnVtYmVycSWIiF1xJksBSwyGcSdhh1UHYmZhY3RvcnEoiIlLDEcAAAAAAAAAAH2Hh1UJb2NjdXBhbmN5cSmIiUsMRz/wAAAAAAAAfYeHdVUHZGlzcGxheXEqSwyIfYd1Lg=='}))}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00025}00025     bondInfo = cPickle.loads(base64.b64decode(\textcolor{stringliteral}{'gAJ9cQEoVQVjb2xvcnECSwxOfYdVBWF0b21zcQNdcQQoXXEFKEsCSwNlXXEGKEsCSwdlXXEHKEsCSwhlXXEIKEsDSwRlXXEJKEsDSwllXXEKKEsESwVlXXELKEsESwplXXEMKEsFSwZlXXENKEsFSwtlXXEOKEsGSwdlXXEPKEsGSwxlXXEQKEsHSw1lZVUFbGFiZWxxEUsMWAAAAAB9h1UIaGFsZmJvbmRxEksMiH2HVQZyYWRpdXNxE0sMRz/JmZmgAAAAfYdVC2xhYmVsT2Zmc2V0cRRLDE59h1UIZHJhd01vZGVxFUsMSwF9h1UIb3B0aW9uYWxxFn1VB2Rpc3BsYXlxF0sMSwJ9h3Uu'}))}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00026}00026     crdInfo = cPickle.loads(base64.b64decode(\textcolor{stringliteral}{'gAJ9cQFLAH1xAihLAF1xAyhHP/YgxJul41RHv8xqfvnbItFHP3iTdLxqfvqHcQRHP+wxJul41P5HP/FHrhR64UhHP4ysCDEm6XmHcQVHv9/O2RaHKwJHP/S8an752yNHP4aHKwIMSbqHcQZHv/X3ztkWhytHP8sCDEm6XjVHv3BiTdLxqfyHcQdHv+vfO2RaHKxHv/F0vGp++dtHv4ysCDEm6XmHcQhHP+A5WBBiTdNHv/TpeNT987ZHv4BiTdLxqfyHcQlHQAOn752yLQ5Hv9j1wo9cKPZHP4R64UeuFHuHcQpHP/kGJN0vGqBHP/7MzMzMzM1HP5iTdLxqfvqHcQtHv+xqfvnbItFHQAJ64UeuFHtHP5R64UeuFHuHcQxHwAORaHKwIMVHP9hBiTdLxqhHv4BiTdLxqfyHcQ1Hv/jdLxqfvndHv/752yLQ5WBHv5ul41P3ztmHcQ5HP+y8an752yNHwAKRaHKwIMVHv4ysCDEm6XmHcQ9lVQZhY3RpdmVxEEsAdXMu'}))}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00027}00027     surfInfo = \{\textcolor{stringliteral}{'category'}: (0, \textcolor{keywordtype}{None}, \{\}), \textcolor{stringliteral}{'probeRadius'}: (0, \textcolor{keywordtype}{None}, \{\}), \textcolor{stringliteral}{'pointSize'}: (0, \textcolor{keywordtype}{None}, \{\}), \textcolor{stringliteral}{'name'}: [], \textcolor{stringliteral}{'density'}: (0, \textcolor{keywordtype}{None}, \{\}), \textcolor{stringliteral}{'colorMode'}: (0, \textcolor{keywordtype}{None}, \{\}), \textcolor{stringliteral}{'useLighting'}: (0, \textcolor{keywordtype}{None}, \{\}), \textcolor{stringliteral}{'transparencyBlendMode'}: (0, \textcolor{keywordtype}{None}, \{\}), \textcolor{stringliteral}{'molecule'}: [], \textcolor{stringliteral}{'smoothLines'}: (0, \textcolor{keywordtype}{None}, \{\}), \textcolor{stringliteral}{'lineWidth'}: (0, \textcolor{keywordtype}{None}, \{\}), \textcolor{stringliteral}{'allComponents'}: (0, \textcolor{keywordtype}{None}, \{\}), \textcolor{stringliteral}{'twoSidedLighting'}: (0, \textcolor{keywordtype}{None}, \{\}), \textcolor{stringliteral}{'customVisibility'}: [], \textcolor{stringliteral}{'drawMode'}: (0, \textcolor{keywordtype}{None}, \{\}), \textcolor{stringliteral}{'display'}: (0, \textcolor{keywordtype}{None}, \{\}), \textcolor{stringliteral}{'customColors'}: []\}}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00028}00028     vrmlInfo = \{\textcolor{stringliteral}{'subid'}: (0, \textcolor{keywordtype}{None}, \{\}), \textcolor{stringliteral}{'display'}: (0, \textcolor{keywordtype}{None}, \{\}), \textcolor{stringliteral}{'id'}: (0, \textcolor{keywordtype}{None}, \{\}), \textcolor{stringliteral}{'vrmlString'}: [], \textcolor{stringliteral}{'name'}: (0, \textcolor{keywordtype}{None}, \{\})\}}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00029}00029     colors = \{\textcolor{stringliteral}{u'Ru'}: ((0.141176, 0.560784, 0.560784), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Re'}: ((0.14902, 0.490196, 0.670588), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Rf'}: ((0.8, 0, 0.34902), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Ra'}: ((0, 0.490196, 0), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Rb'}: ((0.439216, 0.180392, 0.690196), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Rn'}: ((0.258824, 0.509804, 0.588235), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Rh'}: ((0.0392157, 0.490196, 0.54902), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Be'}: ((0.760784, 1, 0), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Ba'}: ((0, 0.788235, 0), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Bh'}: ((0.878431, 0, 0.219608), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Bi'}: ((0.619608, 0.309804, 0.709804), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Bk'}: ((0.541176, 0.309804, 0.890196), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Br'}: ((0.65098, 0.160784, 0.160784), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'H'}: ((1, 1, 1), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'P'}: ((1, 0.501961, 0), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Os'}: ((0.14902, 0.4, 0.588235), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Es'}: ((0.701961, 0.121569, 0.831373), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Hg'}: ((0.721569, 0.721569, 0.815686), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Ge'}: ((0.4, 0.560784, 0.560784), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Gd'}: ((0.270588, 1, 0.780392), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Ga'}: ((0.760784, 0.560784, 0.560784), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Pr'}: ((0.85098, 1, 0.780392), 1, \textcolor{stringliteral}{u'default'}),}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00030}00030 \textcolor{stringliteral}{u'Pt'}: ((0.815686, 0.815686, 0.878431), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Pu'}: ((0, 0.419608, 1), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'C'}: ((0.564706, 0.564706, 0.564706), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Pb'}: ((0.341176, 0.34902, 0.380392), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Pa'}: ((0, 0.631373, 1), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Pd'}: ((0, 0.411765, 0.521569), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Xe'}: ((0.258824, 0.619608, 0.690196), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Po'}: ((0.670588, 0.360784, 0), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Pm'}: ((0.639216, 1, 0.780392), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Hs'}: ((0.901961, 0, 0.180392), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Ho'}: ((0, 1, 0.611765), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Hf'}: ((0.301961, 0.760784, 1), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'K'}: ((0.560784, 0.25098, 0.831373), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'He'}: ((0.85098, 1, 1), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Md'}: ((0.701961, 0.0509804, 0.65098), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Mg'}: ((0.541176, 1, 0), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Mo'}: ((0.329412, 0.709804, 0.709804), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Mn'}: ((0.611765, 0.478431, 0.780392), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'O'}: ((1, 0.0509804, 0.0509804), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Mt'}: ((0.921569, 0, 0.14902), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'S'}: ((1, 1, 0.188235), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'W'}: ((0.129412, 0.580392, 0.839216), 1, \textcolor{stringliteral}{u'default'}),}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00031}00031 \textcolor{stringliteral}{u'Zn'}: ((0.490196, 0.501961, 0.690196), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Eu'}: ((0.380392, 1, 0.780392), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Zr'}: ((0.580392, 0.878431, 0.878431), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Er'}: ((0, 0.901961, 0.458824), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Ni'}: ((0.313725, 0.815686, 0.313725), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'No'}: ((0.741176, 0.0509804, 0.529412), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Na'}: ((0.670588, 0.360784, 0.94902), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Nb'}: ((0.45098, 0.760784, 0.788235), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Nd'}: ((0.780392, 1, 0.780392), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Ne'}: ((0.701961, 0.890196, 0.960784), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Np'}: ((0, 0.501961, 1), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Fr'}: ((0.258824, 0, 0.4), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Fe'}: ((0.878431, 0.4, 0.2), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Fm'}: ((0.701961, 0.121569, 0.729412), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'B'}: ((1, 0.709804, 0.709804), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'F'}: ((0.564706, 0.878431, 0.313725), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Sr'}: ((0, 1, 0), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'N'}: ((0.188235, 0.313725, 0.972549), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Kr'}: ((0.360784, 0.721569, 0.819608), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Si'}: ((0.941176, 0.784314, 0.627451), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Sn'}: ((0.4, 0.501961, 0.501961), 1, \textcolor{stringliteral}{u'default'}),}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00032}00032 \textcolor{stringliteral}{u'Sm'}: ((0.560784, 1, 0.780392), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'V'}: ((0.65098, 0.65098, 0.670588), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Sc'}: ((0.901961, 0.901961, 0.901961), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Sb'}: ((0.619608, 0.388235, 0.709804), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Li'}: ((0.8, 0.501961, 1), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Sg'}: ((0.85098, 0, 0.270588), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Se'}: ((1, 0.631373, 0), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Co'}: ((0.941176, 0.564706, 0.627451), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Cm'}: ((0.470588, 0.360784, 0.890196), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Cl'}: ((0.121569, 0.941176, 0.121569), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Ca'}: ((0.239216, 1, 0), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Cf'}: ((0.631373, 0.211765, 0.831373), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Ce'}: ((1, 1, 0.780392), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Cd'}: ((1, 0.85098, 0.560784), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Lu'}: ((0, 0.670588, 0.141176), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Cs'}: ((0.341176, 0.0901961, 0.560784), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Cr'}: ((0.541176, 0.6, 0.780392), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Cu'}: ((0.784314, 0.501961, 0.2), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'La'}: ((0.439216, 0.831373, 1), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'light sea green'}: ((0.12549, 0.698039, 0.666667), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Tl'}: ((0.65098, 0.329412, 0.301961), 1, \textcolor{stringliteral}{u'default'}),}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00033}00033 \textcolor{stringliteral}{u'Tm'}: ((0, 0.831373, 0.321569), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Lr'}: ((0.780392, 0, 0.4), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Th'}: ((0, 0.729412, 1), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Ti'}: ((0.74902, 0.760784, 0.780392), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'tan'}: ((0.823529, 0.705882, 0.54902), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Te'}: ((0.831373, 0.478431, 0), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Tb'}: ((0.188235, 1, 0.780392), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Tc'}: ((0.231373, 0.619608, 0.619608), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Ta'}: ((0.301961, 0.65098, 1), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Yb'}: ((0, 0.74902, 0.219608), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Db'}: ((0.819608, 0, 0.309804), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Dy'}: ((0.121569, 1, 0.780392), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'I'}: ((0.580392, 0, 0.580392), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'U'}: ((0, 0.560784, 1), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Y'}: ((0.580392, 1, 1), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Ac'}: ((0.439216, 0.670588, 0.980392), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Ag'}: ((0.752941, 0.752941, 0.752941), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Ir'}: ((0.0901961, 0.329412, 0.529412), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Am'}: ((0.329412, 0.360784, 0.94902), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Al'}: ((0.74902, 0.65098, 0.65098), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'As'}: ((0.741176, 0.501961, 0.890196), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'Ar'}: ((0.501961, 0.819608, 0.890196), 1, \textcolor{stringliteral}{u'default'}),}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00034}00034 \textcolor{stringliteral}{u'Au'}: ((1, 0.819608, 0.137255), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'At'}: ((0.458824, 0.309804, 0.270588), 1, \textcolor{stringliteral}{u'default'}), \textcolor{stringliteral}{u'In'}: ((0.65098, 0.458824, 0.45098), 1, \textcolor{stringliteral}{u'default'})\}}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00035}00035     materials = \{\textcolor{stringliteral}{u'default'}: ((1.2, 1.2, 1.2), 100)\}}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00036}00036     pbInfo = \{\textcolor{stringliteral}{'category'}: [\textcolor{stringliteral}{u'distance monitor'}], \textcolor{stringliteral}{'bondInfo'}: [\{\textcolor{stringliteral}{'color'}: (0, \textcolor{keywordtype}{None}, \{\}), \textcolor{stringliteral}{'atoms'}: [], \textcolor{stringliteral}{'label'}: (0, \textcolor{keywordtype}{None}, \{\}), \textcolor{stringliteral}{'halfbond'}: (0, \textcolor{keywordtype}{None}, \{\}), \textcolor{stringliteral}{'labelColor'}: (0, \textcolor{keywordtype}{None}, \{\}), \textcolor{stringliteral}{'labelOffset'}: (0, \textcolor{keywordtype}{None}, \{\}), \textcolor{stringliteral}{'drawMode'}: (0, \textcolor{keywordtype}{None}, \{\}), \textcolor{stringliteral}{'display'}: (0, \textcolor{keywordtype}{None}, \{\})\}], \textcolor{stringliteral}{'lineType'}: (1, 2, \{\}), \textcolor{stringliteral}{'color'}: (1, 3, \{\}), \textcolor{stringliteral}{'optional'}: \{\textcolor{stringliteral}{'fixedLabels'}: (\textcolor{keyword}{True}, \textcolor{keyword}{False}, (1, \textcolor{keyword}{False}, \{\}))\}, \textcolor{stringliteral}{'display'}: (1, \textcolor{keyword}{True}, \{\}), \textcolor{stringliteral}{'showStubBonds'}: (1, \textcolor{keyword}{False}, \{\}), \textcolor{stringliteral}{'lineWidth'}: (1, 1, \{\}), \textcolor{stringliteral}{'stickScale'}: (1, 1, \{\}), \textcolor{stringliteral}{'id'}: [-\/2]\}}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00037}00037     modelAssociations = \{\}}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00038}00038     colorInfo = (6, (\textcolor{stringliteral}{u'H'}, (1, 1, 1, 1)), \{(\textcolor{stringliteral}{u'green'}, (0, 1, 0, 1)): [5], (\textcolor{stringliteral}{u'tan'}, (0.823529, 0.705882, 0.54902, 1)): [0], (\textcolor{stringliteral}{u'yellow'}, (1, 1, 0, 1)): [3], (\textcolor{stringliteral}{u'white'}, (1, 1, 1, 1)): [4], (\textcolor{stringliteral}{u'C'}, (0.564706, 0.564706, 0.564706, 1)): [1]\})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00039}00039     viewerInfo = \{\textcolor{stringliteral}{'cameraAttrs'}: \{\textcolor{stringliteral}{'center'}: (0.0055000000000001, -\/0.0055000000000001, 0), \textcolor{stringliteral}{'fieldOfView'}: 25.350031531442, \textcolor{stringliteral}{'nearFar'}: (7.1415548082878, -\/7.1420021680306), \textcolor{stringliteral}{'ortho'}: \textcolor{keyword}{False}, \textcolor{stringliteral}{'eyeSeparation'}: 50.8, \textcolor{stringliteral}{'focal'}: 0\}, \textcolor{stringliteral}{'viewerAttrs'}: \{\textcolor{stringliteral}{'silhouetteColor'}: \textcolor{keywordtype}{None}, \textcolor{stringliteral}{'clipping'}: \textcolor{keyword}{False}, \textcolor{stringliteral}{'showSilhouette'}: \textcolor{keyword}{True}, \textcolor{stringliteral}{'showShadows'}: \textcolor{keyword}{False}, \textcolor{stringliteral}{'viewSize'}: 5.5754583333333, \textcolor{stringliteral}{'labelsOnTop'}: \textcolor{keyword}{True}, \textcolor{stringliteral}{'depthCueRange'}: (0.5, 1), \textcolor{stringliteral}{'silhouetteWidth'}: 2, \textcolor{stringliteral}{'singleLayerTransparency'}: \textcolor{keyword}{True}, \textcolor{stringliteral}{'shadowTextureSize'}: 2048, \textcolor{stringliteral}{'backgroundImage'}: [\textcolor{keywordtype}{None}, 1, 2, 1, 0, 0], \textcolor{stringliteral}{'backgroundGradient'}: [(\textcolor{stringliteral}{'Chimera default'}, [(1, 1, 1, 1), (0, 0, 1, 1)], 1), 1, 0, 0], \textcolor{stringliteral}{'depthCue'}: \textcolor{keyword}{False}, \textcolor{stringliteral}{'highlight'}: 0, \textcolor{stringliteral}{'scaleFactor'}: 1, \textcolor{stringliteral}{'angleDependentTransparency'}: \textcolor{keyword}{True}, \textcolor{stringliteral}{'backgroundMethod'}: 0\}, \textcolor{stringliteral}{'viewerHL'}: 5, \textcolor{stringliteral}{'cameraMode'}: \textcolor{stringliteral}{'mono'}, \textcolor{stringliteral}{'detail'}: 5, \textcolor{stringliteral}{'viewerFog'}: \textcolor{keywordtype}{None}, \textcolor{stringliteral}{'viewerBG'}: 4\}}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00041}00041     replyobj.status(\textcolor{stringliteral}{"{}Initializing session restore..."{}}, blankAfter=0,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00042}00042         secondary=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00043}00043     \textcolor{keyword}{from} SimpleSession.versions.v65 \textcolor{keyword}{import} expandSummary}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00044}00044     init(dict(enumerate(expandSummary(colorInfo))))}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00045}00045     replyobj.status(\textcolor{stringliteral}{"{}Restoring colors..."{}}, blankAfter=0,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00046}00046         secondary=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00047}00047     restoreColors(colors, materials)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00048}00048     replyobj.status(\textcolor{stringliteral}{"{}Restoring molecules..."{}}, blankAfter=0,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00049}00049         secondary=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00050}00050     restoreMolecules(molInfo, resInfo, atomInfo, bondInfo, crdInfo)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00051}00051     replyobj.status(\textcolor{stringliteral}{"{}Restoring surfaces..."{}}, blankAfter=0,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00052}00052         secondary=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00053}00053     restoreSurfaces(surfInfo)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00054}00054     replyobj.status(\textcolor{stringliteral}{"{}Restoring VRML models..."{}}, blankAfter=0,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00055}00055         secondary=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00056}00056     restoreVRML(vrmlInfo)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00057}00057     replyobj.status(\textcolor{stringliteral}{"{}Restoring pseudobond groups..."{}}, blankAfter=0,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00058}00058         secondary=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00059}00059     restorePseudoBondGroups(pbInfo)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00060}00060     replyobj.status(\textcolor{stringliteral}{"{}Restoring model associations..."{}}, blankAfter=0,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00061}00061         secondary=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00062}00062     restoreModelAssociations(modelAssociations)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00063}00063     replyobj.status(\textcolor{stringliteral}{"{}Restoring camera..."{}}, blankAfter=0,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00064}00064         secondary=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00065}00065     restoreViewer(viewerInfo)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00066}00066 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00067}00067 \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00068}00068     restoreCoreModels()}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00069}00069 \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00070}00070     reportRestoreError(\textcolor{stringliteral}{"{}Error restoring core models"{}})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00071}00071 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00072}00072     replyobj.status(\textcolor{stringliteral}{"{}Restoring extension info..."{}}, blankAfter=0,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00073}00073         secondary=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00074}00074 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00075}00075 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00076}00076 \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00077}00077     \textcolor{keyword}{import} StructMeasure}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00078}00078     \textcolor{keyword}{from} StructMeasure.DistMonitor \textcolor{keyword}{import} restoreDistances}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00079}00079     registerAfterModelsCB(restoreDistances, 1)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00080}00080 \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00081}00081     reportRestoreError(\textcolor{stringliteral}{"{}Error restoring distances in session"{}})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00082}00082 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00083}00083 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00084}00084 \textcolor{keyword}{def }restoreMidasBase():}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00085}00085     formattedPositions = \{\}}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00086}00086     \textcolor{keyword}{import} Midas}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00087}00087     Midas.restoreMidasBase(formattedPositions)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00088}00088 \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00089}00089     restoreMidasBase()}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00090}00090 \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00091}00091     reportRestoreError(\textcolor{stringliteral}{'Error restoring Midas base state'})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00092}00092 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00093}00093 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00094}00094 \textcolor{keyword}{def }restoreMidasText():}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00095}00095     \textcolor{keyword}{from} Midas \textcolor{keyword}{import} midas\_text}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00096}00096     midas\_text.aliases = \{\}}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00097}00097     midas\_text.userSurfCategories = \{\}}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00098}00098 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00099}00099 \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00100}00100     restoreMidasText()}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00101}00101 \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00102}00102     reportRestoreError(\textcolor{stringliteral}{'Error restoring Midas text state'})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00103}00103 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00104}00104 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00105}00105 \textcolor{keyword}{def }restore\_surfaces():}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00106}00106  surface\_state = \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00107}00107   [}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00108}00108    \{}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00109}00109     \textcolor{stringliteral}{'arrays'}: \{}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00110}00110       \textcolor{stringliteral}{'class'}: \textcolor{stringliteral}{'Arrays\_State'},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00111}00111       \textcolor{stringliteral}{'id\_to\_encoded\_array'}: \{}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00112}00112         0: (}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00113}00113           \textcolor{stringliteral}{'float32'},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00114}00114           ( 121, 3, ),}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00115}00115           \textcolor{stringliteral}{'eJxd0omNwzAMBEB2JpbGUtiJVFpwcSSNz0CAwYJZPXZEr/j+/p7CicOZSR7kgzzpwYVbr2ftvYftxOHMJA/yQZ704MKt17Pe7ttOHM5M8iAf5EkPLtx6PWucM7GH7XBmkgf5IE96cOHW69f728N24nBmkgf5IE96cOHWnMn37H17btf3+d7D+TPEhVuv+//CicOZ+V7v5IM86cGFW6+778KJw5n5PufJB3nSgwu3Xve+CicOZ+b7fk8+yJMeXLj1uu+pcOJwZr7f68kHedKDC7de9/sonDicmf++J/Zw8qQHF+7jDxF3wFU='},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00116}00116          ),}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00117}00117         1: (}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00118}00118           \textcolor{stringliteral}{'int32'},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00119}00119           ( 200, 3, ),}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00120}00120           \textcolor{stringliteral}{'eJxNj1VXlmEUBV9FFJQO6fpokO7uj5TuBukQlNCfz7MXc7HPWnvNzOWJoihKCfsWvd8HWkw1/0iLaeYJtJhu/okWM8wTaTHT/DMtZpl/ocVs8yRazDFPpsVc86+0/swL+46n0GK+eSotFpin0WKheTotFpln0GKxeSYtlphn0WKpeTYtlpnn0GK5eS6tP2NhFXgeLVaa59NilXkBLVabF9JijXkRLdaaF9NinXkJLdabl9Jig3kZLTaal9P6synsBx6jxWbzSlpsMa+ixVbzalpsM6+hxXbzWlrsMK+jxU7zelrsMm+gxW7zRlp/9ob14E202GfeTIv95i20OGDeSouD5m20OGTeTovD5h20OGLeSYuj5l20OGbeTevPibBxvJcWJ837aHHKvJ8W4+YDtDhtPkiLM+ZDtDhrPkyLc+YjtDhvPkqLC+ZjtP5cDPuJT9DikvkkLS6bT9HiinmcFlfNp2lxzXyGFtfNZ2lxw3yOFjfN52lxy3yB1p87Ydv4Ii3umi/R4p75Mi3um6/Q4oH5Ki0emq/R4pH5Oi0em2/Q4on5Ji2emm/R+vMs7Be+Q4vn5ru0eGG+R4uX5vu0eGV+QIvX5oe0eGN+RIu35se0eGd+Qov35qe0/nwI+42f0eKj+Tkt/jG/oMW/5pe0+GR+RYvP5te0+GJ+Q4uv5re0+M/8jhb/m9/TbygVjKE='},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00121}00121          ),}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00122}00122         2: (}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00123}00123           \textcolor{stringliteral}{'float32'},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00124}00124           ( 121, 3, ),}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00125}00125           \textcolor{stringliteral}{'eJxjYICBBnuGUfYoe5Q9yh5lD0o2AJMFWkg='},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00126}00126          ),}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00127}00127        \},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00128}00128       \textcolor{stringliteral}{'version'}: 1,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00129}00129      \},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00130}00130     \textcolor{stringliteral}{'class'}: \textcolor{stringliteral}{'Surface\_Model\_State'},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00131}00131     \textcolor{stringliteral}{'name'}: \textcolor{stringliteral}{u'rectangle'},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00132}00132     \textcolor{stringliteral}{'pieces\_are\_selectable'}: \textcolor{keyword}{True},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00133}00133     \textcolor{stringliteral}{'surface\_model'}: \{}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00134}00134       \textcolor{stringliteral}{'active'}: \textcolor{keyword}{True},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00135}00135       \textcolor{stringliteral}{'class'}: \textcolor{stringliteral}{'Model\_State'},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00136}00136       \textcolor{stringliteral}{'clip\_plane\_normal'}: ( 0.0, 0.0, 0.0, ),}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00137}00137       \textcolor{stringliteral}{'clip\_plane\_origin'}: ( 0.0, 0.0, 0.0, ),}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00138}00138       \textcolor{stringliteral}{'clip\_thickness'}: 5.0,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00139}00139       \textcolor{stringliteral}{'display'}: \textcolor{keyword}{True},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00140}00140       \textcolor{stringliteral}{'id'}: 1,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00141}00141       \textcolor{stringliteral}{'name'}: \textcolor{stringliteral}{u'rectangle'},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00142}00142       \textcolor{stringliteral}{'osl\_identifier'}: \textcolor{stringliteral}{u'\#1'},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00143}00143       \textcolor{stringliteral}{'silhouette'}: \textcolor{keyword}{True},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00144}00144       \textcolor{stringliteral}{'subid'}: 0,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00145}00145       \textcolor{stringliteral}{'use\_clip\_plane'}: \textcolor{keyword}{False},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00146}00146       \textcolor{stringliteral}{'use\_clip\_thickness'}: \textcolor{keyword}{False},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00147}00147       \textcolor{stringliteral}{'version'}: 5,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00148}00148       \textcolor{stringliteral}{'xform'}: \{}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00149}00149         \textcolor{stringliteral}{'class'}: \textcolor{stringliteral}{'Xform\_State'},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00150}00150         \textcolor{stringliteral}{'rotation\_angle'}: 73.14305499099413,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00151}00151         \textcolor{stringliteral}{'rotation\_axis'}: ( -\/0.17216829471452857, 0.8440348635686767, 0.5079008046613989, ),}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00152}00152         \textcolor{stringliteral}{'translation'}: ( 0.0002180761880101224, -\/0.001264539160867958, -\/0.0002224167908288071, ),}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00153}00153         \textcolor{stringliteral}{'version'}: 1,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00154}00154        \},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00155}00155      \},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00156}00156     \textcolor{stringliteral}{'surface\_piece\_states'}: [}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00157}00157       \{}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00158}00158        \textcolor{stringliteral}{'class'}: \textcolor{stringliteral}{'Surface\_Piece\_State'},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00159}00159        \textcolor{stringliteral}{'color'}: ( 0.125490203499794, 0.6980392336845398, 0.6666666865348816, 0.5, ),}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00160}00160        \textcolor{stringliteral}{'displayStyle'}: 0,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00161}00161        \textcolor{stringliteral}{'dotSize'}: 1.0,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00162}00162        \textcolor{stringliteral}{'lineThickness'}: 1.0,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00163}00163        \textcolor{stringliteral}{'normals'}: 2,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00164}00164        \textcolor{stringliteral}{'per\_vertex\_colors'}: \textcolor{keywordtype}{None},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00165}00165        \textcolor{stringliteral}{'placement'}: \textcolor{keywordtype}{None},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00166}00166        \textcolor{stringliteral}{'smoothLines'}: \textcolor{keyword}{False},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00167}00167        \textcolor{stringliteral}{'transparencyBlendMode'}: 1,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00168}00168        \textcolor{stringliteral}{'triangle\_and\_edge\_mask'}: \textcolor{keywordtype}{None},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00169}00169        \textcolor{stringliteral}{'triangles'}: 1,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00170}00170        \textcolor{stringliteral}{'twoSidedLighting'}: \textcolor{keyword}{True},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00171}00171        \textcolor{stringliteral}{'useLighting'}: \textcolor{keyword}{True},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00172}00172        \textcolor{stringliteral}{'version'}: 4,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00173}00173        \textcolor{stringliteral}{'vertices'}: 0,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00174}00174       \},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00175}00175      ],}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00176}00176     \textcolor{stringliteral}{'version'}: 3,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00177}00177    \},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00178}00178   ]}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00179}00179  \textcolor{keyword}{from} Surface \textcolor{keyword}{import} session}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00180}00180  session.restore\_surface\_state(surface\_state)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00181}00181 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00182}00182 \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00183}00183  restore\_surfaces()}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00184}00184 \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00185}00185  reportRestoreError(\textcolor{stringliteral}{'Error restoring surfaces'})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00186}00186 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00187}00187 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00188}00188 \textcolor{keyword}{def }restore\_cap\_attributes():}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00189}00189  cap\_attributes = \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00190}00190   \{}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00191}00191    \textcolor{stringliteral}{'cap\_attributes'}: [}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00192}00192      \{}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00193}00193       \textcolor{stringliteral}{'cap\_color'}: \textcolor{keywordtype}{None},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00194}00194       \textcolor{stringliteral}{'class'}: \textcolor{stringliteral}{'Model\_Capper\_State'},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00195}00195       \textcolor{stringliteral}{'display\_style'}: \textcolor{keywordtype}{None},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00196}00196       \textcolor{stringliteral}{'surface'}: ( 1, 0, ),}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00197}00197       \textcolor{stringliteral}{'version'}: 1,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00198}00198      \},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00199}00199     ],}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00200}00200    \textcolor{stringliteral}{'cap\_color'}: \textcolor{keywordtype}{None},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00201}00201    \textcolor{stringliteral}{'cap\_offset'}: 0.01,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00202}00202    \textcolor{stringliteral}{'class'}: \textcolor{stringliteral}{'Caps\_State'},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00203}00203    \textcolor{stringliteral}{'default\_cap\_offset'}: 0.01,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00204}00204    \textcolor{stringliteral}{'mesh\_style'}: \textcolor{keyword}{False},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00205}00205    \textcolor{stringliteral}{'shown'}: \textcolor{keyword}{True},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00206}00206    \textcolor{stringliteral}{'subdivision\_factor'}: 1.0,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00207}00207    \textcolor{stringliteral}{'version'}: 1,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00208}00208   \}}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00209}00209  \textcolor{keyword}{import} SurfaceCap.session}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00210}00210  SurfaceCap.session.restore\_cap\_attributes(cap\_attributes)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00211}00211 registerAfterModelsCB(restore\_cap\_attributes)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00212}00212 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00213}00213 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00214}00214 \textcolor{keyword}{def }restore\_volume\_data():}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00215}00215  volume\_data\_state = \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00216}00216   \{}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00217}00217    \textcolor{stringliteral}{'class'}: \textcolor{stringliteral}{'Volume\_Manager\_State'},}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00218}00218    \textcolor{stringliteral}{'data\_and\_regions\_state'}: [ ],}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00219}00219    \textcolor{stringliteral}{'version'}: 2,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00220}00220   \}}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00221}00221  \textcolor{keyword}{from} VolumeViewer \textcolor{keyword}{import} session}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00222}00222  session.restore\_volume\_data\_state(volume\_data\_state)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00223}00223 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00224}00224 \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00225}00225   restore\_volume\_data()}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00226}00226 \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00227}00227   reportRestoreError(\textcolor{stringliteral}{'Error restoring volume data'})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00228}00228 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00229}00229 geomData = \{\textcolor{stringliteral}{'AxisManager'}: \{\}, \textcolor{stringliteral}{'CentroidManager'}: \{\}, \textcolor{stringliteral}{'PlaneManager'}: \{\}\}}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00230}00230 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00231}00231 \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00232}00232     \textcolor{keyword}{from} StructMeasure.Geometry \textcolor{keyword}{import} geomManager}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00233}00233     geomManager.\_restoreSession(geomData)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00234}00234 \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00235}00235     reportRestoreError(\textcolor{stringliteral}{"{}Error restoring geometry objects in session"{}})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00236}00236 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00237}00237 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00238}00238 \textcolor{keyword}{def }restoreSession\_RibbonStyleEditor():}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00239}00239     \textcolor{keyword}{import} SimpleSession}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00240}00240     \textcolor{keyword}{import} RibbonStyleEditor}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00241}00241     userScalings = [(\textcolor{stringliteral}{'licorice'}, [[0.35, 0.35], [0.35, 0.35], [0.35, 0.35], [0.35, 0.35, 0.35, 0.35], [0.35, 0.35]])]}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00242}00242     userXSections = []}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00243}00243     userResidueClasses = []}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00244}00244     residueData = [(1, \textcolor{stringliteral}{'Chimera default'}, \textcolor{stringliteral}{'rounded'}, \textcolor{stringliteral}{u'unknown'})]}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00245}00245     flags = RibbonStyleEditor.NucleicDefault1}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00246}00246     SimpleSession.registerAfterModelsCB(RibbonStyleEditor.restoreState,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00247}00247                 (userScalings, userXSections,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00248}00248                 userResidueClasses, residueData, flags))}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00249}00249 \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00250}00250     restoreSession\_RibbonStyleEditor()}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00251}00251 \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00252}00252     reportRestoreError(\textcolor{stringliteral}{"{}Error restoring RibbonStyleEditor state"{}})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00253}00253 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00254}00254 trPickle = \textcolor{stringliteral}{'gAJjQW5pbWF0ZS5UcmFuc2l0aW9ucwpUcmFuc2l0aW9ucwpxASmBcQJ9cQMoVQxjdXN0b21fc2NlbmVxBGNBbmltYXRlLlRyYW5zaXRpb24KVHJhbnNpdGlvbgpxBSmBcQZ9cQcoVQZmcmFtZXNxCEsBVQ1kaXNjcmV0ZUZyYW1lcQlLAVUKcHJvcGVydGllc3EKXXELVQNhbGxxDGFVBG5hbWVxDWgEVQRtb2RlcQ5VBmxpbmVhcnEPdWJVCGtleWZyYW1lcRBoBSmBcRF9cRIoaAhLFGgJSwFoCl1xE2gMYWgNaBBoDmgPdWJVBXNjZW5lcRRoBSmBcRV9cRYoaAhLAWgJSwFoCl1xF2gMYWgNaBRoDmgPdWJ1Yi4='}}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00255}00255 scPickle = \textcolor{stringliteral}{'gAJjQW5pbWF0ZS5TY2VuZXMKU2NlbmVzCnEBKYFxAn1xA1UHbWFwX2lkc3EEfXNiLg=='}}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00256}00256 kfPickle = \textcolor{stringliteral}{'gAJjQW5pbWF0ZS5LZXlmcmFtZXMKS2V5ZnJhbWVzCnEBKYFxAn1xA1UHZW50cmllc3EEXXEFc2Iu'}}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00257}00257 \textcolor{keyword}{def }restoreAnimation():}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00258}00258     \textcolor{stringliteral}{'A method to unpickle and restore animation objects'}}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00259}00259     \textcolor{comment}{\# Scenes must be unpickled after restoring transitions, because each}}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00260}00260     \textcolor{comment}{\# scene links to a 'scene' transition. Likewise, keyframes must be }}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00261}00261     \textcolor{comment}{\# unpickled after restoring scenes, because each keyframe links to a scene.}}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00262}00262     \textcolor{comment}{\# The unpickle process is left to the restore* functions, it's }}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00263}00263     \textcolor{comment}{\# important that it doesn't happen prior to calling those functions.}}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00264}00264     \textcolor{keyword}{import} SimpleSession}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00265}00265     \textcolor{keyword}{from} Animate.Session \textcolor{keyword}{import} restoreTransitions}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00266}00266     \textcolor{keyword}{from} Animate.Session \textcolor{keyword}{import} restoreScenes}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00267}00267     \textcolor{keyword}{from} Animate.Session \textcolor{keyword}{import} restoreKeyframes}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00268}00268     SimpleSession.registerAfterModelsCB(restoreTransitions, trPickle)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00269}00269     SimpleSession.registerAfterModelsCB(restoreScenes, scPickle)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00270}00270     SimpleSession.registerAfterModelsCB(restoreKeyframes, kfPickle)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00271}00271 \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00272}00272     restoreAnimation()}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00273}00273 \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00274}00274     reportRestoreError(\textcolor{stringliteral}{'Error in Animate.Session'})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00275}00275 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00276}00276 \textcolor{keyword}{def }restoreLightController():}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00277}00277     \textcolor{keyword}{import} Lighting}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00278}00278     Lighting.\_setFromParams(\{\textcolor{stringliteral}{'ratio'}: 1.0, \textcolor{stringliteral}{'brightness'}: 1.12, \textcolor{stringliteral}{'material'}: [100.0, (1.0, 1.0, 1.0), 1.2], \textcolor{stringliteral}{'back'}: [(-\/0.29208401858220717, 0.6917779387473327, -\/0.660401551748147), (1.0, 1.0, 1.0), 0.0], \textcolor{stringliteral}{'mode'}: \textcolor{stringliteral}{'two-\/point'}, \textcolor{stringliteral}{'key'}: [(0.5864978669900273, 0.3976793090921588, 0.7056000419048538), (1.0, 1.0, 1.0), 1.0], \textcolor{stringliteral}{'contrast'}: 1.0, \textcolor{stringliteral}{'fill'}: [(0.1983122284066999, 0.07911392090692816, 0.9769407595054581), (1.0, 1.0, 1.0), 0.0]\})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00279}00279 \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00280}00280     restoreLightController()}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00281}00281 \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00282}00282     reportRestoreError(\textcolor{stringliteral}{"{}Error restoring lighting parameters"{}})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00283}00283 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00284}00284 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00285}00285 \textcolor{keyword}{def }restoreRemainder():}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00286}00286     \textcolor{keyword}{from} SimpleSession.versions.v65 \textcolor{keyword}{import} restoreWindowSize, \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00287}00287          restoreOpenStates, restoreSelections, restoreFontInfo, \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00288}00288          restoreOpenModelsAttrs, restoreModelClip, restoreSilhouettes}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00289}00289 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00290}00290     curSelIds =  [7, 13, 9, 12, 2, 8, 6, 4, 3, 5, 10, 11, 15, 24, 21, 16, 19, 17, 18, 23, 14, 20, 25, 22]}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00291}00291     savedSels = []}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00292}00292     openModelsAttrs = \{ \textcolor{stringliteral}{'cofrMethod'}: 4 \}}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00293}00293     windowSize = (956, 912)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00294}00294     xformMap = \{0: (((-\/0.17216829471453, 0.84403486356868, 0.5079008046614), 73.143054990994), (0.00021807618801012, -\/0.001264539160868, -\/0.00022241679082881), \textcolor{keyword}{True})\}}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00295}00295     fontInfo = \{\textcolor{stringliteral}{'face'}: (\textcolor{stringliteral}{u'Sans Serif'}, \textcolor{stringliteral}{u'Bold'}, 12)\}}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00296}00296     clipPlaneInfo = \{\}}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00297}00297     silhouettes = \{0: \textcolor{keyword}{True}, 26: \textcolor{keyword}{True}\}}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00298}00298 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00299}00299     replyobj.status(\textcolor{stringliteral}{"{}Restoring window..."{}}, blankAfter=0,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00300}00300         secondary=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00301}00301     restoreWindowSize(windowSize)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00302}00302     replyobj.status(\textcolor{stringliteral}{"{}Restoring open states..."{}}, blankAfter=0,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00303}00303         secondary=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00304}00304     restoreOpenStates(xformMap)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00305}00305     replyobj.status(\textcolor{stringliteral}{"{}Restoring font info..."{}}, blankAfter=0,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00306}00306         secondary=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00307}00307     restoreFontInfo(fontInfo)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00308}00308     replyobj.status(\textcolor{stringliteral}{"{}Restoring selections..."{}}, blankAfter=0,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00309}00309         secondary=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00310}00310     restoreSelections(curSelIds, savedSels)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00311}00311     replyobj.status(\textcolor{stringliteral}{"{}Restoring openModel attributes..."{}}, blankAfter=0,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00312}00312         secondary=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00313}00313     restoreOpenModelsAttrs(openModelsAttrs)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00314}00314     replyobj.status(\textcolor{stringliteral}{"{}Restoring model clipping..."{}}, blankAfter=0,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00315}00315         secondary=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00316}00316     restoreModelClip(clipPlaneInfo)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00317}00317     replyobj.status(\textcolor{stringliteral}{"{}Restoring per-\/model silhouettes..."{}}, blankAfter=0,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00318}00318         secondary=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00319}00319     restoreSilhouettes(silhouettes)}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00320}00320 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00321}00321     replyobj.status(\textcolor{stringliteral}{"{}Restoring remaining extension info..."{}}, blankAfter=0,}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00322}00322         secondary=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00323}00323 \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00324}00324     restoreRemainder()}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00325}00325 \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00326}00326     reportRestoreError(\textcolor{stringliteral}{"{}Error restoring post-\/model state"{}})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00327}00327 \textcolor{keyword}{from} SimpleSession.versions.v65 \textcolor{keyword}{import} makeAfterModelsCBs}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00328}00328 makeAfterModelsCBs()}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00329}00329 }
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00330}00330 \textcolor{keyword}{from} SimpleSession.versions.v65 \textcolor{keyword}{import} endRestore}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00331}00331 replyobj.status(\textcolor{stringliteral}{'Finishing restore...'}, blankAfter=0, secondary=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00332}00332 endRestore(\{\})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00333}00333 replyobj.status(\textcolor{stringliteral}{''}, secondary=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00334}00334 replyobj.status(\textcolor{stringliteral}{'Restore finished.'})}
+\DoxyCodeLine{\Hypertarget{reference__session_8py_source_l00335}00335 }
+
+\end{DoxyCode}

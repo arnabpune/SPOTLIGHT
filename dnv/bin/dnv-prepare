@@ -1,0 +1,129 @@
+#!/usr/bin/python3
+
+import os
+import argparse
+
+rt=os.getenv("DNV_ROOT")
+conf=open(os.getenv("DNV_ROOT")+"/config.dat")
+K=0
+compo=None
+for l in conf:
+    l=l[0:len(l)-1]
+    if K==0: compo=l
+    if K==1: break
+    K+=1
+parser=argparse.ArgumentParser(prog="dnv-prepare")
+parser.add_argument(dest="filename",action="store",help="The final executable name")
+parser.add_argument('-R',dest='resnums',metavar='--resnums',action="store",help="Residue numbers of hotspot in the protein",required=True)
+parser.add_argument('-D',dest='diel',metavar='--dielectric',action="store",help="Dielectric constant used in simulation (Default: 30)",default="30")
+parser.add_argument('-M',dest='molec',metavar='--moleculehpp',action="store",help="Denovo hpp file used (Default: graph/Molecule.hpp). Path relative from DNV_ROOT",default="graph/Molecule.hpp")
+parser.add_argument('-F',dest='finff',metavar='--moleculeff',action="store",help="FF parameters for molecule generation  (Default: final_ff_parameters.ffin)",default="final_ff_parameters.ffin")
+parser.add_argument('-f',dest='protff',metavar='--proteinff',action="store",help="FF parameters for protein file parsing  (Default: protff.ffin)",default="protff.ffin")
+parser.add_argument('-c',dest='atcat',metavar='--categories',action="store",help="Categorization data for molecule generation  (Default: categories.data)",default="categories.data")
+parser.add_argument('-d',dest='atdef',metavar='--definitions',action="store",help="Atom-Type definition data for molecule generation  (Default: definitions.data)",default="definitions.data")
+parser.add_argument('-p',dest='pres',metavar='--protres',action="store",help="Protein residue definition data for protein file parsing  (Default: protein.rtp)",default="protein.rtp")
+parser.add_argument('-r',dest='restd',metavar='--restriandist',action="store",help="Restraint distance (activates if running with restrained growth only) (Default: 0.8nm)",default="0.8")
+parser.add_argument('-b',dest='box',metavar='--restriantbox',action="store",help="Restraint Box. The growth is limited to this region only. Ensure that the COG is contained in this region",default="")
+parser.add_argument('-s',dest='sphr',metavar='--restriantsphere',action="store",help="Restraint Sphere. The growth is limited to this region only. Ensure that the COG is contained in this region",default="")
+parser.add_argument('-n',dest='comp',metavar='--nocompile',action="store_const",const="1",default="0",help="Only write the cpp. Don't compile")
+parser.add_argument('--ipaddr',dest='ipaddr',metavar='--ipaddr',action="store",help="IP Address of server to contact (if using external charges - Default 192.168.4.25 if --external-charges is used)",default="")
+parser.add_argument('--port',dest='port',metavar='--port',action="store",help="Port number of server to contact (if using external charges - Default 5555 if --external-charges is used)",default="")
+parser.add_argument('--serial', dest='ser', action='store_const',const="1", default="0",help='Serial: Makes DeNovo run as a serial job (Default: off - Parallel across all available cores)')
+parser.add_argument('--realtime', dest='realtime', action='store', default=0,help='Realtime generation: Keep dumping PDBs at every stage of generation. Keep a lag between each addition. The argument here is the lag (in us) (Default: off - Normal quick and time-optimized generation).\n Note: You may consider using --serial as well (to avoid jumping between parallel threads)')
+parser.add_argument('--autopack', dest='apak', action='store_const',const="1", default="0",help='Autopack: Denovo will copy it\'s data files under the given names to the folder where executable is generated (Default: off - Manually copy data files)')
+parser.add_argument('--static', dest='stat', action='store_const',const="1", default="0",help='Static: Link statically (without copying) to DeNovo\'s default data files (Default: off - Manual linkage within executable directory)')
+parser.add_argument('--quiet', dest='quiet', action='store_const',const="1", default="0",help='Quiet: Do not write a lot to the terminal')
+parser.add_argument('--prune', dest='prune', action='store_const',const="1", default="0",help='Pruning: Instead of growing new molecules, allows \"pruning\" of an existing molecule when you to supply a molecule pdb as last parameter (Default: off)')
+parser.add_argument('--nojson', dest='jsonoff', action='store_const',const="1", default="0",help='No JSON: Switch off all Json-related functionalities (Default: off - Json functionalities enabled)')
+parser.add_argument('--external-charges', dest='extchg', action='store_const',const="1", default="0",help='External Charges: Use charges supplied externally for selection of stable molecules after generation (Default: off - Use forcefield charges)')
+parser.add_argument('--optimize', dest='optmol', action='store_const',const="1", default="0",help='Do structure optimization and quick local energy minimization of molecule. Usually recommended for closed/tight hotspots (effectiveness in open regions remains to be tested. (Default: off - No subsequent minimization)')
+parser.add_argument('--writemol2', dest='mol2f', action='store_const',const="1", default="0",help='Write Mol2: Write mol2 files for final results along with PDBs (Default: off - Only PDB output is written)')
+parser.add_argument('--pepgen', dest='pepgen', action='store_const',const="1", default="0",help='Peptide generation: Strictly generate only peptides (Default: off - Generate everything)')
+parser.add_argument('--skipseedcheck', dest='seedchecks', action='store_const',const="1", default="0",help='Seed definition satisfaction check: Explicitly check for seed atom-type satisfaction. It is disabled automatically for peptide generation and can be disabled manually to speed-up generation at the cost of manually having to sort-out the seed-atom configuration. DO NOT use this with external charges (Default: off - Check the seed atoms too)')
+parser.add_argument('--nointcharges', dest='autocharge', action='store_const',const="0", default="1",help='Auto-charges: Automatically round net molecule charge to nearest integer. (Default: on)')
+
+args=parser.parse_args().__dict__
+if compo.find("openmp")==-1:
+    print("Compiled without OpenMP support. Forced --serial")
+    args["ser"]="1"
+if args["ipaddr"] or args["port"]: args["extchg"]="1"
+cppf=open(args["filename"]+".cpp","w")
+if args["extchg"] == "0":
+    cppf.write("#define FFCHARGES 1\n")
+    args["autocharge"]="0"
+if args["ser"] == "1" : cppf.write("#define SERIAL 1\n")
+if args["stat"] == "1" : cppf.write("#define STATICDATA 1\n")
+if args["quiet"] == "1" : cppf.write("#define QUIET 1\n")
+if args["optmol"] == "1" : cppf.write("#define USE_PHYSICS 1\n")
+if args["jsonoff"] == "1" : cppf.write("#define NOJSON 1\n")
+if args["autocharge"] == "1" : cppf.write("#define FORCE_CHARGES 1\n")
+if args["pepgen"] == "1" :
+    cppf.write("#define AMINOACIDDATA 1\n")
+    cppf.write("#define VARIEDCOUNT 1\n")
+    cppf.write("#define NOSEEDCHECK 1\n")
+    if args["stat"] == "1":
+        args["finff"]="aminoacids/aminoacids_dnv.ffin";
+        args["atcat"]="aminoacids/categories.data";
+        args["atdef"]="aminoacids/definitions.data";
+    else:
+        args["finff"]="aminoacids_dnv.ffin";
+        args["atcat"]="categories.data";
+        args["atdef"]="definitions.data";
+else:
+    if args["seedchecks"]=="1": cppf.write("#define NOSEEDCHECK 1\n")
+if args["ipaddr"]: cppf.write("#define IPADDR \""+args["ipaddr"]+"\"\n")
+if args["port"]: cppf.write("#define PORT "+args["port"]+"\n")
+if args["realtime"]: cppf.write("#define REALTIME \""+args["realtime"]+"\"\n")
+cppf.write('#include "'+args["molec"]+'"\n\n')
+cppf.write("int main(int argc,char** argv)\n{\n")
+if args["diel"]!="10": cppf.write(" DIEL/="+str(float(args["diel"])/10)+";\n")
+if args["restd"]!="0.8": cppf.write(" RESTRAINDISTANCE="+args["restd"]+";\n")
+if args["box"]!="": cppf.write(" quickgeom::Cuboid* region=new quickgeom::Cuboid("+args['box']+");\n")
+elif args["sphr"]!="": cppf.write(" quickgeom::Sphere* region=new quickgeom::Sphere("+args['sphr']+");\n")
+else: cppf.write(" quickgeom::Cuboid* region=nullptr;\n")
+if args["stat"] == "0":
+    temps=(' std::string fnam="",format="pdb",progname=(argc>7)?argv[7]:"dnv_protgen",flagcodes=(argc>8)?argv[8]:"0000";\n int size=(argc>3)?std::stoi(argv[3]):15,num=(argc>4)?std::stoi(argv[4]):25,osc=(argc>5)?std::stoi(argv[5]):5,seednum=(argc>6)?std::stoi(argv[6]):30,tempv;\n if(argc>1) fnam=argv[1];\n if(argc>2) format=argv[2];\n else {cout << "Enter filename: "; cin >>fnam;}\n cout << "Under: \'"<<progname<<"\': Generating "<<num<<" drugs of size="<<size<<" using "<<seednum<<" seeds, accumulating the best for every "<<osc<<" oscillations\\n";\n if(flagcodes!="0000") cout << "Running with: "<<((flagcodes[0]!=\'0\')?"restraint "+to_string(RESTRAINDISTANCE)+"A ":"")<<((flagcodes[1]!=\'0\')?"superseed ":"")<<((flagcodes[2]!=\'0\')?"reseed ":"")<<((flagcodes[2]!=\'0\')?"deseed ":"")<<"\\n";\n cin >> tempv;\n ForceField ff("'+args["finff"]+'","'+args["atcat"]+'");\n ff.loadBondParameters();\n ff.loadRules("'+args["atdef"]+'");\n IncompleteForceField protff(\"'+args["protff"]+'\"); protff.loadResidues("'+args["pres"]+'");\n\n')
+else:
+    if rt:
+        temps=(' std::string fnam="",format="pdb",progname=(argc>7)?argv[7]:"dnv_protgen",flagcodes=(argc>8)?argv[8]:"0000";\n int size=(argc>3)?std::stoi(argv[3]):15,num=(argc>4)?std::stoi(argv[4]):25,osc=(argc>5)?std::stoi(argv[5]):5,seednum=(argc>6)?std::stoi(argv[6]):30,tempv;\n if(argc>1) fnam=argv[1];\n if(argc>2) format=argv[2];\n else {cout << "Enter filename: "; cin >>fnam;}\n cout << "Under: \'"<<progname<<"\': Generating "<<num<<" drugs of size="<<size<<" using "<<seednum<<" seeds, accumulating the best for every "<<osc<<" oscillations\\n";\n if(flagcodes!="0000") cout << "Running with: "<<((flagcodes[0]!=\'0\')?"restraint "+to_string(RESTRAINDISTANCE)+"A ":"")<<((flagcodes[1]!=\'0\')?"superseed ":"")<<((flagcodes[2]!=\'0\')?"reseed ":"")<<((flagcodes[2]!=\'0\')?"deseed ":"")<<"\\n";\n cin >> tempv;\n ForceField ff("'+rt+'/data/'+args["finff"]+'","'+rt+'/data/'+args["atcat"]+'");\n ff.loadBondParameters();\n ff.loadRules("'+rt+'/data/'+args["atdef"]+'");\n IncompleteForceField protff(\"'+rt+'/data/'+args["protff"]+'\"); protff.loadResidues("'+rt+'/data/'+args["pres"]+'");\n\n')
+    else:
+        print("Cannot link statically. DNV_ROOT is not defined")
+        exit(1)
+cppf.write(temps)
+if args["pepgen"]!="0":
+    cppf.write(' VCLIST=&(ff.getCategory("count"));\n')
+resl=None
+try:
+    args["resnums"].index(',')
+    resl=str.split(args['resnums'],',')
+except ValueError:
+    resl=[]
+    fl=open(args["resnums"],"r")
+    for l in resl: resl.append(int(l))
+if resl is None:
+    print("No residue numbers found. Enter in format: dnv-prepare -r'n1,n2,n3...'")
+    exit(1)
+cppf.write(" std::vector<int> hsres={"+','.join([str(x) for x in resl])+"};\n\n Protein p(fnam,protff,hsres,format);\n")
+#cppf.write(' std::vector<Atom*> seeds;\n seeds.push_back(ff.getAtom("CT1"));\n seeds.push_back(ff.getAtom("CT2"));\n seeds.push_back(ff.getAtom("CT3"));\n seeds.push_back(ff.getAtom("CA"));\n seeds.push_back(ff.getAtom("CA"));\n seeds.push_back(ff.getAtom("CA"));\n seeds.push_back(ff.getAtom("CPT"));\n seeds.push_back(ff.getAtom("CE1"));\n seeds.push_back(ff.getAtom("CE2"));\n seeds.push_back(ff.getAtom("PL"));\n seeds.push_back(ff.getAtom("SL"));\n seeds.push_back(ff.getAtom("C3"));\n seeds.push_back(ff.getAtom("OH1"));\n seeds.push_back(ff.getAtom("OC"));\n seeds.push_back(ff.getAtom("NY"));\n seeds.push_back(ff.getAtom("CP2"));\n seeds.push_back(ff.getAtom("CT2x"));\n seeds.push_back(ff.getAtom("CT1x"));\n\n\n') #Old Seeds
+if args["pepgen"]!="0":
+    cppf.write(' std::vector<Atom*> seeds;\n seeds.push_back(ff.getAtom("C"));\n\n');
+else:
+    cppf.write(' std::vector<Atom*> seeds;\n seeds.push_back(ff.getAtom("CT1"));\n seeds.push_back(ff.getAtom("CT2"));\n seeds.push_back(ff.getAtom("CT3"));\n seeds.push_back(ff.getAtom("CA"));\n seeds.push_back(ff.getAtom("NX"));\n seeds.push_back(ff.getAtom("CAS"));\n seeds.push_back(ff.getAtom("NX"));\n seeds.push_back(ff.getAtom("CPT"));\n seeds.push_back(ff.getAtom("NY"));\n seeds.push_back(ff.getAtom("CY"));\n seeds.push_back(ff.getAtom("CT2x"));\n seeds.push_back(ff.getAtom("CT1x"));\n seeds.push_back(ff.getAtom("CP2"));\n seeds.push_back(ff.getAtom("CE1A"));\n seeds.push_back(ff.getAtom("CE2A"));\n seeds.push_back(ff.getAtom("PL"));\n seeds.push_back(ff.getAtom("SL"));\n seeds.push_back(ff.getAtom("C3"));\n seeds.push_back(ff.getAtom("OH1"));\n seeds.push_back(ff.getAtom("OC"));\n\n\n')
+cppf.write(" Molecule* templatemol=(argc>9)?new Molecule(std::string(argv[9]),ff,\"pdb\",true):nullptr;\n int K=0;\n std::vector<System> mols=p.generateLigands(ff,num,size,progname+\".log\",seeds,seednum,false,1.2,1,osc,300,50,298,\"seeds_\"+progname+\".pdb\",(flagcodes[0]!='0'),(flagcodes[1]!='0'),(flagcodes[2]!='0'),(flagcodes[3]!='0'),region,templatemol,"+("true" if args["prune"]=="1" else "false")+");\n")
+cppf.write(' for(System& s : mols)\n {\n  Molecule* m=s.getDrugMolecule();\n  for(Atom* a : m->getAtoms()) cout <<a->toString()<<"\t"<<ff.isSatisfied(a,m->getBondedAtoms(a))<<","<<a->isCyclized()<<"\\n";\n  m->dumpMol("result_prot_"+progname+"_"+to_string(K)+".pdb",&ff);\n')
+if args["mol2f"]=="1": cppf.write("  m->dumpMolAsMol2(\"result_prot_\"+progname+\"_\"+to_string(K)+\".mol2\",&ff,false,true);\n")
+cppf.write('  K++;\n }\n}\n')
+cppf.close()
+print("Wrote to:",args["filename"]+".cpp")
+if args["comp"]=="1": exit(0)
+print("Compiler options:",compo)
+print("Compiling ... ",end="")
+os.system(l+" "+compo+" "+args["filename"]+".cpp -I "+os.getenv("DNV_ROOT")+" -o "+args["filename"])
+print("done")
+if args["apak"]=="1" and args["stat"]!="1":
+    os.system("cp -n "+rt+"/data/final_ff_parameters.ffin ./"+args["finff"])
+    os.system("cp -n "+rt+"/data/definitions.data ./"+args["atdef"])
+    os.system("cp -n "+rt+"/data/categories.data ./"+args["atcat"])
+    os.system("cp -n "+rt+"/data/protein.rtp ./"+args["pres"])
+    os.system("cp -n "+rt+"/data/protff.ffin ./"+args["protff"])
+    os.system("cp -rn "+rt+"/data/itps .")

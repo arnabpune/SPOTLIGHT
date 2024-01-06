@@ -1,0 +1,82 @@
+\hypertarget{structchemstructs_1_1Bond}{}\doxysection{chemstructs\+::Bond Struct Reference}
+\label{structchemstructs_1_1Bond}\index{chemstructs::Bond@{chemstructs::Bond}}
+
+
+{\ttfamily \#include \char`\"{}graph/\+Atom.\+hpp\char`\"{}}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structchemstructs_1_1Bond_a51f79719a58c3e72bf88d472fee49588}\label{structchemstructs_1_1Bond_a51f79719a58c3e72bf88d472fee49588}} 
+{\bfseries Bond} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$at1, \mbox{\hyperlink{classAtom}{Atom}} $\ast$at2)
+\begin{DoxyCompactList}\small\item\em The simple \mbox{\hyperlink{structchemstructs_1_1Bond}{Bond}} constructor which uses two bonds to generate this \mbox{\hyperlink{structchemstructs_1_1Bond}{Bond}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstructs_1_1Bond_a341763d7334b62c90611dfdc52a68106}\label{structchemstructs_1_1Bond_a341763d7334b62c90611dfdc52a68106}} 
+double {\bfseries get\+Length} () const
+\begin{DoxyCompactList}\small\item\em Get the length of the bond. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAtom}{Atom}} $\ast$ \mbox{\hyperlink{structchemstructs_1_1Bond_a2afc10e30113e2df12b8f439ac9a118b}{a1}}
+\item 
+\mbox{\hyperlink{classAtom}{Atom}} $\ast$ \mbox{\hyperlink{structchemstructs_1_1Bond_a6ad02d82e86aa8929454ee8ebe27984f}{a2}}
+\item 
+int \mbox{\hyperlink{structchemstructs_1_1Bond_a8c293ea17ced706feded3210ee4957c9}{order}} =1
+\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{structchemstructs_1_1Bond_a4873437ab0702930b5e6ff7c9bfb5187}{vect}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is a simple struct to store the components of a bond (three atoms). It also calculates the vector of the bond when the component atoms are provided~\newline
+ This class makes use of the Eigen libraries. See Eigen\+: \href{http://eigen.tuxfamily.org/}{\texttt{ http\+://eigen.\+tuxfamily.\+org/}} for more details. (git repo\+: \href{https://gitlab.com/libeigen/eigen.git}{\texttt{ https\+://gitlab.\+com/libeigen/eigen.\+git}}) 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00419}{419}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structchemstructs_1_1Bond_a2afc10e30113e2df12b8f439ac9a118b}\label{structchemstructs_1_1Bond_a2afc10e30113e2df12b8f439ac9a118b}} 
+\index{chemstructs::Bond@{chemstructs::Bond}!a1@{a1}}
+\index{a1@{a1}!chemstructs::Bond@{chemstructs::Bond}}
+\doxysubsubsection{\texorpdfstring{a1}{a1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classAtom}{Atom}}$\ast$ chemstructs\+::\+Bond\+::a1}
+
+The first atom of the bond 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00421}{421}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+\mbox{\Hypertarget{structchemstructs_1_1Bond_a6ad02d82e86aa8929454ee8ebe27984f}\label{structchemstructs_1_1Bond_a6ad02d82e86aa8929454ee8ebe27984f}} 
+\index{chemstructs::Bond@{chemstructs::Bond}!a2@{a2}}
+\index{a2@{a2}!chemstructs::Bond@{chemstructs::Bond}}
+\doxysubsubsection{\texorpdfstring{a2}{a2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classAtom}{Atom}}$\ast$ chemstructs\+::\+Bond\+::a2}
+
+The second atom of the bond 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00422}{422}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+\mbox{\Hypertarget{structchemstructs_1_1Bond_a8c293ea17ced706feded3210ee4957c9}\label{structchemstructs_1_1Bond_a8c293ea17ced706feded3210ee4957c9}} 
+\index{chemstructs::Bond@{chemstructs::Bond}!order@{order}}
+\index{order@{order}!chemstructs::Bond@{chemstructs::Bond}}
+\doxysubsubsection{\texorpdfstring{order}{order}}
+{\footnotesize\ttfamily int chemstructs\+::\+Bond\+::order =1}
+
+The bond order. This can be specified by the user later as well 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00423}{423}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+\mbox{\Hypertarget{structchemstructs_1_1Bond_a4873437ab0702930b5e6ff7c9bfb5187}\label{structchemstructs_1_1Bond_a4873437ab0702930b5e6ff7c9bfb5187}} 
+\index{chemstructs::Bond@{chemstructs::Bond}!vect@{vect}}
+\index{vect@{vect}!chemstructs::Bond@{chemstructs::Bond}}
+\doxysubsubsection{\texorpdfstring{vect}{vect}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d chemstructs\+::\+Bond\+::vect}
+
+The vector in the direction of this bond with magnitude equal to bond-\/length (in nm) 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00424}{424}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+graph/Atom.\+hpp\end{DoxyCompactItemize}

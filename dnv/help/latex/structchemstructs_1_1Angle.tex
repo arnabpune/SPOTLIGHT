@@ -1,0 +1,91 @@
+\hypertarget{structchemstructs_1_1Angle}{}\doxysection{chemstructs\+::Angle Struct Reference}
+\label{structchemstructs_1_1Angle}\index{chemstructs::Angle@{chemstructs::Angle}}
+
+
+{\ttfamily \#include \char`\"{}graph/\+Atom.\+hpp\char`\"{}}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structchemstructs_1_1Angle_a98c92bb2bbc671992d32799e271abd18}\label{structchemstructs_1_1Angle_a98c92bb2bbc671992d32799e271abd18}} 
+{\bfseries Angle} (\mbox{\hyperlink{classAtom}{Atom}} $\ast$at1, \mbox{\hyperlink{classAtom}{Atom}} $\ast$at2, \mbox{\hyperlink{classAtom}{Atom}} $\ast$at3)
+\begin{DoxyCompactList}\small\item\em The simple \mbox{\hyperlink{structchemstructs_1_1Angle}{Angle}} constructor which uses three atoms to construct the angle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAtom}{Atom}} $\ast$ \mbox{\hyperlink{structchemstructs_1_1Angle_a8c05447d42249a1703484a39914c2f9b}{a1}}
+\item 
+\mbox{\hyperlink{classAtom}{Atom}} $\ast$ \mbox{\hyperlink{structchemstructs_1_1Angle_adbbc2237b924c3d7541690fbc502a858}{a2}}
+\item 
+\mbox{\hyperlink{classAtom}{Atom}} $\ast$ \mbox{\hyperlink{structchemstructs_1_1Angle_a3b477abc452919347f932aba158a93f8}{a3}}
+\item 
+double \mbox{\hyperlink{structchemstructs_1_1Angle_ab0fd826282490d3cf567a69e9f072b35}{angle}} =0
+\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{structchemstructs_1_1Angle_ae36dbe4c0bc68b5bc42e0740e9521ad7}{plane}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is a simple struct to store the components of an angle (three atoms). The actual order in which the atoms are provided is of no significance as long as the angle subtended is accurately described (eg. The middle atom must be the second atom)~\newline
+ It also calculates the plane of the three atoms and the angle between them when they are provided 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00436}{436}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structchemstructs_1_1Angle_a8c05447d42249a1703484a39914c2f9b}\label{structchemstructs_1_1Angle_a8c05447d42249a1703484a39914c2f9b}} 
+\index{chemstructs::Angle@{chemstructs::Angle}!a1@{a1}}
+\index{a1@{a1}!chemstructs::Angle@{chemstructs::Angle}}
+\doxysubsubsection{\texorpdfstring{a1}{a1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classAtom}{Atom}}$\ast$ chemstructs\+::\+Angle\+::a1}
+
+The first atom forming the angle 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00438}{438}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+\mbox{\Hypertarget{structchemstructs_1_1Angle_adbbc2237b924c3d7541690fbc502a858}\label{structchemstructs_1_1Angle_adbbc2237b924c3d7541690fbc502a858}} 
+\index{chemstructs::Angle@{chemstructs::Angle}!a2@{a2}}
+\index{a2@{a2}!chemstructs::Angle@{chemstructs::Angle}}
+\doxysubsubsection{\texorpdfstring{a2}{a2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classAtom}{Atom}}$\ast$ chemstructs\+::\+Angle\+::a2}
+
+The second atom forming the angle 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00439}{439}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+\mbox{\Hypertarget{structchemstructs_1_1Angle_a3b477abc452919347f932aba158a93f8}\label{structchemstructs_1_1Angle_a3b477abc452919347f932aba158a93f8}} 
+\index{chemstructs::Angle@{chemstructs::Angle}!a3@{a3}}
+\index{a3@{a3}!chemstructs::Angle@{chemstructs::Angle}}
+\doxysubsubsection{\texorpdfstring{a3}{a3}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classAtom}{Atom}}$\ast$ chemstructs\+::\+Angle\+::a3}
+
+The third atom forming the angle 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00440}{440}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+\mbox{\Hypertarget{structchemstructs_1_1Angle_ab0fd826282490d3cf567a69e9f072b35}\label{structchemstructs_1_1Angle_ab0fd826282490d3cf567a69e9f072b35}} 
+\index{chemstructs::Angle@{chemstructs::Angle}!angle@{angle}}
+\index{angle@{angle}!chemstructs::Angle@{chemstructs::Angle}}
+\doxysubsubsection{\texorpdfstring{angle}{angle}}
+{\footnotesize\ttfamily double chemstructs\+::\+Angle\+::angle =0}
+
+The angle calculated between the component atoms 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00441}{441}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+\mbox{\Hypertarget{structchemstructs_1_1Angle_ae36dbe4c0bc68b5bc42e0740e9521ad7}\label{structchemstructs_1_1Angle_ae36dbe4c0bc68b5bc42e0740e9521ad7}} 
+\index{chemstructs::Angle@{chemstructs::Angle}!plane@{plane}}
+\index{plane@{plane}!chemstructs::Angle@{chemstructs::Angle}}
+\doxysubsubsection{\texorpdfstring{plane}{plane}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d chemstructs\+::\+Angle\+::plane}
+
+The normal vector to the plane of this angle 
+
+Definition at line \mbox{\hyperlink{Atom_8hpp_source_l00442}{442}} of file \mbox{\hyperlink{Atom_8hpp_source}{Atom.\+hpp}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+graph/Atom.\+hpp\end{DoxyCompactItemize}

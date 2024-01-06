@@ -1,0 +1,36 @@
+#!/bin/bash
+
+form=$1
+if test -z "$form"
+then
+	form="result_prot*.pdb"
+fi
+x=`ls $form`
+if test $? -ne 0
+then
+	echo "No molecule found with name like result_prot*.pdb"
+	exit 1
+fi
+which obabel 1> /dev/null 2> /dev/null
+if test $? -eq 0
+then
+	p=1
+else
+	p=0
+	echo "Warning: OBABEL was not found. Falling back to primitve BASH version. The CONECT records will stay unedited"
+fi
+for f in $x
+do
+	fn=`echo $f|cut -d"." -f1`
+	if test -f $fn"_noH.pdb"
+	then
+		echo "Converted molecule exists. Skipping: "$fn
+	else
+		if test $p -eq 1
+		then
+			obabel -d -ipdb $f -opdb -O $fn"_noH.pdb"
+		else
+			grep -e "^[HA][ET][TO][AM][T ][M ]...... *H" -v $f > $fn"_noH.pdb"
+		fi
+	fi
+done

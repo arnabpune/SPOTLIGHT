@@ -1,0 +1,2 @@
+MAJOR Restructuring of code takes place
+1) Bonding parameters (lengths (types), angles, dihedrals,etc.) are now objects of the ForceField class)

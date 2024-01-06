@@ -1,0 +1,21 @@
+\hypertarget{namespacezmqio}{}\doxysection{zmqio Namespace Reference}
+\label{namespacezmqio}\index{zmqio@{zmqio}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classzmqio_1_1ZMQIOThread}{ZMQIOThread}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacezmqio_a415415b17255272d23df58c22e4b10e4}\label{namespacezmqio_a415415b17255272d23df58c22e4b10e4}} 
+static std\+::string {\bfseries communicate\+With\+Socket} (zmq\+::socket\+\_\+t \&socket, const std\+::string \&data, std\+::ostream \&dout=std\+::cout)
+\begin{DoxyCompactList}\small\item\em Send a message over socket (as a string) an receive the reply. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is the zmqio namespace. It contains methods similar to the netio namespace, but uses the ZMQ library for communication.~\newline
+ When compiled without ZMQ support, this namespace (with all iths functions) is disabled. Using ZMQ for communication assumes that the server also uses ZMQ for I/O over the network.
+
+~\newline
+{\itshape This namespace uses the ZMQ communication libraries}. See\+: \href{https://zeromq.org/languages/cplusplus}{\texttt{ https\+://zeromq.\+org/languages/cplusplus}} 

@@ -1,0 +1,210 @@
+\hypertarget{namespacestringfx}{}\doxysection{stringfx Namespace Reference}
+\label{namespacestringfx}\index{stringfx@{stringfx}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacestringfx_aeb08e7bc46fcc9d79ae61105aa71d9c8}\label{namespacestringfx_aeb08e7bc46fcc9d79ae61105aa71d9c8}} 
+std\+::string {\bfseries drain} (std\+::stringstream \&ss)
+\begin{DoxyCompactList}\small\item\em Empty all remaining data from a stringstream into a string. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacestringfx_a39713d3c86433bb2f090df0c6c37a565}\label{namespacestringfx_a39713d3c86433bb2f090df0c6c37a565}} 
+int {\bfseries index\+Of} (char c, const std\+::string \&s)
+\begin{DoxyCompactList}\small\item\em Find the index of a character in a string. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacestringfx_a9baa14cd736789c41bf6199ac4a91227}\label{namespacestringfx_a9baa14cd736789c41bf6199ac4a91227}} 
+int {\bfseries last\+Index\+Of} (char c, const std\+::string \&s)
+\begin{DoxyCompactList}\small\item\em Find the last index of a character in a string. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacestringfx_aa269b57842d9af451a0213af9cd35149}\label{namespacestringfx_aa269b57842d9af451a0213af9cd35149}} 
+int {\bfseries index\+Of} (const char $\ast$st, const std\+::string \&s)
+\begin{DoxyCompactList}\small\item\em Find the index of a substring in a string. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespacestringfx_a3f57ef389a34437cbed8094e10792df0}{index\+Of\+Any\+By\+Priority}} (const std\+::string \&list, const std\+::string \&s)
+\begin{DoxyCompactList}\small\item\em Find the index of any character from a list (given as a string) in another string. Priority is given to the earlier characters in the string. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespacestringfx_a5a593d454a0576ebf6497d811f9710c2}{last\+Index\+Of\+Any\+By\+Priority}} (const std\+::string \&list, const std\+::string \&s)
+\begin{DoxyCompactList}\small\item\em Find the index of the last occurence of any character from a list (given as a string) in another string. Priority is given to the earlier characters in the string. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespacestringfx_ac6684d09027f7b4ad546ba4d7b3fe8a1}{split}} (const std\+::string \&s, char delim=\textquotesingle{} \textquotesingle{}, bool autotrim=false, char protB=(char) 0, char protE=(char) 0)
+\begin{DoxyCompactList}\small\item\em split a string by a given delimiter and generate a std\+::vector of strings as output \end{DoxyCompactList}\item 
+std\+::string \& \mbox{\hyperlink{namespacestringfx_a827b03090f77597d306efc02f5132d04}{replace}} (std\+::string \&s, std\+::string val, std\+::string ns)
+\begin{DoxyCompactList}\small\item\em Replace a substring with another. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacestringfx_aa81116cbad8cb2190429822b6fd14307}\label{namespacestringfx_aa81116cbad8cb2190429822b6fd14307}} 
+std\+::string {\bfseries trim} (const std\+::string \&a\+String)
+\begin{DoxyCompactList}\small\item\em Trim (remove trailing spaces from) a string. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacestringfx_af1eaea5d953fcbd7614c7736883e3f78}{matches}} (const std\+::string \&seq, const std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Matches an identifier to an atom name. Used when loading rules and categories. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacestringfx_a1e07f2cbd7e308ebbd43bb45ce10d82d}\label{namespacestringfx_a1e07f2cbd7e308ebbd43bb45ce10d82d}} 
+std\+::string {\bfseries drain} (stringstream \&ss)
+\begin{DoxyCompactList}\small\item\em Empty all remaining data from a stringstream into a string. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacestringfx_a391be2baaefb6d75b43c39fb4e9acf07}\label{namespacestringfx_a391be2baaefb6d75b43c39fb4e9acf07}} 
+std\+::vector$<$ std\+::string $>$ {\bfseries split} (const std\+::string \&s, char delim=\textquotesingle{} \textquotesingle{}, bool autotrim=false)
+\begin{DoxyCompactList}\small\item\em split a string by a given delimiter and generate a std\+::vector of strings as output \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This namespace encompasses many of the string functions used in processing the data files 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacestringfx_a3f57ef389a34437cbed8094e10792df0}\label{namespacestringfx_a3f57ef389a34437cbed8094e10792df0}} 
+\index{stringfx@{stringfx}!indexOfAnyByPriority@{indexOfAnyByPriority}}
+\index{indexOfAnyByPriority@{indexOfAnyByPriority}!stringfx@{stringfx}}
+\doxysubsubsection{\texorpdfstring{indexOfAnyByPriority()}{indexOfAnyByPriority()}}
+{\footnotesize\ttfamily int stringfx\+::index\+Of\+Any\+By\+Priority (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{list,  }\item[{const std\+::string \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Find the index of any character from a list (given as a string) in another string. Priority is given to the earlier characters in the string. 
+
+Character priorities are decided by order in the list string. The earlier characters have higher priority.~\newline
+ The index of a character lower in priority will be returned {\itshape only} if no characters of higher priority exist in the string. 
+
+Definition at line \mbox{\hyperlink{commons_8h_source_l00333}{333}} of file \mbox{\hyperlink{commons_8h_source}{commons.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00334}00334     \{}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00335}00335         \textcolor{keywordtype}{int} ind=-\/1,pri=list.length();}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00336}00336         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<s.length();i++)}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00337}00337         \{}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00338}00338             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=0;j<list.length();j++)}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00339}00339             \{}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00340}00340                 \textcolor{keywordflow}{if}(s[i]==list[j])}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00341}00341                 \{}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00342}00342                     \textcolor{keywordflow}{if}(!j) \textcolor{keywordflow}{return} i;}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00343}00343                     \textcolor{keywordflow}{if}(j<pri) \{pri=j; ind=i;\}}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00344}00344                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00345}00345                 \}}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00346}00346             \}}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00347}00347         \}}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00348}00348         \textcolor{keywordflow}{return} ind;}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00349}00349     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacestringfx_a5a593d454a0576ebf6497d811f9710c2}\label{namespacestringfx_a5a593d454a0576ebf6497d811f9710c2}} 
+\index{stringfx@{stringfx}!lastIndexOfAnyByPriority@{lastIndexOfAnyByPriority}}
+\index{lastIndexOfAnyByPriority@{lastIndexOfAnyByPriority}!stringfx@{stringfx}}
+\doxysubsubsection{\texorpdfstring{lastIndexOfAnyByPriority()}{lastIndexOfAnyByPriority()}}
+{\footnotesize\ttfamily int stringfx\+::last\+Index\+Of\+Any\+By\+Priority (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{list,  }\item[{const std\+::string \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Find the index of the last occurence of any character from a list (given as a string) in another string. Priority is given to the earlier characters in the string. 
+
+Character priorities are decided by order in the list string. The earlier characters have higher priority.~\newline
+ The index of a character lower in priority will be returned {\itshape only} if no characters of higher priority exist in the string. 
+
+Definition at line \mbox{\hyperlink{commons_8h_source_l00354}{354}} of file \mbox{\hyperlink{commons_8h_source}{commons.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00355}00355     \{}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00356}00356         \textcolor{keywordtype}{int} ind=-\/1,pri=list.length();}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00357}00357         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=s.length()-\/1;i>=0;i-\/-\/)}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00358}00358         \{}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00359}00359             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=0;j<list.length();j++)}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00360}00360             \{}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00361}00361                 \textcolor{keywordflow}{if}(s[i]==list[j])}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00362}00362                 \{}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00363}00363                     \textcolor{keywordflow}{if}(!j) \textcolor{keywordflow}{return} i;}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00364}00364                     \textcolor{keywordflow}{if}(j<pri) \{pri=j; ind=i;\}}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00365}00365                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00366}00366                 \}}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00367}00367             \}}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00368}00368         \}}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00369}00369         \textcolor{keywordflow}{return} ind;}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00370}00370     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacestringfx_af1eaea5d953fcbd7614c7736883e3f78}\label{namespacestringfx_af1eaea5d953fcbd7614c7736883e3f78}} 
+\index{stringfx@{stringfx}!matches@{matches}}
+\index{matches@{matches}!stringfx@{stringfx}}
+\doxysubsubsection{\texorpdfstring{matches()}{matches()}}
+{\footnotesize\ttfamily bool stringfx\+::matches (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{seq,  }\item[{const std\+::string \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Matches an identifier to an atom name. Used when loading rules and categories. 
+
+This function also uses information of wild characters (like \textquotesingle{}$\ast$\textquotesingle{}) when matching two strings.~\newline
+ Returns \textquotesingle{}true\textquotesingle{} if there is a match and \textquotesingle{}false\textquotesingle{} if not. 
+
+Definition at line \mbox{\hyperlink{commons_8h_source_l00412}{412}} of file \mbox{\hyperlink{commons_8h_source}{commons.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00413}00413     \{}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00414}00414         \textcolor{keywordflow}{if}(seq==str) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00415}00415         \textcolor{keywordtype}{bool} wild=\textcolor{keyword}{false},pos=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00416}00416         std::string cmp=seq;}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00417}00417         \textcolor{keywordflow}{if}(seq[seq.size()-\/1]==\textcolor{charliteral}{'*'}) \{wild=\textcolor{keyword}{true}; pos=0; cmp=seq.substr(0,seq.size()-\/1);\}}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00418}00418         \textcolor{keywordflow}{if}(seq[0]==\textcolor{charliteral}{'*'}) \{wild=\textcolor{keyword}{true}; pos=1; cmp=seq.substr(1,seq.size()-\/1);\}}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00419}00419         \textcolor{keywordflow}{if}(!wild) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00420}00420         \textcolor{keywordflow}{if}(!pos) \textcolor{keywordflow}{return} (indexOf(cmp,str)==0);}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00421}00421         \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} (indexOf(cmp,str)==str.size()-\/cmp.size());}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00422}00422     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacestringfx_a827b03090f77597d306efc02f5132d04}\label{namespacestringfx_a827b03090f77597d306efc02f5132d04}} 
+\index{stringfx@{stringfx}!replace@{replace}}
+\index{replace@{replace}!stringfx@{stringfx}}
+\doxysubsubsection{\texorpdfstring{replace()}{replace()}}
+{\footnotesize\ttfamily std\+::string \& stringfx\+::replace (\begin{DoxyParamCaption}\item[{std\+::string \&}]{s,  }\item[{std\+::string}]{val,  }\item[{std\+::string}]{ns }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Replace a substring with another. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em s} & Original string \\
+\hline
+\mbox{\texttt{ in}}  & {\em val} & Substring to replace \\
+\hline
+\mbox{\texttt{ in}}  & {\em ns} & New string to replace with \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{commons_8h_source_l00399}{399}} of file \mbox{\hyperlink{commons_8h_source}{commons.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00400}00400     \{}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00401}00401         \textcolor{keywordtype}{int} l=s.find(val);}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00402}00402         \textcolor{keywordflow}{if}(l==std::string::npos) \textcolor{keywordflow}{return} s;}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00403}00403         \textcolor{keywordflow}{return} s.replace(l,val.size(),ns);}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00404}00404     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacestringfx_ac6684d09027f7b4ad546ba4d7b3fe8a1}\label{namespacestringfx_ac6684d09027f7b4ad546ba4d7b3fe8a1}} 
+\index{stringfx@{stringfx}!split@{split}}
+\index{split@{split}!stringfx@{stringfx}}
+\doxysubsubsection{\texorpdfstring{split()}{split()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ stringfx\+::split (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s,  }\item[{char}]{delim = {\ttfamily \textquotesingle{}~\textquotesingle{}},  }\item[{bool}]{autotrim = {\ttfamily false},  }\item[{char}]{protB = {\ttfamily (char)0},  }\item[{char}]{protE = {\ttfamily (char)0} }\end{DoxyParamCaption})}
+
+
+
+split a string by a given delimiter and generate a std\+::vector of strings as output 
+
+This function also allows \char`\"{}protector characters\char`\"{} where a string between a start protector and end protector remains uncut ~\newline
+For example ((1,2,3),(4,5,6)) when split over \textquotesingle{},\textquotesingle{} will yield (1,2,3),(4,5,6) if \textquotesingle{}(\textquotesingle{} and \textquotesingle{})\textquotesingle{} are used as protector charactes in the start and end positions respectively. 
+
+Definition at line \mbox{\hyperlink{commons_8h_source_l00375}{375}} of file \mbox{\hyperlink{commons_8h_source}{commons.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00376}00376     \{}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00377}00377         std::vector<std::string> ret;}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00378}00378         std::string temp=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00379}00379         \textcolor{keywordtype}{int} layer=0;}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00380}00380         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<s.length();i++)}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00381}00381         \{}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00382}00382             \textcolor{keywordflow}{if}(protB \&\& s[i]==protB) layer++;}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00383}00383             \textcolor{keywordflow}{if}(protE \&\& s[i]==protE) layer-\/-\/;}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00384}00384             \textcolor{keywordflow}{if}(s[i]==delim \&\& !layer)}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00385}00385             \{}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00386}00386                 \textcolor{keywordflow}{if}(!temp.length() \&\& autotrim) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00387}00387                 ret.push\_back(temp); temp=\textcolor{stringliteral}{"{}"{}}; \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00388}00388             \}}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00389}00389             temp+=s[i];}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00390}00390         \}}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00391}00391         ret.push\_back(temp);}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00392}00392         \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{\Hypertarget{namespacestringfx_l00393}00393     \}}
+
+\end{DoxyCode}

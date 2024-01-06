@@ -1,0 +1,14 @@
+REMARK VERSION Omega++ (devel)
+HETATM    1  NX  UNL A   1      -1.415   0.090   0.000  0.00  0.00           N
+HETATM    2  CA  UNL A   1      -0.616   1.180  -0.000  0.00  0.00           C
+HETATM    3  CA  UNL A   1       0.766   1.090  -0.000  0.00  0.00           C
+HETATM    4  NX  UNL A   1       1.415  -0.090  -0.000  0.00  0.00           N
+HETATM    5  CA  UNL A   1       0.616  -1.180   0.000  0.00  0.00           C
+HETATM    6  CA  UNL A   1      -0.766  -1.090   0.000  0.00  0.00           C
+CONECT    2    1    3
+CONECT    3    4    2
+CONECT    5    4    6
+CONECT    6    5    1
+CONECT    1    6    2
+CONECT    4    5    3
+END

@@ -1,0 +1,21 @@
+REMARK VERSION Omega++ (devel)
+ATOM      1   CY UNL A   1      -0.309   1.120   0.000         0.0          C
+ATOM      2   NY UNL A   1      -1.110   0.010  -0.000         0.0          N
+ATOM      3   CY UNL A   1      -0.325  -1.110   0.000         0.0          C
+ATOM      4   CY UNL A   1       0.992  -0.710  -0.000         0.0          C
+ATOM      5   CY UNL A   1       1.002   0.700  -0.000         0.0          C
+ATOM      6   HA UNL A   1      -0.738   2.110   0.000         0.0          H
+ATOM      7    H UNL A   1      -2.121   0.010  -0.000         0.0          H
+ATOM      8   HA UNL A   1      -0.769  -2.100   0.000         0.0          H
+ATOM      9   HA UNL A   1       1.853  -1.370  -0.000         0.0          H
+ATOM     10   HA UNL A   1       1.873   1.340  -0.000         0.0          H
+CONECT    1    2    5    6
+CONECT    2    1    3    7
+CONECT    3    2    4    8
+CONECT    4    3    5    9
+CONECT    5    1    4   10
+CONECT    6    1
+CONECT    7    2
+CONECT    8    3
+CONECT    9    4
+CONECT   10    5

@@ -1,0 +1,40 @@
+\hypertarget{namespacenetcomm}{}\doxysection{netcomm Namespace Reference}
+\label{namespacenetcomm}\index{netcomm@{netcomm}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structnetcomm_1_1MolRequest}{Mol\+Request}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacenetcomm_a001f892bbda26c238fed356e52d472bb}\label{namespacenetcomm_a001f892bbda26c238fed356e52d472bb}} 
+void {\bfseries add\+Request} (\mbox{\hyperlink{classSystem}{System}} m, int id)
+\begin{DoxyCompactList}\small\item\em Add a new request to the queue. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacenetcomm_a8309a847554fce6c9db839d0125cf6e1}\label{namespacenetcomm_a8309a847554fce6c9db839d0125cf6e1}} 
+int {\bfseries queue\+Size} ()
+\begin{DoxyCompactList}\small\item\em Get the current queue size. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static volatile \mbox{\hyperlink{structQueue}{Queue}}$<$ \mbox{\hyperlink{structnetcomm_1_1MolRequest}{Mol\+Request}} $>$ \mbox{\hyperlink{namespacenetcomm_a035fac86413b33a51018a8caf904c757}{molq}} (QUEUE\+\_\+\+LIMIT)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000026}{Deprecated}}]netcomm nammespace \end{DoxyRefDesc}
+
+
+This namespace deals with the data being passed between threads when using external charges.~\newline
+ In this case, the generating thread (the thread that completes a generation successfully) adds it\textquotesingle{}s newly generated molecule (along with the \mbox{\hyperlink{classSystem}{System}} object in which it was generated) to a queue. ~\newline
+ The queue is processed molecule by molecule by another asynchronous thread, which clears the queue parallely as it is filled. 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacenetcomm_a035fac86413b33a51018a8caf904c757}\label{namespacenetcomm_a035fac86413b33a51018a8caf904c757}} 
+\index{netcomm@{netcomm}!molq@{molq}}
+\index{molq@{molq}!netcomm@{netcomm}}
+\doxysubsubsection{\texorpdfstring{molq}{molq}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{structQueue}{Queue}}$<$ \mbox{\hyperlink{structnetcomm_1_1MolRequest}{Mol\+Request}} $>$ netcomm\+::molq(QUEUE\+\_\+\+LIMIT) (\begin{DoxyParamCaption}\item[{QUEUE\+\_\+\+LIMIT}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+The \mbox{\hyperlink{structQueue}{Queue}} which contains all the requests placed (and not processed) until now 

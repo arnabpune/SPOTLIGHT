@@ -1,0 +1,27 @@
+REMARK VERSION Omega++ (devel)
+ATOM      1  NH1 UNL A   1       0.730   1.210  -0.050         0.0          N
+ATOM      2    C UNL A   1       1.492   0.060  -0.160         0.0          C
+ATOM      3    O UNL A   1       2.683   0.090  -0.420         0.0          O
+ATOM      4   CC UNL A   1       0.723  -1.290   0.080         0.0          C
+ATOM      5    O UNL A   1       1.303  -2.330   0.320         0.0          O
+ATOM      6  NHZ UNL A   1      -0.663  -1.200   0.060         0.0          N
+ATOM      7  NHZ UNL A   1      -1.339  -0.010  -0.280         0.0          N
+ATOM      8  CT2 UNL A   1      -0.696   1.170   0.290         0.0          C
+ATOM      9    H UNL A   1       1.186   2.100  -0.200         0.0          H
+ATOM     10  HHZ UNL A   1      -1.194  -2.050   0.220         0.0          H
+ATOM     11  HHZ UNL A   1      -2.289  -0.050   0.080         0.0          H
+ATOM     12   HA UNL A   1      -0.771   1.140   1.380         0.0          H
+ATOM     13   HA UNL A   1      -1.167   2.080  -0.100         0.0          H
+CONECT    1    2    8    9
+CONECT    2    4    3    1
+CONECT    3    2
+CONECT    4    2    5    6
+CONECT    5    4
+CONECT    6    4   10    7
+CONECT    7    8   11    6
+CONECT    8    7    1   13   12
+CONECT    9    1
+CONECT   10    6
+CONECT   11    7
+CONECT   12    8
+CONECT   13    8

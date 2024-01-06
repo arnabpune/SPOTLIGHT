@@ -1,0 +1,55 @@
+\hypertarget{assign__position__to__box_8hpp_source}{}\doxysection{assign\+\_\+position\+\_\+to\+\_\+box.\+hpp}
+\label{assign__position__to__box_8hpp_source}\index{support/assign\_position\_to\_box.hpp@{support/assign\_position\_to\_box.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}./tensor.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00003}00003 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00005}00005 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00006}00006 \textcolor{comment}{We will define the a bounding box with an origin and box vectors}}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00007}00007 \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00008}00008 pair<Eigen::Vector4d,Eigen::Vector3i> define\_bounding\_box(vector<Eigen::Vector3d> pos, \textcolor{keywordtype}{double} rcut)\{}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00009}00009     \textcolor{comment}{//we need to find the minimum and maximum position vectors, and also the d-\/spacing}}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00010}00010     Eigen::Vector3d rmin,rmax;}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00011}00011     \textcolor{keywordtype}{double} dbox = findlatticespacing(pos, rcut);}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00012}00012     Eigen::Vector3d dr(dbox,dbox,dbox);}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00013}00013     \textcolor{comment}{//bearing in mind that the minimum position shifted by the d-\/vector is the origin}}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00014}00014     rmin = (findminpos(pos)) -\/ dr; rmax = (findmaxpos(pos)) + dr;}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00015}00015     cout<<\textcolor{stringliteral}{"{}r\_min = "{}}<<rmin.transpose()<<\textcolor{stringliteral}{"{}, r\_max = "{}}<<rmax.transpose()<<endl;}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00016}00016     Eigen::Vector3d rbox; rbox = rmax-\/rmin;}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00017}00017     \textcolor{comment}{//we then define our box vectors a,b,c to be the rounded off figures for each cell axis}}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00018}00018     \textcolor{keywordtype}{int} a,b,c;}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00019}00019     a = (int)((round(rbox(0)))); b = (int)((round(rbox(1)))); c = (int)((round(rbox(2))));}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00020}00020     \textcolor{comment}{//we then create the final datatypes and create the returnable pair and then return.}}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00021}00021     Eigen::Vector4d box\_o\_d(rmin(0),rmin(1),rmin(2),dbox);}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00022}00022     Eigen::Vector3i boxvec(a,b,c);}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00023}00023     pair<Eigen::Vector4d,Eigen::Vector3i> p; p = make\_pair(box\_o\_d,boxvec);}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00024}00024     \textcolor{keywordflow}{return} p;}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00025}00025 \}}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00027}00027 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00028}00028 \textcolor{comment}{Assign a position to a cell in a 3D grid:}}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00029}00029 \textcolor{comment}{In the previous function we defined our origin r\_o, our box d-\/spacing d and the box vectors a,b,c.}}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00030}00030 \textcolor{comment}{In this section we are now assuming Nx = a/d, Ny = b/d and Nz = c/d. This allows us to assign a }}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00031}00031 \textcolor{comment}{unique box to a coordinate in such a PERIODIC box, by using the formula}}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00032}00032 \textcolor{comment}{\{i,j,k\} = round(r\_i-\/r\_o\_i)/d,round(r\_j-\/r\_o\_j)/d,round(r\_k-\/r\_o\_k)/d  with correction for periodic conditions.}}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00033}00033 \textcolor{comment}{This formula implies that the rounded off distance divided by the d-\/spacing is equivalent to an index,}}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00034}00034 \textcolor{comment}{or is atleast the nearest index.}}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00035}00035 \textcolor{comment}{The other method would be to search for the nearest point but this is much more complex in timescale}}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00036}00036 \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00038}00038 \textcolor{keyword}{template}<\textcolor{keywordtype}{int} Nx,\textcolor{keywordtype}{int} Ny,\textcolor{keywordtype}{int} Nz>}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00039}00039 Eigen::Vector3i position2cell(Eigen::Vector3d r, Eigen::Vector3d r\_o, \textcolor{keywordtype}{double} d)\{}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00040}00040     \textcolor{comment}{//first we find the difference}}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00041}00041     Eigen::Vector3d rdiff; rdiff = r-\/r\_o;}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00042}00042     \textcolor{comment}{//then we use the predefined pbc correction to measure and correct the calculated positions}}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00043}00043     Eigen::Vector3i ri; ri = pbc\_index\_correction<Nx,Ny,Nz>( ((\textcolor{keywordtype}{int})(round((rdiff(0))/d))),0,0 );}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00044}00044     Eigen::Vector3i rj; rj = pbc\_index\_correction<Nx,Ny,Nz>( 0,((\textcolor{keywordtype}{int})(round((rdiff(1))/d))),0 );}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00045}00045     Eigen::Vector3i rk; rk = pbc\_index\_correction<Nx,Ny,Nz>( 0,0,((\textcolor{keywordtype}{int})(round((rdiff(2))/d))) );}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00046}00046     \textcolor{comment}{//we then extract the values to a meaningful box index and return.}}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00047}00047     Eigen::Vector3i boxindx( ri(0), rj(1), rk(2) );}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00048}00048     \textcolor{keywordflow}{return} boxindx;}
+\DoxyCodeLine{\Hypertarget{assign__position__to__box_8hpp_source_l00049}00049 \}}
+
+\end{DoxyCode}

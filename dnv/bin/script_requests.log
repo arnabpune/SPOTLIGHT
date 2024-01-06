@@ -1,0 +1,3 @@
+Filter Synthesizable from a folder (use SYBA)
+Shift molecule IDs by a fixed number (to concatenate multiple generations)
+Look at production and production_pep CPP files in the standard library. Update them

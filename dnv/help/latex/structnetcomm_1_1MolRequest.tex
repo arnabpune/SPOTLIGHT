@@ -1,0 +1,54 @@
+\hypertarget{structnetcomm_1_1MolRequest}{}\doxysection{netcomm\+::Mol\+Request Struct Reference}
+\label{structnetcomm_1_1MolRequest}\index{netcomm::MolRequest@{netcomm::MolRequest}}
+
+
+{\ttfamily \#include $<$Molecule.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structnetcomm_1_1MolRequest_a70c30d72fc09f979df18b8bd550563d0}\label{structnetcomm_1_1MolRequest_a70c30d72fc09f979df18b8bd550563d0}} 
+{\bfseries Mol\+Request} (\mbox{\hyperlink{classSystem}{System}} m, int s)
+\begin{DoxyCompactList}\small\item\em The simple \mbox{\hyperlink{structnetcomm_1_1MolRequest}{Mol\+Request}} object constructor with all necessary data provided. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSystem}{System}} \mbox{\hyperlink{structnetcomm_1_1MolRequest_afe62467132bb5b3f2f118e59030c5e3b}{mol}}
+\item 
+int \mbox{\hyperlink{structnetcomm_1_1MolRequest_af041f0da653dcd17ebf8ed059a9d4b23}{src}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+struct \mbox{\hyperlink{structnetcomm_1_1MolRequest}{Mol\+Request}} \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}} \char`\"{}graph/\+Molecule.\+hpp\char`\"{} This struct holds the data necessary to process one request from a thread. A queue of \mbox{\hyperlink{structnetcomm_1_1MolRequest}{Mol\+Request}} objects is maintained in netcomm. This struct contains the molecule \mbox{\hyperlink{classSystem}{System}} and the ID of the thread which generated it. 
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l05387}{5387}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structnetcomm_1_1MolRequest_afe62467132bb5b3f2f118e59030c5e3b}\label{structnetcomm_1_1MolRequest_afe62467132bb5b3f2f118e59030c5e3b}} 
+\index{netcomm::MolRequest@{netcomm::MolRequest}!mol@{mol}}
+\index{mol@{mol}!netcomm::MolRequest@{netcomm::MolRequest}}
+\doxysubsubsection{\texorpdfstring{mol}{mol}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSystem}{System}} netcomm\+::\+Mol\+Request\+::mol}
+
+The \mbox{\hyperlink{classSystem}{System}} containing the generated molecule 
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l05389}{5389}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+\mbox{\Hypertarget{structnetcomm_1_1MolRequest_af041f0da653dcd17ebf8ed059a9d4b23}\label{structnetcomm_1_1MolRequest_af041f0da653dcd17ebf8ed059a9d4b23}} 
+\index{netcomm::MolRequest@{netcomm::MolRequest}!src@{src}}
+\index{src@{src}!netcomm::MolRequest@{netcomm::MolRequest}}
+\doxysubsubsection{\texorpdfstring{src}{src}}
+{\footnotesize\ttfamily int netcomm\+::\+Mol\+Request\+::src}
+
+The source thread ID 
+
+Definition at line \mbox{\hyperlink{Molecule_8hpp_source_l05390}{5390}} of file \mbox{\hyperlink{Molecule_8hpp_source}{Molecule.\+hpp}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+graph/Molecule.\+hpp\end{DoxyCompactItemize}

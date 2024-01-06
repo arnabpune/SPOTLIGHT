@@ -1,0 +1,76 @@
+#!/bin/bash
+
+comm=$1
+echo "Command: $@"
+echo "Keyword: $comm"
+VERSION="THETA2++"
+if test -z "$comm"
+then
+	echo "DeNovo Version: $VERSION"
+	echo "Available commands"
+	echo "collect <size/energy>"
+	exit 127
+fi
+for tc in $@
+do
+	if [ "$tc" == "-v" ]; then
+		echo "DeNovo Version $VERSION"
+		exit 0
+	fi
+done
+if test -z "$DNV_ROOT"
+then
+	echo "Cannot find DNV_ROOT enviroment variable. Please set it to the installation location, or consider restarting you BASH shell"
+	exit 2
+fi
+if [ "$comm" == "collect" ]; then
+	if [ "$2" == "size" -o "$2" == "sizes" ]; then
+		$DNV_ROOT/bin/dnv-collect-size $3
+	elif [ "$2" == "energy" -o "$2" == "energies" -o "$2" == "en" -o "$2" == "ens" -o "$2" == "energys" ]; then
+		$DNV_ROOT/bin/dnv-collect-energy $3
+	else
+		$DNV_ROOT/bin/dnv-collect-energy $2
+	fi
+elif [ "$comm" == "collect-energy" ]; then
+	$DNV_ROOT/bin/dnv-collect-energy $2
+elif [ "$comm" == "collect-size" -o "$comm" == "collect-sizes" ]; then
+	$DNV_ROOT/bin/dnv-collect-size $2
+elif [ "$comm" == "gather" -o "$comm" == "collate" ]; then
+	$DNV_ROOT/bin/dnv-gather $2 $3 $4 $5
+elif [ "$comm" == "conndens" -o "$comm" == "connection-density" -o "$comm" == "conndensity" ]; then
+	$DNV_ROOT/bin/dnv-conndens $2
+elif [ "$comm" == "stripH" -o "$comm" == "stripHydrogen" -o "$comm" == "strip" -o "$comm" == "strip-hydrogen" ]; then
+	$DNV_ROOT/bin/dnv-stripH $2
+elif [ "$comm" == "detail" -o "$comm" == "describe" -o "$comm" == "desc" ]; then
+	$DNV_ROOT/bin/dnv-describe $2
+elif [ "$comm" == "coledit" -o "$comm" == "editcol" -o "$comm" == "colmath" ]; then
+	shift
+	$DNV_ROOT/bin/dnv-coledit $@
+elif [ "$comm" == "energy-distribution" -o "$comm" == "endist" -o "$comm" == "energydist" -o "$comm" == "enerdist" -o "$comm" == "plotenergy" ]; then
+	shift
+	$DNV_ROOT/bin/dnv-endist $@
+elif [ "$comm" == "movemol" -o "$comm" == "movepdb" -o "$comm" == "move" -o "$comm" == "movemolecule" -o "$comm" == "move-molecule" ]; then
+	shift
+	$DNV_ROOT/bin/dnv-movemol $@
+elif [ "$comm" == "topmodels" -o "$comm" == "vina-topmodels" -o "$comm" == "vina-top" ]; then
+	$DNV_ROOT/bin/dnv-vina-topmodels
+elif [ "$comm" == "ffrenumber" -o "$comm" == "ffrename" -o "$comm" == "renumber" -o "$comm" == "ffelement" -o "$comm" == "numberelements" ]; then
+	shift
+	$DNV_ROOT/bin/dnv-renumber $@
+elif [ "$comm" == "dockall" -o "$comm" == "vinadock" -o "$comm" == "vina-dock" -o "$comm" == "vina-dockall" -o "$comm" == "dock" ]; then
+	shift
+	$DNV_ROOT/bin/dnv-dockall $@
+elif [ "$comm" == "makeel" -o "$comm" == "elementalize" -o "$comm" == "removeatomtype" -o "$comm" == "removetype" -o "$comm" == "makeelements" ]; then
+	$DNV_ROOT/bin/dnv-makeel $2
+elif [ "$comm" == "orderatoms" -o "$comm" == "reorder" -o "$comm" == "arrange" -o "$comm" == "arrangeatoms" -o "$comm" == "reorderatoms" ]; then
+	$DNV_ROOT/bin/dnv-orderatoms $2 $3
+elif [ "$comm" == "prepare" -o "$comm" == "writecpp" -o "$comm" == "make" -o "$comm" == "makecpp" -o "$comm" == "compile" ]; then
+	shift
+	$DNV_ROOT/bin/dnv-prepare $@
+elif [ "$comm" == "runall" -o "$comm" == "run" -o "$comm" == "generateall" -o "$comm" == "makemol" ]; then
+	shift
+	$DNV_ROOT/bin/dnv-runall $@
+elif [ "$comm" == "launch" -o "$comm" == "exec" -o "$comm" == "execute" ]; then
+	shift
+	$DNV_ROOT/bin/dnv-launch $@
+fi

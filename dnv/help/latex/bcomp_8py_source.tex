@@ -1,0 +1,29 @@
+\hypertarget{bcomp_8py_source}{}\doxysection{bcomp.\+py}
+\label{bcomp_8py_source}\index{data/gaff/sources/bcomp.py@{data/gaff/sources/bcomp.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{bcomp_8py_source_l00001}00001 \textcolor{comment}{\#!/usr/bin/python3}}
+\DoxyCodeLine{\Hypertarget{bcomp_8py_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{bcomp_8py_source_l00003}00003 \textcolor{keyword}{import} sys,os}
+\DoxyCodeLine{\Hypertarget{bcomp_8py_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{bcomp_8py_source_l00005}00005 atoms=[]}
+\DoxyCodeLine{\Hypertarget{bcomp_8py_source_l00006}00006 fn=sys.argv[1]}
+\DoxyCodeLine{\Hypertarget{bcomp_8py_source_l00007}00007 atf=open(fn,\textcolor{stringliteral}{"{}r"{}})}
+\DoxyCodeLine{\Hypertarget{bcomp_8py_source_l00008}00008 \textcolor{keywordflow}{for} l \textcolor{keywordflow}{in} atf:}
+\DoxyCodeLine{\Hypertarget{bcomp_8py_source_l00009}00009     atn=l[0:2].strip()}
+\DoxyCodeLine{\Hypertarget{bcomp_8py_source_l00010}00010     atoms.append(atn)}
+\DoxyCodeLine{\Hypertarget{bcomp_8py_source_l00011}00011 atf.close()}
+\DoxyCodeLine{\Hypertarget{bcomp_8py_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{bcomp_8py_source_l00013}00013 fn=sys.argv[2]}
+\DoxyCodeLine{\Hypertarget{bcomp_8py_source_l00014}00014 nbf=open(fn,\textcolor{stringliteral}{"{}r"{}})}
+\DoxyCodeLine{\Hypertarget{bcomp_8py_source_l00015}00015 \textcolor{keywordflow}{for} l \textcolor{keywordflow}{in} nbf:}
+\DoxyCodeLine{\Hypertarget{bcomp_8py_source_l00016}00016     l=l[0:len(l)-\/1] \textcolor{comment}{\#Remove the '\(\backslash\)n' in the end}}
+\DoxyCodeLine{\Hypertarget{bcomp_8py_source_l00017}00017     bpart=str.split(l[0:6],\textcolor{stringliteral}{'-\/'})}
+\DoxyCodeLine{\Hypertarget{bcomp_8py_source_l00018}00018     p1=str.upper(bpart[0].strip())}
+\DoxyCodeLine{\Hypertarget{bcomp_8py_source_l00019}00019     p2=str.upper(bpart[1].strip())}
+\DoxyCodeLine{\Hypertarget{bcomp_8py_source_l00020}00020     \textcolor{keywordflow}{if} (p1 \textcolor{keywordflow}{in} atoms) \textcolor{keywordflow}{and} (p2 \textcolor{keywordflow}{in} atoms):}
+\DoxyCodeLine{\Hypertarget{bcomp_8py_source_l00021}00021         kb=float(l[7:13].strip())*1000}
+\DoxyCodeLine{\Hypertarget{bcomp_8py_source_l00022}00022         l=float(l[16:23].strip())/10}
+\DoxyCodeLine{\Hypertarget{bcomp_8py_source_l00023}00023         print(p1,p2,round(l,5),round(kb,4))}
+
+\end{DoxyCode}

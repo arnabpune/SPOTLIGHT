@@ -1,0 +1,182 @@
+\hypertarget{externio__omega__stable_8hpp_source}{}\doxysection{externio\+\_\+omega\+\_\+stable.\+hpp}
+\label{externio__omega__stable_8hpp_source}\index{support/externio\_omega\_stable.hpp@{support/externio\_omega\_stable.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00001}00001 \textcolor{preprocessor}{\#ifndef DNV\_INCLUDED\_EXTERNIO}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00002}00002 \textcolor{preprocessor}{\#define DNV\_INCLUDED\_EXTERNIO 1}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00003}00003 \textcolor{preprocessor}{\#include "{}commons.h"{}}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00004}00004 \textcolor{preprocessor}{\#include <sys/socket.h>}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00005}00005 \textcolor{preprocessor}{\#include <arpa/inet.h>}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00006}00006 \textcolor{preprocessor}{\#include <unistd.h>}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00007}00007 \textcolor{preprocessor}{\#ifndef NOJSON}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00008}00008 \textcolor{preprocessor}{\#include "{}json/json.h"{}}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00009}00009 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00010}00010 \textcolor{preprocessor}{\#ifndef NOZMQ}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00011}00011 \textcolor{preprocessor}{\#include <zmq.hpp>}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00012}00012 \textcolor{preprocessor}{\#include <typeinfo>}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00013}00013 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00014}00014 \textcolor{preprocessor}{\#ifndef PORT}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00015}00015 \textcolor{preprocessor}{\#define PORT 5555}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00016}00016 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00017}00017 \textcolor{preprocessor}{\#ifndef IPADDR}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00018}00018 \textcolor{preprocessor}{\#define IPADDR "{}192.168.4.25"{}}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00019}00019 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00022}00022 \textcolor{keyword}{class }\mbox{\hyperlink{classWrongFormatSpecifiedException}{WrongFormatSpecifiedException}} : \textcolor{keyword}{public} exception \{\};}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00023}00023 \textcolor{preprocessor}{\#ifndef NOJSON}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00025}00025 \textcolor{keyword}{class }AtomNotInJSONException: \textcolor{keyword}{public} exception \{\}; \textcolor{comment}{//When Atom type variable is not initialized in an Atom object}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00032}00032 \textcolor{comment}{}\textcolor{keyword}{namespace }jsonio}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00033}00033 \{}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00035}00035   Json::Value\& readJSON(\textcolor{keyword}{const} std::string\& is)}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00036}00036   \{}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00037}00037     Json::CharReaderBuilder builder;}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00038}00038     Json::CharReader * reader = builder.newCharReader();}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00039}00039     \textcolor{keyword}{static} std::string errors;}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00040}00040     Json::Value* ret=\textcolor{keyword}{new} Json::Value();}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00041}00041     \textcolor{keywordflow}{if}(!reader-\/>parse(is.c\_str(),is.c\_str()+is.length(),ret,\&errors)) cout << errors<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00042}00042     \textcolor{keywordflow}{return} *ret;}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00043}00043   \}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00045}00045   \textcolor{keyword}{inline} Json::Value\& readJSON(istream\& is) \{\textcolor{keywordflow}{return} readJSON(\mbox{\hyperlink{namespacestringfx_aeb08e7bc46fcc9d79ae61105aa71d9c8}{stringfx::drain}}(is));\}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00047}00047   \textcolor{keywordtype}{void} dumpJSON(Json::Value\& v)}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00048}00048   \{}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00049}00049     \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& el : v)}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00050}00050       cout << el << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00051}00051     \textcolor{comment}{//for(int i=0;i<v.size();i++) cout << v[(int)i] << "{}\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00052}00052   \}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00053}00053 \}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00054}00054 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00058}00058 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetxtio}{txtio}}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00059}00059 \{}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00061}00061   std::vector<std::pair<std::string,double>> \mbox{\hyperlink{namespacetxtio_a89ce35e336dc6ec5e9fa374c8cca9fbe}{loadChargesFromText}}(\textcolor{keyword}{const} std::string\& ins)}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00062}00062   \{}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00063}00063     \textcolor{keywordflow}{if}(ins.find(\textcolor{charliteral}{'\}'})!=std::string::npos) \textcolor{keywordflow}{throw} \mbox{\hyperlink{classWrongFormatSpecifiedException}{WrongFormatSpecifiedException}}();}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00064}00064     std::vector<std::pair<std::string,double>> ret;}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00065}00065     std::vector<std::string> lines=\mbox{\hyperlink{namespacestringfx_ac6684d09027f7b4ad546ba4d7b3fe8a1}{stringfx::split}}(ins,\textcolor{charliteral}{','});}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00066}00066     std::string n; \textcolor{keywordtype}{double} v;}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00067}00067     \textcolor{keywordflow}{for}(std::string\& s : lines)}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00068}00068     \{}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00069}00069       s=\mbox{\hyperlink{namespacestringfx_aa81116cbad8cb2190429822b6fd14307}{stringfx::trim}}(s);}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00070}00070       stringstream ss(s);}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00071}00071       ss >> n >> v;}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00072}00072       ret.push\_back(make\_pair(n,v));}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00073}00073     \}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00074}00074     \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00075}00075   \}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00077}00077   std::vector<std::pair<std::string,double>> \mbox{\hyperlink{namespacetxtio_aa5c783b83592f0f50ed4808710d439de}{loadChargesFromJSONString}}(\textcolor{keyword}{const} std::string\& jstr)}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00078}00078   \{}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00079}00079     std::vector<std::pair<std::string,double>> ret;}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00080}00080     \textcolor{keywordtype}{int} curInd=jstr.find(\textcolor{charliteral}{'\{'})+1;}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00081}00081     \textcolor{keywordflow}{if}(curInd==std::string::npos) \textcolor{keywordflow}{throw} \mbox{\hyperlink{classWrongFormatSpecifiedException}{WrongFormatSpecifiedException}}();}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00082}00082     \textcolor{keywordtype}{int} endInd=jstr.find(\textcolor{charliteral}{'\}'});}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00083}00083     curInd=jstr.find(\textcolor{charliteral}{'\(\backslash\)"{}'},curInd);}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00084}00084     \textcolor{keywordtype}{int} tempI;}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00085}00085     std::string atid; \textcolor{keywordtype}{double} chg;}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00086}00086     \textcolor{keywordflow}{do}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00087}00087     \{}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00088}00088       curInd++;}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00089}00089       tempI=curInd;}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00090}00090       curInd=jstr.find(\textcolor{charliteral}{'\(\backslash\)"{}'},curInd);}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00091}00091       \textcolor{keywordflow}{if}(jstr[curInd-\/1]==\textcolor{charliteral}{'\(\backslash\)\(\backslash\)'}) atid=jstr.substr(tempI,curInd-\/tempI-\/1);}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00092}00092       \textcolor{keywordflow}{else} atid=jstr.substr(tempI,curInd-\/tempI);}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00093}00093       curInd=jstr.find(\textcolor{charliteral}{':'},curInd)+1;}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00094}00094       tempI=curInd;}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00095}00095       curInd=jstr.find(\textcolor{charliteral}{','},curInd);}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00096}00096       \textcolor{keywordflow}{if}(curInd==std::string::npos) curInd=jstr.find(\textcolor{charliteral}{'\(\backslash\)\(\backslash\)'},tempI);}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00097}00097       chg=std::stod(jstr.substr(tempI,curInd-\/tempI));}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00098}00098       ret.push\_back(make\_pair(atid,chg));}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00099}00099       curInd=jstr.find(\textcolor{charliteral}{'\(\backslash\)"{}'},curInd+1);}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00100}00100       \textcolor{keywordflow}{if}(curInd>=endInd) \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00101}00101     \}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00102}00102     \textcolor{keywordflow}{while}(curInd!=std::string::npos);}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00103}00103     \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00104}00104   \}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00105}00105 \}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00111}00111 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacenetio}{netio}}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00112}00112 \{}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00113}00113   \textcolor{keyword}{static} \textcolor{keywordtype}{int} sock = 0;}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00115}00115   \textcolor{keywordtype}{int} \mbox{\hyperlink{namespacenetio_a83b79783695150bcccbbaa466a267f7c}{prepareSocket}}(\textcolor{keyword}{const} std::string\& ip,std::ostream\& dout=std::cout)}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00116}00116   \{}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00117}00117     dout << \textcolor{stringliteral}{"{}Prepare socket called\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00118}00118     \textcolor{keyword}{struct }sockaddr\_in serv\_addr;}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00119}00119     \textcolor{keywordflow}{if} ((sock = socket(AF\_INET, SOCK\_STREAM, 0)) < 0)}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00120}00120     \{}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00121}00121         cout << \textcolor{stringliteral}{"{}ERR: Socket creation error \(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00122}00122         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00123}00123     \}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00124}00124 }
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00125}00125     serv\_addr.sin\_family = AF\_INET;}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00126}00126     serv\_addr.sin\_port = htons(PORT);}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00127}00127 }
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00128}00128     \textcolor{comment}{// Convert IPv4 and IPv6 addresses from text to binary form}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00129}00129     \textcolor{keywordflow}{if}(inet\_pton(AF\_INET, ip.c\_str(), \&serv\_addr.sin\_addr)<=0)}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00130}00130     \{}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00131}00131         cout << \textcolor{stringliteral}{"{}ERR: Invalid address/ Address not supported \(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00132}00132         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00133}00133     \}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00134}00134 }
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00135}00135     \textcolor{keywordflow}{if} (connect(sock, (\textcolor{keyword}{struct} sockaddr *)\&serv\_addr, \textcolor{keyword}{sizeof}(serv\_addr)) < 0)}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00136}00136     \{}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00137}00137         cout << \textcolor{stringliteral}{"{}ERR: Connection Failed \(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00138}00138         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00139}00139     \}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00140}00140     dout << \textcolor{stringliteral}{"{}Connected to socket\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00141}00141     \textcolor{keywordflow}{return} sock;}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00142}00142   \}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00144}00144   std::string \mbox{\hyperlink{namespacenetio_a3e34ef51e43ae9cf01e9f304a8f5ef00}{communicateWithSocket}}(\textcolor{keywordtype}{int} sock,\textcolor{keyword}{const} std::string\& inp,std::ostream\& dout=std::cout)}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00145}00145   \{}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00146}00146     \textcolor{keywordtype}{char} buffer[1024] = \{0\};}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00147}00147     send(sock , inp.c\_str() , inp.length() , 0 );}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00148}00148     \textcolor{comment}{//cout << "{}Sent. Awaiting response\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00149}00149     \textcolor{keywordtype}{int} valread = recv( sock , buffer, 1024,0);}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00150}00150     dout << buffer << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00151}00151     \textcolor{comment}{//cout << "{}Response received\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00152}00152     \textcolor{keywordflow}{return} std::string(buffer);}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00153}00153   \}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00155}00155   \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespacenetio_a06b3207f6e3a49fa25aa36011e183211}{getSocket}}() \{\textcolor{keywordflow}{return} sock;\}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00157}00157   \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{namespacenetio_af5c2b9ef54ae5fba3c25778b58893d22}{init}}(std::ostream\& dout=std::cout) \{\mbox{\hyperlink{namespacenetio_a83b79783695150bcccbbaa466a267f7c}{prepareSocket}}(IPADDR,dout);\}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00158}00158 \}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00159}00159 \textcolor{preprocessor}{\#ifndef NOZMQ}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00166}00166 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacezmqio}{zmqio}}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00167}00167 \{}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00168}00168   \textcolor{keyword}{class }ZMQIOThread}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00169}00169   \{}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00170}00170     zmq::context\_t context\{ 1 \};}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00171}00171     zmq::socket\_t socket;}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00172}00172 }
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00173}00173   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00175}\mbox{\hyperlink{classzmqio_1_1ZMQIOThread_a09fef955ea4e39bdcad0784dc9a79116}{00175}}     \mbox{\hyperlink{classzmqio_1_1ZMQIOThread_a09fef955ea4e39bdcad0784dc9a79116}{ZMQIOThread}}(std::ostream\& dout=std::cout) \{this-\/>\mbox{\hyperlink{classzmqio_1_1ZMQIOThread_a0be7bf67c4709df045a869ce90935eb9}{prepareSocket}}(IPADDR,\textcolor{stringliteral}{"{}tcp"{}},PORT,dout);\}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00176}00176 }
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00178}\mbox{\hyperlink{classzmqio_1_1ZMQIOThread_a2c1075fcad7eea56a01613c8d355b2f7}{00178}}     \textcolor{keyword}{inline} zmq::socket\_t\& \mbox{\hyperlink{classzmqio_1_1ZMQIOThread_a2c1075fcad7eea56a01613c8d355b2f7}{getZMQSocket}}() \{\textcolor{keywordflow}{return} socket;\}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00180}\mbox{\hyperlink{classzmqio_1_1ZMQIOThread_aea14ab528dfacf8242013587bbbea9e5}{00180}}     \textcolor{keyword}{inline} zmq::socket\_t\& \mbox{\hyperlink{classzmqio_1_1ZMQIOThread_aea14ab528dfacf8242013587bbbea9e5}{getSocket}}() \{\textcolor{keywordflow}{return} socket;\}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00182}\mbox{\hyperlink{classzmqio_1_1ZMQIOThread_a0be7bf67c4709df045a869ce90935eb9}{00182}}     zmq::socket\_t\& \mbox{\hyperlink{classzmqio_1_1ZMQIOThread_a0be7bf67c4709df045a869ce90935eb9}{prepareSocket}}(\textcolor{keyword}{const} std::string\& ip,\textcolor{keyword}{const} std::string\& protocol=\textcolor{stringliteral}{"{}tcp"{}},\textcolor{keywordtype}{int} port=PORT,std::ostream\& dout=std::cout)}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00183}00183     \{}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00184}00184       dout << \textcolor{stringliteral}{"{}Prepare socket (ZMQ) called\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00185}00185       \textcolor{comment}{// construct a REQ (request) socket and connect to interface}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00186}00186       socket=\{ context, zmq::socket\_type::req \};}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00187}00187       std::string socket\_name=protocol+\textcolor{stringliteral}{"{}://"{}}+ip+\textcolor{stringliteral}{"{}:"{}}+to\_string(port);}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00188}00188       dout << socket\_name << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00189}00189       socket.connect(socket\_name);}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00190}00190       dout << \textcolor{stringliteral}{"{}Connection established to: "{}}<<ip<<\textcolor{stringliteral}{"{}:"{}}<<port<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00191}00191       \textcolor{keywordflow}{return} socket;}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00192}00192     \}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00194}\mbox{\hyperlink{classzmqio_1_1ZMQIOThread_a14f96fde5a6db8320e2556b7a107d19f}{00194}}     std::string \mbox{\hyperlink{classzmqio_1_1ZMQIOThread_a14f96fde5a6db8320e2556b7a107d19f}{communicateWithSocket}}(zmq::socket\_t\& socket,\textcolor{keyword}{const} std::string\& data,std::ostream\& dout=std::cout)}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00195}00195     \{}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00196}00196       \textcolor{comment}{// send the request message}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00197}00197       \textcolor{comment}{//std::cout << "{}Sending Request for charges"{} << request\_num << "{}..."{} << std::endl;}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00198}00198       socket.send(zmq::buffer(data), zmq::send\_flags::none);}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00199}00199       \textcolor{comment}{// wait for reply from server}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00200}00200       zmq::message\_t reply\{\};}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00201}00201       socket.recv(reply, zmq::recv\_flags::none);}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00202}00202       std::string re((\textcolor{keywordtype}{char}*)reply.data(),reply.size());}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00203}00203       dout << re << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00204}00204       \textcolor{keywordflow}{return} re;}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00205}00205     \}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00206}00206   \};}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00207}00207   \textcolor{comment}{// initialize the zmq context with a single IO thread}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00208}00208   \textcolor{comment}{//static zmq::context\_t context\{ 1 \};}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00209}00209   \textcolor{comment}{//static zmq::socket\_t socket;}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00210}00210 \}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00211}00211 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{externio__omega__stable_8hpp_source_l00212}00212 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

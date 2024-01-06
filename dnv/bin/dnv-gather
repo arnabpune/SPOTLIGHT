@@ -1,0 +1,20 @@
+#!/bin/bash
+
+loc=$3
+if test -z "$loc"
+then
+	loc=".."
+fi
+dest=$4
+if test -z "$dest"
+then
+	dest="."
+fi
+i=$1 #Start number
+echo $i
+while test $i -le $2 #End number
+do
+	cp $loc/size$i/result*.pdb $dest
+	echo "Processed: $i"
+	i=`expr $i + 1`
+done

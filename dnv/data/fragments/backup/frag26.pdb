@@ -1,0 +1,30 @@
+REMARK VERSION Omega++ (devel)
+HETATM    1  CT2 UNL A   1       0.754   1.272   0.049  0.00  0.00           C
+HETATM    2  C   UNL A   1       1.456  -0.044  -0.299  0.00  0.00           C
+HETATM    3  O   UNL A   1       2.591  -0.085  -0.736  0.00  0.00           O
+HETATM    4  NH1 UNL A   1       0.732  -1.200  -0.067  0.00  0.00           N
+HETATM    5  CT2 UNL A   1      -0.671  -1.190   0.361  0.00  0.00           C
+HETATM    6  NH1 UNL A   1      -1.386   0.032  -0.025  0.00  0.00           N
+HETATM    7  C   UNL A   1      -0.746   1.237  -0.256  0.00  0.00           C
+HETATM    8  O   UNL A   1      -1.355   2.210  -0.659  0.00  0.00           O
+HETATM    9  HA  UNL A   1       1.221   2.093  -0.509  0.00  0.00           H
+HETATM   10  HA  UNL A   1       0.886   1.463   1.120  0.00  0.00           H
+HETATM   11  H   UNL A   1       1.172  -2.083  -0.293  0.00  0.00           H
+HETATM   12  HA  UNL A   1      -0.698  -1.272   1.455  0.00  0.00           H
+HETATM   13  HA  UNL A   1      -1.177  -2.043  -0.108  0.00  0.00           H
+HETATM   14  H   UNL A   1      -2.377  -0.019  -0.223  0.00  0.00           H
+CONECT    2    4    3    1
+CONECT    7    6    1    8
+CONECT    1    7    9    2   10
+CONECT    5    6    4   13   12
+CONECT   11    4
+CONECT   14    6
+CONECT    9    1
+CONECT   10    1
+CONECT   12    5
+CONECT   13    5
+CONECT    4    5   11    2
+CONECT    6    7    5   14
+CONECT    3    2
+CONECT    8    7
+END

@@ -1,0 +1,17 @@
+#!/bin/bash
+# CALCULATES CONNECTION DENSTIY (NO OF CONNECTIONS IN EACH MOLECULE - EXCEPT HYDROGEN)
+
+if test -z "stripall.sh"
+then
+	echo "This script requires the 'stripall.sh' script. Please copy/link it here"
+	exit 2
+fi
+dnv-strip
+outf=$1
+if test -z "$outf"
+then
+	outf="condens.dat"
+fi
+x=`ls edit*_noH.pdb`
+for f in $x; do echo $f" "`grep ^CONECT $f|sed s/"  *"/" "/g|sed s/"CONECT "//g|grep -o " "|wc -l`; done > $outf
+echo "Written to $outf"

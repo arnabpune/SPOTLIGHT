@@ -1,0 +1,40 @@
+Add-on compilation log
+
+Compiling dnv-test-loadmol
+Log End: dnv-test-loadmol
+Compiling dnv-test-bondpar
+Log End: dnv-test-bondpar
+Compiling dnv-test-angpar
+Log End: dnv-test-angpar
+Compiling dnv-test-dihpar
+Log End: dnv-test-dihpar
+Compiling dnv-test-generate
+Log End: dnv-test-generate
+Compiling dnv-test-loadpdb
+Log End: dnv-test-loadpdb
+Compiling dnv-test-rules
+Log End: dnv-test-rules
+Compiling dnv-rewrite
+Log End: dnv-rewrite
+Compiling dnv-recalc
+Log End: dnv-recalc
+Compiling dnv-contactmap
+Log End: dnv-contactmap
+Compiling dnv-matchname
+Log End: dnv-matchname
+Compiling dnv-similarity
+Log End: dnv-similarity
+Compiling dnv-rmsd
+Log End: dnv-rmsd
+Compiling dnv-prune
+Log End: dnv-prune
+Compiling dnv-RBminim
+Log End: dnv-RBminim
+Compiling dnv-writetop
+Log End: dnv-writetop
+Compiling dnv-reduce
+Log End: dnv-reduce
+Compiling dnv-macro
+Log End: dnv-macro
+Compiling dnv-cmd
+Log End: dnv-cmd

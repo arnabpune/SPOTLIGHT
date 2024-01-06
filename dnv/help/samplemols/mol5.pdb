@@ -1,0 +1,43 @@
+REMARK CYCLE 6 with atoms: 5 0 1 2 3 4 
+ATOM      1  CAS DNV A   1       0.000   0.000   0.000         0.0           C
+ATOM      2   CA DNV A   1      -0.868   0.755  -0.752         0.0           C
+ATOM      3   NX DNV A   1      -2.069   0.219  -1.232         0.0           N
+ATOM      4   CA DNV A   1      -2.464  -1.105  -1.010         0.0           C
+ATOM      5   NX DNV A   1      -1.770  -2.072  -0.273         0.0           N
+ATOM      6   CA DNV A   1      -0.538  -1.683   0.267         0.0           C
+ATOM      7 CLAR DNV A   1       0.362  -2.842   1.164         0.0           C
+ATOM      8   FA DNV A   1       1.184   0.441   0.447         0.0           F
+ATOM      9 CXT1 DNV A   1      -0.530   2.219  -1.091         0.0           C
+ATOM     10   HA DNV A   1       0.482   2.487  -0.720         0.0           H
+ATOM     11  OSL DNV A   1      -0.500   2.488  -2.496         0.0           O
+ATOM     12   SL DNV A   1       0.942   3.002  -2.867         0.0           S
+ATOM     13  O2L DNV A   1       1.569   2.999  -1.562         0.0           O
+ATOM     14  O2L DNV A   1       0.723   4.381  -3.248         0.0           O
+ATOM     15  OSL DNV A   1       1.575   2.093  -3.987         0.0           O
+ATOM     16 CXT2 DNV A   1       2.798   1.584  -3.447         0.0           C
+ATOM     17   HA DNV A   1       2.863   2.049  -2.440         0.0           H
+ATOM     18   HA DNV A   1       2.766   0.476  -3.378         0.0           H
+ATOM     19   HP DNV A   1      -3.245  -1.350  -1.385         0.0           H
+ATOM     20   HA DNV A   1      -1.170   2.679  -0.656         0.0           H
+ATOM     21   HA DNV A   1       3.518   1.798  -3.943         0.0           H
+CONECT    1    2    6    8
+CONECT    2    1    3    9
+CONECT    3    2    4
+CONECT    4    3    5   19
+CONECT    5    4    6
+CONECT    6    5    1    7
+CONECT    7    6
+CONECT    8    1
+CONECT    9    2   10   11   20
+CONECT   10    9
+CONECT   11    9   12
+CONECT   12   11   13   14   15
+CONECT   13   12
+CONECT   14   12
+CONECT   15   12   16
+CONECT   16   15   17   18   21
+CONECT   17   16
+CONECT   18   16
+CONECT   19    4
+CONECT   20    9
+CONECT   21   16

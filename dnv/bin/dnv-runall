@@ -1,0 +1,49 @@
+#!/usr/bin/python3
+import sys
+import os
+import argparse
+from subprocess import Popen
+
+parser=argparse.ArgumentParser(prog="runall.py")
+#parser.add_argument(dest="seedcount",action="store",help="PRM file for topographic data")
+#parser.add_argument(dest="rstfile",action="store",help="RST file for coordinate data")
+#parser.add_argument(dest="itermax",action="store",help="No of iterations (maximum)")
+parser.add_argument('-x',dest='executable',metavar='--executable',action="store",help="The compliled executable file (Default: 'protein')",default='protein')
+parser.add_argument('-n',dest='seedcount',metavar='--seedcount',action="store",help="Seed count-Number of initial seeds guessed (default: 40)",default=40)
+parser.add_argument('-s',dest='molsize',metavar='--size',action="store",help="Size in number of heavy atomsof each ligand (default: 25)",default=25)
+#parser.add_argument('-T',dest='trials',metavar='--trials',action="store",help="Trial count for consecutive failures before each step of cooling. (Default: 10)",default=10)
+parser.add_argument('-p',dest='protein',metavar='--protein',action="store",help="Protein input file",required=True)
+parser.add_argument('-f',dest='format',metavar='--format',action="store",help="Format of protein input file. (Default: gro)",default="gro")
+parser.add_argument('-N',dest='finalcount',metavar='--final-count',action="store",help="Final number of results (Default: 50)",default=50)
+parser.add_argument('-l',dest='osc',metavar='--osc-count',action="store",help="Number of oscillations before Equilibrium (Default: 10)",default=10)
+parser.add_argument('-o',dest='outf',metavar='--output',action="store",help="Flag for output file (count will be appended - Default:dnv_molecule_)",default="dnv_molecule_")
+parser.add_argument('--restrain', dest='restr', action='store_const',const="1", default="0",help='Restrain growth by limiting the farthest atom to 0.8A (Default: off)')
+parser.add_argument('--superseed', dest='sseed', action='store_const',const="1", default="0",help='Superseed: Allow seeds to generate newer (multi-atom) template seeds if the templates are more stable (Default: off)')
+parser.add_argument('--reseed', dest='rseed', action='store_const',const="1", default="0",help='Reseed: If newer atoms are more stable, use them as next seeds (Default: off)')
+parser.add_argument('--deseed', dest='dseed', action='store_const',const="1", default="0",help='Deseed: If newer seeds are added delete the mother seeds (Default: off, Use with --reseed or --superseed)')
+#parser.add_argument('-a',dest='algs',metavar='--algswitch',action="store",help="Switch from Steepest Descent to Conjugate Gradient Algorithm of minimization after these steps (default: itermax/2)")
+
+args=parser.parse_args().__dict__
+
+seedcount=str(args["seedcount"])
+molsize=str(args["molsize"])
+protf=args["protein"]
+form=args["format"]
+finalcount=str(args["finalcount"])
+osc =str(args["osc"])
+outf=args["outf"]
+
+if args["dseed"]!="0" and (args["sseed"]=="0" and args["rseed"]=="0"):
+    print("Invalid option: Can't use --deseed without --superseed or --reseed. Switching deseed off")
+    args["dseed"]="0"
+crstr=args["restr"]+args["sseed"]+args["rseed"]+args["dseed"]
+'''print(seedcount,type(seedcount))
+print(molsize,type(molsize))
+print(trials,type(trials))
+print(trialsperseed,type(trialsperseed))
+print(finalcount,type(finalcount))
+print(osc,type(osc))
+print(outf,type(outf))'''
+
+proc = Popen("echo '1'|./"+args["executable"]+" "+protf+" "+form+" "+molsize+" "+finalcount+" "+osc+" "+seedcount+" "+outf+" "+crstr, shell=True,stdin=None, stdout=None, stderr=None, close_fds=True)
+print("Run complete")

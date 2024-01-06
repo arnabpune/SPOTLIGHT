@@ -1,0 +1,83 @@
+\hypertarget{test__boxbuilder_8cpp_source}{}\doxysection{test\+\_\+boxbuilder.\+cpp}
+\label{test__boxbuilder_8cpp_source}\index{support/testing/test\_boxbuilder.cpp@{support/testing/test\_boxbuilder.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}../assign\_position\_to\_box.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00003}00003 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00005}00005 \textcolor{keywordtype}{int} main()\{}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00006}00006     \textcolor{comment}{//Units are in nm}}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00007}00007     \textcolor{keywordtype}{int} maxr = 5.0;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00008}00008     \textcolor{keywordtype}{double} rcut = 1.0;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00009}00009     \textcolor{comment}{//create random position vectors of random sizes}}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00010}00010     \textcolor{keywordtype}{int} Npos = 50;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00011}00011     \textcolor{keywordflow}{while}(Npos < 1000)\{}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00012}00012         cout<<\textcolor{stringliteral}{"{}||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"{}}<<endl;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00013}00013         cout<<\textcolor{stringliteral}{"{}|\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#|"{}}<<endl;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00014}00014         cout<<\textcolor{stringliteral}{"{}Currently performing with N = "{}}<<Npos<<\textcolor{stringliteral}{"{} elements"{}}<<endl;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00015}00015         \textcolor{keywordtype}{int} n = 0;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00016}00016         \textcolor{comment}{//first generate a vector of double positions}}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00017}00017         vector<Eigen::Vector3d> allpos;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00018}00018         \textcolor{keywordflow}{while}( n < Npos )\{}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00019}00019             Eigen::Vector3d randpos; randpos = genrandomvec3d(0.0,5.0,0.0,5.0,0.0,5.0);}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00020}00020             allpos.push\_back(randpos);}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00021}00021             n = n + 1;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00022}00022         \}}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00023}00023         \textcolor{comment}{//figure out the position vector size}}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00024}00024         cout<<\textcolor{stringliteral}{"{}Current Position Vector size = "{}}<<allpos.size()<<endl;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00025}00025         \textcolor{comment}{//create the box and print it's associated variables}}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00026}00026         cout<<\textcolor{stringliteral}{"{}Creating box now"{}}<<endl;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00027}00027         pair<Eigen::Vector4d,Eigen::Vector3i> p; p = define\_bounding\_box(allpos, rcut);}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00028}00028         Eigen::Vector4d r4d; r4d = get<0>(p);}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00029}00029         Eigen::Vector3i abc; abc = get<1>(p);}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00030}00030         Eigen::Vector3d r\_o(r4d(0),r4d(1),r4d(2)); \textcolor{keywordtype}{double} d = r4d(3);}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00031}00031         \textcolor{comment}{//const int a,b,c;}}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00032}00032         \textcolor{keywordtype}{int} a = abc(0); \textcolor{keywordtype}{int} b = abc(1); \textcolor{keywordtype}{int} c = abc(2);}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00033}00033         cout<<\textcolor{stringliteral}{"{}Center is at = "{}}<<r\_o(0)<<\textcolor{stringliteral}{"{},"{}}<<r\_o(1)<<\textcolor{stringliteral}{"{},"{}}<<r\_o(2)<<endl;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00034}00034         cout<<\textcolor{stringliteral}{"{}d-\/spacing is = "{}}<<d<<\textcolor{stringliteral}{"{} nm"{}}<<endl;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00035}00035         cout<<\textcolor{stringliteral}{"{}Box vectors are: a = "{}}<<a<<\textcolor{stringliteral}{"{}nm, b = "{}}<<b<<\textcolor{stringliteral}{"{}nm, c = "{}}<<c<<\textcolor{stringliteral}{"{}nm"{}}<<endl;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00036}00036         \textcolor{comment}{//create the subdivisions Nx,Ny,Nz with grid bins and print it as well}}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00037}00037         \textcolor{keyword}{const} \textcolor{keywordtype}{int} Nx = 50; \textcolor{keyword}{const} \textcolor{keywordtype}{int} Ny = 50; \textcolor{keyword}{const} \textcolor{keywordtype}{int} Nz = 50;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00038}00038         cout<<\textcolor{stringliteral}{"{}Guessed grid-\/bins are determined as: Nx = "{}}<<a/d<<\textcolor{stringliteral}{"{}, Ny = "{}}<<b/d<<\textcolor{stringliteral}{"{}, Nz = "{}}<<c/d<<endl;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00039}00039         cout<<\textcolor{stringliteral}{"{}User supplied grid-\/bins are: Nx = "{}}<<Nx<<\textcolor{stringliteral}{"{}, Ny = "{}}<<Ny<<\textcolor{stringliteral}{"{}, Nz = "{}}<<Nz<<endl;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00040}00040         \textcolor{comment}{//because the user has supplied some parameters thus we need to perform all operations with this in mind}}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00041}00041         d = min( (((\textcolor{keywordtype}{double})c)/((\textcolor{keywordtype}{double})Nz)),(min( (((\textcolor{keywordtype}{double})a)/((\textcolor{keywordtype}{double})Nx)), (((\textcolor{keywordtype}{double})b)/((\textcolor{keywordtype}{double})Ny)) )) );}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00042}00042         \textcolor{comment}{//create the tensors and fill them with a preset zero and print that out as well.}}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00043}00043         \mbox{\hyperlink{classtensor3D__double}{tensor3D\_double<Nx,Ny,Nz>}} newdoublegrid; \mbox{\hyperlink{classtensor3D__int}{tensor3D\_int<Nx,Ny,Nz>}} newintgrid;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00044}00044         newdoublegrid.fill\_with\_zero(); newintgrid.fill\_with\_zero();}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00045}00045         cout<<\textcolor{stringliteral}{"{}Double and Integer 2nd order tensor grids created!"{}}<<endl;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00046}00046         \textcolor{comment}{//Try to modify a sample element in the grids}}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00047}00047         cout<<\textcolor{stringliteral}{"{}OLD element M\_double("{}}<<Nx-\/2<<\textcolor{stringliteral}{"{},"{}}<<Ny-\/2<<\textcolor{stringliteral}{"{},"{}}<<Nz-\/2<<\textcolor{stringliteral}{"{}) = "{}}<<newdoublegrid.get(Nx-\/2,Ny-\/2,Nz-\/2)<<endl;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00048}00048         newdoublegrid.modify(Nx-\/2,Ny-\/2,Nz-\/2,128.0);}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00049}00049         cout<<\textcolor{stringliteral}{"{}NEW element M\_double("{}}<<Nx-\/2<<\textcolor{stringliteral}{"{},"{}}<<Ny-\/2<<\textcolor{stringliteral}{"{},"{}}<<Nz-\/2<<\textcolor{stringliteral}{"{}) = "{}}<<newdoublegrid.get(Nx-\/2,Ny-\/2,Nz-\/2)<<endl;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00050}00050         cout<<\textcolor{stringliteral}{"{}OLD element M\_int("{}}<<Nx-\/2<<\textcolor{stringliteral}{"{},"{}}<<Ny-\/2<<\textcolor{stringliteral}{"{},"{}}<<Nz-\/2<<\textcolor{stringliteral}{"{}) = "{}}<<newintgrid.get(Nx-\/2,Ny-\/2,Nz-\/2)<<endl;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00051}00051         newintgrid.modify(Nx-\/2,Ny-\/2,Nz-\/2,128);}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00052}00052         cout<<\textcolor{stringliteral}{"{}NEW element M\_int("{}}<<Nx-\/2<<\textcolor{stringliteral}{"{},"{}}<<Ny-\/2<<\textcolor{stringliteral}{"{},"{}}<<Nz-\/2<<\textcolor{stringliteral}{"{}) = "{}}<<newintgrid.get(Nx-\/2,Ny-\/2,Nz-\/2)<<endl;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00053}00053         \textcolor{comment}{//Find out the indices of each of the positions, assign and print:}}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00054}00054         n = 0; vector<Eigen::Vector3i> allindx;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00055}00055         ofstream ofile; ofile.open((\textcolor{stringliteral}{"{}indices."{}}+to\_string(Npos)+\textcolor{stringliteral}{"{}.dat"{}}));}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00056}00056         cout<<\textcolor{stringliteral}{"{}Performing INDEXING of 3D double positions:"{}}<<endl;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00057}00057         ofile<<\textcolor{stringliteral}{"{}\# r(x)"{}}<<\textcolor{charliteral}{'\(\backslash\)t'}<<\textcolor{stringliteral}{"{}r(y)"{}}<<\textcolor{charliteral}{'\(\backslash\)t'}<<\textcolor{stringliteral}{"{}r(z)"{}}<<\textcolor{charliteral}{'\(\backslash\)t'}<<\textcolor{stringliteral}{"{}index(i)"{}}<<\textcolor{charliteral}{'\(\backslash\)t'}<<\textcolor{stringliteral}{"{}index(j)"{}}<<\textcolor{charliteral}{'\(\backslash\)t'}<<\textcolor{stringliteral}{"{}index(k)"{}}<<endl;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00058}00058         \textcolor{keywordflow}{while}(n<Npos)\{}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00059}00059             Eigen::Vector3i rindx;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00060}00060             Eigen::Vector3d r; r = allpos[n];}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00061}00061             rindx = position2cell<Nx,Ny,Nz>(r, r\_o, d);}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00062}00062             allindx.push\_back(rindx);}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00063}00063             ofile<<r(0)<<\textcolor{charliteral}{'\(\backslash\)t'}<<r(1)<<\textcolor{charliteral}{'\(\backslash\)t'}<<r(2)<<\textcolor{charliteral}{'\(\backslash\)t'}<<rindx(0)<<\textcolor{charliteral}{'\(\backslash\)t'}<<rindx(1)<<\textcolor{charliteral}{'\(\backslash\)t'}<<rindx(2)<<endl;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00064}00064             \textcolor{comment}{//system ("{}clear"{});}}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00065}00065             cout<<\textcolor{charliteral}{'\(\backslash\)r'}<<\textcolor{stringliteral}{"{}Step Number: "{}}<<n<<std::flush;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00066}00066             \textcolor{comment}{//getch();}}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00067}00067             n = n + 1;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00068}00068         \}}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00069}00069         ofile.close();}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00070}00070         cout<<endl;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00071}00071         \textcolor{comment}{//move on to the next iteration}}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00072}00072         Npos = Npos*2;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00073}00073         cout<<\textcolor{stringliteral}{"{}|\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#|"{}}<<endl;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00074}00074         cout<<\textcolor{stringliteral}{"{}||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"{}}<<endl;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00075}00075     \}}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00076}00076     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{test__boxbuilder_8cpp_source_l00077}00077 \}}
+
+\end{DoxyCode}

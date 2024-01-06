@@ -1,0 +1,374 @@
+#!/usr/bin/python3
+# Importing tkinter module
+from tkinter import *
+import tkinter.messagebox as messagebox
+from tkinter.ttk import *
+import os
+import argparse
+
+rt=os.getenv("DNV_ROOT")
+conf=open(os.getenv("DNV_ROOT")+"/config.dat")
+K=0
+compo=None
+for lg in conf:
+    lg=lg[0:len(lg)-1]
+    if K==0: compo=lg
+    if K==1: break
+    K+=1
+BLANKS=("\n"," ","\t")
+
+parser=argparse.ArgumentParser(prog="dnv-prepare")
+parser.add_argument(dest="filename",action="store",help="The final executable name")
+parser.add_argument('-R',dest='resnums',metavar='--resnums',action="store",help="Residue numbers of hotspot in the protein",required=True)
+parser.add_argument('-D',dest='diel',metavar='--dielectric',action="store",help="Dielectric constant used in simulation (Default: 30)",default="30")
+parser.add_argument('-M',dest='molec',metavar='--moleculehpp',action="store",help="Denovo hpp file used (Default: graph/Molecule.hpp). Path relative from DNV_ROOT",default="graph/Molecule.hpp")
+parser.add_argument('-F',dest='finff',metavar='--moleculeff',action="store",help="FF parameters for molecule generation  (Default: final_ff_parameters.ffin)",default="final_ff_parameters.ffin")
+parser.add_argument('-f',dest='protff',metavar='--proteinff',action="store",help="FF parameters for protein file parsing  (Default: protff.ffin)",default="protff.ffin")
+parser.add_argument('-c',dest='atcat',metavar='--categories',action="store",help="Categorization data for molecule generation  (Default: categories.data)",default="categories.data")
+parser.add_argument('-d',dest='atdef',metavar='--definitions',action="store",help="Atom-Type definition data for molecule generation  (Default: definitions.data)",default="definitions.data")
+parser.add_argument('-p',dest='pres',metavar='--protres',action="store",help="Protein residue definition data for protein file parsing  (Default: protein.rtp)",default="protein.rtp")
+parser.add_argument('-r',dest='restd',metavar='--restriandist',action="store",help="Restraint distance (activates if running with restrained growth only) (Default: 0.8nm)",default="0.8")
+parser.add_argument('-b',dest='box',metavar='--restriantbox',action="store",help="Restraint Box. The growth is limited to this region only. Ensure that the COG is contained in this region",default="")
+parser.add_argument('-s',dest='sphr',metavar='--restriantsphere',action="store",help="Restraint Sphere. The growth is limited to this region only. Ensure that the COG is contained in this region",default="")
+parser.add_argument('-n',dest='comp',metavar='--nocompile',action="store_const",const="1",default="0",help="Only write the cpp. Don't compile")
+parser.add_argument('--ipaddr',dest='ipaddr',metavar='--ipaddr',action="store",help="IP Address of server to contact (if using external charges - Default 192.168.4.25 if --external-charges is used)",default="")
+parser.add_argument('--port',dest='port',metavar='--port',action="store",help="Port number of server to contact (if using external charges - Default 5555 if --external-charges is used)",default="")
+parser.add_argument('--serial', dest='ser', action='store_const',const="1", default="0",help='Serial: Makes DeNovo run as a serial job (Default: off - Parallel across all available cores)')
+parser.add_argument('--realtime', dest='realtime', action='store', default=0,help='Realtime generation: Keep dumping PDBs at every stage of generation. Keep a lag between each addition. The argument here is the lag (in us) (Default: off - Normal quick and time-optimized generation).\n Note: You may consider using --serial as well (to avoid jumping between parallel threads)')
+parser.add_argument('--autopack', dest='apak', action='store_const',const="1", default="0",help='Autopack: Denovo will copy it\'s data files under the given names to the folder where executable is generated (Default: off - Manually copy data files)')
+parser.add_argument('--static', dest='stat', action='store_const',const="1", default="0",help='Static: Link statically (without copying) to DeNovo\'s default data files (Default: off - Manual linkage within executable directory)')
+parser.add_argument('--quiet', dest='quiet', action='store_const',const="1", default="0",help='Quiet: Do not write a lot to the terminal')
+parser.add_argument('--prune', dest='prune', action='store_const',const="1", default="0",help='Pruning: Instead of growing new molecules, allows \"pruning\" of an existing molecule when you to supply a molecule pdb as last parameter (Default: off)')
+parser.add_argument('--nojson', dest='jsonoff', action='store_const',const="1", default="0",help='No JSON: Switch off all Json-related functionalities (Default: off - Json functionalities enabled)')
+parser.add_argument('--external-charges', dest='extchg', action='store_const',const="1", default="0",help='External Charges: Use charges supplied externally for selection of stable molecules after generation (Default: off - Use forcefield charges)')
+parser.add_argument('--optimize', dest='optmol', action='store_const',const="1", default="0",help='Do structure optimization and quick local energy minimization of molecule. Usually recommended for closed/tight hotspots (effectiveness in open regions remains to be tested. (Default: off - No subsequent minimization)')
+parser.add_argument('--writemol2', dest='mol2f', action='store_const',const="1", default="0",help='Write Mol2: Write mol2 files for final results along with PDBs (Default: off - Only PDB output is written)')
+parser.add_argument('--pepgen', dest='pepgen', action='store_const',const="1", default="0",help='Peptide generation: Strictly generate only peptides (Default: off - Generate everything)')
+parser.add_argument('--skipseedcheck', dest='seedchecks', action='store_const',const="1", default="0",help='Seed definition satisfaction check: Explicitly check for seed atom-type satisfaction. It is disabled automatically for peptide generation and can be disabled manually to speed-up generation at the cost of manually having to sort-out the seed-atom configuration. DO NOT use this with external charges (Default: off - Check the seed atoms too)')
+
+args=parser.parse_args().__dict__
+if (not args["ipaddr"]) and (not args["port"]):
+    args["ipaddr"]="192.168.4.25"
+    args["port"]="5555"
+else: args["extchg"]="1"
+
+def quitf():
+        global master
+        master.destroy()
+        exit(0)
+
+def newline(event):
+    global cppcodeTB
+    ind=str.split(cppcodeTB.index(INSERT),'.')
+    lno=int(ind[0])
+    ll = cppcodeTB.get("insert linestart", "insert lineend")
+    indent=""
+    for c in ll:
+        if c in BLANKS: indent+=c
+        else: break;
+    cppcodeTB.insert(INSERT,"\n"+indent)
+    return "break"
+def resupd(event=None):
+    global args
+    args["resnums"]=rTF.get()
+    print("Residues:",args["resnums"])
+    updateTF()
+def dielupd(event=None):
+    global args
+    tx=dTF.get()
+    try:
+        dump=float(tx)
+        args["diel"]=tx
+        updateTF()
+    except ValueError:
+        pass
+def restupd(event=None):
+    global args
+    tx=resTF.get()
+    try:
+        dump=float(tx)
+        args["restd"]=tx
+        updateTF()
+    except ValueError:
+        pass
+def serupd(auto=None):
+    global serY
+    if not auto: oserY=serY.get()
+    args["ser"]="1" if serY.get()==1 else "0"
+    updateTF()
+def optupd():
+    global optY
+    args["optmol"]="1" if optY.get()==1 else "0"
+    updateTF()
+def rtupd():
+    global rtY,serY,oserY
+    args["realtime"]=0 if rtY.get()==0 else 67500
+    if args["realtime"]!=0:
+        oserY=serY.get()
+        serY.set(1)
+    else:
+        serY.set(oserY)
+    serupd(True)
+def mol2upd():
+    global mol2Y
+    args["mol2f"]="1" if mol2Y.get()==1 else "0"
+    updateTF()
+def pepupd():
+    global pepY,seedY,oseedY,pruneY,opruneY
+    args["pepgen"]="1" if pepY.get()==1 else "0"
+    if args["pepgen"]=="1":
+        oseedY=seedY.get()
+        seedY.set(1)
+        seedCB.configure(state="disabled")
+        opruneY=pruneY.get()
+        pruneY.set(0)
+        args["prune"]="0"
+        pruneCB.configure(state="disabled")
+    else:
+        seedY.set(oseedY)
+        seedCB.configure(state="enabled")
+        pruneY.set(opruneY)
+        args["prune"]="1" if opruneY else "0"
+        pruneCB.configure(state="enabled")
+    updateTF()
+def seedupd():
+    global seedY
+    oseedY=seedY.get()
+    args["seedchecks"]="1" if seedY.get()==1 else "0"
+    updateTF()
+def statupd():
+    global statY
+    args["stat"]="1" if statY.get()==1 else "0"
+    updateTF()
+def qupd():
+    global qY
+    args["quiet"]="1" if qY.get()==1 else "0"
+    updateTF()
+def pruneupd(auto=False):
+    global pruneY
+    opruneY=pruneY.get()
+    args["prune"]="1" if pruneY.get()==1 else "0"
+    updateTF()
+def ecupd():
+    global ecY
+    args["extchg"]="1" if ecY.get()==1 else "0"
+    if not ecY.get():
+        pTF.configure(state="disabled")
+        ipTF.configure(state="disabled")
+    else:
+        pTF.configure(state="enabled")
+        ipTF.configure(state="enabled")
+    updateTF()
+def ipupd(event=None):
+    global args
+    tx=ipTF.get()
+    args["ipaddr"]=tx
+    updateTF()
+def pupd(event=None):
+    global args
+    tx=pTF.get()
+    args["port"]=tx
+    updateTF()
+def execS(event=None):
+    global args,master
+    temp=args["filename"]
+    args["filename"]=fileTF.get()
+    for b in BLANKS:
+        if b in args["filename"]:
+            args["filename"]=temp
+            fileTF.delete("0.0")
+            fileTF.insert("0.0",temp)
+            break;
+    of=open(args["filename"]+".cpp","w")
+    of.write(cppcodeTB.get("0.0",END))
+    of.close()
+    print("Wrote CPP file")
+    if args["apak"]=="1" and args["stat"]!="1":
+        os.system("cp -n "+rt+"/data/final_ff_parameters.ffin ./"+args["finff"])
+        os.system("cp -n "+rt+"/data/definitions.data ./"+args["atdef"])
+        os.system("cp -n "+rt+"/data/categories.data ./"+args["atcat"])
+        os.system("cp -n "+rt+"/data/protein.rtp ./"+args["pres"])
+        os.system("cp -n "+rt+"/data/protff.ffin ./"+args["protff"])
+        os.system("cp -rn "+rt+"/data/itps .")
+    execB.configure(state="disabled")
+    op=os.system(lg+" "+compo+" "+args["filename"]+".cpp -I "+os.getenv("DNV_ROOT")+" -o "+args["filename"])
+    execB.configure(state="enabled")
+    if op==0:
+        messagebox.showinfo("Done!","Compled successfully! You can now run the program.")
+    else:
+        print("Compile failed")
+        messagebox.showerror("Failed!!","Could not compile code. Check the C++ file: "+str(args["filename"]+".cpp"))
+
+# creating Tk window
+master = Tk()
+# setting geometry of tk window
+master.geometry("1024x768")
+
+# button widget
+b1 = Button(master, text = "QUIT",command=quitf) #,fg="red")
+b1.place(relx = 1, x =-2, y = 2, anchor = NE)
+
+# label widget
+l = Label(master, text = "DeNovo - Prepare a generation")
+l.place(anchor = NW)
+
+#Residue list
+rlab=Label(master, text="Residue Numbers: ")
+rlab.place(x=30,y=80,anchor=NW)
+rTF=Entry(master)
+rTF.place(x=160,y=80,anchor=NW)
+rTF.bind("<Return>",resupd)
+rTF.insert(0,args["resnums"])
+#rupdB=Button(master,text="UPDATE",command=resupd)
+#rupdB.place(x=325,y=80,anchor=NW,width=64,height=20)
+
+#Dielectric
+dlab=Label(master,text="Dielectric constant (Default: 30)")
+dlab.place(x=30,y=110,anchor=NW)
+dTF=Entry(master)
+dTF.place(x=240,y=110,anchor=NW,width=40)
+dTF.bind("<Return>",dielupd)
+dTF.insert(0,args["diel"])
+
+#Restraint distance
+reslab=Label(master,text="Restraint Distance (Default: 0.8nm): ")
+reslab.place(x=30,y=140,anchor=NW)
+resTF=Entry(master)
+resTF.place(x=260,y=140,anchor=NW,width=40)
+resTF.bind("<Return>",restupd)
+resTF.insert(0,args["restd"])
+
+#Checkboxes
+serY=IntVar(); serY.set(int(args["ser"]=="1"))
+oserY=serY.get()
+serCB = Checkbutton(master, text='Run as serial job',variable=serY, onvalue="1", offvalue="0", command=serupd)
+serCB.place(x=45,y=200,anchor=NW)
+optY=IntVar(); optY.set(int(args["optmol"]=="1"))
+optCB = Checkbutton(master, text='Quickly optimize and molecule after generation',variable=optY, onvalue="1", offvalue="0", command=optupd)
+optCB.place(x=45,y=225,anchor=NW)
+mol2Y=IntVar(); mol2Y.set(int(args["mol2f"]=="1"))
+mol2CB = Checkbutton(master, text='Write output as Mol2 also',variable=mol2Y, onvalue="1", offvalue="0", command=mol2upd)
+mol2CB.place(x=45,y=250,anchor=NW)
+pepY=IntVar(); pepY.set(int(args["pepgen"]=="1"))
+pepCB = Checkbutton(master, text='Generate only peptides',variable=pepY, onvalue="1", offvalue="0", command=pepupd)
+pepCB.place(x=45,y=500,anchor=NW)
+pruneY=IntVar(); pruneY.set(int(args["prune"]=="1"))
+opruneY=pruneY.get()
+pruneCB = Checkbutton(master, text='Prune molecule when it is supplied',variable=pruneY, onvalue="1", offvalue="0", command=pruneupd)
+pruneCB.place(x=45,y=475,anchor=NW)
+seedY=IntVar(); pepY.set(int(args["seedchecks"]=="1"))
+oseedY=seedY.get()
+seedCB = Checkbutton(master, text='Disable checking seed atom',variable=seedY, onvalue="1", offvalue="0", command=seedupd)
+seedCB.place(x=45,y=275,anchor=NW)
+rtY=IntVar(); rtY.set(int(args["realtime"]=="1"))
+rtCB = Checkbutton(master, text='Run realtime (slow but useful to visualize)',variable=rtY, onvalue=67500, offvalue=0, command=rtupd)
+rtCB.place(x=45,y=300,anchor=NW)
+statY=IntVar(); statY.set(int(args["stat"]=="1"))
+statCB = Checkbutton(master, text='Statically link data files',variable=statY, onvalue="1", offvalue="0", command=statupd)
+statCB.place(x=45,y=325,anchor=NW)
+qY=IntVar(); qY.set(int(args["quiet"]=="1"))
+qCB = Checkbutton(master, text='Run quietly (reduce screen output)',variable=qY, onvalue="1", offvalue="0", command=qupd)
+qCB.place(x=45,y=350,anchor=NW)
+ecY=IntVar(); ecY.set(int(args["extchg"]=="1"))
+ecCB = Checkbutton(master, text='Use charges from external source',variable=ecY, onvalue="1", offvalue="0", command=ecupd)
+ecCB.place(x=45,y=375,anchor=NW)
+iplab=Label(master,text="IP Address of server: ")
+iplab.place(x=75,y=395,anchor=NW)
+ipTF=Entry(master)
+ipTF.place(x=210,y=395,anchor=NW,width=100)
+ipTF.bind("<Return>",ipupd)
+ipTF.insert(0,args["ipaddr"])
+plab=Label(master,text="Port of server: ")
+plab.place(x=75,y=415,anchor=NW)
+pTF=Entry(master)
+pTF.place(x=180,y=415,anchor=NW,width=60)
+pTF.bind("<Return>",pupd)
+pTF.insert(0,args["port"])
+if not ecY.get():
+    pTF.configure(state="disabled")
+    ipTF.configure(state="disabled")
+filelab=Label(master,text="Final executable filename: ")
+filelab.place(x=40,y=550,anchor=NW)
+fileTF=Entry(master)
+fileTF.place(x=200,y=550,anchor=NW)
+fileTF.insert(0,args["filename"])
+execB=Button(master,text="Save and Compile",command=execS)
+execB.place(x=100,y=600)
+# The final C++ code
+cppcodeTB=Text(master)
+cppcodeTB.place(relx = 0.4, rely = 0.05, anchor = NW,width=610,height=720)
+cppcodeTB.bind("<Return>",newline)
+
+#Prepare the file
+if compo.find("openmp")==-1:
+    print("Compiled without OpenMP support. Forced --serial")
+    args["ser"]="1"
+def updateTF():
+    global cppcodeTB,rTF
+    cppcodeTB.delete("1.0", END)
+    if args["extchg"] == "0": cppcodeTB.insert(END,"#define FFCHARGES 1\n")
+    if args["ser"] == "1" : cppcodeTB.insert(END,"#define SERIAL 1\n")
+    if args["stat"] == "1" : cppcodeTB.insert(END,"#define STATICDATA 1\n")
+    if args["quiet"] == "1" : cppcodeTB.insert(END,"#define QUIET 1\n")
+    if args["optmol"] == "1" : cppcodeTB.insert(END,"#define USE_PHYSICS 1\n")
+    if args["jsonoff"] == "1" : cppcodeTB.insert(END,"#define NOJSON 1\n")
+    if args["pepgen"] == "1" :
+        cppcodeTB.insert(END,"#define AMINOACIDDATA 1\n")
+        cppcodeTB.insert(END,"#define VARIEDCOUNT 1\n")
+        cppcodeTB.insert(END,"#define NOSEEDCHECK 1\n")
+        if args["stat"] == "1":
+            args["finff"]="aminoacids/aminoacids_dnv.ffin";
+            args["atcat"]="aminoacids/categories.data";
+            args["atdef"]="aminoacids/definitions.data";
+        else:
+            args["finff"]="aminoacids_dnv.ffin";
+            args["atcat"]="categories.data";
+            args["atdef"]="definitions.data";
+    else:
+        if args["seedchecks"]=="1": cppcodeTB.insert(END,"#define NOSEEDCHECK 1\n")
+    if args["extchg"]!="0":
+        if args["ipaddr"]: cppcodeTB.insert(END,"#define IPADDR \""+args["ipaddr"]+"\"\n")
+        if args["port"]: cppcodeTB.insert(END,"#define PORT "+args["port"]+"\n")
+    if args["realtime"]: cppcodeTB.insert(END,"#define REALTIME "+str(args["realtime"])+"\n")
+    cppcodeTB.insert(END,'#include "'+args["molec"]+'"\n\n')
+    cppcodeTB.insert(END,"int main(int argc,char** argv)\n{\n")
+    if args["diel"]!="10": cppcodeTB.insert(END," DIEL/="+str(float(args["diel"])/10)+";\n")
+    if args["restd"]!="0.8": cppcodeTB.insert(END," RESTRAINDISTANCE="+args["restd"]+";\n")
+    if args["box"]!="": cppcodeTB.insert(END," quickgeom::Cuboid* region=new quickgeom::Cuboid("+args['box']+");\n")
+    elif args["sphr"]!="": cppcodeTB.insert(END," quickgeom::Sphere* region=new quickgeom::Sphere("+args['sphr']+");\n")
+    else: cppcodeTB.insert(END," quickgeom::Cuboid* region=nullptr;\n")
+    if args["stat"] == "0":
+        temps=(' std::string fnam="",format="pdb",progname=(argc>7)?argv[7]:"dnv_protgen",flagcodes=(argc>8)?argv[8]:"0000";\n int size=(argc>3)?std::stoi(argv[3]):15,num=(argc>4)?std::stoi(argv[4]):25,osc=(argc>5)?std::stoi(argv[5]):5,seednum=(argc>6)?std::stoi(argv[6]):30,tempv;\n if(argc>1) fnam=argv[1];\n if(argc>2) format=argv[2];\n else {cout << "Enter filename: "; cin >>fnam;}\n cout << "Under: \'"<<progname<<"\': Generating "<<num<<" drugs of size="<<size<<" using "<<seednum<<" seeds, accumulating the best for every "<<osc<<" oscillations\\n";\n if(flagcodes!="0000") cout << "Running with: "<<((flagcodes[0]!=\'0\')?"restraint "+to_string(RESTRAINDISTANCE)+"A ":"")<<((flagcodes[1]!=\'0\')?"superseed ":"")<<((flagcodes[2]!=\'0\')?"reseed ":"")<<((flagcodes[2]!=\'0\')?"deseed ":"")<<"\\n";\n cin >> tempv;\n ForceField ff("'+args["finff"]+'","'+args["atcat"]+'");\n ff.loadBondParameters();\n ff.loadRules("'+args["atdef"]+'");\n IncompleteForceField protff(\"'+args["protff"]+'\"); protff.loadResidues("'+args["pres"]+'");\n\n')
+    else:
+        if rt:
+            temps=(' std::string fnam="",format="pdb",progname=(argc>7)?argv[7]:"dnv_protgen",flagcodes=(argc>8)?argv[8]:"0000";\n int size=(argc>3)?std::stoi(argv[3]):15,num=(argc>4)?std::stoi(argv[4]):25,osc=(argc>5)?std::stoi(argv[5]):5,seednum=(argc>6)?std::stoi(argv[6]):30,tempv;\n if(argc>1) fnam=argv[1];\n if(argc>2) format=argv[2];\n else {cout << "Enter filename: "; cin >>fnam;}\n cout << "Under: \'"<<progname<<"\': Generating "<<num<<" drugs of size="<<size<<" using "<<seednum<<" seeds, accumulating the best for every "<<osc<<" oscillations\\n";\n if(flagcodes!="0000") cout << "Running with: "<<((flagcodes[0]!=\'0\')?"restraint "+to_string(RESTRAINDISTANCE)+"A ":"")<<((flagcodes[1]!=\'0\')?"superseed ":"")<<((flagcodes[2]!=\'0\')?"reseed ":"")<<((flagcodes[2]!=\'0\')?"deseed ":"")<<"\\n";\n cin >> tempv;\n ForceField ff("'+rt+'/data/'+args["finff"]+'","'+rt+'/data/'+args["atcat"]+'");\n ff.loadBondParameters();\n ff.loadRules("'+rt+'/data/'+args["atdef"]+'");\n IncompleteForceField protff(\"'+rt+'/data/'+args["protff"]+'\"); protff.loadResidues("'+rt+'/data/'+args["pres"]+'");\n\n')
+        else:
+            print("Cannot link statically. DNV_ROOT is not defined")
+            exit(1)
+    cppcodeTB.insert(END,temps)
+    if args["pepgen"]!="0":
+        cppcodeTB.insert(END,' VCLIST=&(ff.getCategory("count"));\n')
+    resl=None
+    try:
+        args["resnums"].index(',')
+        resl=str.split(args['resnums'],',')
+    except ValueError:
+        resl=[]
+        fl=open(args["resnums"],"r")
+        for l in resl: resl.append(int(l))
+    if resl is None:
+        print("No residue numbers found. Enter in format: dnv-prepare -r'n1,n2,n3...'")
+        exit(1)
+    cppcodeTB.insert(END," std::vector<int> hsres={"+','.join([str(x) for x in resl])+"};\n\n Protein p(fnam,protff,hsres,format);\n")
+    #cppcodeTB.insert(END,' std::vector<Atom*> seeds;\n seeds.push_back(ff.getAtom("CT1"));\n seeds.push_back(ff.getAtom("CT2"));\n seeds.push_back(ff.getAtom("CT3"));\n seeds.push_back(ff.getAtom("CA"));\n seeds.push_back(ff.getAtom("CA"));\n seeds.push_back(ff.getAtom("CA"));\n seeds.push_back(ff.getAtom("CPT"));\n seeds.push_back(ff.getAtom("CE1"));\n seeds.push_back(ff.getAtom("CE2"));\n seeds.push_back(ff.getAtom("PL"));\n seeds.push_back(ff.getAtom("SL"));\n seeds.push_back(ff.getAtom("C3"));\n seeds.push_back(ff.getAtom("OH1"));\n seeds.push_back(ff.getAtom("OC"));\n seeds.push_back(ff.getAtom("NY"));\n seeds.push_back(ff.getAtom("CP2"));\n seeds.push_back(ff.getAtom("CT2x"));\n seeds.push_back(ff.getAtom("CT1x"));\n\n\n') #Old Seeds
+    if args["pepgen"]!="0":
+        cppcodeTB.insert(END,' std::vector<Atom*> seeds;\n seeds.push_back(ff.getAtom("C"));\n\n');
+    else:
+        cppcodeTB.insert(END,' std::vector<Atom*> seeds;\n seeds.push_back(ff.getAtom("CT1"));\n seeds.push_back(ff.getAtom("CT2"));\n seeds.push_back(ff.getAtom("CT3"));\n seeds.push_back(ff.getAtom("CA"));\n seeds.push_back(ff.getAtom("NX"));\n seeds.push_back(ff.getAtom("CAS"));\n seeds.push_back(ff.getAtom("NX"));\n seeds.push_back(ff.getAtom("CPT"));\n seeds.push_back(ff.getAtom("NY"));\n seeds.push_back(ff.getAtom("CY"));\n seeds.push_back(ff.getAtom("CT2x"));\n seeds.push_back(ff.getAtom("CT1x"));\n seeds.push_back(ff.getAtom("CP2"));\n seeds.push_back(ff.getAtom("CE1A"));\n seeds.push_back(ff.getAtom("CE2A"));\n seeds.push_back(ff.getAtom("PL"));\n seeds.push_back(ff.getAtom("SL"));\n seeds.push_back(ff.getAtom("C3"));\n seeds.push_back(ff.getAtom("OH1"));\n seeds.push_back(ff.getAtom("OC"));\n\n\n')
+    cppcodeTB.insert(END," Molecule* templatemol=(argc>9)?new Molecule(std::string(argv[9]),ff,\"pdb\",true):nullptr;\n int K=0;\n std::vector<System> mols=p.generateLigands(ff,num,size,progname+\".log\",seeds,seednum,false,1.2,1,osc,300,50,298,\"seeds_\"+progname+\".pdb\",(flagcodes[0]!='0'),(flagcodes[1]!='0'),(flagcodes[2]!='0'),(flagcodes[3]!='0'),region,templatemol,"+("true" if args["prune"]=="1" else "false")+");\n")
+    cppcodeTB.insert(END,' for(System& s : mols)\n {\n  Molecule* m=s.getDrugMolecule();\n  for(Atom* a : m->getAtoms()) cout <<a->toString()<<"\t"<<ff.isSatisfied(a,m->getBondedAtoms(a))<<","<<a->isCyclized()<<"\\n";\n  m->dumpMol("result_prot_"+progname+"_"+to_string(K)+".pdb",&ff);\n')
+    if args["mol2f"]=="1": cppcodeTB.insert(END,"  m->dumpMolAsMol2(\"result_prot_\"+progname+\"_\"+to_string(K)+\".mol2\",&ff,false,true);\n")
+    cppcodeTB.insert(END,'  K++;\n }\n}\n')
+updateTF();
+print("Loaded")
+mainloop()

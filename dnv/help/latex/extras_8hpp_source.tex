@@ -1,0 +1,454 @@
+\hypertarget{extras_8hpp_source}{}\doxysection{extras.\+hpp}
+\label{extras_8hpp_source}\index{/home/venkata/cpp/transfer/dnv/src/support/extras.hpp@{/home/venkata/cpp/transfer/dnv/src/support/extras.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00001}00001 \textcolor{preprocessor}{\#ifndef INCLUDED\_EXTRAS}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00002}00002 \textcolor{preprocessor}{\#define INCLUDED\_EXTRAS 1}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00003}00003 \textcolor{preprocessor}{\#include "{}graph/Molecule.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00004}00004 \textcolor{keyword}{namespace }specific}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00005}00005 \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00006}\mbox{\hyperlink{classspecific_1_1ExtendableForceField}{00006}}     \textcolor{keyword}{class }\mbox{\hyperlink{classspecific_1_1ExtendableForceField}{ExtendableForceField}} : \textcolor{keyword}{public} \mbox{\hyperlink{classForceField}{ForceField}}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00007}00007     \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00008}00008     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00009}00009         \mbox{\hyperlink{classspecific_1_1ExtendableForceField}{ExtendableForceField}}(\textcolor{keyword}{const} \mbox{\hyperlink{classForceField}{ForceField}}\& ff) : \mbox{\hyperlink{classForceField_a8273c2e8667bc21edb7599c1210dda4a}{ForceField}}(ff) \{\}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00011}00011         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} addExtraAtomType(\mbox{\hyperlink{classAtom}{Atom}}* a) \{\mbox{\hyperlink{classForceField_a2d43f27c2cbca56da3deb919cd401d99}{atom\_types}}.push\_back(a);\}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00012}00012         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} addLengthParameters(\textcolor{keyword}{const} std::string\& a1,\textcolor{keyword}{const} std::string\& a2,\textcolor{keywordtype}{double} l,\textcolor{keywordtype}{double} k) \{\mbox{\hyperlink{classForceField_af96ba6f982c2595b5b10199f8595f78b}{length\_parameters}}.push\_back(\mbox{\hyperlink{classBondData}{BondData}}(a1,a2,l,k));\}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00013}00013         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} addLengthParameters(\textcolor{keyword}{const} \mbox{\hyperlink{classAtom}{Atom}}* a1,\textcolor{keyword}{const} \mbox{\hyperlink{classAtom}{Atom}}* a2,\textcolor{keywordtype}{double} l,\textcolor{keywordtype}{double} k) \{addLengthParameters(a1-\/>toString(),a2-\/>toString(),l,k);\}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00014}00014         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} addAngleParameters(\textcolor{keyword}{const} std::string\& a1,\textcolor{keyword}{const} std::string\& a2,\textcolor{keyword}{const} std::string\& a3,\textcolor{keywordtype}{double} eq,\textcolor{keywordtype}{double} kt,\textcolor{keywordtype}{double} ub1=0,\textcolor{keywordtype}{double} ub2=0)}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00015}00015         \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00016}00016             std::vector<std::string> atl(1,a1); atl.push\_back(a2); atl.push\_back(a3);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00017}00017             std::vector<double> vall; vall.push\_back(eq); vall.push\_back(kt); vall.push\_back(ub1); vall.push\_back(ub2);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00018}00018             \mbox{\hyperlink{classForceField_ae198b91b5ffc6278887ae798837d45e8}{angle\_parameters}}.push\_back(make\_pair(atl,vall));}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00019}00019         \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00020}00020         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} addAngleParameters(\textcolor{keyword}{const} \mbox{\hyperlink{classAtom}{Atom}}* a1,\textcolor{keyword}{const} \mbox{\hyperlink{classAtom}{Atom}}* a2,\textcolor{keyword}{const} \mbox{\hyperlink{classAtom}{Atom}}* a3,\textcolor{keywordtype}{double} eq,\textcolor{keywordtype}{double} kt,\textcolor{keywordtype}{double} ub1=0,\textcolor{keywordtype}{double} ub2=0) \{addAngleParameters(a1-\/>toString(),a2-\/>toString(),a3-\/>toString(),eq,kt,ub1,ub2);\}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00022}00022         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} addDihedralParameters(\textcolor{keyword}{const} std::string\& a1,\textcolor{keyword}{const} std::string\& a2,\textcolor{keyword}{const} std::string\& a3,\textcolor{keyword}{const} std::string\& a4,\textcolor{keywordtype}{double} eq,\textcolor{keywordtype}{double} k,\textcolor{keywordtype}{double} mult)}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00023}00023         \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00024}00024             std::vector<std::string> atl(1,a1); atl.push\_back(a2); atl.push\_back(a3); atl.push\_back(a4);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00025}00025             std::vector<double> vall; vall.push\_back(eq); vall.push\_back(k); vall.push\_back(mult);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00026}00026             \mbox{\hyperlink{classForceField_aa1d02343fc1649e13677701899841679}{dihedral\_parameters}}.push\_back(make\_pair(atl,vall));}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00027}00027         \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00028}00028         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} addDihedralParameters(\textcolor{keyword}{const} \mbox{\hyperlink{classAtom}{Atom}}* a1,\textcolor{keyword}{const} \mbox{\hyperlink{classAtom}{Atom}}* a2,\textcolor{keyword}{const} \mbox{\hyperlink{classAtom}{Atom}}* a3,\textcolor{keyword}{const} \mbox{\hyperlink{classAtom}{Atom}}* a4,\textcolor{keywordtype}{double} eq,\textcolor{keywordtype}{double} k,\textcolor{keywordtype}{double} mult) \{addDihedralParameters(a1-\/>toString(),a2-\/>toString(),a3-\/>toString(),a4-\/>toString(),eq,k,mult);\}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00030}00030         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} addAllowedBonds(\textcolor{keyword}{const} std::string\& ref,\textcolor{keyword}{const} std::vector<BondData>\& list) \{\mbox{\hyperlink{classForceField_a90e6ae752fd0f03399f1f8cfdfff12f7}{atombondmap}}.push\_back(make\_pair(ref,list));\}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00031}00031     \};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00032}\mbox{\hyperlink{classspecific_1_1ConstrictedForceField}{00032}}     \textcolor{keyword}{class }\mbox{\hyperlink{classspecific_1_1ConstrictedForceField}{ConstrictedForceField}} : \textcolor{keyword}{public} \mbox{\hyperlink{classspecific_1_1ExtendableForceField}{ExtendableForceField}}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00033}00033     \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00034}00034         \mbox{\hyperlink{classMolecule}{Molecule}}* refer=\textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00035}00035         \textcolor{keyword}{const} \mbox{\hyperlink{classForceField}{ForceField}}* referff;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00036}00036         \textcolor{keyword}{const} \mbox{\hyperlink{classCategory}{Category}}* aromcat=\textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00037}00037         \textcolor{keyword}{const} \mbox{\hyperlink{classCategory}{Category}}* halocat=\textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00038}00038         \textcolor{keyword}{const} \mbox{\hyperlink{classCategory}{Category}}* ringcat=\textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00039}00039         std::map<std::string,std::string> nameref;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00041}00041     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00042}00042         std::vector<Atom*> seedAtoms;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00043}00043     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00044}00044         \mbox{\hyperlink{classspecific_1_1ConstrictedForceField}{ConstrictedForceField}}(\mbox{\hyperlink{classMolecule}{Molecule}}* src,\textcolor{keyword}{const} \mbox{\hyperlink{classForceField}{ForceField}}\& srcff,\textcolor{keywordtype}{bool} silent=\textcolor{keyword}{false}) : \mbox{\hyperlink{classspecific_1_1ExtendableForceField}{ExtendableForceField}}(\mbox{\hyperlink{classForceField_a8273c2e8667bc21edb7599c1210dda4a}{ForceField}}())}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00045}00045         \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00046}00046             refer=\textcolor{keyword}{new} \mbox{\hyperlink{classMolecule}{Molecule}}(src);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00047}00047             referff=\&srcff;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00048}00048             \textcolor{comment}{//cout <<"{}Loading category: "{} << srcff.getCategory("{}ring"{}).toString()<<"{}\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00049}00049             \textcolor{comment}{//cout << "{}Has category: "{} << srcff.hasCategory("{}ring"{}) <<"{}\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00050}00050             \textcolor{keywordflow}{if}(srcff.\mbox{\hyperlink{classForceField_ab5bfc00e94bac57310cc3a4778e11342}{hasCategory}}(\textcolor{stringliteral}{"{}aromatic"{}})) aromcat=\&(srcff.\mbox{\hyperlink{classForceField_a5a30c5a7760b5c791c5b34f9bd133506}{getCategory}}(\textcolor{stringliteral}{"{}aromatic"{}}));}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00051}00051             \textcolor{keywordflow}{if}(srcff.\mbox{\hyperlink{classForceField_ab5bfc00e94bac57310cc3a4778e11342}{hasCategory}}(\textcolor{stringliteral}{"{}halogen"{}})) halocat=\&(srcff.\mbox{\hyperlink{classForceField_a5a30c5a7760b5c791c5b34f9bd133506}{getCategory}}(\textcolor{stringliteral}{"{}halogen"{}}));}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00052}00052             \textcolor{keywordflow}{if}(srcff.\mbox{\hyperlink{classForceField_ab5bfc00e94bac57310cc3a4778e11342}{hasCategory}}(\textcolor{stringliteral}{"{}ring"{}})) ringcat=\&(srcff.\mbox{\hyperlink{classForceField_a5a30c5a7760b5c791c5b34f9bd133506}{getCategory}}(\textcolor{stringliteral}{"{}ring"{}}));}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00053}00053             cout << \textcolor{stringliteral}{"{}Ring category: "{}}<< ringcat-\/>\mbox{\hyperlink{classCategory_a0db6f3c02f33a11e370430f93d2ca94e}{toString}}()<< \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00054}00054             seedAtoms=buildForceField(silent);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00055}00055         \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00057}00057         \textcolor{keyword}{const} std::vector<Atom*>\& getSeedAtoms()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} seedAtoms;\}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00058}00058         std::vector<Atom*> getSeedAtoms() \{\textcolor{keywordflow}{return} seedAtoms;\}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00060}00060         std::vector<Atom*> buildForceField(\textcolor{keywordtype}{bool} silent=\textcolor{keyword}{false})}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00061}00061         \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00062}00062             \textcolor{keywordtype}{int} refs[256]; \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<256;i++) refs[i]=0;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00063}00063             std::map<long int,std::string> oldnames;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00064}00064             addAngleParameters(\textcolor{stringliteral}{"{}C"{}},\textcolor{stringliteral}{"{}C"{}},\textcolor{stringliteral}{"{}C"{}},109.47,410.0,0,0);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00065}00065             addDihedralParameters(\textcolor{stringliteral}{"{}C"{}},\textcolor{stringliteral}{"{}C"{}},\textcolor{stringliteral}{"{}C"{}},\textcolor{stringliteral}{"{}C"{}},0,5.384,6);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00066}00066             \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* a : refer-\/>\mbox{\hyperlink{classMolecule_a7d42c427c602da77f79246fe39246fb9}{getAtoms}}())}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00067}00067             \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00068}00068                 \textcolor{keywordtype}{char} el=a-\/>toString()[0];}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00069}00069                 oldnames[(long)a]=a-\/>toString();}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00070}00070                 \textcolor{keywordflow}{if}(halocat \&\& halocat-\/>\mbox{\hyperlink{classCategory_a3ffa41a593852318c167862171166f1b}{contains}}(a))}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00071}00071                 \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00072}00072                     \textcolor{keywordflow}{if}(el==\textcolor{charliteral}{'B'}) \{refs[\textcolor{charliteral}{'A'}]++; a-\/>rename(\textcolor{stringliteral}{"{}BR"{}}+to\_string(refs[\textcolor{charliteral}{'A'}])); \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00073}00073                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(el==\textcolor{charliteral}{'C'}) \{refs[\textcolor{charliteral}{'D'}]++; a-\/>rename(\textcolor{stringliteral}{"{}CL"{}}+to\_string(refs[\textcolor{charliteral}{'D'}]));\}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00074}00074                 \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00075}00075                 \textcolor{keywordflow}{else} \{refs[el]++; a-\/>rename(std::string(1,el)+to\_string(refs[el]));\}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00076}00076                 nameref[a-\/>toString()]=oldnames[(long)a];}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00077}00077             \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00078}00078             refer-\/>\mbox{\hyperlink{classMolecule_a72616aa9d293190a9a0372a735f76966}{dumpMol}}(\textcolor{stringliteral}{"{}templateDock.pdb"{}});}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00079}00079             std::vector<Atom*> seeds;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00080}00080             \mbox{\hyperlink{classForceField_a7ca2da8607b87bcc0c089614a548c4fa}{rules}}=std::vector<std::pair<std::string,std::vector<chemtools::Rule>>>();}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00081}00081             std::string aromlist=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00082}00082             \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* rA : refer-\/>\mbox{\hyperlink{classMolecule_a7d42c427c602da77f79246fe39246fb9}{getAtoms}}())}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00083}00083             \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00084}00084                 \mbox{\hyperlink{classAtom}{Atom}}* eA=\textcolor{keyword}{new} \mbox{\hyperlink{classAtom}{Atom}}(*rA);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00085}00085                 eA-\/>\mbox{\hyperlink{classAtom_a7c13f0e363a2d00322c43f781f93ccc0}{setCyclized}}(\textcolor{keyword}{false}); eA-\/>\mbox{\hyperlink{classAtom_a9eb04d5b5e7b60694e96e5f9dd20bfac}{setValency}}(eA-\/>\mbox{\hyperlink{classAtom_a262d1cb2ea75ec2ced42bc995bc49fc3}{getStandardValency}}()); eA-\/>\mbox{\hyperlink{classAtom_a6054acec965e008ad281764b7b4e5f5d}{setEnergyContribution}}(0); eA-\/>\mbox{\hyperlink{classAtom_a6e6ad3000e35fb4f424f9e82ac414311}{setHotspotEnergyContribution}}(0);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00086}00086                 \textcolor{keywordflow}{if}(aromcat \&\& aromcat-\/>\mbox{\hyperlink{classCategory_a3ffa41a593852318c167862171166f1b}{contains}}(oldnames[(\textcolor{keywordtype}{long})rA]))}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00087}00087                 \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00088}00088                     \textcolor{keywordflow}{if}(aromlist!=\textcolor{stringliteral}{"{}"{}}) aromlist+=\textcolor{stringliteral}{"{}|"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00089}00089                     aromlist+=eA-\/>\mbox{\hyperlink{classAtom_a189def3b8bade8507d49cfd7de881178}{toString}}();}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00090}00090                 \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00091}00091                 eA-\/>\mbox{\hyperlink{classAtom_a34fc2756d0f817a9ee6cf91c797d8bcc}{setPosition}}(Eigen::Vector3d(0,0,0));}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00092}00092                 \textcolor{keywordflow}{if}(ringcat \&\& ringcat-\/>\mbox{\hyperlink{classCategory_a3ffa41a593852318c167862171166f1b}{contains}}(oldnames[(\textcolor{keywordtype}{long})rA])) eA-\/>\mbox{\hyperlink{classAtom_a5de9929c1ce50f422e1be044b72a6aa0}{mustCycl}}=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00093}00093                 addExtraAtomType(eA);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00094}00094                 \textcolor{keywordflow}{if}(!eA-\/>\mbox{\hyperlink{classAtom_a99ed78f1b94d694b0f3fac609fd92934}{isHydrogen}}()) seeds.push\_back(eA);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00095}00095                 std::vector<Atom*> bats=refer-\/>\mbox{\hyperlink{classMolecule_aef77043ab98f1008a15a1e52d85b827e}{getBondedAtoms}}(rA);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00096}00096                 std::string rulestring=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00097}00097                 std::vector<BondData> allbonds;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00098}00098                 \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* fA : bats)}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00099}00099                 \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00100}00100                     \textcolor{keywordflow}{if}(!fA-\/>isHydrogen())}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00101}00101                     \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00102}00102                         \textcolor{keywordflow}{if}(rulestring!=\textcolor{stringliteral}{"{}"{}}) rulestring+=\textcolor{stringliteral}{"{};"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00103}00103                         rulestring+=fA-\/>toString()+\textcolor{stringliteral}{"{} 1 1"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00104}00104                     \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00105}00105 \textcolor{preprocessor}{                    \#ifndef QUIET}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00106}00106                     \textcolor{keywordflow}{if}(!silent) cout << rA-\/>toString()<<\textcolor{stringliteral}{"{}-\/"{}}<<fA-\/>toString()<<\textcolor{stringliteral}{"{}\(\backslash\)t"{}}<<rA-\/>distanceFrom(fA)<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00107}00107 \textcolor{preprocessor}{                    \#endif}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00108}00108                     \textcolor{keywordtype}{double} kb=get<1>(referff-\/>\mbox{\hyperlink{classForceField_a084b8d029b748fb56265d4ee5cce2873}{getLengthParameters}}(oldnames[(\textcolor{keywordtype}{long})rA],oldnames[(\textcolor{keywordtype}{long})fA]));}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00109}00109                     addLengthParameters(rA,fA,rA-\/>distanceFrom(fA),kb);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00110}00110                     allbonds.push\_back(\mbox{\hyperlink{classBondData}{BondData}}(rA-\/>toString(),fA-\/>toString(),rA-\/>distanceFrom(fA),kb));}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00111}00111                     std::vector<Atom*> aats=refer-\/>\mbox{\hyperlink{classMolecule_aef77043ab98f1008a15a1e52d85b827e}{getBondedAtoms}}(fA);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00112}00112                     \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* sA : aats)}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00113}00113                     \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00114}00114                         \textcolor{keywordflow}{if}(sA==rA) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00115}00115                         std::vector<double> apars=referff-\/>\mbox{\hyperlink{classForceField_a008b06865581950f90f100bd04b139cf}{getAngleParamtersFailsafe}}(oldnames[(\textcolor{keywordtype}{long})rA],oldnames[(\textcolor{keywordtype}{long})fA],oldnames[(\textcolor{keywordtype}{long})sA]);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00116}00116 \textcolor{preprocessor}{                        \#ifndef QUIET}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00117}00117                         \textcolor{keywordflow}{if}(!silent) cout << rA-\/>toString()<<\textcolor{stringliteral}{"{}-\/"{}}<<fA-\/>toString()<<\textcolor{stringliteral}{"{}-\/"{}}<<sA-\/>toString()<<\textcolor{stringliteral}{"{}\(\backslash\)t"{}}<<apars[0]<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00118}00118 \textcolor{preprocessor}{                        \#endif}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00119}00119                         addAngleParameters(rA,fA,sA,apars[0],apars[1],apars[2],apars[3]);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00120}00120                         std::vector<Atom*> dats=refer-\/>\mbox{\hyperlink{classMolecule_aef77043ab98f1008a15a1e52d85b827e}{getBondedAtoms}}(sA);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00121}00121                         \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* tA : dats)}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00122}00122                         \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00123}00123                             \textcolor{keywordflow}{if}(tA==rA || tA==fA) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00124}00124                             std::vector<double> dpars=referff-\/>\mbox{\hyperlink{classForceField_a2e27b4bf5bea870617379cdb657cefd7}{getDihedralParametersFailsafe}}(oldnames[(\textcolor{keywordtype}{long})rA],oldnames[(\textcolor{keywordtype}{long})fA],oldnames[(\textcolor{keywordtype}{long})sA],oldnames[(\textcolor{keywordtype}{long})tA]);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00125}00125 \textcolor{preprocessor}{                            \#ifndef QUIET}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00126}00126                             \textcolor{keywordflow}{if}(!silent) cout << rA-\/>toString()<<\textcolor{stringliteral}{"{}-\/"{}}<<fA-\/>toString()<<\textcolor{stringliteral}{"{}-\/"{}}<<sA-\/>toString()<<\textcolor{stringliteral}{"{}-\/"{}}<<tA-\/>toString()<<\textcolor{stringliteral}{"{}\(\backslash\)t"{}}<<dpars[0]<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00127}00127 \textcolor{preprocessor}{                            \#endif}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00128}00128                             addDihedralParameters(rA,fA,sA,tA,dpars[0],dpars[1],dpars[2]);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00129}00129                         \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00130}00130                     \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00131}00131                 \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00132}00132                 \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* fA : bats)}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00133}00133                 \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00134}00134                     \textcolor{keywordflow}{if}(fA-\/>isHydrogen())}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00135}00135                     \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00136}00136                         \textcolor{keywordflow}{if}(rulestring!=\textcolor{stringliteral}{"{}"{}}) rulestring+=\textcolor{stringliteral}{"{};"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00137}00137                         rulestring+=fA-\/>toString()+\textcolor{stringliteral}{"{} 1 1"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00138}00138                     \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00139}00139                 \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00140}00140                 cout << rA-\/>toString()<<\textcolor{stringliteral}{"{} "{}}<<rulestring<<\textcolor{stringliteral}{"{}\(\backslash\)t"{}}<<allbonds.size()<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00141}00141                 addAllowedBonds(rA-\/>toString(),allbonds);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00142}00142                 \mbox{\hyperlink{classForceField_a7ca2da8607b87bcc0c089614a548c4fa}{rules}}.push\_back(make\_pair(rA-\/>toString(),\mbox{\hyperlink{namespacechemtools_a6c73fdd6c186f091225ee45907fe6b66}{chemtools::buildRules}}(rA-\/>toString()+\textcolor{stringliteral}{"{} "{}}+rulestring,referff)));}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00143}00143             \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00144}00144             \textcolor{keywordflow}{if}(aromlist!=\textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00145}00145             \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00146}00146                 \mbox{\hyperlink{classCategory}{Category}} narom(\textcolor{stringliteral}{"{}aromatic"{}},aromlist,\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00147}00147                 \mbox{\hyperlink{classForceField_ae5aeed0193bd434dbae1ed6f457a6c75}{categories}}.push\_back(narom);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00148}00148 \textcolor{preprocessor}{                \#ifndef QUIET}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00149}00149                 \textcolor{keywordflow}{if}(!silent) cout << \textcolor{stringliteral}{"{}Aromatic atom-\/types detected: "{}} << aromlist << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00150}00150 \textcolor{preprocessor}{                \#endif}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00151}00151             \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00152}00152 \textcolor{preprocessor}{            \#ifndef QUIET}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00153}00153             \textcolor{keywordflow}{if}(!silent)}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00154}00154             \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00155}00155                 cout << \textcolor{stringliteral}{"{}Added extra parameters\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00156}00156                 cout << \textcolor{stringliteral}{"{}Will attempt to add definitions\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00157}00157             \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00158}00158 \textcolor{preprocessor}{            \#endif}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00159}00159 }
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00160}00160             \mbox{\hyperlink{classTopology}{Topology}} temptop(refer,*\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00161}00161             cout << \textcolor{stringliteral}{"{}Topology built\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00162}00162 \textcolor{preprocessor}{            \#ifndef QUIET}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00163}00163                 cout << \textcolor{stringliteral}{"{}Created seeds:\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00164}00164                 \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* sa : seeds) cout <<\textcolor{stringliteral}{"{} "{}}<< sa-\/>toString()<<\textcolor{stringliteral}{"{} "{}}<<sa-\/>mustCycl<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00165}00165 \textcolor{preprocessor}{            \#endif}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00166}00166             \textcolor{keywordflow}{return} seeds;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00167}00167         \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00168}00168 }
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00169}00169         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} renameMolecule(\mbox{\hyperlink{classMolecule}{Molecule}}* mol) \{\textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* na : mol-\/>\mbox{\hyperlink{classMolecule_a7d42c427c602da77f79246fe39246fb9}{getAtoms}}()) na-\/>rename(nameref[na-\/>toString()]);\}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00170}00170     \};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00171}00171 }
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00172}00172     \textcolor{keyword}{static} std::vector<Molecule*> getSeedsInRegion(\mbox{\hyperlink{classquickgeom_1_1Container}{quickgeom::Container}}* reg,\mbox{\hyperlink{classProtein}{Protein}}\& p, std::vector<Atom*> seeds, \textcolor{keywordtype}{int} nseed,\textcolor{keywordtype}{double} threshold=1)}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00173}00173     \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00174}00174         \textcolor{comment}{//if(ff.hasCategory("{}ring"{})) cyccat=\&(ff.getCategory("{}ring"{}));}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00175}00175         std::vector<Molecule*> ret;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00176}00176         \mbox{\hyperlink{classMolecule}{Molecule}}* fullmol=\textcolor{keyword}{new} \mbox{\hyperlink{classMolecule}{Molecule}}(0);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00177}00177         \textcolor{keywordtype}{long} \textcolor{keywordtype}{int} K=0;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00178}00178         \textcolor{keywordflow}{while}(ret.size()<nseed)}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00179}00179         \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00180}00180             Eigen::Vector3d vec=getRandomPositionInSpace(reg);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00181}00181             \mbox{\hyperlink{classAtom}{Atom}}* selat=randomSelect(seeds);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00182}00182             \mbox{\hyperlink{classAtom}{Atom}}* dum=\textcolor{keyword}{new} \mbox{\hyperlink{classAtom}{Atom}}(*selat);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00183}00183             dum-\/>\mbox{\hyperlink{classAtom_a34fc2756d0f817a9ee6cf91c797d8bcc}{setPosition}}(vec);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00184}00184             \textcolor{keywordtype}{bool} OK=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00185}00185             \textcolor{keywordtype}{double} eva=get<0>(p.\mbox{\hyperlink{classProtein_aaa512fd669808b02b1e34d07b6cc6c3b}{calculateNonBondingEnergy}}(dum));}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00186}00186             \textcolor{keywordflow}{if}(eva>-\/threshold) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00187}00187             \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* pa : p.\mbox{\hyperlink{classMolecule_a7d42c427c602da77f79246fe39246fb9}{getAtoms}}())}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00188}00188             \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00189}00189                 \textcolor{keywordflow}{if}(pa-\/>isHydrogen()) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00190}00190                 \textcolor{keywordflow}{if}(dum-\/>\mbox{\hyperlink{classAtom_afcdbf1522c343bb461c566416305aab6}{distanceFrom}}(pa)<RESTRAINDISTANCE/2) \{OK=\textcolor{keyword}{true};\}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00191}00191             \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00192}00192             K++;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00193}00193             \textcolor{keywordflow}{if}(K\%100==0) cout << K << \textcolor{stringliteral}{"{}\(\backslash\)t"{}}<<ret.size()<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00194}00194             \textcolor{keywordflow}{if}(OK)}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00195}00195             \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00196}00196                 cout << \textcolor{stringliteral}{"{}Energy: "{}} << eva << \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00197}00197                 \mbox{\hyperlink{classAtom}{Atom}}* nat=\textcolor{keyword}{new} \mbox{\hyperlink{classAtom}{Atom}}(*dum); nat-\/>\mbox{\hyperlink{classAtom_a34fc2756d0f817a9ee6cf91c797d8bcc}{setPosition}}(dum-\/>\mbox{\hyperlink{classAtom_a73b92d7b24611f250127856e3b52ed31}{getPosition}}());}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00198}00198                 fullmol-\/>\mbox{\hyperlink{classMolecule_aadf1f51e311a11e69385ff51602b86bc}{addAtom}}(nat); nat-\/>\mbox{\hyperlink{classAtom_a6054acec965e008ad281764b7b4e5f5d}{setEnergyContribution}}(eva);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00199}00199                 \textcolor{keywordflow}{if}(selat-\/>\mbox{\hyperlink{classAtom_a5de9929c1ce50f422e1be044b72a6aa0}{mustCycl}}) nat-\/>\mbox{\hyperlink{classAtom_a5de9929c1ce50f422e1be044b72a6aa0}{mustCycl}}=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00200}00200                 ret.push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{classMolecule}{Molecule}}(nat));}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00201}00201                 cout << get<0>(p.\mbox{\hyperlink{classProtein_aaa512fd669808b02b1e34d07b6cc6c3b}{calculateNonBondingEnergy}}(ret[ret.size()-\/1])) << \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00202}00202                 cout << \textcolor{stringliteral}{"{}Accepted\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00203}00203             \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00204}00204             \textcolor{keyword}{delete} dum;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00205}00205         \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00206}00206         fullmol-\/>\mbox{\hyperlink{classMolecule_a72616aa9d293190a9a0372a735f76966}{dumpMol}}(\textcolor{stringliteral}{"{}seeds.pdb"{}});}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00207}00207         cin >> K;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00208}00208         \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00209}00209     \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00210}00210 }
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00211}00211     \textcolor{keyword}{static} std::vector<Molecule*> dockMolecule(\mbox{\hyperlink{classProtein}{Protein}}\& p,\mbox{\hyperlink{classMolecule}{Molecule}}* drug,\textcolor{keyword}{const} \mbox{\hyperlink{classForceField}{ForceField}}\& ff,\mbox{\hyperlink{classquickgeom_1_1Container}{quickgeom::Container}}* reg,\textcolor{keywordtype}{int} poses=80,\textcolor{keyword}{const} std::string\& progname=\textcolor{stringliteral}{"{}dnv\_dock"{}},\textcolor{keywordtype}{int} seednum=96,\textcolor{keywordtype}{int} osc=5)}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00212}00212     \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00213}00213         \mbox{\hyperlink{classspecific_1_1ConstrictedForceField}{specific::ConstrictedForceField}} cff(drug,ff);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00214}00214         std::vector<Atom*> seeds=cff.getSeedAtoms();}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00215}00215         std::vector<Molecule*> rootseeds=getSeedsInRegion(reg,p,seeds,seednum);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00216}00216         \textcolor{comment}{//generateLigands(ff,n,sizemin,logfilename,rootmols,double rmax=2,double ecut=1,int osccount=5,int tottries=250,int tries\_per\_lig=45,double temp=298,bool restr=false,bool superseed=false,bool reseed=false,bool deseed=false,const quickgeom::Container* contbox=nullptr,Molecule* initmol=nullptr,bool prune=false,int prunedepth=3)}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00217}00217       std::vector<System> mols=p.\mbox{\hyperlink{classProtein_a8ed448721245cce660f85d8a2a04bdba}{generateLigands}}(cff,poses,drug-\/>\mbox{\hyperlink{classMolecule_a4c6228c3225bd9571ba276841caa7c90}{getEffectiveSize}}()-\/1,progname+\textcolor{stringliteral}{"{}.log"{}},rootseeds,1.75,1,osc,300,50,298,\textcolor{keyword}{true},\textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00218}00218         std::vector<Molecule*> resl;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00219}00219       \textcolor{keywordflow}{for}(\mbox{\hyperlink{classSystem}{System}}\& s : mols)}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00220}00220       \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00221}00221         \mbox{\hyperlink{classMolecule}{Molecule}}* m=s.getDrugMolecule();}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00222}00222         \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* a : m-\/>getAtoms()) cout <<a-\/>toString()<<\textcolor{stringliteral}{"{}\(\backslash\)t"{}}<<cff.isSatisfied(a,m-\/>getBondedAtoms(a))<<\textcolor{stringliteral}{"{},"{}}<<a-\/>isCyclized()<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00223}00223             cff.renameMolecule(m);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00224}00224             resl.push\_back(m);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00225}00225       \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00226}00226         \textcolor{keywordflow}{return} resl;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00227}00227     \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00228}00228 }
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00229}\mbox{\hyperlink{classspecific_1_1SolvatedProtein}{00229}}     \textcolor{keyword}{class }\mbox{\hyperlink{classspecific_1_1SolvatedProtein}{SolvatedProtein}} : \textcolor{keyword}{public} \mbox{\hyperlink{classProtein}{Protein}}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00230}00230     \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00231}00231         std::vector<Atom*> solvent;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00232}00232         \textcolor{keywordtype}{bool} hsopt=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00233}00233     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00234}00234         \mbox{\hyperlink{classspecific_1_1SolvatedProtein}{SolvatedProtein}}() \{\}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00235}00235     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00236}00236         \mbox{\hyperlink{classspecific_1_1SolvatedProtein}{SolvatedProtein}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMolecule}{Molecule}}* m) : \mbox{\hyperlink{classProtein}{Protein}}(m) \{cleanSolvent();\}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00237}00237         \mbox{\hyperlink{classspecific_1_1SolvatedProtein}{SolvatedProtein}}(\textcolor{keyword}{const} std::string\& str) : \mbox{\hyperlink{classProtein}{Protein}}(str.c\_str()) \{cleanSolvent();\}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00238}00238         \mbox{\hyperlink{classspecific_1_1SolvatedProtein}{SolvatedProtein}}(\textcolor{keyword}{const} std::string\& protfile,\textcolor{keyword}{const} std::string\& hostspotfile) : \mbox{\hyperlink{classProtein}{Protein}}(protfile) \{hsopt=\textcolor{keyword}{true}; cleanSolvent();\}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00239}00239       \mbox{\hyperlink{classspecific_1_1SolvatedProtein}{SolvatedProtein}}(\textcolor{keyword}{const} std::string\& infile,\textcolor{keyword}{const} \mbox{\hyperlink{classForceField}{ForceField}}\& ff,std::vector<int> hotspotreses,\textcolor{keyword}{const} std::string\& format=\textcolor{stringliteral}{"{}pdb"{}}) : \mbox{\hyperlink{classProtein}{Protein}}(infile,ff,hotspotreses,format) \{\textcolor{keywordflow}{if}(hotspotreses.size()) hsopt=\textcolor{keyword}{true}; cleanSolvent();\}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00240}00240 }
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00241}00241         \textcolor{keywordtype}{void} cleanSolvent()}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00242}00242         \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00243}00243             cout << \textcolor{stringliteral}{"{}Solvated Protein loading\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00244}00244             \textcolor{keyword}{const} \textcolor{keywordtype}{double} THRESH=RESTRAINDISTANCE+0.35;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00245}00245             \mbox{\hyperlink{classMolecule}{Molecule}}* solvmol=\textcolor{keyword}{new} \mbox{\hyperlink{classMolecule_a7e7d290ae641518ad4c4d5303b519d0f}{Molecule}}(0);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00246}00246             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<atoms.size();i++)}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00247}00247             \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00248}00248                 \textcolor{comment}{//cout << "{}'"{}<<atoms[i]-\/>getResidue()<<"{}'\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00249}00249                 \textcolor{keywordflow}{if}(atoms[i]-\/>getResidue()==\textcolor{stringliteral}{"{}SOL"{}})}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00250}00250                 \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00251}00251                     \textcolor{keywordflow}{if}(atoms[i]-\/>isHydrogen()) \textcolor{keyword}{delete} atoms[i];}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00252}00252                     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00253}00253                     \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00254}00254                         \textcolor{keywordtype}{bool} close=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00255}00255                         \textcolor{comment}{//cout << atoms[i]-\/>toString()<<"{} "{}<<atoms[i]-\/>getPosition().transpose()<<"{}\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00256}00256                         \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* hsa : this-\/>\mbox{\hyperlink{classProtein_adcdfc51649c63040a39940cb4f476919}{getHotspotAtoms}}())}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00257}00257                         \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00258}00258                             \textcolor{keywordflow}{if}(hsa-\/>distanceFrom(atoms[i])<THRESH) \{close=\textcolor{keyword}{true}; \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00259}00259                         \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00260}00260                         \textcolor{keywordflow}{if}(close) \{solvent.push\_back(atoms[i]); solvmol-\/>\mbox{\hyperlink{classMolecule_aadf1f51e311a11e69385ff51602b86bc}{addAtom}}(atoms[i]);\}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00261}00261                         \textcolor{keywordflow}{else} \textcolor{keyword}{delete} atoms[i];}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00262}00262                     \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00263}00263                     atoms.erase(atoms.begin()+i);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00264}00264                     i-\/-\/;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00265}00265                 \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00266}00266             \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00267}00267             cout << this-\/>\mbox{\hyperlink{classProtein_adcdfc51649c63040a39940cb4f476919}{getHotspotAtoms}}().size() << \textcolor{stringliteral}{"{} hotspot atoms and have used threshold: "{}}<<THRESH<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00268}00268             \textcolor{keywordtype}{int} binds=0;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00269}00269             \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* sola : solvent)}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00270}00270             \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00271}00271                 sola-\/>bindpoints=0;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00272}00272                 \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* pa : atoms)}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00273}00273                 \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00274}00274                     \textcolor{keywordflow}{if}(pa-\/>distanceFrom(sola)<pa-\/>seek\_sigma()+0.1) \{sola-\/>bindpoints++; \textcolor{keywordflow}{if}(sola-\/>bindpoints>=3) \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00275}00275                 \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00276}00276                 binds+=sola-\/>bindpoints;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00277}00277             \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00278}00278             cout << \textcolor{stringliteral}{"{}Average bind-\/points per solvent: "{}}<< ((double)binds)/solvent.size() << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00279}00279             cout << \textcolor{stringliteral}{"{}Loaded solvated molecule: "{}}<<solvent.size()<<\textcolor{stringliteral}{"{} solvent atoms kept\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00280}00280             solvmol-\/>\mbox{\hyperlink{classMolecule_a72616aa9d293190a9a0372a735f76966}{dumpMol}}(\textcolor{stringliteral}{"{}solvent.pdb"{}});}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00281}00281         \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00282}00282         \textcolor{keywordtype}{bool} hasSolvent()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} solvent.size();\}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00283}00283 }
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00284}00284         std::pair<float,float> getExposedSolvation(\textcolor{keyword}{const} \mbox{\hyperlink{classMolecule}{Molecule}}* m)}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00285}00285         \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00286}00286             \textcolor{keywordtype}{float} ret=0;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00287}00287             \textcolor{keywordtype}{int} overlap=0,inter=0;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00288}00288             \textcolor{keywordtype}{float} ent=0;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00289}00289             std::vector<int> bps;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00290}00290             \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* sol : solvent)}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00291}00291             \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00292}00292                 sol-\/>genpurpflag=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00293}00293                 \textcolor{keywordtype}{int} obp=sol-\/>bindpoints;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00294}00294                 bps.push\_back(obp);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00295}00295                 \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* ma : m-\/>getAtoms())}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00296}00296                 \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00297}00297                     \textcolor{keywordflow}{if}(ma-\/>distanceFrom(sol)<ma-\/>seek\_radius())}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00298}00298                     \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00299}00299                         sol-\/>genpurpflag=\textcolor{keyword}{false}; overlap++;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00300}00300                         ent+=(float)(-\/WATENT*((\textcolor{keywordtype}{float})obp/3));}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00301}00301                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00302}00302                     \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00303}00303                 \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00304}00304             \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00305}00305             \textcolor{keywordflow}{for}(\mbox{\hyperlink{classAtom}{Atom}}* tA : m-\/>getAtoms())}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00306}00306             \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00307}00307                 \textcolor{keywordtype}{int} nb=0;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00308}00308                 \textcolor{keywordtype}{double} rad=tA-\/>seek\_sigma();}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00309}00309                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} si=0;si<solvent.size();si++)}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00310}00310                 \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00311}00311                     \mbox{\hyperlink{classAtom}{Atom}}* sol=solvent[si];}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00312}00312                     \textcolor{keywordflow}{if}(!(sol-\/>\mbox{\hyperlink{classAtom_ae7bf1b3c1c783a12feda31c128aff099}{genpurpflag}})) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00313}00313                     \textcolor{keywordflow}{if}(sol-\/>\mbox{\hyperlink{classAtom_afcdbf1522c343bb461c566416305aab6}{distanceFrom}}(tA)<rad) \{nb++; \textcolor{keywordflow}{if}(bps[si]<3) bps[si]++;\}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00314}00314                 \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00315}00315                 \textcolor{keywordflow}{if}(!nb) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00316}00316                 inter+=nb;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00317}00317                 \textcolor{keywordtype}{int} lim=0;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00318}00318                 \textcolor{keywordflow}{switch}(tA-\/>getStandardValency())}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00319}00319                 \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00320}00320                     \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00321}00321                         lim=5;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00322}00322                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00323}00323                     \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00324}00324                         lim=4;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00325}00325                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00326}00326                     \textcolor{keywordflow}{case} 3:}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00327}00327                         lim=2;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00328}00328                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00329}00329                     \textcolor{keywordflow}{case} 4:}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00330}00330                         lim=1;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00331}00331                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00332}00332                 \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00333}00333                 \textcolor{keywordtype}{float} frac=(float)nb/lim;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00334}00334                 \textcolor{keywordflow}{if}(frac>1) frac=1;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00335}00335                 ret+=tA-\/>\mbox{\hyperlink{classAtom_a828b40fa9e19f714f73d9b325b43456b}{getSolvationCorrection}}()*frac;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00336}00336             \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00337}00337             cout << overlap<<\textcolor{stringliteral}{"{} overlapping solvent molecules omitted\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00338}00338             cout << \textcolor{stringliteral}{"{}They produce a total entropy difference of: "{}}<<ent<<\textcolor{stringliteral}{"{} kJ/mol\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00339}00339             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} si=0;si<solvent.size();si++)}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00340}00340             \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00341}00341                 \textcolor{keywordflow}{if}(!(solvent[si]-\/>genpurpflag)) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00342}00342                 \textcolor{keywordflow}{if}(bps[si]!=solvent[si]-\/>bindpoints) ent+=WATENT*(((float)(bps[si]-\/solvent[si]-\/>bindpoints))/3);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00343}00343             \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00344}00344             cout << \textcolor{stringliteral}{"{}Finally: Total entropy difference of: "{}}<<ent<<\textcolor{stringliteral}{"{} kJ/mol\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00345}00345             cout << inter << \textcolor{stringliteral}{"{} interaction sites involved finally\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00346}00346             \textcolor{keywordflow}{return} make\_pair(ret,ent);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00347}00347         \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00348}00348     \};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00349}00349 }
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00350}00350     std::pair<double,double> stats\_mean(\textcolor{keyword}{const} std::vector<double>\& v,\textcolor{keyword}{const} std::vector<double>\& w=std::vector<double>())}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00351}00351     \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00352}00352       \textcolor{keywordflow}{if}(!v.size()) \textcolor{keywordflow}{return} make\_pair(0,0);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00353}00353       \textcolor{keywordtype}{double} res=0,res2;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00354}00354       \textcolor{keywordtype}{double} den=0;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00355}00355       \textcolor{keywordtype}{int} K=0;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00356}00356       \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& d : v)}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00357}00357       \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00358}00358         \textcolor{keywordflow}{if}(w.size()) \{res+=d*w[K]; res2+=d*d*w[K]; den+=w[K++];\}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00359}00359         \textcolor{keywordflow}{else} \{res+=d; res2+=d*d*w[K]; den++;\}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00360}00360       \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00361}00361       \textcolor{keywordtype}{double} mean=res/den;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00362}00362         \textcolor{keywordtype}{double} stdev=::sqrt(res2/den-\/mean*mean);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00363}00363         \textcolor{keywordflow}{return} make\_pair(mean,stdev);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00364}00364     \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00365}00365     std::vector<double> boltzmannWeights(\textcolor{keyword}{const} std::vector<double>\& v)}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00366}00366     \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00367}00367       std::vector<double> ret;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00368}00368       \textcolor{keywordflow}{for}(\textcolor{keywordtype}{double} n : v) ret.push\_back(::pow(2.71828,(-\/::beta*n)/100.00));}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00369}00369       \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00370}00370     \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00371}00371 }
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00372}\mbox{\hyperlink{classspecific_1_1ProteinEnsemble}{00372}}     \textcolor{keyword}{class }\mbox{\hyperlink{classspecific_1_1ProteinEnsemble}{ProteinEnsemble}} : \textcolor{keyword}{public} \mbox{\hyperlink{classspecific_1_1SolvatedProtein}{SolvatedProtein}}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00373}00373     \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00374}00374         std::vector<SolvatedProtein*> ensemble;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00375}00375         std::pair<double,double> (*met)(\textcolor{keyword}{const} std::vector<double>\&,\textcolor{keyword}{const} std::vector<double>\&);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00376}00376         std::vector<double> (*wts)(\textcolor{keyword}{const} std::vector<double>\&);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00377}00377     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00378}00378         \mbox{\hyperlink{classspecific_1_1ProteinEnsemble}{ProteinEnsemble}}(\textcolor{keyword}{const} std::string\& files,\textcolor{keyword}{const} \mbox{\hyperlink{classForceField}{ForceField}}\& ff,std::vector<int> hotspotreses,\textcolor{keyword}{const} std::string\& format=\textcolor{stringliteral}{"{}pdb"{}},std::pair<double,double> (*metric)(\textcolor{keyword}{const} std::vector<double>\&,\textcolor{keyword}{const} std::vector<double>\&)=stats\_mean,std::vector<double> (*wtsf)(\textcolor{keyword}{const} std::vector<double>\&)=boltzmannWeights)}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00379}00379         \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00380}00380             wts=wtsf;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00381}00381             met=metric;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00382}00382             std::ifstream filelist; filelist.open(files);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00383}00383             std::string fname;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00384}00384             \textcolor{keywordflow}{while}(\textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00385}00385             \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00386}00386                 filelist >> fname;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00387}00387                 \textcolor{keywordflow}{if}(filelist.eof()) \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00388}00388                 \mbox{\hyperlink{classspecific_1_1SolvatedProtein}{SolvatedProtein}}* prot=\textcolor{keyword}{new} \mbox{\hyperlink{classspecific_1_1SolvatedProtein}{SolvatedProtein}}(fname,ff,hotspotreses,format);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00389}00389                 ensemble.push\_back(prot);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00390}00390             \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00391}00391             \textcolor{keywordflow}{if}(!ensemble.size()) \{cout << \textcolor{stringliteral}{"{}ERR: No proteins in ensemble\(\backslash\)n"{}};\}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00392}00392             HN=ensemble[0]-\/>getHotspotAtomCount();}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00393}00393             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<HN;i++)}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00394}00394             \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00395}00395                 \mbox{\hyperlink{classAtom}{Atom}}* hsat=\textcolor{keyword}{new} \mbox{\hyperlink{classAtom}{Atom}}(*(ensemble[0]-\/>\mbox{\hyperlink{classProtein_adcdfc51649c63040a39940cb4f476919}{getHotspotAtoms}}()[i]));}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00396}00396                 Eigen::Vector3d pos(0,0,0);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00397}00397                 \textcolor{keywordflow}{for}(\mbox{\hyperlink{classspecific_1_1SolvatedProtein}{SolvatedProtein}}* prot : ensemble) pos+=prot-\/>getHotspotAtoms()[i]-\/>getPosition();}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00398}00398                 pos/=ensemble.size();}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00399}00399                 hotspotatoms.push\_back(hsat);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00400}00400             \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00401}00401             \textcolor{keywordtype}{int} N=ensemble[0]-\/>getAtoms().size();}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00402}00402             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<N;i++)}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00403}00403             \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00404}00404                 \mbox{\hyperlink{classAtom}{Atom}}* nat=\textcolor{keyword}{new} \mbox{\hyperlink{classAtom}{Atom}}(*(ensemble[0]-\/>\mbox{\hyperlink{classMolecule_a7d42c427c602da77f79246fe39246fb9}{getAtoms}}()[i]));}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00405}00405                 Eigen::Vector3d pos(0,0,0);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00406}00406                 \textcolor{keywordflow}{for}(\mbox{\hyperlink{classspecific_1_1SolvatedProtein}{SolvatedProtein}}* prot : ensemble) pos+=prot-\/>getAtoms()[i]-\/>getPosition();}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00407}00407                 pos/=ensemble.size();}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00408}00408                 atoms.push\_back(nat);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00409}00409                 bonds.push\_back(std::vector<int>());}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00410}00410             \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00411}00411             cout << ensemble.size()<<\textcolor{stringliteral}{"{} proteins in ensemble\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00412}00412         \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00413}00413 }
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00414}\mbox{\hyperlink{classspecific_1_1ProteinEnsemble_a360628797e049d572da9df4887d9a3c8}{00414}}         \textcolor{keyword}{virtual} std::pair<double,double> \mbox{\hyperlink{classspecific_1_1ProteinEnsemble_a360628797e049d572da9df4887d9a3c8}{calculateNonBondingEnergy}}(\mbox{\hyperlink{classAtom}{Atom}}* dummy,\textcolor{keywordtype}{bool} write=\textcolor{keyword}{false})\textcolor{keyword}{ override}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00415}00415 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00416}00416             std::vector<double> l1,l2;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00417}00417             \textcolor{keywordflow}{for}(\mbox{\hyperlink{classspecific_1_1SolvatedProtein}{SolvatedProtein}}* prot : ensemble)}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00418}00418             \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00419}00419                 l1.push\_back(get<0>(\mbox{\hyperlink{classMolecule_a973b1a0e85f2a3cf1e5c55dbe24c54e3}{Molecule::calculateNonBondingEnergy}}(dummy,write)));}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00420}00420                 \textcolor{keywordtype}{double} thsbe=0;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00421}00421                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<prot-\/>getHotspotAtomCount();i++) thsbe+=\mbox{\hyperlink{namespacechemtools_a4d736b938261879ac0c621cd97172a7a}{chemtools::getNonbondingPotential}}(dummy,prot-\/>getHotspotAtoms()[i]);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00422}00422                 l2.push\_back(thsbe);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00423}00423             \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00424}00424             std::pair<double,double> meanEn=met(l1,wts(l1)),meanHEn=met(l2,wts(l2));}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00425}00425             \textcolor{keywordflow}{if}(get<0>(meanEn)!=get<0>(meanEn)) \textcolor{keywordflow}{return} make\_pair(1e10,1e10);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00426}00426             dummy-\/>\mbox{\hyperlink{classAtom_a6054acec965e008ad281764b7b4e5f5d}{setEnergyContribution}}(get<0>(meanEn)); dummy-\/>\mbox{\hyperlink{classAtom_a6e6ad3000e35fb4f424f9e82ac414311}{setHotspotEnergyContribution}}(get<1>(meanHEn));}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00427}00427             \textcolor{keywordflow}{return} make\_pair(dummy-\/>\mbox{\hyperlink{classAtom_a2880996f52ed3be7e17eb5151820f8b6}{getEnergyContribution}}(),dummy-\/>\mbox{\hyperlink{classAtom_a2f86902bf6ab6db4786c50adeba5152b}{getHotspotEnergyContribution}}());}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00428}00428         \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00429}\mbox{\hyperlink{classspecific_1_1ProteinEnsemble_ac08cb6704c791024f1dc2f74cc9f2316}{00429}}         \textcolor{keyword}{virtual} std::pair<double,double> \mbox{\hyperlink{classspecific_1_1ProteinEnsemble_ac08cb6704c791024f1dc2f74cc9f2316}{calculateNonBondingEnergy}}(\mbox{\hyperlink{classMolecule}{Molecule}}* drug,\textcolor{keywordtype}{bool} write=\textcolor{keyword}{false})\textcolor{keyword}{ override}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00430}00430 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00431}00431             cout << \textcolor{stringliteral}{"{}Ensemble-\/based energy calculation\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00432}00432             std::vector<double> l1,l2;}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00433}00433             \textcolor{keywordflow}{for}(\mbox{\hyperlink{classspecific_1_1SolvatedProtein}{SolvatedProtein}}* prot : ensemble)}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00434}00434             \{}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00435}00435                 std::pair<double,double> eners=prot-\/>calculateNonBondingEnergy(drug,write);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00436}00436                 l1.push\_back(get<0>(eners)); l2.push\_back(get<1>(eners));}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00437}00437             \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00438}00438             std::pair<double,double> meanEn=met(l1,wts(l1)),meanHEn=met(l2,wts(l2));}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00439}00439             drug-\/>\mbox{\hyperlink{classMolecule_adebb2c740099c5db4f14137bb1609877}{myBE}}=get<0>(meanEn); drug-\/>\mbox{\hyperlink{classMolecule_a6b1f799908a9d52d7194d07ac6bb28d3}{errBE}}=get<1>(meanEn);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00440}00440             drug-\/>\mbox{\hyperlink{classMolecule_a6647358091d946bb02dbcf3ce35b7d5e}{myHBE}}=get<0>(meanHEn); drug-\/>\mbox{\hyperlink{classMolecule_a32075500340345439d0d4912e26fb44f}{errHBE}}=get<1>(meanHEn);}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00441}00441             \textcolor{keywordflow}{return} make\_pair(drug-\/>\mbox{\hyperlink{classMolecule_adebb2c740099c5db4f14137bb1609877}{myBE}},drug-\/>\mbox{\hyperlink{classMolecule_a6647358091d946bb02dbcf3ce35b7d5e}{myHBE}});}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00442}00442         \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00443}00443 }
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00444}\mbox{\hyperlink{classspecific_1_1ProteinEnsemble_aa22450659762d7273186f94e1a342e6c}{00444}}         \textcolor{keyword}{virtual} \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classspecific_1_1ProteinEnsemble_aa22450659762d7273186f94e1a342e6c}{getHotspotAtomCount}}()\textcolor{keyword}{ const override }\{\textcolor{keywordflow}{return} ensemble[0]-\/>getHotspotAtomCount();\}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00445}00445         \textcolor{keyword}{virtual} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} loadDevations(\textcolor{keyword}{const} std::vector<int>\& resnums,\textcolor{keyword}{const} std::vector<double>\& devs)\textcolor{keyword}{ override }\{\textcolor{keywordflow}{for}(\mbox{\hyperlink{classspecific_1_1SolvatedProtein}{SolvatedProtein}}* prot : ensemble) prot-\/>loadDevations(resnums,devs);\}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00446}00446     \};}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00447}00447 \}}
+\DoxyCodeLine{\Hypertarget{extras_8hpp_source_l00448}00448 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

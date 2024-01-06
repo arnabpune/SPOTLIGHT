@@ -1,0 +1,45 @@
+\hypertarget{classzmqio_1_1ZMQIOThread}{}\doxysection{zmqio\+::ZMQIOThread Class Reference}
+\label{classzmqio_1_1ZMQIOThread}\index{zmqio::ZMQIOThread@{zmqio::ZMQIOThread}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classzmqio_1_1ZMQIOThread_a09fef955ea4e39bdcad0784dc9a79116}\label{classzmqio_1_1ZMQIOThread_a09fef955ea4e39bdcad0784dc9a79116}} 
+{\bfseries ZMQIOThread} (std\+::ostream \&dout=std\+::cout)
+\begin{DoxyCompactList}\small\item\em Initialize a new socket with the given IPADDR and PORT. These can be defined using \char`\"{}\#define\char`\"{}s. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classzmqio_1_1ZMQIOThread_a2c1075fcad7eea56a01613c8d355b2f7}\label{classzmqio_1_1ZMQIOThread_a2c1075fcad7eea56a01613c8d355b2f7}} 
+zmq\+::socket\+\_\+t \& {\bfseries get\+ZMQSocket} ()
+\begin{DoxyCompactList}\small\item\em Get the initialized ZMQ I/O thread object\textquotesingle{}s socket. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classzmqio_1_1ZMQIOThread_aea14ab528dfacf8242013587bbbea9e5}\label{classzmqio_1_1ZMQIOThread_aea14ab528dfacf8242013587bbbea9e5}} 
+zmq\+::socket\+\_\+t \& {\bfseries get\+Socket} ()
+\begin{DoxyCompactList}\small\item\em Get the initialized ZMQ I/O thread object\textquotesingle{}s socket (Alternate function for \mbox{\hyperlink{classzmqio_1_1ZMQIOThread_a2c1075fcad7eea56a01613c8d355b2f7}{ZMQIOThread\+::get\+ZMQSocket()}}) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classzmqio_1_1ZMQIOThread_a0be7bf67c4709df045a869ce90935eb9}\label{classzmqio_1_1ZMQIOThread_a0be7bf67c4709df045a869ce90935eb9}} 
+zmq\+::socket\+\_\+t \& {\bfseries prepare\+Socket} (const std\+::string \&ip, const std\+::string \&protocol=\char`\"{}tcp\char`\"{}, int port=PORT, std\+::ostream \&dout=std\+::cout)
+\begin{DoxyCompactList}\small\item\em Prepare a socket for communication. There can only be a single communication socket in a given object \mbox{\hyperlink{classzmqio_1_1ZMQIOThread}{ZMQIOThread}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classzmqio_1_1ZMQIOThread_a09fef955ea4e39bdcad0784dc9a79116}\label{classzmqio_1_1ZMQIOThread_a09fef955ea4e39bdcad0784dc9a79116}} 
+{\bfseries ZMQIOThread} (std\+::ostream \&dout=std\+::cout)
+\begin{DoxyCompactList}\small\item\em Initialize a new socket with the given IPADDR and PORT. These can be defined using \char`\"{}\#define\char`\"{}s. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classzmqio_1_1ZMQIOThread_a2c1075fcad7eea56a01613c8d355b2f7}\label{classzmqio_1_1ZMQIOThread_a2c1075fcad7eea56a01613c8d355b2f7}} 
+zmq\+::socket\+\_\+t \& {\bfseries get\+ZMQSocket} ()
+\begin{DoxyCompactList}\small\item\em Get the initialized ZMQ I/O thread object\textquotesingle{}s socket. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classzmqio_1_1ZMQIOThread_aea14ab528dfacf8242013587bbbea9e5}\label{classzmqio_1_1ZMQIOThread_aea14ab528dfacf8242013587bbbea9e5}} 
+zmq\+::socket\+\_\+t \& {\bfseries get\+Socket} ()
+\begin{DoxyCompactList}\small\item\em Get the initialized ZMQ I/O thread object\textquotesingle{}s socket (Alternate function for \mbox{\hyperlink{classzmqio_1_1ZMQIOThread_a2c1075fcad7eea56a01613c8d355b2f7}{ZMQIOThread\+::get\+ZMQSocket()}}) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classzmqio_1_1ZMQIOThread_a0be7bf67c4709df045a869ce90935eb9}\label{classzmqio_1_1ZMQIOThread_a0be7bf67c4709df045a869ce90935eb9}} 
+zmq\+::socket\+\_\+t \& {\bfseries prepare\+Socket} (const std\+::string \&ip, const std\+::string \&protocol=\char`\"{}tcp\char`\"{}, int port=PORT, std\+::ostream \&dout=std\+::cout)
+\begin{DoxyCompactList}\small\item\em Prepare a socket for communication. There can only be a single communication socket in a given object \mbox{\hyperlink{classzmqio_1_1ZMQIOThread}{ZMQIOThread}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classzmqio_1_1ZMQIOThread_a14f96fde5a6db8320e2556b7a107d19f}\label{classzmqio_1_1ZMQIOThread_a14f96fde5a6db8320e2556b7a107d19f}} 
+std\+::string {\bfseries communicate\+With\+Socket} (zmq\+::socket\+\_\+t \&socket, const std\+::string \&data, std\+::ostream \&dout=std\+::cout)
+\begin{DoxyCompactList}\small\item\em Send a message over socket (as a string) an receive the reply. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{externio_8hpp_source_l00171}{171}} of file \mbox{\hyperlink{externio_8hpp_source}{externio.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+support/externio.\+hpp\item 
+support/externio\+\_\+omega\+\_\+stable.\+hpp\end{DoxyCompactItemize}

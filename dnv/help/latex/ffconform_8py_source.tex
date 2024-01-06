@@ -1,0 +1,47 @@
+\hypertarget{ffconform_8py_source}{}\doxysection{ffconform.\+py}
+\label{ffconform_8py_source}\index{bin/ffconform.py@{bin/ffconform.py}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00001}00001 \textcolor{comment}{\#!/usr/bin/python3}}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00003}00003 \textcolor{comment}{\#REQUIRES orderatoms.sh}}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00004}00004 \textcolor{comment}{\#REQUIRES ffrename.py}}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00006}00006 \textcolor{keyword}{import} sys}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00007}00007 \textcolor{keyword}{import} os}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00009}00009 \textcolor{comment}{\#file\_names = [fn for fn in os.listdir("{}."{}) if fn.endswith("{}.pdb"{})] \#Select all PDB files in this folder}}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00010}00010 file\_names=str.split(sys.argv[1],\textcolor{stringliteral}{' '})}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00011}00011 \textcolor{keywordflow}{if} len(sys.argv)>2: ff\_file\_names=str.split(sys.argv[2],\textcolor{stringliteral}{' '})}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00012}00012 \textcolor{keywordflow}{else}: ff\_file\_names=[]}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00013}00013 elen=dict()}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00014}00014 K=0}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00015}00015 \textcolor{keywordflow}{for} fl \textcolor{keywordflow}{in} file\_names:}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00016}00016     newfnam=str.split(fl,\textcolor{stringliteral}{'.'})[0]+\textcolor{stringliteral}{"{}\_ffel.pdb"{}}}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00017}00017     \textcolor{keywordflow}{if} len(ff\_file\_names)>K: ffnam=ff\_file\_names[K]}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00018}00018     \textcolor{keywordflow}{else}: ffnam=str.split(fl,\textcolor{stringliteral}{'.'})[0]+\textcolor{stringliteral}{"{}\_ff.pdb"{}}}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00019}00019     outf=open(newfnam,\textcolor{stringliteral}{"{}w"{}})}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00020}00020     inf=open(fl,\textcolor{stringliteral}{"{}r"{}})}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00021}00021     print(fl,\textcolor{stringliteral}{"{}:\(\backslash\)t with ff file '"{}}+ffnam+\textcolor{stringliteral}{"{}'"{}})}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00022}00022     K+=1}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00023}00023     \textcolor{keywordflow}{for} ln \textcolor{keywordflow}{in} inf:}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00024}00024         ln=ln[0:len(ln)-\/1] \textcolor{comment}{\#Remove the '\(\backslash\)n' at the end of variable:-\/ln}}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00025}00025         \textcolor{keywordflow}{if} ln[0:4]==\textcolor{stringliteral}{"{}ATOM"{}} \textcolor{keywordflow}{or} ln[0:6]==\textcolor{stringliteral}{"{}HETATM"{}}:}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00026}00026             elnam=str.strip(ln[len(ln)-\/4:])}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00027}00027             idv=elen.get(elnam)}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00028}00028             \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} idv:}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00029}00029                 idv=1}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00030}00030                 elen[elnam]=1}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00031}00031             elen[elnam]+=1}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00032}00032             outf.write(ln[0:12]+format(elnam+str(idv),\textcolor{stringliteral}{"{}<4s"{}})+ln[16:]+\textcolor{stringliteral}{"{}\(\backslash\)n"{}})}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00033}00033             \textcolor{comment}{\#outf.write(ln[0:12]+ln[len(ln)-\/4:]+ln[16:]+"{}\(\backslash\)n"{})}}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00034}00034         \textcolor{keywordflow}{else}: outf.write(ln+\textcolor{stringliteral}{"{}\(\backslash\)n"{}})}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00035}00035     outf.close()}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00036}00036     inf.close()}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00037}00037     os.system(\textcolor{stringliteral}{"{}dnv-\/orderatoms "{}}+ffnam+\textcolor{stringliteral}{"{} "{}}+newfnam+\textcolor{stringliteral}{"{} > temp.pdb"{}})}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00038}00038     os.system(\textcolor{stringliteral}{"{}dnv-\/ffrenumber temp.pdb"{}})}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00039}00039     os.system(\textcolor{stringliteral}{"{}mv temp\_ffrn.pdb "{}}+newfnam)}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00040}00040     os.system(\textcolor{stringliteral}{"{}rm temp.pdb"{}})}
+\DoxyCodeLine{\Hypertarget{ffconform_8py_source_l00041}00041     print(\textcolor{stringliteral}{"{}Output written to:"{}},newfnam)}
+
+\end{DoxyCode}

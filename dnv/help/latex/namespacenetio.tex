@@ -1,0 +1,22 @@
+\hypertarget{namespacenetio}{}\doxysection{netio Namespace Reference}
+\label{namespacenetio}\index{netio@{netio}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacenetio_a83b79783695150bcccbbaa466a267f7c}\label{namespacenetio_a83b79783695150bcccbbaa466a267f7c}} 
+int {\bfseries prepare\+Socket} (const std\+::string \&ip, std\+::ostream \&dout=std\+::cout)
+\begin{DoxyCompactList}\small\item\em Prepare a socket for communication. There can only be a single communication socket in a given run. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacenetio_a3e34ef51e43ae9cf01e9f304a8f5ef00}\label{namespacenetio_a3e34ef51e43ae9cf01e9f304a8f5ef00}} 
+std\+::string {\bfseries communicate\+With\+Socket} (int sock, const std\+::string \&inp, std\+::ostream \&dout=std\+::cout)
+\begin{DoxyCompactList}\small\item\em Send a message over socket (as a string) an receive the reply. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacenetio_a06b3207f6e3a49fa25aa36011e183211}\label{namespacenetio_a06b3207f6e3a49fa25aa36011e183211}} 
+int {\bfseries get\+Socket} ()
+\begin{DoxyCompactList}\small\item\em Get the initialized socket. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacenetio_af5c2b9ef54ae5fba3c25778b58893d22}\label{namespacenetio_af5c2b9ef54ae5fba3c25778b58893d22}} 
+void {\bfseries init} (std\+::ostream \&dout=std\+::cout)
+\begin{DoxyCompactList}\small\item\em Initialize a new socket with the given IPADDR and PORT. These can be defined using \char`\"{}\#define\char`\"{}s. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The netio namespace contains functions to perform I/O operations over a network. It uses native c++ sockets for communication.~\newline
+ See\+: zmqio (the namespace) 

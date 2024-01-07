@@ -3,5 +3,5 @@
 #include <iostream>
 #include <string>
 
-const std::string DNV_ROOT="/home/venkata/dnv/";
+const std::string DNV_ROOT="dnvpath";
 #endif

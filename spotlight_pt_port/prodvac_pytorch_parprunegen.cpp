@@ -109,7 +109,7 @@ static std::vector<torch::Tensor> builtmols;
 static const double TARGET_REWARD=0.20;
 
 
-static ForceField ff("/home/venkata/dnv/data/final_ff_parameters.ffin","/home/venkata/dnv/data/categories.data");
+static ForceField ff(DNV_ROOT+"/data/final_ff_parameters.ffin",DNV_ROOT+"/data/categories.data");
 static float randomchance=0.0;
 static double running_reward=-0.3d;
 static const bool LOAD_IN_TRAIN_MODE=true;
@@ -274,8 +274,8 @@ int main(int argc,char** argv)
   const float cutfrac=std::stof(argv[2]);
   const int nmol=std::stoi(argv[3]),vari=std::stoi(argv[4]);
   const bool KEEPHYDS=true;
-  ff.loadBondParameters("/home/venkata/dnv/data/itps/bondtypes.itp","/home/venkata/dnv/data/itps/angletypes.itp","/home/venkata/dnv/data/itps/dihedraltypes.itp","/home/venkata/dnv/data/itps/impropertypes.itp");
-  ff.loadRules("/home/venkata/dnv/data/definitions.data");
+  ff.loadBondParameters(DNV_ROOT+"/data/itps/bondtypes.itp",DNV_ROOT+"/data/itps/angletypes.itp",DNV_ROOT+"/data/itps/dihedraltypes.itp",DNV_ROOT+"/data/itps/impropertypes.itp");
+  ff.loadRules(DNV_ROOT+"/data/definitions.data");
 
   Molecule* loadmol=new Molecule(molfile,ff,"pdb",true);
   loadmol->type=0;

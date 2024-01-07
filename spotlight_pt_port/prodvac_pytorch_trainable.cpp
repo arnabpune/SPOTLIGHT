@@ -107,7 +107,7 @@ static std::vector<std::string> builtmols(BLOCK_SIZE);
 static const double TARGET_REWARD=0.75;
 
 
-static ForceField ff("/home/venkata/dnv/data/final_ff_parameters.ffin","/home/venkata/dnv/data/categories.data");
+static ForceField ff(DNV_ROOT+"/data/final_ff_parameters.ffin",DNV_ROOT+"/data/categories.data");
 static float randomchance=0.0;
 static double running_reward=-0.75d;
 static const bool LOAD_IN_TRAIN_MODE=false;
@@ -195,8 +195,8 @@ int main(int argc,char** argv)
   setupNetwork();
   RNG::init();
   
-  ff.loadBondParameters("/home/venkata/dnv/data/itps/bondtypes.itp","/home/venkata/dnv/data/itps/angletypes.itp","/home/venkata/dnv/data/itps/dihedraltypes.itp","/home/venkata/dnv/data/itps/impropertypes.itp");
-  ff.loadRules("/home/venkata/dnv/data/definitions.data");
+  ff.loadBondParameters(DNV_ROOT+"/data/itps/bondtypes.itp",DNV_ROOT+"/data/itps/angletypes.itp",DNV_ROOT+"/data/itps/dihedraltypes.itp",DNV_ROOT+"/data/itps/impropertypes.itp");
+  ff.loadRules(DNV_ROOT+"/data/definitions.data");
 
   atom_featurizer=new torchmol::FFOneHotFeaturizer(ff);
   SimpleModel sample_dec(outsize*atom_featurizer->getFeatureSize(),128);

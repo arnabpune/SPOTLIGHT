@@ -23,7 +23,6 @@ public:
 
 	int runExtension(int argc,char** argv)const override
 	{
-		std::string DNV_ROOT="/home/venkata/dnv/";
 		ForceField ff(DNV_ROOT+"data/final_ff_parameters.ffin",DNV_ROOT+"/data/categories.data");
 		ff.loadBondParameters();
 		std::string inf=argv[1],outf=(argc>2)?argv[2]:"scores.spc";

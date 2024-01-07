@@ -79,7 +79,7 @@ TORCH_MODULE(RNNModel);
 static const int BLOCK_SIZE=50;
 static std::vector<torch::Tensor> builtmols;
 
-static ForceField ff; //("/home/venkata/dnv/data/final_ff_parameters.ffin","/home/venkata/dnv/data/categories.data");
+static ForceField ff;
 static float randomchance=0.0;
 
 static Atom* internalGetPolicyAtom(const ForceField& ff,const std::vector<std::string>& atlst,Atom* src,const std::vector<Atom*>& nhd,int devid=0)

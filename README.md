@@ -1,20 +1,33 @@
 # About
-This folder contains the distributable of executable files for the SPOTLIGHT program. A template input file is given here `input_template.dnvin`
+This folder contains the distributable of executable files for the SPOTLIGHT program. A template input file is given here `input_template.dnvin`.
+The source code is provided under `./dnv`, and compilation instructions are given below
 
 # Requirements
-To run SPOTLIGHT, you require the following packages/libraries available
-- GLIBC 2.32+ in libc.so.6 (find it by `locate libc.so` and search GLIBC versions with `strings /path/to/so/file|grep GLIBC`)
-- `production\_noprotein_RL` requires GLIBC 3.4.32. This might be a harder version of glibc to obtain.
-- OpenMPI 3.1+
-- ZeroMQ libraries for C++ (and preferably python)
-- libtorch for C++ (specific version, packaged with SPOTLIGHT - **Latest version will NOT work due to deprecated implementations having changes**)
-  Add `libtorch/libs` to the LIBRARY\_PATH and LD\_LIBRARY\_PATH variables before running
+To compile SPOTLIGHT, you require the following packages/libraries available
+    - cmake (V 3.0+)
+    - make
+    - OpenMPI (V 3.1+)
+    - ZeroMQ libraries for C++ (and preferably python) - zeromq and cppzmq
+    - libtorch for C++ (specific version, packaged with SPOTLIGHT - **Latest version will NOT work due to deprecated implementations having changes**. The version packaged with SPOTLIGHT is available at: [Dropbox Link])
+    Add `libtorch/libs` to the LIBRARY\_PATH and LD\_LIBRARY\_PATH variables before running
 
+# Compiling
+The folder `spotlight_pt_port` has an automatic build script. Ideally, you want to run cmake and make using the build files in this folder.<br/>
+You can follow these steps to compile SPOTLIGHT:
+- Download libtorch.zip from the link above and unzip it. Remember the path to the libtorch folder extracted from the zip file
+- Enter the SPOTLIGHT folder on a terminal.
+- Enter the `spotlight_pt_port` folder and open the `autobuild.sh` script
+- Set `LIBTORCH_LOC` to the path of the extracted libtorch folder (e.g. `LIBTORCH_LOC=/home/user/cpp/libtorch`)
+- Save the file and run ./autobuild.sh
+- If all the libraries are installed, this should work perfectly. Use **BASH** as your shell for best results.
 
 # Running the programs
-Each of the 3 executables here can be directly run from any LINUX/UNIX terminal. Please ensure that libzmq is installed and up-to-date, or that the library (given in the distributable zip file) is in the LIBRARY\_PATH<br/>
-The input format varies for each executable. Sample commands to run these programs are given below:
+Each of the executables after compiling can be directly run from any LINUX/UNIX terminal. Please ensure that libzmq is installed and up-to-date, or that the library (given in the distributable zip file) is in the LIBRARY\_PATH<br/>
+The input format varies for each executable.<br/>
+**Note:** These programs can produce a large amount of running on-screen text. You may choose to run them by adding `1> /dev/null` at the end of the command to avoid filling your screen.
+Sample commands to run these programs are given below:
 
+- ./prodvacPT *target\_size* *num\_mols* *variance* # (See below for explanation of variance)
 - ./production\_noprotein\_RL *target\_size* *num\_mols* *variance* #The variance for the range of sizes. The target size is picked uniformly randomly from the range target\_size +/- variance
 - ./production\_noRL input.dnvin
 - ./production\_RL input.dnvin

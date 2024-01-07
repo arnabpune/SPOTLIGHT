@@ -18,6 +18,7 @@ This repository contains an executable version of multiple use-cases of SPOTLIGH
 This program comes with ABSOLUTELY NO WARRANTY
 
 # Permissions
+You may use this work in any way that is permitted under this license. Please cite [this article](https://doi.org/10.26434/chemrxiv-2023-pnhc4) - **SPOTLIGHT: Structure-based Prediction and Optimization Tool for LIgand Generation on Hard-to-drug Targets - Combining Deep Reinforcement Learning with Physics-based de novo drug design** - if you use SPOTLIGHT in any published work: 
 
 ## Right to use unaltered
 All rights granted under this License are granted for the term of copyright on the Program, and are irrevocable provided the stated conditions are met.
@@ -36,6 +37,9 @@ You may convey verbatim copies of the program as you receive it, provided that y
 keep intact all notices stating that this License apply to the code; keep intact all notices of the absence of any warranty; and give all recipients a copy of this License along with the Program.<br/>
 You may charge any price or no price for each copy that you convey, and you may offer support or warranty protection for a fee.
 
+## Modifying the code
+You may modify or alter any part of the source code as required for any purpose, so long as any copies of the modified code distributed are strictly distinguished from the original work.
+
 
 
 # Restrictions
@@ -52,13 +56,6 @@ IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY C
 BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE PROGRAM
 (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS),
 EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
-
-## Prohibition of Reverse-Engineering and Decompilation
-The end user acknowledges and agrees that the program provided under this License, including its compiled version and any accompanying documentation, may contain valuable trade secrets and proprietary information of the developer.<br/>
-The end user explicitly acknowledges and agrees that decompiling, reverse-engineering, disassembling, or attempting to derive the source code or underlying structure, ideas, or algorithms of the program is strictly prohibited, unless expressly permitted by applicable law.<br/>
-Any unauthorized decompilation, reverse-engineering, or other attempts to obtain the source code or confidential information of the program are expressly prohibited and may result in civil and criminal penalties under applicable laws.<br/>
-In the event that the end user requires information about interoperability or seeks to create an independent program compatible with the program provided under this License, the end user must first request such information from the developer.
-The developer may, at its sole discretion, provide the requested information or impose additional terms and conditions on its provision.
 
 # Automatic Licensing of Downstream Recipients.
 Each time you convey a covered work, the recipient automatically receives a license from the original licensors, to run, modify and propagate that work, subject to this License.

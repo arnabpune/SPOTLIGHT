@@ -31,7 +31,7 @@ The input format varies for each executable.<br/>
 Sample commands to run these programs are given below:
 
 - ./prodvacPT *target\_size* *num\_mols* *variance* # (See below for explanation of variance)
-- ./productionnoPT input.dnvin
+- ./production\_noPT input.dnvin
 - ./productionPT input.dnvin
 
 The programs that require RL require the files `convsave.pt` and `decsave.pt` to be present in one folder behind the current directory (where the file is executed). 

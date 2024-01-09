@@ -21,12 +21,17 @@ loc=`pwd`
 cd $loc/../dnv/
 DNV_ROOT=`pwd`
 cd support
-echo $DNV_ROOT
-sed -e 's|dnvpath|'"$DNV_ROOT"'|g' local.h > temp
-cp local.h local.h.bak
-mv temp local.h
-
-echo "Path is set"
+if test -f ".PATH_UPDATED"
+then
+	echo "Path already updated"
+else
+	echo $DNV_ROOT
+	sed -e 's|dnvpath|'"$DNV_ROOT"'|g' local.h > temp
+	cp local.h local.h.bak
+	mv temp local.h
+	echo "DNV_PATH set successfully" > .PATH_UPDATED
+	echo "Path is set"
+fi
 
 cd $loc
 mkdir $bd

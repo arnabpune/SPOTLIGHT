@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
-project(prodvacPT)
+project(spotlight)
 
 find_package(Torch REQUIRED)
 find_package(PkgConfig)
@@ -25,7 +25,6 @@ target_include_directories(prodvacPT PUBLIC ${ZeroMQ_INCLUDE_DIR})
 target_link_libraries(prodvacPT PUBLIC ${ZeroMQ_LIBRARY} ${TORCH_LIBRARIES})
 set_property(TARGET prodvacPT PROPERTY CXX_STANDARD 14)
 
-
 add_executable(parprodvacPT prodvac_pytorch_parallelgen.cpp)
 target_include_directories(parprodvacPT PUBLIC ${ZeroMQ_INCLUDE_DIR})
 target_link_libraries(parprodvacPT PUBLIC ${ZeroMQ_LIBRARY} ${TORCH_LIBRARIES})
@@ -45,6 +44,11 @@ add_executable(productionprunePT prodprune_pytorch_prot.cpp)
 target_include_directories(productionprunePT PUBLIC ${ZeroMQ_INCLUDE_DIR})
 target_link_libraries(productionprunePT PUBLIC ${ZeroMQ_LIBRARY} ${TORCH_LIBRARIES})
 set_property(TARGET productionprunePT PROPERTY CXX_STANDARD 14)
+
+add_executable(prodvacPT_trainable prodvac_pytorch_trainable.cpp)
+target_include_directories(prodvacPT_trainable  PUBLIC ${ZeroMQ_INCLUDE_DIR})
+target_link_libraries(prodvacPT_trainable  PUBLIC ${ZeroMQ_LIBRARY} ${TORCH_LIBRARIES})
+set_property(TARGET prodvacPT_trainable  PROPERTY CXX_STANDARD 14)
 
 include_directories(BEFORE ../dnv)
 

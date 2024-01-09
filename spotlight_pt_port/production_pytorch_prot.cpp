@@ -3,7 +3,7 @@
 #define NOINTERFACE 1
 #define USE_TORCH 1
 //#define FFCHARGES 1 //Uncomment to disable machine learned charges.
-//#define SERIAL 1 //Enable to run serial job
+//#define SERIAL 1 //Enable to run serial job (no openmp)
 
 //#ifndef SERIAL
 //#include <omp.h>
@@ -278,7 +278,6 @@ int main(int argc,char** argv)
     //sample_decs.push_back(RNNModel(2*atom_featurizer->getFeatureSize(),128));
     //graphconvs.push_back(mytorch::modules::GraphConvolution(atom_featurizer->getFeatureSize(),atom_featurizer->getFeatureSize()/*,F::tanh*/));
     graphconvs.push_back(mytorch::modules::IterativeGraphConvolution(atom_featurizer->getFeatureSize(),atom_featurizer->getFeatureSize(),2,torch::tanh));
-    //graphconvs.push_back(mytorch::modules::IterativeGraphConvolution(atom_featurizer->getFeatureSize(),atom_featurizer->getFeatureSize(),2,torch::tanh));
 
     auto* obj=new torchmol::GrowingDeNovoMolecule(nullptr,MAX_MOLSIZE,*atom_featurizer,0,i);
     molenvmt.push_back(obj);

@@ -28,6 +28,7 @@ mv temp local.h
 
 echo "Path is set"
 
+cd $loc
 mkdir $bd
 cd $bd
 

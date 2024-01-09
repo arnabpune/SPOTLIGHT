@@ -20,6 +20,11 @@ find_library(ZeroMQ_LIBRARY
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS} -I . -g -lzmq -fopenmp -O3")
 
+add_executable(production_noRL production_final.cpp)
+target_include_directories(production_noRL  PUBLIC ${ZeroMQ_INCLUDE_DIR})
+target_link_libraries(production_noRL  PUBLIC ${ZeroMQ_LIBRARY})
+set_property(TARGET production_noRL  PROPERTY CXX_STANDARD 14)
+
 add_executable(prodvacPT prodvac_pytorch.cpp)
 target_include_directories(prodvacPT PUBLIC ${ZeroMQ_INCLUDE_DIR})
 target_link_libraries(prodvacPT PUBLIC ${ZeroMQ_LIBRARY} ${TORCH_LIBRARIES})

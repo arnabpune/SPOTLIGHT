@@ -31,12 +31,11 @@ The input format varies for each executable.<br/>
 Sample commands to run these programs are given below:
 
 - ./prodvacPT *target\_size* *num\_mols* *variance* # (See below for explanation of variance)
-- ./production\_noprotein\_RL *target\_size* *num\_mols* *variance* #The variance for the range of sizes. The target size is picked uniformly randomly from the range target\_size +/- variance
-- ./production\_noRL input.dnvin
-- ./production\_RL input.dnvin
+- ./productionnoPT input.dnvin
+- ./productionPT input.dnvin
 
 The programs that require RL require the files `convsave.pt` and `decsave.pt` to be present in one folder behind the current directory (where the file is executed). 
-These files are present in `spotlight_data/model`
+If you want to use our models, these files are present in `spotlight_data/model`
 
 ## Preparing the protein
 It is necessary to use a convention similar to the CHARMM27 forcefield protein atom naming in GROMACS.<br/>
@@ -61,3 +60,9 @@ You may use the input\_template.dnvin file as a template. Many of the available 
 - `Strategy_Restrain`: Restrain the molecule? (Yes/No). Setting this to No will disable restraining the ligand growth and can cause trailing parts in the ligand that do not directly interact with the protein. It might still be useful to disable it for cases where the active site is too vague.
 - `SourceFolder`: Path to the spotlight\_data folder provided here.
 - `Optimize`: Perform a quick gradient descent optimization after each ligand is generated (Yes/No)
+
+## Training your own model
+SPOTLIGHT uses the [PyTorch C++ API](https://pytorch.org/docs/stable/cpp_index.html). You can find our current implementations of simple models at `./dnv/support/mytorch.h`<br/>
+You can implement your own models by extending this header file and recompiling after editing the `spotlight_pt_port/prodvac_pytorch_trainable.cpp` file to load and run your model. Remember to then include this implementation in all other CPP files for final execution.<br/>
+Once you put in your model, you can run it by running:
+- `./prodvacPT_trainable mol_size num_mols mol_count`

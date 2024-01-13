@@ -262,7 +262,7 @@ int main(int argc,char** argv)
 
   constexpr int outsize=(concatGAT)?(HEADS+1):2;
   
-  setupNetwork();
+  //setupNetwork();
   RNG::init();
   std::cout << "OMP Thread Count: "<<MAX_THREADS_OMP<<"\n";
   std::cout.flush();
@@ -457,8 +457,8 @@ int main(int argc,char** argv)
      #endif
       continue;
     }
-	m->calculateBondOrders2(ff); m->pE=0.0;
-	netcomm::processRequest(*(ofs[tid]),m,tid);
+	//m->calculateBondOrders2(ff); m->pE=0.0;
+	//netcomm::processRequest(*(ofs[tid]),m,tid); 
 	if(!m)
     {
       cout << "Bad molecule by SMILES\n";

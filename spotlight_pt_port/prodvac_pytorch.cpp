@@ -235,7 +235,7 @@ int main(int argc,char** argv)
 
   constexpr int outsize=(concatGAT)?(HEADS+1):2;
   
-  setupNetwork();
+  //setupNetwork();
   RNG::init();
   
   const int size=(argc>1)?std::stoi(argv[1]):80,nmol=(argc>2)?std::stoi(argv[2]):250,vari=(argc>3)?std::stoi(argv[3]):0;
@@ -347,8 +347,8 @@ int main(int argc,char** argv)
       continue;
     }
     if(m->getEffectiveSize()<esize || !ff.isSatisfied(m->getAtoms()[0],m->getBondedAtoms(m->getAtoms()[0]))) {cout << root->toString()<<"\t"; cout << "Failed!"; i--; endState(m,false); continue;}
-	m->calculateBondOrders2(ff); m->pE=0.0;
-	netcomm::processRequest(of,m,0);
+	//m->calculateBondOrders2(ff); m->pE=0.0;
+	//netcomm::processRequest(of,m,0);
 	if(!m) {cout << "Bad molecule by SMILES\n"; i--; endState(m,false); continue;}
     cout << root->toString()<<"\tSuccess!\n";
     builtmols.push_back(getAtomTypeWeights(featurizeAtomTypes(*atom_featurizer,m->getAtoms())).detach());

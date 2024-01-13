@@ -1,0 +1,23 @@
+#!/usr/bin/python3
+
+import os
+import argparse
+
+rt=os.getenv("DNV_ROOT")
+conf=open(os.getenv("DNV_ROOT")+"/config.dat")
+K=0
+compo=None
+for l in conf:
+    l=l[0:len(l)-1]
+    if K==0: compo=l
+    if K==1: break
+    K+=1
+parser=argparse.ArgumentParser(prog="spotlight-vacgen")
+parser.add_argument('-s',dest='size',metavar='--size',action="store",help="Targetting mean size",required=True)
+parser.add_argument('-r',dest='range',metavar='--range',action="store",help="Targetting range around mean size (-s) (Default: 5)",required=True)
+parser.add_argument('-n',dest='num',metavar='--num',action="store",help="Number of molecules to generate (Default: 100)",required=True)
+parser.add_argument('-o',dest='outfile',metavar="--out",action="store",help="Dump output to: (Note: Output is very unclean; Required notices can be grepped out later. Default: /dev/null)",default="/dev/null")
+
+args=parser.parse_args().__dict__
+outpath=args["outfile"]
+os.system("parprodvacPT "+args["size"]+" "+args["num"]+" "+args["range"]+" 1> "+outpath+" 2> errlog")

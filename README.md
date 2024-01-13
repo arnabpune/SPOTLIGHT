@@ -22,7 +22,8 @@ You can follow these steps to compile SPOTLIGHT:
 - If all the libraries are installed, this should work perfectly. Use **BASH** as your shell for best results.
 
 # Building with Docker
-The Dockerfile is provided in the `docker` folder. Building this file should result in a successfully built docker image. Executing SPOTLIGHT follows the same instructions.
+The Dockerfile is provided in the `docker` folder. Building this file should result in a successfully built docker image. Executing SPOTLIGHT follows the same instructions.<br/>
+**Note:** SPOTLIGHT will be installed to /usr/share/SPOTLIGHT in the image, and executables will be copied to /usr/bin. If any errors are observed on directly running these executables, you can use the original copies at /usr/share/SPOTLIGHT/spotlight\_pt\_port/build
 
 # Running the programs
 Each of the executables after compiling can be directly run from any LINUX/UNIX terminal. Please ensure that libzmq is installed and up-to-date, or that the library (given in the distributable zip file) is in the LIBRARY\_PATH<br/>

@@ -60,7 +60,7 @@ You may use the input\_template.dnvin file as a template. Many of the available 
 - `Oscillations`: Final acceptence of molecules after these many oscillations in the Monte Carlo energy.
 - `SeedCount`: Number of seed positions to start with. Usually better to use significantly large numbers (between 250-1000)
 - `Strategy_Restrain`: Restrain the molecule? (Yes/No). Setting this to No will disable restraining the ligand growth and can cause trailing parts in the ligand that do not directly interact with the protein. It might still be useful to disable it for cases where the active site is too vague.
-- `SourceFolder`: Path to the spotlight\_data folder provided here.
+- `SourceFolder`: Path to the data folder provided as `dnv/data` under this project.
 - `Optimize`: Perform a quick gradient descent optimization after each ligand is generated (Yes/No)
 
 ## Training your own model

@@ -20,6 +20,7 @@ You can follow these steps to compile SPOTLIGHT:
 - Set `LIBTORCH_LOC` to the path of the extracted libtorch folder (e.g. `LIBTORCH_LOC=/home/user/cpp/libtorch`)
 - Save the file and run ./autobuild.sh
 - If all the libraries are installed, this should work perfectly. Use **BASH** as your shell for best results.
+- **If you are using Ubuntu**, a template install script is provided, which should run with minimum debugging required.
 
 # Building with Docker
 The Dockerfile is provided in the `docker` folder. Building this file should result in a successfully built docker image. Executing SPOTLIGHT follows the same instructions.<br/>

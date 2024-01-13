@@ -17,6 +17,7 @@ RUN mkdir -p /usr/share/SPOTLIGHT/models/default
 RUN cp ../spotlight_data/model/*.pt /usr/share/SPOTLIGHT/models/default
 RUN chmod +x setpaths.sh && ./setpaths.sh /usr/share/SPOTLIGHT/models/default
 RUN chmod +x autobuild.sh && ./autobuild.sh
+RUN ./generate_sample_input.sh && cp *.dnvin .. && cp *.dnvin $HOME
 WORKDIR /usr/share/SPOTLIGHT/spotlight_pt_port/build
 RUN ls && cp *PT* /usr/bin
 RUN cp -n *production* /usr/bin

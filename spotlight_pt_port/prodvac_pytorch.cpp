@@ -246,9 +246,9 @@ int main(int argc,char** argv)
   SimpleModel sample_dec(outsize*atom_featurizer->getFeatureSize(),128);
   //RNNModel sample_dec(2*atom_featurizer->getFeatureSize(),128); //Hidden size=128
   
-  //mytorch::modules::IterativeGraphConvolution graphconv(atom_featurizer->getFeatureSize(),atom_featurizer->getFeatureSize(),2,torch::tanh);
+  mytorch::modules::IterativeGraphConvolution graphconv(atom_featurizer->getFeatureSize(),atom_featurizer->getFeatureSize(),2,torch::tanh);
   //mytorch::modules::GraphConvolution graphconv(atom_featurizer->getFeatureSize(),atom_featurizer->getFeatureSize()/*,F::tanh*/);
-  mytorch::modules::GraphAttention graphconv(atom_featurizer->getFeatureSize(),atom_featurizer->getFeatureSize(),HEADS,torch::relu/*,torch::tanh*/,concatGAT);
+  //mytorch::modules::GraphAttention graphconv(atom_featurizer->getFeatureSize(),atom_featurizer->getFeatureSize(),HEADS,torch::relu/*,torch::tanh*/,concatGAT);
 
   molenvmt = new torchmol::GrowingDeNovoMolecule(nullptr,MAX_MOLSIZE,*atom_featurizer,0);
   molenvmt->setMoleculeFeaturizer(*graphconv);

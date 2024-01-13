@@ -3,8 +3,5 @@
 LOC="$1"
 for f in `ls *.cpp`
 do
-	echo "#include <string>" > temp
-	echo "std::string PTPATH=\"$LOC\"" >> temp
-	sed /"std::string PTPATH="/d $f >> temp
-	mv temp $f
+	sed -i '/std::string PTPATH=/c\static std::string PTPATH="'$LOC'";' $f
 done

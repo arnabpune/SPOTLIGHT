@@ -6,7 +6,7 @@ WORKDIR /usr/share/
 RUN apt install -y libzmq5-dev git git-lfs libstdc++6
 RUN git clone "https://github.com/arnabpune/SPOTLIGHT.git"
 #RUN wget "https://onedrive.live.com/download?resid=736A06E59DB7B08E%213273&authkey=!ACVxFEnlsAhQisk" -O libtorch.zip
-RUN wget "localhost:8000/libtorch.zip" -O libtorch.zip
+RUN wget "https://drive.usercontent.google.com/download?id=1Psk2yM3NwvUaG2v_XW2w_-t77Yfm5xIe&export=download&confirm=t&uuid=8e86dd1f-e040-45fb-8e1d-f184ed4ff873" -O libtorch.zip
 RUN unzip libtorch.zip
 WORKDIR /usr/share/SPOTLIGHT/spotlight_pt_port/
 RUN ls -ltr --color=auto

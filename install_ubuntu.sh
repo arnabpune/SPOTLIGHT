@@ -6,7 +6,7 @@ spotlight_dir=`pwd`
 
 # Requirements
 apt update && apt install -y vim curl wget g++ gcc cmake locate man libomp-dev zip unzip software-properties-common gcc-multilib bash python3 libzmq5-dev git git-lfs libstdc++6
-wget "https://onedrive.live.com/download?resid=736A06E59DB7B08E%213273&authkey=!ACVxFEnlsAhQisk" -O libtorch.zip && unzip libtorch.zip
+wget "https://drive.usercontent.google.com/download?id=1Psk2yM3NwvUaG2v_XW2w_-t77Yfm5xIe&export=download&confirm=t&uuid=8e86dd1f-e040-45fb-8e1d-f184ed4ff873" -O libtorch.zip && unzip libtorch.zip
 
 # Going to the build folder
 cd spotlight_pt_port
